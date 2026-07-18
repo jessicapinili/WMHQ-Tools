@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>No-Brainer Offer Generator | Woman Mastery HQ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%238a2121'/%3E%3Ctext x='32' y='31' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23f8f1e2' text-anchor='middle'%3EWM%3C/text%3E%3Ctext x='32' y='58' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23f8f1e2' text-anchor='middle'%3EHQ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep-red: #660810;
+  --dark-red: #3D0D0C;
+  --merlot: #3D0D0C;
+  --blush: #F2C6D0;
+  --stone: #f1ebeb;
+  --off-white: #f2f2f2;
+  --card-bg: #ffffff;
+  --card-soft: #f7f7f7;
+  --ink: #1a0a0a;
+  --muted: #7a5a5a;
+  --taupe: #7a5a5a;
+  --border: rgba(61,13,12,0.09);
+  --border-strong: rgba(61,13,12,0.2);
+  --green-ok: #4E8A52;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ‚îÄ‚îÄ Hero ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.hero {
+  background: var(--dark-red);
+  padding: 88px 24px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(241,235,235,0.03) 80px);
+  pointer-events: none;
+}
+.hero-wordmark {
+  position: absolute; top: 26px; left: 30px;
+  z-index: 2; text-align: left;
+}
+.hero-wordmark .wm-top {
+  font-size: 12px; font-weight: 800; letter-spacing: 0.24em;
+  color: var(--stone); text-transform: uppercase; opacity: 0.95;
+}
+.hero-wordmark .wm-sub {
+  font-size: 8.5px; font-weight: 500; letter-spacing: 0.14em;
+  color: rgba(242,198,208,0.55); text-transform: lowercase;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--blush);
+  border: 1px solid rgba(242,198,208,0.3);
+  padding: 7px 18px; margin-bottom: 26px;
+  position: relative; z-index: 1;
+}
+.hero h1 {
+  font-size: clamp(30px, 4.6vw, 52px);
+  font-weight: 800; letter-spacing: -0.02em;
+  line-height: 1.08; color: var(--stone);
+  max-width: 760px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.hero h1 em { font-style: normal; color: var(--blush); }
+.hero-sub {
+  font-size: 15px; color: rgba(241,235,235,0.75);
+  max-width: 560px; margin: 18px auto 0;
+  line-height: 1.65; position: relative; z-index: 1;
+}
+
+/* ‚îÄ‚îÄ Body / cards ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.body { max-width: 880px; margin: 0 auto; padding: 52px 24px 30px; }
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 38px 38px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(61,13,12,0.03);
+}
+.card-num {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--taupe); margin-bottom: 14px;
+}
+.card h2 {
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 800; letter-spacing: -0.015em;
+  line-height: 1.15; margin-bottom: 8px; color: var(--ink);
+}
+.card-sub {
+  font-size: 14px; color: var(--muted);
+  margin-bottom: 26px; line-height: 1.6; max-width: 640px;
+}
+
+/* Read-first note */
+.read-first {
+  background: var(--card-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 22px;
+}
+.read-first p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+.read-first p + p { margin-top: 10px; }
+.read-first .rf-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--deep-red); margin-bottom: 8px;
+}
+
+/* Framework picker rows */
+.fw-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  width: 100%; text-align: left;
+  background: var(--card-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 18px 22px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.fw-row:hover, .fw-row:focus-visible { border-color: var(--deep-red); background: #fdf9f9; }
+.fw-row .fw-title { font-size: 16px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.fw-row .fw-subtext { font-size: 13px; color: var(--muted); margin-top: 2px; }
+.fw-row .fw-arrow {
+  flex-shrink: 0; width: 30px; height: 30px; border-radius: 100px;
+  background: var(--card-soft); color: var(--deep-red);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700;
+  transition: background 0.15s ease;
+}
+.fw-row:hover .fw-arrow { background: var(--blush); }
+
+/* Top bar inside framework view */
+.fw-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; margin-bottom: 22px; flex-wrap: wrap;
+}
+.fw-pill {
+  display: inline-block;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--deep-red);
+  border: 1px solid var(--border-strong);
+  border-radius: 100px; padding: 7px 16px;
+}
+
+/* Accordions */
+.acc {
+  border: 1px solid var(--border);
+  background: var(--card-soft);
+  border-radius: 12px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.acc-head {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  background: transparent; border: none; cursor: pointer;
+  padding: 14px 18px; font-family: inherit; text-align: left;
+}
+.acc-head .acc-title {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--deep-red);
+}
+.acc-head .acc-chev { color: var(--muted); font-size: 11px; transition: transform 0.2s ease; }
+.acc.open .acc-chev { transform: rotate(180deg); }
+.acc-body { display: none; padding: 0 18px 16px; }
+.acc.open .acc-body { display: block; }
+.acc-body p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+.acc-body p + p { margin-top: 8px; }
+.acc-body .acc-rule { border-top: 1px solid var(--border); margin-bottom: 12px; }
+
+/* Fields */
+.field { margin-bottom: 22px; max-width: 640px; }
+.field-label-row { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.field-label { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+.field-helper { font-size: 12px; color: var(--muted); margin-bottom: 8px; line-height: 1.5; }
+.field input[type="text"], .field select {
+  width: 100%;
+  font-family: inherit; font-size: 14px; color: var(--ink);
+  background: var(--card-soft);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  appearance: none;
+}
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a5a5a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+.field input:focus, .field select:focus {
+  border-color: var(--deep-red);
+  box-shadow: 0 0 0 3px rgba(102,8,16,0.08);
+}
+.field input::placeholder { color: rgba(122,90,90,0.45); }
+
+/* Tooltip */
+.tip-wrap { position: relative; display: inline-flex; }
+.tip-btn {
+  width: 17px; height: 17px; border-radius: 100px;
+  border: 1px solid var(--border-strong);
+  background: var(--card-soft); color: var(--deep-red);
+  font-size: 10px; font-weight: 700; line-height: 1;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-family: inherit; flex-shrink: 0;
+}
+.tip-btn:hover, .tip-btn:focus-visible { background: var(--blush); }
+.tip-pop {
+  display: none;
+  position: absolute; z-index: 50; left: 24px; top: -6px;
+  width: 270px; background: #fff;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px; padding: 16px 18px;
+  box-shadow: 0 6px 24px rgba(61,13,12,0.12);
+  text-align: left;
+}
+.tip-wrap.open .tip-pop { display: block; }
+.tip-pop .tip-h {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--deep-red); margin-bottom: 5px;
+}
+.tip-pop .tip-p { font-size: 12px; color: var(--ink); line-height: 1.55; margin-bottom: 12px; }
+.tip-pop ul { list-style: none; }
+.tip-pop li {
+  font-size: 12px; color: var(--muted); line-height: 1.5;
+  padding-left: 12px; position: relative; margin-bottom: 4px;
+}
+.tip-pop li::before { content: ''; position: absolute; left: 0; top: 8px; width: 4px; height: 4px; border-radius: 100px; background: var(--deep-red); }
+@media (max-width: 640px) {
+  .tip-pop { left: auto; right: -8px; top: 26px; width: min(270px, 82vw); }
+}
+
+/* Buttons */
+.btn-pill-dark {
+  padding: 14px 32px; background: var(--merlot); color: var(--stone);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; border: none; border-radius: 100px; cursor: pointer;
+  font-family: inherit;
+}
+.btn-pill-dark:hover { background: var(--deep-red); }
+.btn-pill-ghost {
+  padding: 12px 24px; background: transparent; color: var(--merlot);
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; border: 1px solid rgba(61,13,12,0.2); border-radius: 100px; cursor: pointer;
+  font-family: inherit;
+}
+.btn-pill-ghost:hover { border-color: var(--deep-red); color: var(--deep-red); }
+.btn-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-top: 30px; }
+
+/* SAFE / SPICY toggle */
+.energy-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 18px; }
+.energy-label { font-size: 12px; font-weight: 600; color: var(--muted); }
+.energy-toggle {
+  display: inline-flex; gap: 4px;
+  background: var(--card-soft);
+  border: 1px solid var(--border-strong);
+  border-radius: 100px; padding: 4px;
+}
+.energy-toggle button {
+  font-family: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 8px 20px; border: none; border-radius: 100px;
+  background: transparent; color: var(--deep-red); cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.energy-toggle button.active { background: var(--merlot); color: var(--stone); }
+
+.strategy-note {
+  font-size: 12px; color: var(--muted); font-style: italic;
+  line-height: 1.6; max-width: 620px;
+  border-left: 2px solid var(--border-strong);
+  padding-left: 14px; margin-bottom: 26px;
+}
+
+/* Output cards */
+.output-card {
+  background: var(--card-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 22px;
+  margin-bottom: 14px;
+}
+.output-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 10px; }
+.output-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--taupe);
+}
+.copy-btn {
+  font-family: inherit; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--merlot); background: var(--card-bg);
+  border: 1px solid var(--border-strong); border-radius: 100px;
+  padding: 6px 14px; cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.copy-btn:hover { border-color: var(--deep-red); color: var(--deep-red); }
+.copy-btn.copied { color: var(--green-ok); border-color: var(--green-ok); }
+.output-text { font-size: 14.5px; color: var(--ink); line-height: 1.65; white-space: pre-wrap; }
+.output-use { font-size: 10.5px; color: var(--muted); opacity: 0.75; font-style: italic; margin-top: 12px; }
+
+/* Save note */
+.save-note {
+  font-size: 11.5px; color: var(--muted); opacity: 0.8;
+  margin-top: 16px; line-height: 1.6; max-width: 640px;
+}
+
+/* IP disclaimer */
+.pdf-disclaimer {
+  font-size: 10.5px; line-height: 1.6; color: var(--muted);
+  opacity: 0.55; max-width: 640px; margin: 36px auto 52px;
+  text-align: center; padding: 0 24px; font-weight: 400;
+}
+
+/* Footer */
+.wmhq-footer {
+  background: var(--merlot); color: rgba(241,235,235,0.55);
+  padding: 26px 24px 30px; text-align: center;
+  border-top: 1px solid rgba(241,235,235,0.08);
+}
+.wmhq-footer-inner { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.wmhq-footer-copy { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(241,235,235,0.7); }
+.wmhq-footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.wmhq-footer-links a { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(241,235,235,0.5); text-decoration: none; }
+.wmhq-footer-links a:hover { color: var(--blush); }
+
+/* Focus + motion */
+:focus-visible { outline: 2px solid var(--deep-red); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+@media (max-width: 640px) {
+  .hero { padding: 78px 20px 56px; }
+  .card { padding: 26px 22px 28px; }
+  .body { padding: 36px 16px 24px; }
+}
+
+/* ‚îÄ‚îÄ Print ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+@media print {
+  @page { margin: 14mm 12mm; size: A4; }
+  body { background: #fff !important; font-size: 10.5pt; }
+  .hero { background: #fff !important; border-bottom: 2px solid var(--merlot); padding: 20px 0; }
+  .hero::before, .hero-wordmark { display: none !important; }
+  .hero h1, .hero h1 em { color: var(--merlot) !important; }
+  .hero-sub { color: var(--muted) !important; }
+  .hero-eyebrow { color: var(--merlot); border-color: var(--merlot); }
+  .card { box-shadow: none !important; border: 1px solid #999 !important; page-break-inside: avoid; }
+  .output-card { page-break-inside: avoid; }
+  .btn-pill-dark, .btn-pill-ghost, .copy-btn, .wmhq-footer,
+  .energy-toggle, .fw-topbar, .save-note, .tip-btn, .btn-row, .acc { display: none !important; }
+  .pdf-disclaimer { display: block !important; opacity: 0.5 !important; font-size: 7.5pt !important; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-wordmark" aria-hidden="true">
+    <div class="wm-top">Woman Mastery HQ</div>
+    <div class="wm-sub">strategy. subconscious. mastery.</div>
+  </div>
+  <span class="hero-eyebrow">WMHQ Member Tool</span>
+  <h1>The <em>No-Brainer</em> Offer Generator</h1>
+  <p class="hero-sub">Turn your offer into a clearer, stronger, easier yes.</p>
+</header>
+
+<main class="body" id="app"></main>
+
+<p class="pdf-disclaimer">This work is the sole property of Jessica Pinili. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, or create derivative works in any capacity. All rights on intellectual property of this digital product are proprietary and reserved for exclusive use by Jessica Pinili alone.</p>
+
+<footer class="wmhq-footer">
+  <div class="wmhq-footer-inner">
+    <p class="wmhq-footer-copy">&copy; <span id="footerYear"></span> Jessica Pinili. All rights reserved.</p>
+    <div class="wmhq-footer-links">
+      <a href="https://www.jessicapinili.com/terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+      <a href="https://www.jessicapinili.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+   Framework data and generators
+   ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+var OFFER_TYPE_FIELD = {
+  key: "offerType",
+  label: "What type of offer are you working on?",
+  helper: "Choose the type of offer so the framework adapts to what you are actually building.",
+  type: "select",
+  tooltip: {
+    what: "Choose the kind of offer or campaign you are working on so the output does not force everything into the same format.",
+    examples: [
+      "Core paid offer: a program, package, service, product, course, or consultation",
+      "Limited-time campaign: a seasonal promo, launch window, or short campaign",
+      "Giveaway / chance to win: a voucher, prize, competition, or golden-ticket style offer",
+      "Bonus or incentive: an added gift, fast-action bonus, or extra inclusion",
+      "Discount alternative: value added instead of lowering the price",
+      "Free lead magnet: quiz, guide, checklist, free training, or download",
+      "Bundle: product set, starter kit, service bundle, or collection",
+      "Upsell / upgrade: VIP option, premium tier, add-on, or next step"
+    ]
+  },
+  options: [
+    { value: "core", label: "Core paid offer" },
+    { value: "campaign", label: "Limited-time campaign" },
+    { value: "giveaway", label: "Giveaway / chance to win" },
+    { value: "bonus", label: "Bonus or incentive" },
+    { value: "discount-alt", label: "Discount alternative" },
+    { value: "lead-magnet", label: "Free lead magnet" },
+    { value: "bundle", label: "Bundle" },
+    { value: "upsell", label: "Upsell / upgrade" }
+  ]
+};
+
+function f(val, fallback) {
+  return (val && val.trim()) ? val.trim() : fallback;
+}
+
+/* Framework 1: The "So That" Ladder */
+function LADDER_GENERATE(v, spicy) {
+  var offerType = f(v.offerType, "core");
+  var buyer = f(v.buyerType, "the buyer");
+  var selling = f(v.selling, "this offer");
+  var feature = f(v.feature, "what you deliver");
+  var functional = f(v.practicalResult, "the functional result");
+  var emotional = f(v.emotionalResult, "the emotional shift");
+  var identity = f(v.identity, "the version of themselves they become");
+
+  if (offerType === "giveaway") {
+    if (spicy) {
+      return [
+        feature + ". That is the mechanic. But what " + buyer + " actually feel is " + emotional + ". And that is worth acting on.",
+        "Every order is a chance to " + functional + ". Not because they need it. Because they want to feel " + emotional + ".",
+        selling + " gives " + buyer + " " + feature + ". The real pull is the chance to feel " + emotional + " and step into " + identity + ".",
+        "This is not just a campaign. " + feature + " makes " + buyer + " feel " + emotional + " every time they take part.",
+        "Swipe up: " + feature + ". That is the mechanic. The real reason they join: " + emotional + ", " + identity + ".",
+        "Every " + buyer + " who takes part gets " + feature + ", and a chance to feel " + emotional + ". That is the campaign."
+      ];
+    }
+    return [
+      selling + ": " + feature + ", so " + buyer + " can " + functional + " and feel " + emotional + ".",
+      feature + ": a chance for " + buyer + " to " + functional + ", feel " + emotional + ", and step into " + identity + ".",
+      selling + " gives " + buyer + " " + feature + ", so they get to " + functional + " and experience " + emotional + ".",
+      "For " + buyer + ": " + feature + " means a real chance to " + functional + ", and feel like " + identity + ".",
+      "This week: " + feature + ". So " + buyer + " can " + functional + " and feel " + emotional + ".",
+      selling + " is " + feature + " so " + buyer + " get to " + functional + ", feel " + emotional + ", and become " + identity + "."
+    ];
+  }
+
+  if (offerType === "lead-magnet") {
+    if (spicy) {
+      return [
+        "Stop guessing. " + feature + " helps " + buyer + " " + functional + ", so they can stop feeling overwhelmed and start feeling " + emotional + ".",
+        "You do not need more information. " + feature + " helps you " + functional + ". That is the shift, from stuck to " + identity + ".",
+        feature + " is not just a download. It is the thing that helps " + buyer + " " + functional + ", so they finally feel " + emotional + ".",
+        "The real reason to grab " + selling + ": " + feature + " helps " + buyer + " " + functional + " and move from uncertainty to " + identity + ".",
+        "Swipe: " + feature + ". What it actually does: helps " + buyer + " " + functional + " and feel " + emotional + ".",
+        feature + " so " + buyer + " can " + functional + ", which means less noise and finally feeling " + emotional + "."
+      ];
+    }
+    return [
+      feature + " so " + buyer + " can " + functional + ", feel " + emotional + ", and step into " + identity + ".",
+      selling + " gives " + buyer + " " + feature + ", so they can " + functional + " and stop feeling stuck.",
+      "For " + buyer + ": " + feature + " means " + functional + ", and the confidence of feeling " + emotional + ".",
+      feature + " helps " + buyer + " " + functional + ", so the real shift is " + emotional + " and becoming " + identity + ".",
+      "Swipe to grab: " + feature + ". What it actually helps you do: " + functional + ", so you feel " + emotional + ".",
+      buyer + " do not need more content. They need " + feature + " so they can " + functional + " and feel " + emotional + "."
+    ];
+  }
+
+  if (spicy) {
+    return [
+      "You are still selling " + feature + ". " + buyer + " are buying the chance to " + functional + ", feel " + emotional + ", and become " + identity + ".",
+      feature + " is the vehicle. " + identity + " is the destination. " + selling + " is the bridge.",
+      "Stop leading with " + feature + ". Lead with " + identity + ". Prove it with " + feature + " to " + functional + " to " + emotional + ".",
+      "The ladder: " + feature + " so they " + functional + ", so they feel " + emotional + ", so they become " + identity + ". Lead from the bottom.",
+      buyer + " are not buying " + feature + ". They are buying the path to " + functional + ", the feeling of " + emotional + ", the identity of " + identity + ".",
+      feature + " is not the offer. " + identity + " is. " + selling + " is how " + buyer + " get there."
+    ];
+  }
+  return [
+    selling + " gives " + buyer + " " + feature + " so they can " + functional + ", feel " + emotional + ", and become " + identity + ".",
+    "Not just " + feature + ": the ability to " + functional + ", feel " + emotional + ", and move like " + identity + ".",
+    "For " + buyer + ": " + selling + " uses " + feature + " to help you " + functional + ", so the real result is " + emotional + " and the identity shift is " + identity + ".",
+    feature + " to " + functional + " to " + emotional + " to " + identity + ". That is what " + selling + " actually delivers.",
+    feature + ". " + functional + ". " + emotional + ". " + identity + ". Four rungs. One ladder. This is the offer.",
+    buyer + " do not only want " + feature + ". They want " + functional + ", " + emotional + ", and the identity of " + identity + "."
+  ];
+}
+
+/* Framework 2: The New Reason Stack */
+function REASON_STACK_GENERATE(v, spicy) {
+  var buyer = f(v.buyerType, "the buyer");
+  var surfaceProblem = f(v.surfaceProblem, "the surface problem");
+  var alreadyTried = f(v.alreadyTried, "the old way");
+  var rootCause = f(v.rootCause, "the real root cause");
+  var method = f(v.method, "this method");
+  var offer = f(v.offer, "this offer");
+
+  if (spicy) {
+    return [
+      "The real problem is not " + surfaceProblem + ". It is " + rootCause + ". That is why " + method + " works where " + alreadyTried + " keeps failing.",
+      alreadyTried + " does not work because it treats " + surfaceProblem + " like the root. It is not. The root is " + rootCause + ".",
+      "If " + alreadyTried + " was going to fix " + surfaceProblem + ", it would have. The real issue is " + rootCause + ". " + method + " fixes that.",
+      buyer + " have been told the problem is " + surfaceProblem + ". It is not. It is " + rootCause + ". That is the gap " + method + " was built for.",
+      "Slide: the old story is " + surfaceProblem + ". The new story is " + rootCause + ". That is why " + offer + " works.",
+      "The category keeps selling solutions for " + surfaceProblem + ". " + offer + " works because it fixes " + rootCause + ", the real issue, through " + method + "."
+    ];
+  }
+  return [
+    "The real problem is not " + surfaceProblem + ". It is " + rootCause + ". That is why " + method + " works where " + alreadyTried + " keeps failing.",
+    buyer + " have tried " + alreadyTried + ". It did not work because the issue was never only " + surfaceProblem + ". It was " + rootCause + ". " + method + " addresses that.",
+    "If " + alreadyTried + " has not solved " + surfaceProblem + " for " + buyer + ", it is probably because the real problem is " + rootCause + ". " + offer + " uses " + method + " to fix that first.",
+    "This is for " + buyer + " who have tried " + alreadyTried + " and wonder why nothing sticks. The answer is " + rootCause + ". " + method + " is built around that.",
+    "The old story: " + surfaceProblem + ". The new story: " + rootCause + ". The method: " + method + ". The offer: " + offer + ".",
+    buyer + " do not need another version of " + alreadyTried + ". They need the root fixed: " + rootCause + ". " + method + " is how " + offer + " does that."
+  ];
+}
+
+/* Framework 3: The Precision Stack */
+function PRECISION_GENERATE(v, spicy) {
+  var offerType = f(v.offerType, "core");
+  var buyer = f(v.buyerType, "the buyer");
+  var result = f(v.result, "a specific result");
+  var timeframe = f(v.timeframe, "a clear timeframe");
+  var obstacle = f(v.obstacle, "the thing they think blocks them");
+  var notNeeded = f(v.notNeeded, "the sacrifice they assumed was required");
+  var action = f(v.action, "take action");
+  var offer = f(v.offer, "this offer");
+
+  if (offerType === "giveaway") {
+    if (spicy) {
+      return [
+        action + " within " + timeframe + " for a chance to " + result + ", even if " + obstacle + ".",
+        "You do not need to " + notNeeded + ". Just " + action + " within " + timeframe + ".",
+        buyer + ": " + action + " within " + timeframe + " for a chance to " + result + ". Even if " + obstacle + ", you are still in.",
+        "This is the window: " + timeframe + ". " + action + " for a chance to " + result + ".",
+        action + " now. " + timeframe + ". " + result + ". Even if " + obstacle + ".",
+        offer + ": " + action + " within " + timeframe + ", even if " + obstacle + ", for a chance to " + result + "."
+      ];
+    }
+    return [
+      action + " within " + timeframe + " for a chance to " + result + ", even if " + obstacle + ".",
+      offer + ": " + action + " within " + timeframe + " and you are in with a chance to " + result + ".",
+      "For " + buyer + ": " + action + " within " + timeframe + " for a chance to " + result + ", without " + notNeeded + ".",
+      "The window is " + timeframe + ". " + action + " for a chance to " + result + ", even if " + obstacle + ".",
+      action + " within " + timeframe + ". Your chance to " + result + ". Even if " + obstacle + ".",
+      offer + ": a chance to " + result + " in " + timeframe + ", no " + notNeeded + " required."
+    ];
+  }
+
+  if (offerType === "lead-magnet") {
+    if (spicy) {
+      return [
+        "Learn " + result + " in " + timeframe + ", without " + notNeeded + ", even if " + obstacle + ".",
+        "Stop waiting until you have " + notNeeded + ". " + result + " in " + timeframe + " is the starting point.",
+        buyer + ": " + result + " in " + timeframe + ", without the usual " + notNeeded + ".",
+        "The free resource that helps you " + result + " in " + timeframe + ", even if " + obstacle + " has kept you stuck.",
+        "You do not need " + notNeeded + ". " + result + " in " + timeframe + ". That is the promise.",
+        offer + ": discover " + result + " in " + timeframe + ", without " + notNeeded + ", even if " + obstacle + "."
+      ];
+    }
+    return [
+      "Discover " + result + " in " + timeframe + ", without " + notNeeded + ", even if " + obstacle + ".",
+      offer + " helps " + buyer + " " + result + " in " + timeframe + " without " + notNeeded + ".",
+      "For " + buyer + ": " + result + " in " + timeframe + ", even if " + obstacle + " has made it feel out of reach.",
+      result + " in " + timeframe + ", no " + notNeeded + " required. Even if " + obstacle + ".",
+      "Free: " + result + " in " + timeframe + ". Without " + notNeeded + ". Even if " + obstacle + ".",
+      offer + " helps you " + result + " in " + timeframe + ", especially if " + obstacle + " has kept you guessing."
+    ];
+  }
+
+  if (offerType === "bundle") {
+    if (spicy) {
+      return [
+        "Get " + result + " in " + timeframe + ", without having to piece it together yourself.",
+        "Stop buying things separately. " + offer + " gives " + buyer + " " + result + " in " + timeframe + " without " + notNeeded + ".",
+        result + " in " + timeframe + ". One bundle. No guessing.",
+        buyer + ": " + result + " in " + timeframe + " without " + notNeeded + ", even if " + obstacle + ".",
+        "The complete solution: " + result + " in " + timeframe + ", without " + notNeeded + ".",
+        offer + ": " + result + " in " + timeframe + ", without needing " + notNeeded + " or worrying about " + obstacle + "."
+      ];
+    }
+    return [
+      "Get " + result + " in " + timeframe + " without having to " + notNeeded + ".",
+      offer + " gives " + buyer + " " + result + " in " + timeframe + ", without " + notNeeded + ".",
+      "For " + buyer + " who want " + result + " in " + timeframe + " without guessing.",
+      result + " in " + timeframe + ". One bundle. No " + notNeeded + ".",
+      offer + ": the complete solution for " + result + " in " + timeframe + ", even if " + obstacle + ".",
+      buyer + ": " + result + " in " + timeframe + ", without " + notNeeded + ", with everything in one place."
+    ];
+  }
+
+  if (offerType === "upsell") {
+    if (spicy) {
+      return [
+        "Upgrade to " + result + " in " + timeframe + ", without " + notNeeded + ".",
+        "The better option: " + result + " in " + timeframe + ", with more support, no " + notNeeded + ".",
+        buyer + ": " + result + " in " + timeframe + " is what the next level looks like.",
+        "Stop settling. " + result + " in " + timeframe + ", even if " + obstacle + ", is what this upgrade is for.",
+        "The premium path: " + result + " in " + timeframe + " without " + notNeeded + ".",
+        offer + ": " + result + " in " + timeframe + ", with less friction and more support, even if " + obstacle + "."
+      ];
+    }
+    return [
+      "Upgrade to " + result + " in " + timeframe + " without " + notNeeded + ".",
+      offer + " gives " + buyer + " " + result + " in " + timeframe + " with the extra support they actually need.",
+      "For " + buyer + " ready for " + result + " in " + timeframe + ", without the added complexity.",
+      result + " in " + timeframe + ". The premium path. No " + notNeeded + ".",
+      offer + ": the next level. " + result + " in " + timeframe + ", even if " + obstacle + ".",
+      buyer + ": " + result + " in " + timeframe + ", without " + notNeeded + ", with the support to match."
+    ];
+  }
+
+  if (offerType === "bonus") {
+    if (spicy) {
+      return [
+        action + " within " + timeframe + " and unlock " + result + ", without " + notNeeded + ".",
+        "Act within " + timeframe + " and get " + result + " included. Even if " + obstacle + ".",
+        buyer + ": " + action + " by " + timeframe + " for " + result + ". No " + notNeeded + ".",
+        "The fast-action bonus: " + result + ", unlocked by " + action + " within " + timeframe + ".",
+        result + " is included when " + buyer + " " + action + " within " + timeframe + ".",
+        offer + ": " + result + " unlocked within " + timeframe + " when you " + action + ", even if " + obstacle + "."
+      ];
+    }
+    return [
+      action + " within " + timeframe + " to unlock " + result + ", even if " + obstacle + ".",
+      offer + ": " + result + " included when you " + action + " within " + timeframe + ", without " + notNeeded + ".",
+      "For " + buyer + ": unlock " + result + " within " + timeframe + " by " + action + ".",
+      result + " unlocked in " + timeframe + ". Just " + action + ". Even if " + obstacle + ".",
+      "Act within " + timeframe + ": " + result + " included. No " + notNeeded + ".",
+      buyer + " get " + result + " when they " + action + " within " + timeframe + ", even if " + obstacle + "."
+    ];
+  }
+
+  if (spicy) {
+    return [
+      result + " in " + timeframe + ", even if " + obstacle + ".",
+      "\"Better\" is not a promise. " + result + " in " + timeframe + ", even if " + obstacle + ", is.",
+      "If " + buyer + " cannot picture the result, they will not value it. Say it clearly: " + result + " in " + timeframe + " without " + notNeeded + ".",
+      "Vague sounds cheap. " + result + " in " + timeframe + ", even if " + obstacle + ", sounds like you know what you are doing.",
+      result + ". " + timeframe + ". No " + notNeeded + ". Even if " + obstacle + ". That is the promise.",
+      "The sharper version is not \"this helps\". It is: " + result + " in " + timeframe + ", without " + notNeeded + "."
+    ];
+  }
+  return [
+    "Get " + result + " in " + timeframe + ", even if " + obstacle + ".",
+    offer + " helps " + buyer + " get " + result + " in " + timeframe + " without " + notNeeded + ".",
+    "For " + buyer + " who want " + result + " in " + timeframe + ", even if " + obstacle + " has made it feel out of reach.",
+    result + " in " + timeframe + " without " + notNeeded + ", even if " + obstacle + ".",
+    result + " in " + timeframe + " for " + buyer + " who are done letting " + obstacle + " be the reason they wait.",
+    offer + " is built to help " + buyer + " achieve " + result + " in " + timeframe + ", without needing to " + notNeeded + "."
+  ];
+}
+
+/* Framework 4: The Cost of Inaction */
+function INACTION_GENERATE(v, spicy) {
+  var offerType = f(v.offerType, "core");
+  var buyer = f(v.buyerType, "the buyer");
+  var delayedProblem = f(v.delayedProblem, "the problem they keep putting off");
+  var recurringLoss = f(v.recurringLoss, "the recurring loss");
+  var frequency = f(v.frequency, "regularly");
+  var timeframe = f(v.timeframe, "the foreseeable future");
+  var costEach = f(v.costEach, "a real cost each time");
+  var offerPrice = f(v.offerPrice, "the investment");
+  var whatChanges = f(v.whatChanges, "the pattern finally breaks");
+
+  if (offerType === "giveaway" || offerType === "campaign") {
+    if (spicy) {
+      return [
+        "This window closes in " + timeframe + ". After that, " + recurringLoss + " is off the table.",
+        "Missing " + whatChanges + " is a choice. The window is " + timeframe + ".",
+        buyer + ": the campaign closes " + timeframe + ". " + recurringLoss + " goes with it.",
+        "The cost of waiting: " + recurringLoss + ", gone. Window: " + timeframe + ".",
+        recurringLoss + " is only available until " + timeframe + ". After that, it is over.",
+        buyer + " who wait past " + timeframe + " do not get a second chance at " + whatChanges + "."
+      ];
+    }
+    return [
+      recurringLoss + " is only available until " + timeframe + ". Do not let the window close.",
+      "The campaign closes " + timeframe + ". After that, " + recurringLoss + " is gone.",
+      "For " + buyer + ": " + whatChanges + ", but only until " + timeframe + ".",
+      recurringLoss + ": available for " + timeframe + " only. After that, " + buyer + " miss it.",
+      "The window is " + timeframe + ". " + whatChanges + " and then it is over.",
+      buyer + " who act before " + timeframe + " get " + whatChanges + ". Those who wait, miss it."
+    ];
+  }
+
+  if (offerType === "lead-magnet") {
+    if (spicy) {
+      return [
+        buyer + " keep guessing " + frequency + ". That guessing is costing them " + costEach + " " + frequency + ". " + whatChanges + " is the first step to fixing that.",
+        "Continuing to guess " + delayedProblem + " " + frequency + " keeps costing " + costEach + ". " + whatChanges + " is free.",
+        recurringLoss + " " + frequency + ". That is the cost of staying unclear. " + whatChanges + ".",
+        "How long will " + buyer + " keep paying " + costEach + " in lost clarity " + frequency + "? " + whatChanges + " takes " + timeframe + ".",
+        "The cost of guessing: " + costEach + " " + frequency + ". The cost of getting clarity: zero. " + whatChanges + ".",
+        recurringLoss + " does not stop until " + buyer + " address " + delayedProblem + ". " + whatChanges + " is where that starts."
+      ];
+    }
+    return [
+      buyer + " who keep guessing " + delayedProblem + " keep paying through " + recurringLoss + " " + frequency + ". " + whatChanges + " starts with this.",
+      "The cost of staying unclear about " + delayedProblem + ": " + recurringLoss + ", " + frequency + ", for " + timeframe + ".",
+      "If " + recurringLoss + " is happening " + frequency + ", something has not been diagnosed correctly. " + whatChanges + ".",
+      recurringLoss + " x " + timeframe + " is the cost of guessing. " + whatChanges + " is free.",
+      "Free guide: " + whatChanges + ". Because " + recurringLoss + " " + frequency + " is already expensive enough.",
+      buyer + " do not need to keep paying " + costEach + " in " + recurringLoss + ". " + whatChanges + " starts here."
+    ];
+  }
+
+  if (spicy) {
+    return [
+      "The expensive decision is not " + offerPrice + ". It is letting " + delayedProblem + " keep creating " + recurringLoss + " for another " + timeframe + ".",
+      "Waiting is not neutral. Every " + frequency + ", " + recurringLoss + " keeps charging " + buyer + ". That is the number they need to look at.",
+      "If " + buyer + " only see " + offerPrice + ", the offer feels expensive. When they see " + recurringLoss + " x " + timeframe + ", staying the same gets expensive fast.",
+      "Doing nothing still has a receipt: " + recurringLoss + ", " + frequency + ", for " + timeframe + ". That is what delay is actually costing.",
+      buyer + " are already paying. Not with the checkout button, but with " + recurringLoss + " every " + frequency + ".",
+      "The real comparison is not buy or do nothing. It is " + offerPrice + " or another " + timeframe + " of " + recurringLoss + "."
+    ];
+  }
+  return [
+    "If " + recurringLoss + " costs " + costEach + " " + frequency + " and it continues for " + timeframe + ", that is the real price " + buyer + " are already paying.",
+    "The cost is not only " + offerPrice + ". The cost is " + recurringLoss + " happening " + frequency + " for another " + timeframe + ".",
+    buyer + " are not choosing between " + offerPrice + " and spending nothing. They are choosing between " + offerPrice + " and continuing to pay for " + recurringLoss + ".",
+    "Every " + frequency + " that " + delayedProblem + " goes unsolved, " + buyer + " keep paying through " + recurringLoss + ". Over " + timeframe + ", that cost becomes harder to ignore.",
+    recurringLoss + " x " + timeframe + " is the real price of waiting. " + offerPrice + " stops that leak by " + whatChanges + ".",
+    "The buying decision becomes clearer when " + buyer + " compare " + offerPrice + " against another " + timeframe + " of " + recurringLoss + "."
+  ];
+}
+
+/* Framework 5: Objection, Reframe, Proof */
+function OBJECTION_GENERATE(v, spicy) {
+  var buyer = f(v.buyerType, "the buyer");
+  var objection = f(v.objection, "the thing holding them back");
+  var deeperFear = f(v.deeperFear, "the risk they are trying to avoid");
+  var reframe = f(v.reframe, "why the offer is actually built for this concern");
+  var proof = f(v.proof, "clear evidence and structure");
+  var offerPart = f(v.offerPart, "a built-in solution");
+  var offer = f(v.offer, "this offer");
+
+  if (spicy) {
+    return [
+      "You might be thinking: \"" + objection + ".\" That is exactly why this works. " + reframe + ". Proof: " + proof + ".",
+      "The objection is already making the decision. Name it first: \"" + objection + ".\" Then answer it: " + reframe + ". " + proof + ".",
+      "If " + buyer + " are thinking " + objection + ", ignoring it will not close the sale. " + offer + " answers it with " + offerPart + ": " + reframe + ". " + proof + ".",
+      "The cart is not closing because of the price. It is closing because the buyer is thinking " + objection + ". Answer it: " + reframe + ". " + proof + ".",
+      "Name the fear before it names the decision: " + deeperFear + ". Then show why " + offer + " handles it through " + offerPart + " and " + proof + ".",
+      buyer + " do not need you to pretend the fear is not there. Show them: " + reframe + ". Here is the proof: " + proof + "."
+    ];
+  }
+  return [
+    "You might be thinking, \"" + objection + ".\" That is actually why this works: " + reframe + ". Here is the proof: " + proof + ".",
+    "If your concern is " + objection + ", " + offer + " was built with that in mind. " + reframe + ". The proof is " + proof + ".",
+    buyer + " may be worried about " + deeperFear + ". That is exactly why " + offerPart + " exists: to " + reframe + ", with " + proof + " supporting the process.",
+    "The fear sounds like: \"" + objection + ".\" The reframe: " + reframe + ". The proof: " + proof + ".",
+    offer + " does not ignore the concern that " + objection + ". It answers it through " + offerPart + ", backed by " + proof + ".",
+    "You do not have to wait until " + objection + " is no longer true. " + offer + " works because " + reframe + ", and " + proof + " shows how."
+  ];
+}
+
+/* Framework 6: The Discount Swap */
+function DISCOUNT_GENERATE(v, spicy) {
+  var buyer = f(v.buyerType, "the buyer");
+  var offer = f(v.offer, "this offer");
+  var price = f(v.price, "the current price");
+  var discount = f(v.discount, "a discount");
+  var discountReason = f(v.discountReason, "a fear or pressure");
+  var certaintyLever = f(v.certaintyLever, "a certainty lever");
+  var adjustment = f(v.adjustment, "a value addition");
+  var buyerFear = f(v.buyerFear, "the buyer's underlying fear");
+
+  if (spicy) {
+    return [
+      "Instead of " + discount + ", keep " + offer + " at " + price + " and use " + certaintyLever + ": " + adjustment + ". This reduces " + buyerFear + " without lowering the value.",
+      "Discounting because " + discountReason + " does not build belief. It trains " + buyer + " to question the value. Use " + certaintyLever + " instead: " + adjustment + ".",
+      "The problem is not the price. It is " + buyerFear + ". Cutting the price does not fix that. " + adjustment + " does.",
+      "If you have to discount to make " + offer + " feel worth it, the value bridge is not clear enough. Keep " + price + " and add " + adjustment + ".",
+      discount + " might get a faster yes, but it weakens the original value. " + certaintyLever + " gives " + buyer + " a safer yes without cheapening the offer.",
+      "The stronger move is not \"make it cheaper.\" It is: keep " + price + ", reduce " + buyerFear + ", and make the value easier to trust through " + certaintyLever + "."
+    ];
+  }
+  return [
+    "Instead of offering " + discount + ", keep " + offer + " at " + price + " and use " + certaintyLever + ": " + adjustment + ". This reduces " + buyerFear + " without lowering the value.",
+    "The issue may not be the price. It may be certainty. Rather than discounting " + offer + ", add " + adjustment + " so " + buyer + " feel safer choosing it.",
+    "Swap " + discount + " for " + certaintyLever + ". Keep the price at " + price + ", but make the decision easier by adding " + adjustment + ".",
+    "If the fear is " + buyerFear + ", a discount does not fully solve it. " + adjustment + " is a stronger lever because it raises certainty without reducing perceived value.",
+    "Do not lower the price because " + discountReason + ". Strengthen the buying decision with " + certaintyLever + ": " + adjustment + ".",
+    offer + " does not need to be cheaper. It needs to feel safer to choose. Keep " + price + " and use " + adjustment + " to reduce " + buyerFear + "."
+  ];
+}
+
+/* Framework 7: The Identity Mirror */
+function IDENTITY_GENERATE(v, spicy) {
+  var offerType = f(v.offerType, "core");
+  var buyer = f(v.buyerType, "the buyer");
+  var buyerNow = f(v.buyerNow, "who she is right now");
+  var tiredOf = f(v.tiredOf, "what she is tired of");
+  var buyerNext = f(v.buyerNext, "the version of herself she is becoming");
+  var offerHelps = f(v.offerHelps, "what the offer helps her do");
+  var offer = f(v.offer, "this offer");
+  var bridge = f(v.bridge, "the transformation");
+
+  if (offerType === "giveaway") {
+    if (spicy) {
+      return [
+        "This is for the " + buyerNow + " who is ready to feel like " + buyerNext + ", even for a moment.",
+        buyer + " who are done being " + buyerNow + " deserve a chance to experience " + buyerNext + ". That is what this is.",
+        "For the " + buyerNow + ": " + offer + " is a chance to step into " + buyerNext + ".",
+        "The " + buyerNow + " is tired of " + tiredOf + ". This campaign is for the version of them ready for " + buyerNext + ".",
+        "This is not just a campaign. It is a chance for " + buyerNow + " to feel like " + buyerNext + ".",
+        offer + ": a chance for " + buyer + " to move from " + buyerNow + " to " + buyerNext + "."
+      ];
+    }
+    return [
+      "For the " + buyerNow + " ready to feel like " + buyerNext + ": " + offer + " is the chance.",
+      "This campaign is for " + buyer + " who are tired of " + tiredOf + " and ready to experience " + buyerNext + ".",
+      offer + ": a chance for the " + buyerNow + " to step into " + buyerNext + ".",
+      "For " + buyer + " ready for something different. A chance to move from " + buyerNow + " to " + buyerNext + ".",
+      "The " + buyerNow + " deserves a moment of " + buyerNext + ". This is it.",
+      buyer + " who are done feeling like " + buyerNow + ": " + offer + " is for you."
+    ];
+  }
+
+  if (offerType === "lead-magnet") {
+    if (spicy) {
+      return [
+        "This is for the " + buyerNow + " who is ready to start making clearer decisions. " + offer + " helps you " + offerHelps + ".",
+        "Stop being the " + buyerNow + " who is tired of " + tiredOf + ". " + offer + " helps you become " + buyerNext + ".",
+        "The " + buyerNow + " guesses. The " + buyerNext + " knows. " + offer + " is the bridge.",
+        "Free: for " + buyer + " tired of " + tiredOf + " and ready to feel like " + buyerNext + ".",
+        offer + " is not just a resource. It is the thing that starts the shift from " + buyerNow + " to " + buyerNext + ".",
+        buyer + " do not need more information. They need to stop being " + buyerNow + ". " + offer + " helps start that."
+      ];
+    }
+    return [
+      "For the " + buyerNow + " ready to become " + buyerNext + ". " + offer + " helps you " + offerHelps + ".",
+      offer + " is for " + buyer + " who are tired of " + tiredOf + " and ready to feel clearer.",
+      "From " + buyerNow + " to " + buyerNext + ". " + offer + " is the starting point.",
+      "Free for " + buyer + ": the guide that helps you move from " + buyerNow + " to " + buyerNext + ".",
+      "The " + buyerNow + " who starts here becomes the " + buyerNext + " who acts with clarity.",
+      buyer + " tired of " + tiredOf + ": " + offer + " helps you " + offerHelps + " and step into " + buyerNext + "."
+    ];
+  }
+
+  if (offerType === "upsell") {
+    if (spicy) {
+      return [
+        "This is for the " + buyerNow + " who is done with the standard version. The " + buyerNext + " is on the other side of this upgrade.",
+        buyer + " who are ready to become " + buyerNext + " do not settle for " + buyerNow + ". " + offer + " is the next step.",
+        "The upgrade is not just " + offerHelps + ". It is becoming " + buyerNext + ".",
+        offer + ": for the " + buyerNow + " who is ready for the " + buyerNext + " experience.",
+        "Stop choosing the basic option. " + offer + " is for " + buyer + " who are ready to feel like " + buyerNext + ".",
+        buyerNow + " to " + buyerNext + ". " + offer + " is the premium bridge."
+      ];
+    }
+    return [
+      "For the " + buyerNow + " ready to become " + buyerNext + ". " + offer + " is the upgrade.",
+      offer + " is for " + buyer + " who want the next level: from " + buyerNow + " to " + buyerNext + ".",
+      "The next step for " + buyer + ": " + offerHelps + ", and becoming " + buyerNext + ".",
+      offer + ": from " + buyerNow + " to " + buyerNext + ". The premium path.",
+      "For " + buyer + " ready to leave " + tiredOf + " behind and step into " + buyerNext + ".",
+      buyer + " ready for " + buyerNext + ": " + offer + " helps you " + offerHelps + " and get there."
+    ];
+  }
+
+  if (spicy) {
+    return [
+      "This is not for the version of " + buyer + " still available for " + tiredOf + ". This is for the " + buyerNow + " ready to become " + buyerNext + ".",
+      offer + " is not just about " + offerHelps + ". It is about becoming " + buyerNext + " and leaving " + tiredOf + " behind.",
+      "The real offer is the identity shift: from " + buyerNow + " to " + buyerNext + ". " + offer + " is the bridge.",
+      "If " + buyer + " are done being " + buyerNow + ", the next move is becoming " + buyerNext + ". " + offer + " is how.",
+      "People buy the self they are ready to become. For " + buyer + ", that shift is from " + buyerNow + " to " + buyerNext + ".",
+      "Stop selling only the practical result. Sell the mirror: the " + buyerNow + " becoming " + buyerNext + "."
+    ];
+  }
+  return [
+    "For the " + buyerNow + " who is ready to become " + buyerNext + ". " + offer + " is the bridge that helps you " + offerHelps + ".",
+    offer + " is for " + buyer + " who are tired of " + tiredOf + " and ready to become " + buyerNext + ".",
+    "For the " + buyerNow + " ready to move from " + tiredOf + " into " + buyerNext + ", " + offer + " helps you " + offerHelps + ".",
+    "This is for " + buyer + " who are no longer available for " + tiredOf + " and are ready to become " + buyerNext + ".",
+    "The transformation is not just " + offerHelps + ". It is becoming " + buyerNext + " after being " + buyerNow + ".",
+    offer + " helps " + buyer + " move from " + buyerNow + " to " + buyerNext + " through " + bridge + "."
+  ];
+}
+
+/* ‚îÄ‚îÄ Framework definitions ‚îÄ‚îÄ */
+var FRAMEWORKS = [
+  {
+    id: "so-that-ladder",
+    title: 'The "So That" Ladder',
+    subtext: "Translate what you sell into what they actually want.",
+    bestUsedWhen: "Your offer leads with features, inclusions, or deliverables, but your buyer needs to understand the deeper result, feeling, and identity on the other side.",
+    guidance: "This framework helps you stop selling the feature and start selling the deeper reason someone actually wants the offer.\n\nThe 6 options give you: a clean offer line, a punchier version, a sales page version, a caption hook, a story slide, and an email angle, all following the same ladder: feature to functional result to emotional result to identity.\n\nUse this when your offer sounds too focused on inclusions, modules, ingredients, or deliverables, and you need to make the real transformation more obvious.",
+    generate: LADDER_GENERATE,
+    fields: [
+      OFFER_TYPE_FIELD,
+      { key: "buyerType", label: "Who is the buyer?", helper: "Describe the person this offer is for.", placeholder: "Type your answer here",
+        tooltip: { what: "Name the specific person who is buying this offer.", examples: ["busy parents", "women with sensitive skin", "new dog owners", "small business owners", "brides planning their wedding"] } },
+      { key: "selling", label: "What is the product, service, campaign, or offer?", helper: "Name the thing you are working on.", placeholder: "Type your answer here",
+        tooltip: { what: "The actual product, service, package, or campaign.", examples: ["meal planning app", "skin barrier serum", "puppy training program", "bookkeeping clean-up service", "bridal makeup package"] } },
+      { key: "feature", label: "What feature, mechanic, deliverable, or inclusion are you currently leading with?", helper: "Name the thing inside the offer you usually talk about first.", placeholder: "Type your answer here",
+        tooltip: { what: "This is the vehicle, the thing they technically receive. For giveaways, it can be the campaign mechanic.", examples: ["weekly meal plans", "2% retinol", "1:1 training sessions", "every order enters you to win", "makeup trial appointment"] } },
+      { key: "practicalResult", label: "What functional result or action does that create?", helper: "What practical thing does this help them do?", placeholder: "Type your answer here",
+        tooltip: { what: "The first practical result. Complete the sentence: this helps them...", examples: ["plan dinners faster", "reduce skin flare-ups", "walk their dog without pulling", "understand where money is going", "choose a makeup look before the wedding"] } },
+      { key: "emotionalResult", label: "What emotional result does that give them?", helper: "Name the emotional payoff.", placeholder: "Type your answer here",
+        tooltip: { what: "The feeling they are really buying.", examples: ["calm and prepared", "confident in their skin", "proud and in control", "relieved about finances", "beautiful without overthinking"] } },
+      { key: "identity", label: "Who do they get to become, feel like, or identify as because of this?", helper: "Name the identity shift, the deepest rung.", placeholder: "Type your answer here",
+        tooltip: { what: "The version of themselves they are moving toward. Lead your copy here, then use the feature as proof.", examples: ["the organised parent", "the woman who trusts her skin", "the calm dog owner", "the business owner who knows her numbers", "the bride who feels relaxed and beautiful"] } }
+    ]
+  },
+  {
+    id: "new-reason-stack",
+    title: "The New Reason Stack",
+    subtext: "Show them why this works when the old way didn't.",
+    bestUsedWhen: "Your buyer has tried similar things before and needs a clear reason to believe this works differently.",
+    guidance: "This framework creates a new reason to believe by naming the surface problem, reframing the root cause, and introducing your method as the thing that fixes what the old way missed.\n\nThe 6 options give you: a clean belief-shift line, a punchier old-vs-new line, a sales page explanation, a caption hook, a story slide, and an email angle.\n\nUse this for launches, sales pages, emails, and content that needs to build a new reason to trust.",
+    generate: REASON_STACK_GENERATE,
+    fields: [
+      OFFER_TYPE_FIELD,
+      { key: "buyerType", label: "Who is the buyer?", helper: "Describe who needs this new reason to believe.", placeholder: "Type your answer here",
+        tooltip: { what: "Name the person who has likely tried things before and needs a different reason this will work.", examples: ["gym beginners who feel intimidated", "women with acne-prone skin", "small business owners avoiding bookkeeping", "new puppy owners feeling overwhelmed", "ecommerce founders with low repeat purchases"] } },
+      { key: "surfaceProblem", label: "What surface problem or belief have they been told?", helper: "Name the problem they currently blame, or what the category keeps telling them.", placeholder: "Type your answer here",
+        tooltip: { what: "This is what your buyer believes is wrong before you reframe the real issue.", examples: ["no motivation", "skin that is too sensitive", "a dog that is badly behaved", "a house that always feels messy", "customers who are not coming back"] } },
+      { key: "alreadyTried", label: "What old way have they already tried or believed?", helper: "Name the old solution or usual fix.", placeholder: "Type your answer here",
+        tooltip: { what: "What they have already done that did not fully solve the problem.", examples: ["stricter routines", "stronger skincare actives", "random training advice", "cheaper cleaning products", "more discount codes"] } },
+      { key: "rootCause", label: "What is the reframed root cause?", helper: "Name the deeper problem your approach addresses.", placeholder: "Type your answer here",
+        tooltip: { what: "Your reframe. The reason the old way did not work, and the reason yours does.", examples: ["damaged skin barrier", "unclear dog boundaries", "no simple dinner system", "messy inventory tracking", "poor customer follow-up"] } },
+      { key: "method", label: "What is your named mechanism, method, process, or campaign idea?", helper: "Name what makes your approach different.", placeholder: "Type your answer here",
+        tooltip: { what: "Naming the mechanism gives the buyer a new reason to believe.", examples: ["Barrier First System", "Calm Walk Method", "20-Minute Dinner Framework", "Profit First Clean-Up", "Repeat Purchase Pathway"] } },
+      { key: "methodDiff", label: "What does this mechanism do differently?", helper: "Explain the different approach in a few words.", placeholder: "Type your answer here",
+        tooltip: { what: "What your offer does differently from the old way they have already tried.", examples: ["repairs the barrier before adding actives", "teaches calm behaviour before commands", "plans meals around real weekly energy", "cleans the books before forecasting", "improves retention before chasing new traffic"] } },
+      { key: "offer", label: "What is the offer?", helper: "Name the thing they can buy or access.", placeholder: "Type your answer here",
+        tooltip: { what: "The product, service, program, or package being positioned.", examples: ["skincare bundle", "puppy training course", "meal prep membership", "bookkeeping package", "customer retention audit"] } }
+    ]
+  },
+  {
+    id: "precision-stack",
+    title: "The Precision Stack",
+    subtext: "Make your promise sharper, clearer, and more premium.",
+    bestUsedWhen: "Your offer sounds too broad, vague, or general, and you need to make the result feel more specific, credible, and premium.",
+    guidance: "This framework replaces vague promises with specific, believable, premium-feeling outcomes.\n\nThe 6 options give you: a clean promise, a punchier specific promise, a sales page version, a caption hook, a story slide, and an email angle.\n\nFor giveaways and campaign offers, the output will sound like a campaign line, not a coaching promise. For lead magnets, the output focuses on learning or discovery, not transformation.",
+    generate: PRECISION_GENERATE,
+    fields: [
+      OFFER_TYPE_FIELD,
+      { key: "buyerType", label: "Who is the buyer?", helper: "Describe who wants this specific result.", placeholder: "Type your answer here",
+        tooltip: { what: "Name the person who needs the promise to feel specific and believable.", examples: ["new runners training for their first 5K", "women wanting firmer skin", "photographers wanting premium clients", "brides wanting natural makeup", "small retailers wanting repeat customers"] } },
+      { key: "result", label: "What is the specific result, incentive, outcome, or promise?", helper: "Name the precise outcome, something they can picture.", placeholder: "Type your answer here",
+        tooltip: { what: "Use a result the buyer can picture clearly. For giveaways, this is the prize or incentive.", examples: ["visibly firmer skin", "a fully planned wedding makeup look", "a clean 30-day bookkeeping file", "win a $500 voucher", "a complete puppy starter kit"] } },
+      { key: "timeframe", label: "What is the timeframe or campaign window?", helper: "Choose a believable timeline or campaign window.", placeholder: "Type your answer here",
+        tooltip: { what: "A realistic timeframe that makes the promise feel concrete. For campaigns, this is the window.", examples: ["7 days", "14 days", "30 days", "6 weeks", "this week only"] } },
+      { key: "obstacle", label: "What obstacle, hesitation, or assumed blocker might stop them?", helper: "Name the thing they believe makes this harder or impossible for them.", placeholder: "Type your answer here",
+        tooltip: { what: "The objection, limitation, or circumstance they think means this will not work for them.", examples: ["sensitive skin", "no time to cook", "a reactive dog", "a small budget", "I never win things"] } },
+      { key: "notNeeded", label: "What do they not need to do, sacrifice, or have in order to participate or get the result?", helper: "Name the effort or sacrifice they assume is required.", placeholder: "Type your answer here",
+        tooltip: { what: "Removing an assumed sacrifice makes the promise feel more accessible.", examples: ["train every day", "use harsh exfoliants", "spend Sundays meal prepping", "hire a full-time bookkeeper", "have ordered before"] } },
+      { key: "action", label: "What action do they need to take?", helper: "Name the step required to participate or get the result.", placeholder: "Type your answer here",
+        tooltip: { what: "For campaigns, this is the mechanic. For paid offers, this is the buying action.", examples: ["place an order", "download the guide", "book a call", "join the program", "enter at checkout"] } },
+      { key: "offer", label: "What is the offer?", helper: "Name the offer being positioned.", placeholder: "Type your answer here",
+        tooltip: { what: "The product, service, package, program, or campaign.", examples: ["beginner running plan", "firming skincare serum", "bridal makeup trial", "bookkeeping clean-up", "$500 voucher campaign"] } }
+    ]
+  },
+  {
+    id: "cost-of-inaction",
+    title: "The Cost of Inaction",
+    subtext: "Show the real price of staying where they are.",
+    bestUsedWhen: "Your buyer is only thinking about the price of buying, not the cost of staying where they are.",
+    guidance: "This framework shows the buyer the real cost of staying where they are.\n\nThe 6 options give you: a clean cost line, a punchier cost-of-waiting line, a sales page section, a caption hook, a story slide, and an email angle.\n\nFor giveaway and campaign offers, the output focuses on the missed opportunity window, not a transformation promise. For lead magnets, it shows the cost of staying unclear or misdiagnosing the problem.",
+    generate: INACTION_GENERATE,
+    fields: [
+      OFFER_TYPE_FIELD,
+      { key: "buyerType", label: "Who is the buyer?", helper: "Describe who is paying the hidden cost of waiting.", placeholder: "Type your answer here",
+        tooltip: { what: "Name the person who is already losing time, money, energy, or opportunity by not acting.", examples: ["salon owners with quiet weekdays", "families wasting money on takeaway", "store owners with low repeat purchases", "couples delaying home loan approval", "small businesses with messy books"] } },
+      { key: "delayedProblem", label: "What problem, delay, or missed opportunity are they sitting in?", helper: "Name the thing they keep putting off.", placeholder: "Type your answer here",
+        tooltip: { what: "The problem they have not solved yet, which is creating the recurring loss.", examples: ["messy bookkeeping", "inconsistent meal planning", "reactive dog walks", "poor customer retention", "recurring skin flare-ups"] } },
+      { key: "recurringLoss", label: "What recurring loss, leak, cost, or missed benefit is happening?", helper: "Name what keeps leaking as a result.", placeholder: "Type your answer here",
+        tooltip: { what: "The specific thing that keeps costing them because the problem has not been solved.", examples: ["lost bookings", "wasted groceries", "repeat skin flare-ups", "missed tax deductions", "low customer return rate"] } },
+      { key: "frequency", label: "How often does it happen?", helper: "Choose the frequency.", placeholder: "Type your answer here",
+        tooltip: { what: "How often the loss repeats. This makes the total cost feel real.", examples: ["every week", "every month", "every launch", "every quarter", "three times a year"] } },
+      { key: "timeframe", label: "How long could this continue if nothing changes?", helper: "Name the timeline the problem could run for.", placeholder: "Type your answer here",
+        tooltip: { what: "This helps show what the problem costs in total when it keeps repeating.", examples: ["3 months", "6 months", "12 months", "another full year", "every busy season"] } },
+      { key: "costEach", label: "What does it cost them each time?", helper: "Use money, time, leads, bookings, or energy.", placeholder: "Type your answer here",
+        tooltip: { what: "Estimate the cost of each recurrence. It does not need to be exact.", examples: ["$500", "10 hours", "3 lost bookings", "20 missed enquiries", "one full weekend"] } },
+      { key: "offerPrice", label: "What is the offer price, action, or investment required?", helper: "Name what they are being asked to do or spend.", placeholder: "Type your answer here",
+        tooltip: { what: "The investment or action being compared against the cost of doing nothing.", examples: ["$97", "$333", "$597", "$1,200", "place an order before Friday"] } },
+      { key: "whatChanges", label: "What changes when they act?", helper: "Name the loss that stops or the situation that improves.", placeholder: "Type your answer here",
+        tooltip: { what: "What buying or acting helps fix, reduce, or stop.", examples: ["fewer lost bookings", "less money wasted on food", "fewer repeat flare-ups", "cleaner books before tax time", "more customers buying again"] } }
+    ]
+  },
+  {
+    id: "objection-reframe-proof",
+    title: "Objection, Reframe, Proof",
+    subtext: "Name the fear before it closes the cart.",
+    bestUsedWhen: "Your buyer has a quiet fear or objection that is making the decision for them before they ever reach the checkout.",
+    guidance: "This framework names the fear that is already sitting in your buyer's mind and turns it into a reason they feel safer buying.\n\nThe 6 options give you: a clean objection/reframe/proof line, a punchier version, a sales page or FAQ section, a caption hook, a story slide, and an email angle.\n\nEvery output includes the objection, the reframe, and the proof. None of the three are skipped.",
+    generate: OBJECTION_GENERATE,
+    fields: [
+      OFFER_TYPE_FIELD,
+      { key: "buyerType", label: "Who is the buyer?", helper: "Describe who has this quiet fear.", placeholder: "Type your answer here",
+        tooltip: { what: "Name the person who needs to feel seen and safe before they decide.", examples: ["busy parents with no spare time", "women who have tried many skincare products", "new dog owners worried they are doing it wrong", "first-time home buyers feeling confused", "business owners scared of messy finances"] } },
+      { key: "objection", label: "What exact objection might they be thinking?", helper: "Name the hesitation in their head.", placeholder: "Type your answer here",
+        tooltip: { what: "The exact reason they might hesitate, delay, or talk themselves out of buying.", examples: ["I do not have time", "I have tried things like this before", "I am not sure it will work for me", "I do not know where to start", "I never win things like this"] } },
+      { key: "deeperFear", label: "What deeper fear is underneath that objection?", helper: "Name the risk they are trying to avoid.", placeholder: "Type your answer here",
+        tooltip: { what: "The deeper fear underneath the surface objection.", examples: ["wasting money", "not getting results", "feeling embarrassed", "being overwhelmed", "choosing the wrong solution"] } },
+      { key: "reframe", label: "What is the reframe?", helper: "Why is that objection actually the reason your offer is useful?", placeholder: "Type your answer here",
+        tooltip: { what: "Why the offer was built for this exact concern, not for someone with perfect conditions.", examples: ["it is designed for people with 20 minutes a day", "it works for sensitive skin because it starts gently", "it is built for beginners, not experts", "it gives step-by-step support so nothing is guessed", "every order is a valid entry"] } },
+      { key: "proof", label: "What proof, structure, evidence, or mechanism supports the reframe?", helper: "Name what makes the reframe believable.", placeholder: "Type your answer here",
+        tooltip: { what: "Evidence, structure, reviews, process, support, or a guarantee that makes the claim feel safe.", examples: ["before and after photos", "200+ five-star reviews", "a money-back guarantee", "a simple 3-step process", "weekly support and checklists"] } },
+      { key: "offerPart", label: "What part of the offer directly handles this fear?", helper: "Name the inclusion or structure that reduces the objection.", placeholder: "Type your answer here",
+        tooltip: { what: "The specific feature, support structure, or guarantee that makes the buyer feel safer.", examples: ["10-minute daily lessons", "personalised starter checklist", "no-questions money-back guarantee", "beginner-only onboarding", "step-by-step templates"] } },
+      { key: "offer", label: "What is the offer?", helper: "Name what they can buy or access.", placeholder: "Type your answer here",
+        tooltip: { what: "The product, service, package, or program being positioned.", examples: ["skincare starter kit", "puppy training program", "bookkeeping clean-up package", "bridal makeup package", "weeknight meal plan"] } }
+    ]
+  },
+  {
+    id: "discount-swap",
+    title: "The Discount Swap",
+    subtext: "Raise certainty without lowering your price.",
+    bestUsedWhen: "You feel tempted to lower the price, but the real issue is that the buyer needs more certainty, safety, or value clarity.",
+    guidance: "This framework helps you understand why discounting is usually the wrong lever, and what to use instead.\n\nThe 6 options give you: a clean swap line, a punchier anti-discount line, a sales page or value explanation, a caption hook, a story slide, and an email angle.\n\nThe outputs are pricing and messaging decision lines, not standard offer headlines. They show how to raise certainty through risk reversal, value completion, or payment flexibility, without lowering perceived value.",
+    generate: DISCOUNT_GENERATE,
+    fields: [
+      OFFER_TYPE_FIELD,
+      { key: "buyerType", label: "Who is the buyer?", helper: "Describe who needs more certainty, not a cheaper price.", placeholder: "Type your answer here",
+        tooltip: { what: "The person who may hesitate because they need more confidence, not because the price is actually too high.", examples: ["cautious first-time buyers", "small business owners watching expenses", "parents who hate wasting money", "skincare buyers with product fatigue", "couples comparing service providers"] } },
+      { key: "offer", label: "What is the offer?", helper: "Name what you are selling.", placeholder: "Type your answer here",
+        tooltip: { what: "The product, service, bundle, or package you are tempted to discount.", examples: ["family photography package", "skincare routine bundle", "dog training course", "bookkeeping package", "interior design consultation"] } },
+      { key: "price", label: "What is the current price or normal value?", helper: "Write the full price before any discount.", placeholder: "Type your answer here",
+        tooltip: { what: "The actual price. This is the number you want to protect.", examples: ["$97", "$250", "$497", "$1,200", "$3,000"] } },
+      { key: "discount", label: "What discount were you tempted to offer?", helper: "Name the discount you were considering.", placeholder: "Type your answer here",
+        tooltip: { what: "The price cut, percentage, or reduced offer you were thinking of using.", examples: ["20% off", "$100 off", "half-price trial", "early bird price", "buy one get one free"] } },
+      { key: "discountReason", label: "Why did you feel tempted to discount?", helper: "Name the belief or pressure behind the discount.", placeholder: "Type your answer here",
+        tooltip: { what: "This reveals whether the discount is coming from strategy or fear. Most discounts come from fear.", examples: ["they might say no", "competitors are cheaper", "I want more fast sales", "I feel uncomfortable charging full price", "I am worried the value is not clear enough"] } },
+      { key: "certaintyLever", label: "Which certainty lever are you using instead?", helper: "Choose the stronger alternative to discounting.", type: "select",
+        tooltip: { what: "Pick the method that makes the decision feel safer without reducing the total value of your offer.", examples: ["Risk reversal: a guarantee, trial period, or money-back offer", "Value completion: a bonus, bundle addition, or extra inclusion", "Payment flexibility: a split payment, deposit, or deferred option"] },
+        options: [
+          { value: "risk reversal", label: "Risk reversal" },
+          { value: "value completion", label: "Value completion" },
+          { value: "payment flexibility", label: "Payment flexibility" }
+        ] },
+      { key: "adjustment", label: "What can you add, adjust, guarantee, bundle, or make easier instead?", helper: "Name the bonus, support, guarantee, or payment option.", placeholder: "Type your answer here",
+        tooltip: { what: "What raises certainty instead of reducing price.", examples: ["a 2-payment plan", "30-day satisfaction guarantee", "bonus consultation session", "quick-start guide included", "extra follow-up check-in"] } },
+      { key: "buyerFear", label: "What buyer fear does this reduce?", helper: "Name the worry this solves.", placeholder: "Type your answer here",
+        tooltip: { what: "The concern that makes the buyer hesitate. This is what the certainty lever directly addresses.", examples: ["wasting money on something that does not work", "not getting the result they hoped for", "choosing the wrong option", "not having enough support after buying", "feeling overwhelmed once they start"] } }
+    ]
+  },
+  {
+    id: "identity-mirror",
+    title: "The Identity Mirror",
+    subtext: "Sell the version of her she is becoming.",
+    bestUsedWhen: "The offer needs to speak to who the buyer is becoming, not just the practical result they are getting.",
+    guidance: "This framework positions your offer around who the buyer is becoming, not just what they are getting.\n\nThe 6 options give you: a clean identity mirror line, a punchier identity shift, a sales page version, a caption hook, a story slide, and an email angle.\n\nEvery output must include the buyer now, the buyer next, and the offer as the bridge. Do not turn this into only a result promise. The identity shift is the main idea.",
+    generate: IDENTITY_GENERATE,
+    fields: [
+      OFFER_TYPE_FIELD,
+      { key: "buyerType", label: "Who is the buyer?", helper: "Describe the person ready for an identity shift.", placeholder: "Type your answer here",
+        tooltip: { what: "Name the person who wants to feel like a different version of themselves after buying.", examples: ["women tired of hiding their skin", "new runners wanting confidence", "homeowners ready for a calmer space", "new dog owners wanting control", "small business owners ready to feel organised"] } },
+      { key: "buyerNow", label: "Who is your buyer right now?", helper: "Describe their current identity or situation.", placeholder: "Type your answer here",
+        tooltip: { what: "The version of them before the transformation, specific enough to feel recognisable.", examples: ["the woman hiding behind makeup", "the parent guessing what to cook every night", "the dog owner avoiding busy streets", "the founder avoiding their numbers", "the bride overthinking every detail"] } },
+      { key: "tiredOf", label: "What are they tired of being, doing, or tolerating?", helper: "Name the identity or pattern they are ready to leave behind.", placeholder: "Type your answer here",
+        tooltip: { what: "Makes the identity shift feel emotionally specific. Names what they are done with.", examples: ["always overthinking", "hiding from photos", "guessing every decision", "feeling unprepared", "avoiding the problem entirely"] } },
+      { key: "buyerNext", label: "Who are they ready to become?", helper: "Describe the next version of them, the identity they are moving toward.", placeholder: "Type your answer here",
+        tooltip: { what: "The version of themselves they want to step into. This is who they are buying.", examples: ["the woman who trusts her skin", "the parent who feels prepared", "the dog owner who feels calm in public", "the business owner who knows her numbers", "the bride who feels calm and beautiful"] } },
+      { key: "offerHelps", label: "What practical bridge does the offer create?", helper: "Name the practical action or result the offer creates.", placeholder: "Type your answer here",
+        tooltip: { what: "The practical change your offer helps create. This is how the identity shift becomes real.", examples: ["simplify weeknight dinners", "repair her skin barrier", "train calm walking behaviour", "organise her business finances", "choose a clear, confident wedding look"] } },
+      { key: "offer", label: "What is the offer?", helper: "Name the bridge they can buy or access.", placeholder: "Type your answer here",
+        tooltip: { what: "The product, service, package, or program that helps create the identity shift.", examples: ["skincare repair system", "beginner running plan", "home organisation package", "puppy training program", "bookkeeping clean-up service"] } },
+      { key: "bridge", label: "What is the transformation or from-to shift?", helper: "Describe the from-to shift in simple terms.", placeholder: "Type your answer here",
+        tooltip: { what: "Write the transformation in a simple \"from this to that\" format.", examples: ["from hiding to confident", "from chaotic dinners to calm evenings", "from reactive walks to relaxed walks", "from messy books to clean numbers", "from decision fatigue to clear choices"] } }
+    ]
+  }
+];
+
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+   State, storage, routing
+   ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+var STORAGE_KEY = "wmhq-nbog-v1";
+var state = { inputs: {}, results: null, energy: "SAFE" };
+
+function loadState() {
+  try {
+    var raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) state.inputs = JSON.parse(raw) || {};
+  } catch (e) { state.inputs = {}; }
+}
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state.inputs)); } catch (e) {}
+}
+function getInputs(fwId) {
+  if (!state.inputs[fwId]) state.inputs[fwId] = {};
+  return state.inputs[fwId];
+}
+
+function getFrameworkById(id) {
+  for (var i = 0; i < FRAMEWORKS.length; i++) {
+    if (FRAMEWORKS[i].id === id) return FRAMEWORKS[i];
+  }
+  return null;
+}
+
+function navigate(hash) {
+  if (location.hash === hash) { render(); } else { location.hash = hash; }
+}
+
+window.addEventListener("hashchange", function () {
+  state.results = null;
+  state.energy = "SAFE";
+  render();
+  window.scrollTo(0, 0);
+});
+
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+   DOM helpers
+   ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+function el(tag, cls, text) {
+  var node = document.createElement(tag);
+  if (cls) node.className = cls;
+  if (text !== undefined && text !== null) node.textContent = text;
+  return node;
+}
+
+function closeAllTips(except) {
+  var open = document.querySelectorAll(".tip-wrap.open");
+  for (var i = 0; i < open.length; i++) {
+    if (open[i] !== except) open[i].classList.remove("open");
+  }
+}
+document.addEventListener("click", function (e) {
+  if (!e.target.closest(".tip-wrap")) closeAllTips(null);
+});
+
+function buildTooltip(tooltip) {
+  var wrap = el("div", "tip-wrap");
+  var btn = el("button", "tip-btn", "?");
+  btn.type = "button";
+  btn.setAttribute("aria-label", "Help");
+  var pop = el("div", "tip-pop");
+  if (tooltip.what) {
+    pop.appendChild(el("p", "tip-h", "What this means:"));
+    pop.appendChild(el("p", "tip-p", tooltip.what));
+  }
+  if (tooltip.examples && tooltip.examples.length) {
+    pop.appendChild(el("p", "tip-h", "Examples:"));
+    var ul = el("ul");
+    for (var i = 0; i < tooltip.examples.length; i++) {
+      ul.appendChild(el("li", null, tooltip.examples[i]));
+    }
+    pop.appendChild(ul);
+  }
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    var isOpen = wrap.classList.contains("open");
+    closeAllTips(null);
+    if (!isOpen) wrap.classList.add("open");
+  });
+  wrap.appendChild(btn);
+  wrap.appendChild(pop);
+  return wrap;
+}
+
+function buildField(fw, field) {
+  var inputs = getInputs(fw.id);
+  var wrap = el("div", "field");
+  var labelRow = el("div", "field-label-row");
+  var labelId = fw.id + "-" + field.key;
+  var label = el("label", "field-label", field.label);
+  label.setAttribute("for", labelId);
+  labelRow.appendChild(label);
+  if (field.tooltip) labelRow.appendChild(buildTooltip(field.tooltip));
+  wrap.appendChild(labelRow);
+  if (field.helper) wrap.appendChild(el("p", "field-helper", field.helper));
+
+  var control;
+  if (field.type === "select") {
+    control = document.createElement("select");
+    control.id = labelId;
+    var ph = document.createElement("option");
+    ph.value = "";
+    ph.textContent = "Select an option...";
+    control.appendChild(ph);
+    for (var i = 0; i < field.options.length; i++) {
+      var opt = document.createElement("option");
+      opt.value = field.options[i].value;
+      opt.textContent = field.options[i].label;
+      control.appendChild(opt);
+    }
+    control.value = inputs[field.key] || "";
+  } else {
+    control = document.createElement("input");
+    control.type = "text";
+    control.id = labelId;
+    control.placeholder = field.placeholder || "Type your answer here";
+    control.value = inputs[field.key] || "";
+  }
+  control.addEventListener("input", function () {
+    inputs[field.key] = control.value;
+    saveState();
+  });
+  control.addEventListener("change", function () {
+    inputs[field.key] = control.value;
+    saveState();
+  });
+  wrap.appendChild(control);
+  return wrap;
+}
+
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+   Views
+   ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+function renderHome(app) {
+  var intro = el("section", "card");
+  intro.appendChild(el("div", "card-num", "Read First"));
+  intro.appendChild(el("h2", null, "Before you generate"));
+  var rf = el("div", "read-first");
+  rf.appendChild(el("p", null, "This tool creates offer lines and messaging statements based on what you type into the fields. Use the outputs as strategic starting points, not final copy you blindly paste. Always check grammar, sharpen the language, and choose the version that best reflects your offer, audience, and brand voice."));
+  rf.appendChild(el("p", null, "The goal is not to give you one \"perfect\" answer. The goal is to show you different ways to strengthen your offer positioning, clarify the buying decision, and build better messaging from there."));
+  intro.appendChild(rf);
+  app.appendChild(intro);
+
+  var picker = el("section", "card");
+  picker.appendChild(el("div", "card-num", "Step 01"));
+  picker.appendChild(el("h2", null, "Choose Your Offer Framework"));
+  picker.appendChild(el("p", "card-sub", "How are you changing what your buyer believes?"));
+
+  for (var i = 0; i < FRAMEWORKS.length; i++) {
+    (function (fw) {
+      var row = el("button", "fw-row");
+      row.type = "button";
+      var textWrap = el("div");
+      textWrap.appendChild(el("div", "fw-title", fw.title));
+      textWrap.appendChild(el("div", "fw-subtext", fw.subtext));
+      row.appendChild(textWrap);
+      var arrow = el("span", "fw-arrow");
+      arrow.innerHTML = "&rsaquo;";
+      arrow.setAttribute("aria-hidden", "true");
+      row.appendChild(arrow);
+      row.addEventListener("click", function () { navigate("#/framework/" + fw.id); });
+      picker.appendChild(row);
+    })(FRAMEWORKS[i]);
+  }
+
+  picker.appendChild(el("p", "save-note", "Everything you type saves to this browser only. If you switch devices, clear your cookies or use incognito, your saved answers will start fresh."));
+  app.appendChild(picker);
+}
+
+function buildTopBar(fw) {
+  var bar = el("div", "fw-topbar");
+  bar.appendChild(el("span", "fw-pill", fw.title));
+  var back = el("button", "btn-pill-ghost", "Start Over");
+  back.type = "button";
+  back.addEventListener("click", function () {
+    state.inputs[fw.id] = {};
+    saveState();
+    state.results = null;
+    navigate("#/");
+  });
+  bar.appendChild(back);
+  return bar;
+}
+
+function renderFramework(app, fw) {
+  var card = el("section", "card");
+  card.appendChild(buildTopBar(fw));
+  card.appendChild(el("div", "card-num", "Framework " + String(FRAMEWORKS.indexOf(fw) + 1).padStart(2, "0")));
+  card.appendChild(el("h2", null, fw.title));
+  card.appendChild(el("p", "card-sub", fw.subtext));
+
+  card.appendChild(buildAccordion("Best used when", [fw.bestUsedWhen]));
+  card.appendChild(buildAccordion("What this framework will help you do", fw.guidance.split("\n\n")));
+
+  var fieldsWrap = el("div");
+  fieldsWrap.style.marginTop = "26px";
+  for (var i = 0; i < fw.fields.length; i++) {
+    fieldsWrap.appendChild(buildField(fw, fw.fields[i]));
+  }
+  card.appendChild(fieldsWrap);
+
+  var btnRow = el("div", "btn-row");
+  var genBtn = el("button", "btn-pill-dark", "Generate My Options");
+  genBtn.type = "button";
+  genBtn.addEventListener("click", function () {
+    var v = getInputs(fw.id);
+    state.results = {
+      safe: fw.generate(v, false),
+      spicy: fw.generate(v, true)
+    };
+    state.energy = "SAFE";
+    render();
+    window.scrollTo(0, 0);
+  });
+  btnRow.appendChild(genBtn);
+  card.appendChild(btnRow);
+
+  card.appendChild(el("p", "save-note", "Your answers save to this browser only. If you switch devices, clear your cookies or use incognito, they will start fresh."));
+  app.appendChild(card);
+}
+
+function buildAccordion(title, paragraphs) {
+  var acc = el("div", "acc");
+  var head = el("button", "acc-head");
+  head.type = "button";
+  head.appendChild(el("span", "acc-title", title));
+  var chev = el("span", "acc-chev", "‚ñº");
+  chev.setAttribute("aria-hidden", "true");
+  head.appendChild(chev);
+  head.setAttribute("aria-expanded", "false");
+  var body = el("div", "acc-body");
+  body.appendChild(el("div", "acc-rule"));
+  for (var i = 0; i < paragraphs.length; i++) {
+    if (paragraphs[i]) body.appendChild(el("p", null, paragraphs[i]));
+  }
+  head.addEventListener("click", function () {
+    var open = acc.classList.toggle("open");
+    head.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+  acc.appendChild(head);
+  acc.appendChild(body);
+  return acc;
+}
+
+function renderResults(app, fw) {
+  var card = el("section", "card");
+  card.appendChild(buildTopBar(fw));
+  card.appendChild(el("div", "card-num", "Your Results"));
+  card.appendChild(el("h2", null, "Your Offer Options"));
+
+  var energyRow = el("div", "energy-row");
+  energyRow.appendChild(el("span", "energy-label", "Choose your output energy:"));
+  var toggle = el("div", "energy-toggle");
+  ["SAFE", "SPICY"].forEach(function (opt) {
+    var b = el("button", state.energy === opt ? "active" : "", opt);
+    b.type = "button";
+    b.addEventListener("click", function () {
+      state.energy = opt;
+      render();
+    });
+    toggle.appendChild(b);
+  });
+  energyRow.appendChild(toggle);
+  card.appendChild(energyRow);
+
+  card.appendChild(el("p", "strategy-note", "Do not use all 6. Choose the one that creates the clearest yes for your buyer. These options are designed to show you different ways to apply the framework across offer lines, campaign messaging, captions, sales pages, stories, emails, and launch content."));
+
+  var outputs = state.energy === "SPICY" ? state.results.spicy : state.results.safe;
+  for (var i = 0; i < outputs.length; i++) {
+    (function (content, idx) {
+      var oc = el("div", "output-card");
+      var head = el("div", "output-head");
+      head.appendChild(el("span", "output-label", "Option " + (idx + 1)));
+      var copyBtn = el("button", "copy-btn", "Copy");
+      copyBtn.type = "button";
+      copyBtn.addEventListener("click", function () {
+        function done() {
+          copyBtn.textContent = "Copied";
+          copyBtn.classList.add("copied");
+          setTimeout(function () {
+            copyBtn.textContent = "Copy";
+            copyBtn.classList.remove("copied");
+          }, 2000);
+        }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(content).then(done, function () { fallbackCopy(content); done(); });
+        } else {
+          fallbackCopy(content);
+          done();
+        }
+      });
+      head.appendChild(copyBtn);
+      oc.appendChild(head);
+      oc.appendChild(el("p", "output-text", content));
+      oc.appendChild(el("p", "output-use", "Use this as an offer line, campaign angle, caption hook, sales page section, story slide, email, or launch message."));
+      card.appendChild(oc);
+    })(outputs[i], i);
+  }
+
+  var btnRow = el("div", "btn-row");
+  var editBtn = el("button", "btn-pill-ghost", "Edit Inputs");
+  editBtn.type = "button";
+  editBtn.addEventListener("click", function () {
+    state.results = null;
+    render();
+    window.scrollTo(0, 0);
+  });
+  btnRow.appendChild(editBtn);
+  var pdfBtn = el("button", "btn-pill-ghost", "Save as PDF");
+  pdfBtn.type = "button";
+  pdfBtn.addEventListener("click", function () { window.print(); });
+  btnRow.appendChild(pdfBtn);
+  card.appendChild(btnRow);
+  app.appendChild(card);
+}
+
+function fallbackCopy(text) {
+  var ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.opacity = "0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
+/* ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ
+   Router
+   ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+function render() {
+  var app = document.getElementById("app");
+  app.innerHTML = "";
+  var hash = location.hash || "#/";
+  var match = hash.match(/^#\/framework\/([a-z-]+)/);
+  if (match) {
+    var fw = getFrameworkById(match[1]);
+    if (!fw) { renderHome(app); return; }
+    if (state.results) {
+      renderResults(app, fw);
+    } else {
+      renderFramework(app, fw);
+    }
+  } else {
+    renderHome(app);
+  }
+}
+
+loadState();
+render();
+</script>
+</body>
+</html>
