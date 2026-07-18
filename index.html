@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WMHQ Tools | Woman Mastery HQ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%233D0D0C'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='52' font-weight='800' fill='%23F2C6D0' text-anchor='middle'%3EW%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep-red: #660810;
+  --dark-red: #3D0D0C;
+  --merlot: #3D0D0C;
+  --blush: #F2C6D0;
+  --stone: #f1ebeb;
+  --off-white: #f2f2f2;
+  --card-bg: #ffffff;
+  --card-soft: #f7f7f7;
+  --ink: #1a0a0a;
+  --muted: #7a5a5a;
+  --taupe: #7a5a5a;
+  --border: rgba(61,13,12,0.09);
+  --border-strong: rgba(61,13,12,0.2);
+  --green-ok: #4E8A52;
+  --sidebar-w: 260px;
+}
+
+/* pillar tokens */
+.pillar-influence    { --pillar: #E6EDFA; --pillar-deep: #6E86B5; }
+.pillar-visibility   { --pillar: #FBEEE4; --pillar-deep: #B88A66; }
+.pillar-cash         { --pillar: #E6EFE7; --pillar-deep: #7A9C7C; }
+.pillar-identity     { --pillar: #EDE8F4; --pillar-deep: #8E7EB0; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; }
+
+/* ============ SIDEBAR ============ */
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  width: var(--sidebar-w);
+  height: 100vh;
+  background: var(--dark-red);
+  padding: 34px 24px 30px;
+  display: flex;
+  flex-direction: column;
+  z-index: 60;
+  overflow: hidden;
+}
+.sidebar::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(241,235,235,0.03) 60px);
+  pointer-events: none;
+}
+.sb-brand { position: relative; z-index: 2; }
+.sb-wordmark {
+  font-size: 17px; font-weight: 800; letter-spacing: -0.01em;
+  color: var(--stone); line-height: 1.15;
+}
+.sb-eyebrow {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--blush);
+  margin-top: 8px;
+}
+.sb-divider {
+  height: 1px; background: rgba(241,235,235,0.12);
+  margin: 26px 0 22px; position: relative; z-index: 2;
+}
+.sb-nav { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 4px; }
+.sb-link {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.01em;
+  color: rgba(241,235,235,0.72);
+  text-decoration: none;
+  padding: 11px 14px; border-radius: 10px;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.sb-link:hover { background: rgba(241,235,235,0.06); color: var(--stone); }
+.sb-link.active { background: rgba(241,235,235,0.09); color: var(--stone); }
+.sb-link .arr { font-size: 12px; opacity: 0.55; }
+.sb-group-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: rgba(242,198,208,0.55);
+  padding: 0 14px; margin: 22px 0 8px; position: relative; z-index: 2;
+}
+.sb-foot {
+  margin-top: auto; position: relative; z-index: 2;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(241,235,235,0.4);
+}
+
+/* ============ MOBILE HEADER ============ */
+.mobile-bar {
+  display: none;
+  position: sticky; top: 0; z-index: 50;
+  background: var(--dark-red);
+  padding: 14px 18px;
+  align-items: center; gap: 14px;
+}
+.mobile-bar .mm-word { font-size: 15px; font-weight: 800; color: var(--stone); letter-spacing: -0.01em; }
+.hamburger {
+  background: transparent; border: none; cursor: pointer;
+  width: 26px; height: 20px; position: relative; padding: 0;
+}
+.hamburger span { position: absolute; left: 0; width: 100%; height: 2px; background: var(--stone); border-radius: 2px; }
+.hamburger span:nth-child(1) { top: 0; }
+.hamburger span:nth-child(2) { top: 9px; }
+.hamburger span:nth-child(3) { top: 18px; }
+.backdrop {
+  display: none;
+  position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 55;
+}
+.sb-close {
+  display: none;
+  position: absolute; top: 22px; right: 20px; z-index: 4;
+  background: transparent; border: none; color: var(--stone);
+  font-size: 22px; cursor: pointer; line-height: 1;
+}
+
+/* ============ MAIN ============ */
+.main { margin-left: var(--sidebar-w); min-height: 100vh; }
+
+/* hero */
+.hero {
+  background: var(--dark-red);
+  padding: 60px 40px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(241,235,235,0.03) 80px);
+  pointer-events: none;
+}
+.hero-logo {
+  position: absolute; top: 24px; left: 40px; z-index: 2;
+  font-size: 12px; font-weight: 800; letter-spacing: 0.18em;
+  color: rgba(242,198,208,0.9);
+}
+.hero-inner { position: relative; z-index: 2; max-width: 880px; margin: 12px auto 0; text-align: center; }
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 10px; font-weight: 800; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--blush);
+  border: 1px solid rgba(242,198,208,0.3);
+  padding: 7px 18px; margin-bottom: 22px;
+}
+.hero h1 {
+  font-size: clamp(30px, 4.6vw, 50px);
+  font-weight: 800; letter-spacing: -0.02em; line-height: 1.05;
+  color: var(--stone);
+}
+.hero h1 em { font-style: normal; color: var(--blush); }
+.hero-sub {
+  margin-top: 16px; font-size: 14px; font-weight: 500;
+  letter-spacing: 0.04em; color: rgba(241,235,235,0.7);
+}
+
+/* body */
+.body { max-width: 1120px; margin: 0 auto; padding: 46px 40px 20px; }
+
+.section-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.24em;
+  text-transform: uppercase; color: var(--taupe); margin-bottom: 12px;
+}
+.section-head h2 {
+  font-size: clamp(24px, 3vw, 32px); font-weight: 800;
+  letter-spacing: -0.02em; line-height: 1.1; color: var(--ink);
+}
+.section-head p { font-size: 14px; color: var(--muted); margin-top: 6px; }
+
+/* filters */
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 30px; }
+.filter-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: inherit; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: none;
+  padding: 9px 20px; border-radius: 100px; cursor: pointer;
+  background: var(--card-bg); color: var(--ink);
+  border: 1px solid var(--border-strong);
+  transition: all 0.18s ease;
+}
+.filter-pill .fdot { width: 8px; height: 8px; border-radius: 50%; }
+.filter-pill:hover { border-color: var(--merlot); }
+.filter-pill.active { background: var(--merlot); color: var(--stone); border-color: var(--merlot); }
+.filter-pill.active .fdot { box-shadow: 0 0 0 2px rgba(241,235,235,0.25); }
+
+/* grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+/* card */
+.tool-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 0 0 26px;
+  box-shadow: 0 1px 2px rgba(61,13,12,0.03);
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tool-card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(61,13,12,0.1); }
+.tool-accent { height: 4px; width: 100%; background: var(--pillar-deep); opacity: 0.85; }
+.tool-body { padding: 24px 28px 0; display: flex; flex-direction: column; flex: 1; }
+.tool-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+.tool-pillar { display: inline-flex; align-items: center; gap: 8px; }
+.tool-pillar .pdot { width: 8px; height: 8px; border-radius: 50%; background: var(--pillar-deep); }
+.tool-pillar span {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--pillar-deep);
+}
+.tool-new {
+  font-size: 9px; font-weight: 800; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--deep-red);
+  border: 1px solid rgba(102,8,16,0.3); border-radius: 100px;
+  padding: 4px 11px;
+}
+.tool-card h3 {
+  font-size: 21px; font-weight: 800; letter-spacing: -0.015em;
+  line-height: 1.2; color: var(--ink); margin-bottom: 14px;
+}
+.tool-rule { height: 1px; background: var(--border); margin-bottom: 14px; }
+.tool-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
+.tool-cta-wrap { padding: 0 28px; }
+.tool-cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  width: 100%; text-decoration: none;
+  padding: 15px 24px; background: var(--merlot); color: var(--stone);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; border-radius: 100px;
+  transition: background 0.18s ease;
+}
+.tool-cta:hover { background: var(--deep-red); }
+.tool-cta .arr { font-size: 13px; }
+
+.empty-state {
+  grid-column: 1 / -1; text-align: center;
+  padding: 60px 24px; color: var(--muted); font-size: 14px;
+}
+
+/* IP disclaimer */
+.pdf-disclaimer {
+  font-size: 10.5px; line-height: 1.6; color: var(--muted);
+  opacity: 0.55; max-width: 640px; margin: 40px auto 46px;
+  text-align: center; padding: 0 24px; font-weight: 400;
+}
+
+/* footer */
+.wmhq-footer {
+  background: var(--merlot); color: rgba(241,235,235,0.55);
+  padding: 26px 24px 30px; text-align: center;
+  border-top: 1px solid rgba(241,235,235,0.08);
+}
+.wmhq-footer-inner { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.wmhq-footer-copy { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(241,235,235,0.7); }
+.wmhq-footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.wmhq-footer-links a { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(241,235,235,0.5); text-decoration: none; }
+.wmhq-footer-links a:hover { color: var(--blush); }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 980px) {
+  .main { margin-left: 0; }
+  .mobile-bar { display: flex; }
+  .sidebar {
+    transform: translateX(-100%);
+    transition: transform 0.28s ease;
+    box-shadow: 0 0 40px rgba(0,0,0,0.4);
+  }
+  .sidebar.open { transform: translateX(0); }
+  .sb-close { display: block; }
+  body.nav-open .backdrop { display: block; }
+  .hero { padding: 52px 24px 48px; }
+  .hero-logo { left: 24px; }
+  .body { padding: 36px 22px 20px; }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
+
+*:focus-visible { outline: 2px solid var(--deep-red); outline-offset: 2px; }
+</style>
+</head>
+<body>
+
+<!-- MOBILE HEADER -->
+<div class="mobile-bar">
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+  <span class="mm-word">Woman Mastery HQ</span>
+</div>
+<div class="backdrop" id="backdrop"></div>
+
+<!-- SIDEBAR -->
+<aside class="sidebar" id="sidebar">
+  <button class="sb-close" id="sbClose" aria-label="Close menu">&times;</button>
+  <div class="sb-brand">
+    <div class="sb-wordmark">Woman Mastery HQ</div>
+    <div class="sb-eyebrow">Personal Portal</div>
+  </div>
+  <div class="sb-divider"></div>
+  <nav class="sb-nav">
+    <a class="sb-link active" href="#">Dashboard</a>
+
+    <div class="sb-group-label">Access</div>
+    <a class="sb-link" href="https://womanmasteryhqportal.com" target="_blank" rel="noopener">Login WMHQ Portal <span class="arr">&#8599;</span></a>
+    <a class="sb-link" href="https://www.jessicapinili.com/login" target="_blank" rel="noopener">Login WMHQ Vault <span class="arr">&#8599;</span></a>
+  </nav>
+  <div class="sb-foot">Members Only</div>
+</aside>
+
+<!-- MAIN -->
+<div class="main">
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-logo">WMHQ</div>
+    <div class="hero-inner">
+      <span class="hero-eyebrow">Personal Portal</span>
+      <h1>Woman Mastery <em>HQ</em></h1>
+      <p class="hero-sub">Strategy. Subconscious. Mastery.</p>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <main class="body">
+    <div class="section-head">
+      <div class="section-eyebrow">Member Tools</div>
+      <h2>WMHQ Tools</h2>
+      <p>Select a tool below to get started.</p>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters" id="filters">
+      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill" data-filter="influence"><span class="fdot" style="background:#6E86B5"></span>Influence</button>
+      <button class="filter-pill" data-filter="visibility"><span class="fdot" style="background:#B88A66"></span>Visibility</button>
+      <button class="filter-pill" data-filter="cash"><span class="fdot" style="background:#7A9C7C"></span>Cash</button>
+      <button class="filter-pill" data-filter="identity"><span class="fdot" style="background:#8E7EB0"></span>Identity</button>
+    </div>
+
+    <!-- GRID -->
+    <div class="grid" id="toolGrid"></div>
+  </main>
+
+  <!-- IP DISCLAIMER -->
+  <p class="pdf-disclaimer">This work is the sole property of Jessica Pinili. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, or create derivative works in any capacity. All rights on intellectual property of this digital product are proprietary and reserved for exclusive use by Jessica Pinili alone.</p>
+
+  <!-- FOOTER -->
+  <footer class="wmhq-footer">
+    <div class="wmhq-footer-inner">
+      <p class="wmhq-footer-copy">&copy; <span id="footerYear"></span> Jessica Pinili. All rights reserved.</p>
+      <div class="wmhq-footer-links">
+        <a href="https://www.jessicapinili.com/terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+        <a href="https://www.jessicapinili.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+/* =========================================================
+   EDIT HERE. This is the full tool list.
+   To add a tool, copy one block and change the values.
+   pillar must be one of: influence | visibility | cash | identity
+   isNew: true shows the NEW tag. Delete the line or set false to hide.
+   Put the real link in url.
+   ========================================================= */
+const TOOLS = [
+  {
+    title: "The Black Friday Sales Tool",
+    pillar: "cash",
+    isNew: true,
+    description: "Build one Black Friday offer worth buying. Price it without eating your profit, pick the right deal type, run the 30 day campaign, and architect the offer before you build anything.",
+    url: "https://blackfridaytool.womanmasteryhqportal.com/"
+  },
+  {
+    title: "WMHQ Offer Generator",
+    pillar: "influence",
+    description: "A strategic tool to help you sharpen your offers, clarify your messaging, and create higher converting copy using proven offer positioning frameworks.",
+    url: "#"
+  },
+  {
+    title: "WMHQ Influence Research Builder",
+    pillar: "influence",
+    description: "Map who you are really speaking to. Build the language, desires, and objections behind your messaging so your content lands with the right buyer.",
+    url: "#"
+  },
+  {
+    title: "WMHQ Belief Break Loop Tool",
+    pillar: "identity",
+    description: "Catch the belief driving the sabotage. Name the pattern, break the loop, and rewire the story keeping you smaller than your capacity.",
+    url: "#"
+  },
+  {
+    title: "WMHQ Signature Series Builder",
+    pillar: "visibility",
+    description: "Generate your ideas into a series your audience follows. Filter by education, inspiration, intrigue or entertainment.",
+    url: "#"
+  },
+  {
+    title: "WMHQ Hook Suite",
+    pillar: "visibility",
+    description: "Generate scroll stopping hooks for every stage of your funnel. Filter by content type, platform intent, and tone.",
+    url: "#"
+  },
+  {
+    title: "Conversion Calculator",
+    pillar: "cash",
+    description: "Know your numbers. Calculate what it takes to hit your revenue goals based on your offer price and conversion rate.",
+    url: "#"
+  },
+  {
+    title: "WMHQ I.L.N",
+    pillar: "cash",
+    description: "Calculate your ideal lifestyle number.",
+    url: "#"
+  },
+  {
+    title: "Capacity Breakthrough Method",
+    pillar: "identity",
+    description: "Identify the hidden capacity patterns keeping you from your next level.",
+    url: "#"
+  },
+  {
+    title: "WMHQ Vision Mapping",
+    pillar: "identity",
+    description: "Map your vision with clarity and intention to align your business with the life you're building.",
+    url: "#"
+  },
+  {
+    title: "Launch Campaign Dashboard",
+    pillar: "cash",
+    description: "The exact system to launch successfully.",
+    url: "#"
+  },
+  {
+    title: "Content Challenge Q1 | 2026 Dashboard",
+    pillar: "visibility",
+    description: "Click here to access and make a copy of the Notion dashboard for the content challenge.",
+    url: "#"
+  }
+];
+
+const PILLAR_LABEL = {
+  influence: "Influence",
+  visibility: "Visibility",
+  cash: "Cash",
+  identity: "Identity"
+};
+
+const grid = document.getElementById('toolGrid');
+
+function renderCards(filter) {
+  const list = filter === 'all' ? TOOLS : TOOLS.filter(t => t.pillar === filter);
+  if (!list.length) {
+    grid.innerHTML = '<div class="empty-state">No tools in this category yet.</div>';
+    return;
+  }
+  grid.innerHTML = list.map(t => `
+    <article class="tool-card pillar-${t.pillar}">
+      <div class="tool-accent"></div>
+      <div class="tool-body">
+        <div class="tool-top">
+          <span class="tool-pillar"><span class="pdot"></span><span>${PILLAR_LABEL[t.pillar]}</span></span>
+          ${t.isNew ? '<span class="tool-new">New</span>' : ''}
+        </div>
+        <h3>${t.title}</h3>
+        <div class="tool-rule"></div>
+        <p class="tool-desc">${t.description}</p>
+      </div>
+      <div class="tool-cta-wrap">
+        <a class="tool-cta" href="${t.url}" target="_blank" rel="noopener">Open Tool <span class="arr">&#8599;</span></a>
+      </div>
+    </article>
+  `).join('');
+}
+
+/* filters + remember choice for this browser */
+const filters = document.getElementById('filters');
+let active = localStorage.getItem('wmhq_tool_filter') || 'all';
+if (!PILLAR_LABEL[active] && active !== 'all') active = 'all';
+
+function setActive(filter) {
+  active = filter;
+  localStorage.setItem('wmhq_tool_filter', filter);
+  [...filters.children].forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
+  renderCards(filter);
+}
+filters.addEventListener('click', e => {
+  const btn = e.target.closest('.filter-pill');
+  if (btn) setActive(btn.dataset.filter);
+});
+setActive(active);
+
+/* mobile nav */
+const sidebar = document.getElementById('sidebar');
+const backdrop = document.getElementById('backdrop');
+function openNav() { sidebar.classList.add('open'); document.body.classList.add('nav-open'); }
+function closeNav() { sidebar.classList.remove('open'); document.body.classList.remove('nav-open'); }
+document.getElementById('hamburger').addEventListener('click', openNav);
+document.getElementById('sbClose').addEventListener('click', closeNav);
+backdrop.addEventListener('click', closeNav);
+
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
