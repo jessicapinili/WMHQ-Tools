@@ -1,1 +1,2517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Influence Research Builder | Woman Mastery HQ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%238a2121'/%3E%3Ctext x='32' y='31' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23f8f1e2' text-anchor='middle'%3EWM%3C/text%3E%3Ctext x='32' y='58' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23f8f1e2' text-anchor='middle'%3EHQ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep-red: #660810;
+  --dark-red: #3D0D0C;
+  --merlot: #3D0D0C;
+  --blush: #F2C6D0;
+  --stone: #f1ebeb;
+  --off-white: #f2f2f2;
+  --card-bg: #ffffff;
+  --card-soft: #f7f7f7;
+  --ink: #1a0a0a;
+  --muted: #7a5a5a;
+  --taupe: #7a5a5a;
+  --border: rgba(61,13,12,0.09);
+  --border-strong: rgba(61,13,12,0.2);
+  --green-ok: #4E8A52;
+}
 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ‚îÄ‚îÄ Top nav ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.topnav {
+  position: sticky; top: 0; z-index: 40;
+  background: var(--merlot);
+  border-bottom: 1px solid rgba(241,235,235,0.08);
+}
+.topnav-inner {
+  max-width: 980px; margin: 0 auto; padding: 0 24px;
+  height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.brand { display: flex; align-items: baseline; gap: 10px; background: none; border: none; cursor: pointer; font-family: inherit; padding: 0; }
+.brand-mark { font-size: 13px; font-weight: 800; letter-spacing: 0.2em; color: var(--stone); text-transform: uppercase; }
+.brand-sub { font-size: 8.5px; font-weight: 600; letter-spacing: 0.16em; color: rgba(242,198,208,0.6); text-transform: uppercase; }
+@media (max-width: 640px) { .brand-sub { display: none; } }
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-link {
+  font-family: inherit; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(241,235,235,0.6); background: transparent;
+  border: 1px solid transparent; border-radius: 100px;
+  padding: 7px 14px; cursor: pointer; text-decoration: none;
+  transition: color 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+.nav-link:hover { color: var(--blush); }
+.nav-link.active { background: var(--blush); color: var(--merlot); }
+@media (max-width: 720px) { .nav-link { padding: 7px 9px; font-size: 9px; letter-spacing: 0.08em; } }
+
+/* ‚îÄ‚îÄ Hero ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.hero {
+  background: var(--dark-red);
+  padding: 62px 24px 58px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(241,235,235,0.03) 80px);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--blush);
+  border: 1px solid rgba(242,198,208,0.3);
+  padding: 7px 18px; margin-bottom: 24px;
+  position: relative; z-index: 1;
+}
+.hero h1 {
+  font-size: clamp(28px, 4.2vw, 46px);
+  font-weight: 800; letter-spacing: -0.02em; line-height: 1.1;
+  color: var(--stone); max-width: 760px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.hero h1 em { font-style: normal; color: var(--blush); }
+.hero-sub {
+  font-size: 15px; color: rgba(241,235,235,0.75);
+  max-width: 560px; margin: 16px auto 0; line-height: 1.65;
+  position: relative; z-index: 1;
+}
+
+/* ‚îÄ‚îÄ Body / cards ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.body { max-width: 880px; margin: 0 auto; padding: 44px 24px 30px; }
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 34px 34px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(61,13,12,0.03);
+}
+.card-num {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--taupe); margin-bottom: 12px;
+}
+.card h2 {
+  font-size: clamp(21px, 2.6vw, 28px);
+  font-weight: 800; letter-spacing: -0.015em;
+  line-height: 1.16; margin-bottom: 8px; color: var(--ink);
+}
+.card h3 {
+  font-size: 17px; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--ink); margin-bottom: 6px;
+}
+.card-sub {
+  font-size: 14px; color: var(--muted);
+  margin-bottom: 22px; line-height: 1.6; max-width: 640px;
+}
+
+.soft-box {
+  background: var(--card-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+.soft-box p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+.soft-box p + p { margin-top: 8px; }
+.soft-box .sb-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--deep-red); margin-bottom: 7px;
+}
+
+.dark-panel {
+  background: var(--merlot); color: var(--stone);
+  border-radius: 14px; padding: 24px 26px;
+}
+.dark-panel .dp-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--blush); margin-bottom: 8px;
+}
+.dark-panel h3 { color: var(--stone); font-size: 20px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.015em; }
+.dark-panel p { font-size: 13.5px; color: rgba(241,235,235,0.78); line-height: 1.7; }
+
+/* Tool cards on home */
+.tool-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+@media (max-width: 720px) { .tool-grid { grid-template-columns: 1fr; } }
+.tool-card {
+  background: var(--card-bg); border: 1px solid var(--border);
+  border-radius: 14px; padding: 26px 26px 28px;
+  display: flex; flex-direction: column;
+}
+.tool-card.dark { background: var(--merlot); border-color: var(--merlot); }
+.tool-tag {
+  display: inline-block; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  border-radius: 100px; padding: 4px 11px;
+  color: var(--deep-red); border: 1px solid var(--border-strong); background: var(--card-soft);
+}
+.tool-card.dark .tool-tag { color: var(--blush); border-color: rgba(242,198,208,0.3); background: rgba(242,198,208,0.1); }
+.tool-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--taupe); margin: 18px 0 6px; }
+.tool-card.dark .tool-eyebrow { color: rgba(242,198,208,0.6); }
+.tool-card h3 { font-size: 21px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.2; margin-bottom: 8px; color: var(--ink); }
+.tool-card.dark h3 { color: var(--stone); }
+.tool-card p { font-size: 13px; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 22px; }
+.tool-card.dark p { color: rgba(241,235,235,0.72); }
+
+/* ‚îÄ‚îÄ Buttons ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.btn-pill-dark {
+  padding: 13px 28px; background: var(--merlot); color: var(--stone);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; border: none; border-radius: 100px;
+  cursor: pointer; font-family: inherit;
+}
+.btn-pill-dark:hover { background: var(--deep-red); }
+.btn-pill-dark:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-pill-ghost {
+  padding: 11px 22px; background: transparent; color: var(--merlot);
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; border: 1px solid var(--border-strong);
+  border-radius: 100px; cursor: pointer; font-family: inherit;
+}
+.btn-pill-ghost:hover { border-color: var(--deep-red); color: var(--deep-red); }
+.btn-pill-ghost:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-blush {
+  padding: 12px 26px; background: var(--blush); color: var(--merlot);
+  font-size: 10.5px; font-weight: 800; letter-spacing: 0.14em;
+  text-transform: uppercase; border: none; border-radius: 100px;
+  cursor: pointer; font-family: inherit;
+}
+.btn-blush:hover { background: #fff; }
+.btn-danger {
+  padding: 11px 22px; background: transparent; color: #8a2020;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; border: 1px solid rgba(138,32,32,0.3);
+  border-radius: 100px; cursor: pointer; font-family: inherit;
+}
+.btn-danger:hover { background: rgba(138,32,32,0.06); }
+.btn-mini {
+  font-family: inherit; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--merlot); background: var(--card-bg);
+  border: 1px solid var(--border-strong); border-radius: 100px;
+  padding: 6px 13px; cursor: pointer;
+}
+.btn-mini:hover { border-color: var(--deep-red); color: var(--deep-red); }
+.btn-mini.copied { color: var(--green-ok); border-color: var(--green-ok); }
+.btn-mini.danger { color: #8a2020; }
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 26px; }
+.btn-row.split { justify-content: space-between; }
+
+/* ‚îÄ‚îÄ Step pills ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.steps-bar { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 18px; }
+.step-pill {
+  font-family: inherit; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  white-space: nowrap; border-radius: 100px; padding: 9px 16px;
+  border: 1px solid var(--border-strong); background: var(--card-bg);
+  color: var(--muted); cursor: pointer;
+  display: flex; align-items: center; gap: 7px;
+}
+.step-pill:hover { border-color: var(--deep-red); }
+.step-pill.current { background: var(--merlot); border-color: var(--merlot); color: var(--stone); }
+.step-pill.done { color: var(--deep-red); border-color: rgba(102,8,16,0.4); }
+.step-pill .sp-num { opacity: 0.6; font-size: 9px; }
+
+/* ‚îÄ‚îÄ Fields ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.field { margin-bottom: 20px; }
+.field-label { font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.45; display: block; margin-bottom: 3px; }
+.field-helper { font-size: 11.5px; color: var(--muted); margin-bottom: 7px; line-height: 1.5; }
+.field input[type="text"], .field select, .field textarea,
+input[type="text"].inp, select.inp, textarea.inp {
+  width: 100%; font-family: inherit; font-size: 14px; color: var(--ink);
+  background: var(--card-soft); border: 1px solid var(--border-strong);
+  border-radius: 10px; padding: 11px 13px; outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  appearance: none;
+}
+.field textarea, textarea.inp { resize: vertical; line-height: 1.6; min-height: 62px; }
+.field select, select.inp {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%237a5a5a' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 13px center; padding-right: 34px;
+}
+.field input:focus, .field select:focus, .field textarea:focus,
+input.inp:focus, select.inp:focus, textarea.inp:focus {
+  border-color: var(--deep-red); box-shadow: 0 0 0 3px rgba(102,8,16,0.08);
+}
+.field input::placeholder, .field textarea::placeholder,
+input.inp::placeholder, textarea.inp::placeholder { color: rgba(122,90,90,0.45); }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+@media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+@media (max-width: 720px) { .grid-4 { grid-template-columns: 1fr 1fr; } }
+
+.subcard {
+  background: var(--card-soft); border: 1px solid var(--border);
+  border-radius: 12px; padding: 22px 22px 6px; margin-bottom: 16px;
+}
+.subcard-label {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--deep-red); margin-bottom: 4px;
+}
+.subcard-helper { font-size: 11.5px; color: var(--muted); line-height: 1.6; margin-bottom: 16px; }
+
+/* Pills multiselect */
+.pill-set { display: flex; flex-wrap: wrap; gap: 7px; }
+.pill-opt {
+  font-family: inherit; font-size: 11px; font-weight: 600;
+  padding: 6px 12px; border-radius: 100px; cursor: pointer;
+  border: 1px solid var(--border-strong); background: var(--card-bg); color: var(--muted);
+}
+.pill-opt.on { background: var(--merlot); border-color: var(--merlot); color: var(--stone); }
+
+/* Source picker */
+.source-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+@media (max-width: 720px) { .source-grid { grid-template-columns: 1fr 1fr; } }
+.source-btn {
+  font-family: inherit; text-align: left; cursor: pointer;
+  background: var(--card-bg); border: 1px solid var(--border-strong);
+  border-radius: 12px; padding: 14px 14px;
+  font-size: 12.5px; font-weight: 600; color: var(--ink);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.source-btn:hover { border-color: var(--deep-red); }
+.source-btn.on { background: var(--merlot); border-color: var(--merlot); color: var(--stone); }
+
+.bullet-list { list-style: none; margin-top: 8px; }
+.bullet-list li {
+  font-size: 13.5px; color: var(--ink); line-height: 1.6;
+  padding-left: 16px; position: relative; margin-bottom: 5px;
+}
+.bullet-list li::before {
+  content: ''; position: absolute; left: 0; top: 9px;
+  width: 5px; height: 5px; border-radius: 100px; background: var(--deep-red);
+}
+.check-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 14px; }
+@media (max-width: 640px) { .check-grid { grid-template-columns: 1fr 1fr; } }
+.check-grid div {
+  font-size: 13px; color: var(--ink); padding-left: 14px; position: relative;
+}
+.check-grid div::before {
+  content: ''; position: absolute; left: 0; top: 9px;
+  width: 4px; height: 4px; border-radius: 100px; background: var(--deep-red);
+}
+
+/* Entry cards */
+.entry {
+  background: var(--card-soft); border: 1px solid var(--border);
+  border-radius: 12px; margin-bottom: 10px; overflow: hidden;
+}
+.entry-head {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; padding: 13px 16px; background: transparent; border: none;
+  cursor: pointer; font-family: inherit; text-align: left;
+}
+.entry-head-left { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.tag {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  border-radius: 100px; padding: 3px 9px; white-space: nowrap;
+  border: 1px solid var(--border-strong); color: var(--muted); background: var(--card-bg);
+}
+.tag.solid { background: var(--merlot); border-color: var(--merlot); color: var(--stone); }
+.tag.blush { background: var(--blush); border-color: var(--blush); color: var(--merlot); }
+.entry-quote {
+  font-size: 12.5px; color: var(--muted); overflow: hidden;
+  text-overflow: ellipsis; white-space: nowrap;
+}
+.entry-body { display: none; padding: 0 16px 16px; border-top: 1px solid var(--border); }
+.entry.open .entry-body { display: block; }
+.entry-body .eb-quote { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.6; margin: 14px 0 12px; }
+.kv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; }
+@media (max-width: 640px) { .kv-grid { grid-template-columns: 1fr; } }
+.kv .kv-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--taupe); display: block;
+}
+.kv .kv-value { font-size: 13px; color: var(--ink); line-height: 1.55; }
+.kv.full { grid-column: 1 / -1; }
+.entry-actions { display: flex; gap: 7px; flex-wrap: wrap; margin-top: 14px; }
+
+/* Progress tracker */
+.tracker { background: var(--card-soft); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; }
+.tracker-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.tracker-head span:first-child { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--taupe); }
+.tracker-head span:last-child { font-size: 12px; font-weight: 700; color: var(--muted); }
+.bar { width: 100%; height: 6px; border-radius: 100px; background: rgba(61,13,12,0.1); overflow: hidden; margin-bottom: 14px; }
+.bar-fill { height: 100%; background: var(--merlot); border-radius: 100px; transition: width 0.4s ease; }
+.tracker-item { display: flex; align-items: center; gap: 9px; margin-bottom: 7px; }
+.tick {
+  width: 15px; height: 15px; border-radius: 100px; flex-shrink: 0;
+  border: 1px solid var(--border-strong); display: flex; align-items: center; justify-content: center;
+  font-size: 9px; color: transparent;
+}
+.tick.on { background: var(--merlot); border-color: var(--merlot); color: var(--stone); }
+.tracker-item span { font-size: 12.5px; color: var(--muted); }
+.tracker-item.on span { color: var(--ink); font-weight: 600; }
+
+/* Ritual calendar */
+.cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-bottom: 14px; }
+.cal-dow {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--taupe); text-align: center; padding-bottom: 4px;
+}
+.cal-day {
+  height: 38px; border-radius: 8px; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 3px;
+  border: 1px solid transparent;
+}
+.cal-day.today { background: var(--card-soft); border-color: var(--border-strong); }
+.cal-day span { font-size: 11.5px; color: var(--muted); line-height: 1; }
+.cal-day.today span { color: var(--deep-red); font-weight: 700; }
+.cal-dots { display: flex; gap: 3px; height: 5px; }
+.dot { width: 5px; height: 5px; border-radius: 100px; }
+.dot.content { background: var(--blush); }
+.dot.research { background: var(--merlot); }
+.legend { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 16px; }
+.legend-item { display: flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--muted); }
+.legend-item .dot { width: 8px; height: 8px; }
+.stat-row { display: flex; gap: 28px; flex-wrap: wrap; padding: 16px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin-bottom: 16px; }
+.stat .stat-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--taupe); display: block; margin-bottom: 2px; }
+.stat .stat-value { font-size: 24px; font-weight: 800; color: var(--merlot); line-height: 1.1; }
+.stat .stat-value.blush-val { color: #c98a93; }
+
+/* Link rows */
+.link-row { background: var(--card-soft); border: 1px solid var(--border); border-radius: 12px; padding: 16px; margin-bottom: 10px; }
+.link-row-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.link-row-head span { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--taupe); }
+.link-grid { display: grid; grid-template-columns: 1fr 170px; gap: 8px; margin-bottom: 8px; }
+@media (max-width: 640px) { .link-grid { grid-template-columns: 1fr; } }
+
+/* Review progress dots */
+.review-progress { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; background: var(--card-soft); border: 1px solid var(--border); border-radius: 12px; padding: 14px 18px; margin-bottom: 18px; }
+.rp-dots { display: flex; gap: 4px; }
+.rp-dot { height: 5px; width: 16px; border-radius: 100px; background: rgba(61,13,12,0.15); }
+.rp-dot.done { background: var(--merlot); }
+.rp-dot.now { background: var(--merlot); width: 26px; }
+
+/* Accordion */
+.acc { border: 1px solid var(--border); background: var(--card-soft); border-radius: 12px; margin-bottom: 12px; overflow: hidden; }
+.acc-head {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  background: transparent; border: none; cursor: pointer; padding: 13px 18px;
+  font-family: inherit; text-align: left;
+}
+.acc-head .acc-title { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--deep-red); }
+.acc-head .acc-chev { color: var(--muted); font-size: 10px; transition: transform 0.2s ease; }
+.acc.open .acc-chev { transform: rotate(180deg); }
+.acc-body { display: none; padding: 0 18px 16px; }
+.acc.open .acc-body { display: block; }
+.acc-body p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+/* Save indicator */
+.save-indicator {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+}
+.save-indicator .sdot { width: 7px; height: 7px; border-radius: 100px; background: var(--green-ok); }
+.save-indicator.saving .sdot { background: #b8860b; }
+
+.notice {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--card-soft); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 16px; margin-bottom: 18px;
+}
+.notice p { font-size: 12px; color: var(--muted); line-height: 1.65; }
+.notice strong { color: var(--ink); font-weight: 700; }
+.notice.warn { background: #fdf6ec; border-color: #e8d6b8; }
+.notice.warn p { color: #7a5c1f; }
+
+.save-note { font-size: 11.5px; color: var(--muted); opacity: 0.85; margin-top: 14px; line-height: 1.6; }
+
+.empty-state { text-align: center; padding: 40px 20px; }
+.empty-state p { font-size: 14px; color: var(--muted); }
+.empty-state p.sub { font-size: 12.5px; margin-top: 6px; opacity: 0.8; }
+
+.divider { border-top: 1px solid var(--border); margin: 24px 0; }
+
+.action-row { display: flex; gap: 16px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--border); }
+.action-row:last-child { border-bottom: none; }
+.action-row .ar-text { flex: 1; }
+.action-row .ar-label { font-size: 13.5px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.action-row .ar-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: var(--merlot); color: var(--stone);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+  padding: 13px 24px; border-radius: 100px; z-index: 100;
+  box-shadow: 0 6px 24px rgba(61,13,12,0.25);
+  opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+
+/* Sidebar layout */
+.with-sidebar { display: grid; grid-template-columns: 1fr 250px; gap: 22px; align-items: start; }
+@media (max-width: 900px) { .with-sidebar { grid-template-columns: 1fr; } .sidebar { order: -1; } }
+.sidebar-sticky { position: sticky; top: 76px; }
+
+/* IP disclaimer + footer */
+.pdf-disclaimer {
+  font-size: 10.5px; line-height: 1.6; color: var(--muted);
+  opacity: 0.55; max-width: 640px; margin: 36px auto 52px;
+  text-align: center; padding: 0 24px; font-weight: 400;
+}
+.wmhq-footer {
+  background: var(--merlot); color: rgba(241,235,235,0.55);
+  padding: 26px 24px 30px; text-align: center;
+  border-top: 1px solid rgba(241,235,235,0.08);
+}
+.wmhq-footer-inner { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.wmhq-footer-copy { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(241,235,235,0.7); }
+.wmhq-footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.wmhq-footer-links a { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(241,235,235,0.5); text-decoration: none; }
+.wmhq-footer-links a:hover { color: var(--blush); }
+
+:focus-visible { outline: 2px solid var(--deep-red); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+@media (max-width: 640px) {
+  .hero { padding: 48px 20px 44px; }
+  .card { padding: 24px 20px 26px; }
+  .body { padding: 30px 16px 24px; }
+}
+
+/* ‚îÄ‚îÄ Print ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+@media print {
+  @page { margin: 14mm 12mm; size: A4; }
+  body { background: #fff !important; font-size: 10.5pt; }
+  .topnav, .hero::before { display: none !important; }
+  .hero { background: #fff !important; border-bottom: 2px solid var(--merlot); padding: 16px 0; text-align: left; }
+  .hero h1, .hero h1 em { color: var(--merlot) !important; font-size: 20pt; }
+  .hero-sub { color: var(--muted) !important; }
+  .hero-eyebrow { color: var(--merlot); border-color: var(--merlot); }
+  .card { box-shadow: none !important; border: 1px solid #999 !important; page-break-inside: avoid; }
+  .entry, .subcard, .tool-card { page-break-inside: avoid; }
+  .entry-body { display: block !important; }
+  .dark-panel { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  textarea { overflow: visible !important; height: auto !important; border: none !important; background: none !important; padding: 0 !important; }
+  .btn-pill-dark, .btn-pill-ghost, .btn-blush, .btn-danger, .btn-mini,
+  .steps-bar, .wmhq-footer, .toast, .btn-row, .save-note, .save-indicator,
+  .tracker, .notice, .link-row-head button { display: none !important; }
+  .pdf-disclaimer { display: block !important; opacity: 0.5 !important; font-size: 7.5pt !important; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <button class="brand" onclick="go('#/')">
+      <span class="brand-mark">WMHQ</span>
+      <span class="brand-sub">Research Tools</span>
+    </button>
+    <div class="nav-links" id="navLinks"></div>
+  </div>
+</nav>
+
+<header class="hero">
+  <span class="hero-eyebrow">WMHQ Member Tool</span>
+  <h1>Influence <em>Research</em> Builder</h1>
+  <p class="hero-sub">Two tools to help you understand what worked, why it worked, and what to create next.</p>
+</header>
+
+<main class="body" id="app"></main>
+
+<p class="pdf-disclaimer">This work is the sole property of Jessica Pinili. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, or create derivative works in any capacity. All rights on intellectual property of this digital product are proprietary and reserved for exclusive use by Jessica Pinili alone.</p>
+
+<footer class="wmhq-footer">
+  <div class="wmhq-footer-inner">
+    <p class="wmhq-footer-copy">&copy; <span id="footerYear"></span> Jessica Pinili. All rights reserved.</p>
+    <div class="wmhq-footer-links">
+      <a href="https://www.jessicapinili.com/terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+      <a href="https://www.jessicapinili.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   Constants
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+var PLATFORMS = ['Instagram', 'TikTok', 'YouTube', 'Podcast', 'Email', 'Sales Page', 'Blog', 'Other'];
+
+var MOVEMENT_ITEMS = ['Saves', 'Shares', 'Comments', 'DMs', 'Link clicks', 'Inquiries', 'Booked calls', 'Waitlist sign-ups', 'Checkout clicks', 'Sales', 'Strong story replies', 'Clear audience questions'];
+
+var MOVEMENT_TEXT = 'Movement includes saves, shares, comments, DMs, story replies, link clicks, inquiries, booked calls, waitlist sign-ups, checkout clicks, sales, or someone repeating your language back to you. Do not only look at views. Views without movement are attention, not traction.';
+
+var CONTENT_METRICS = [
+  ['Views / Reach', 'views_reach', 'e.g. 12,400'],
+  ['Saves', 'saves', ''],
+  ['Shares', 'shares', ''],
+  ['Comments', 'comments', ''],
+  ['DMs', 'dms', ''],
+  ['Link Clicks', 'link_clicks', ''],
+  ['Inquiries', 'inquiries', ''],
+  ['Sales / Bookings', 'sales_bookings', '']
+];
+
+var CONTENT_ANALYSIS = [
+  ['What theme was this post about?', 'theme', 'The core topic or subject area'],
+  ['What problem did it speak to?', 'problem', 'The pain point your audience related to'],
+  ['What desire did it tap into?', 'desire', 'What they wanted or aspired to'],
+  ['What belief did it challenge?', 'belief_challenged', 'A belief that was questioned or reframed'],
+  ['What exact language did you use?', 'exact_language', 'Specific words or phrases that resonated'],
+  ['What should you repeat or refine?', 'repeat_or_refine', 'What to keep, change, or build on next time']
+];
+
+var CREATE_FROM_INSIGHT = [
+  ['Repeat post', 'Create another post using the same theme, message, or angle that created movement.'],
+  ['Refined version', 'Make a sharper version of the original post with a clearer hook, stronger belief shift, or more direct CTA.'],
+  ['Story sequence', 'Turn the insight into a short story sequence that builds trust or handles hesitation.'],
+  ['Sales post', 'Connect the content pattern to your offer, method, result, or client transformation.'],
+  ['Email topic', 'Turn the pattern into a deeper email that explains the problem, belief, or desire behind the content.']
+];
+
+var CREATE_FROM_RESEARCH = [
+  ['Hook', 'Turn the exact phrase or hidden belief into a strong opening line.'],
+  ['Objection-handling post', 'Create content that addresses the objection underneath the research.'],
+  ['FAQ', 'Turn the audience question or hesitation into a clear answer.'],
+  ['Sales story', 'Use the emotional pattern as the basis for a story that builds trust and relevance.'],
+  ['Offer bridge', 'Connect the research insight to the offer, method, or result.']
+];
+
+var SOURCES = [
+  { value: 'Sales Call', label: 'Sales Call',
+    description: 'Use past sales calls, enquiry calls, voice notes, or messages from people who have shown interest.',
+    lookFor: ['What made them reach out', 'What they said they were struggling with', 'What they wanted help with', 'What hesitations came up', 'The language they used before you explained the offer'],
+    note: 'The way someone explains their problem before they understand your method is often the language your content needs to use.' },
+  { value: 'DM', label: 'DM Conversation',
+    description: 'Review DMs from people who replied to stories, asked for details, voted on polls, or said something resonated.',
+    lookFor: ['What story or post made them respond', 'The exact words they used', 'What emotion was underneath the message', 'Whether they were curious, ready, hesitant, or just relating', 'Where the conversation dropped off'],
+    note: 'DMs often show what your audience is emotionally responding to, what they understand, and where they lose momentum.' },
+  { value: 'Reddit', label: 'Reddit Thread',
+    description: 'Reddit is useful because people are often more honest when they feel anonymous.',
+    lookFor: ['Raw language', 'Emotional confessions', 'Recurring frustrations', 'Repeated phrases', 'What advice they are asking for', 'What they feel embarrassed or ashamed to admit'],
+    note: null },
+  { value: 'Competitor', label: 'Competitor',
+    description: 'Look at posts from people in similar spaces, not only direct competitors. Read the comments, not just the post.',
+    lookFor: ['What people are agreeing with', 'What they add in the comments', 'What phrases keep showing up', 'What posts get the strongest emotional response', 'What topics make people say "this is me"'],
+    note: 'The comments section often reveals what the post made people feel, realise, or remember.' },
+  { value: 'Client Session', label: 'Client Notes',
+    description: 'Go back through notes from past clients, sessions, audits, messages, or reflections.',
+    lookFor: ['Always managing everything', 'Feeling guilty for resting', 'Needing to be needed', 'Fear of letting people down', 'Resentment from doing too much', 'Identity built around being capable', 'Not knowing how to receive support', 'Wanting more but feeling overwhelmed by more'],
+    note: null },
+  { value: 'Story Reply', label: 'Story Replies',
+    description: 'Review responses to your stories, polls, question stickers, and reaction messages.',
+    lookFor: ['What story topics get the most replies', 'How people phrase their responses', 'What emotions surface in quick replies'],
+    note: null },
+  { value: 'Survey', label: 'Survey Responses',
+    description: 'Analyse responses from surveys, forms, or feedback questionnaires.',
+    lookFor: ['Open-ended answers', 'Repeated language patterns', 'What people describe as their biggest challenge', 'What outcomes they say they want'],
+    note: null },
+  { value: 'Other', label: 'Other',
+    description: 'Any other source of audience language or insight.',
+    lookFor: ['Exact words used', 'Emotional undertone', 'Problems described', 'Desires expressed'],
+    note: null }
+];
+
+var SOURCE_VALUES = ['Sales Call', 'DM', 'Reddit', 'Competitor', 'Client Session', 'Story Reply', 'Survey', 'Other'];
+var AUDIENCE_READINESS = ['Just Realising The Problem', 'Aware They Need Help', 'Comparing Options', 'Interested But Hesitant', 'Ready To Buy', 'Existing Client Insight'];
+var PRIORITIES = ['High', 'Medium', 'Low'];
+var SUGGESTED_TAGS = ['time', 'wealth', 'relationships'];
+var USE_THIS_IN_OPTIONS = ['Reel', 'Carousel', 'Story', 'Email', 'Sales Page', 'Launch Content', 'Offer Messaging', 'FAQ', 'Sales Call Script'];
+var OFFER_CONNECTION_OPTIONS = ['Direct Offer Bridge', 'Indirect Nurture Angle', 'Good Content Insight, Not Sales-Related', 'Not Relevant Right Now'];
+
+var BUYER_MOMENT_EXAMPLES = [
+  "A business coach's buyer realises they are posting consistently but still not creating sales conversations.",
+  "A skincare buyer notices their skin flares up before an event and feels frustrated nothing is calming it.",
+  "A lash product buyer has an event this weekend and does not want to pay salon prices again.",
+  "A fitness coach's buyer feels uncomfortable in their body before a holiday or photo-heavy season.",
+  "A copywriter's buyer has a launch coming up and knows their sales page is not clear enough to convert.",
+  "A financial coach's buyer receives a bill, tax notice, or income spike and realises they do not have a money system."
+];
+
+var PATTERN_CARDS = [
+  { label: 'Language Patterns', helper: 'Look for the exact words, phrases, and questions your audience keeps using.',
+    fields: [
+      { key: 'repeated_phrases', label: 'Repeated Exact Phrases', ph: 'What words or phrases keep showing up verbatim?', half: true },
+      { key: 'repeated_words', label: 'Repeated Words', ph: 'Single words that appear again and again?', half: true },
+      { key: 'repeated_questions', label: 'Repeated Questions', ph: 'What do they keep asking? For example "How do I..." or "Why can\'t I..."' }
+    ] },
+  { label: 'Emotional Patterns', helper: 'Look for the emotions that keep sitting underneath the research.',
+    fields: [
+      { key: 'repeated_emotions', label: 'Repeated Emotional Patterns', ph: 'What emotion appears again and again?', half: true },
+      { key: 'repeated_frustrations', label: 'Repeated Frustrations', ph: 'What keeps making them frustrated?', half: true },
+      { key: 'repeated_desires', label: 'Repeated Desires', ph: 'What do they keep saying they want?' }
+    ] },
+  { label: 'Problem And Belief Patterns', helper: 'Separate what they think the problem is from what is actually driving the pattern.',
+    fields: [
+      { key: 'repeated_problems', label: 'Repeated Surface Problems', ph: 'What problems do they name out loud?', half: true },
+      { key: 'repeated_deeper_problems', label: 'Repeated Deeper Problems', ph: 'What is actually going on underneath?', half: true },
+      { key: 'repeated_beliefs', label: 'Repeated Hidden Beliefs', ph: 'What belief keeps shaping how they see the problem?' }
+    ] },
+  { label: 'Buying Friction', helper: 'This helps identify what needs to be handled before someone is ready to buy.',
+    fields: [
+      { key: 'repeated_objections', label: 'Repeated Objections', ph: 'What reasons do people give for not taking action?', half: true },
+      { key: 'repeated_hesitations', label: 'Repeated Hesitations', ph: 'What makes them pause or overthink?', half: true },
+      { key: 'repeated_delay_reasons', label: 'Repeated Reasons They Delay', ph: '"I need to wait until...", "Once I have...", "Maybe next month..."' }
+    ] },
+  { label: 'Strategic Interpretation', helper: 'This is where the research becomes strategy.',
+    fields: [
+      { key: 'strategic_interpretation', label: 'What does your audience need to understand before they are ready to buy?', ph: 'What is the key mindset shift or missing piece?', half: true },
+      { key: 'belief_to_shift', label: 'What belief needs to shift?', ph: 'What are they currently believing that is keeping them stuck?', half: true },
+      { key: 'content_from_pattern', label: 'What content should you create from this pattern?', ph: 'Specific post ideas, hooks, or content angles this research is pointing to.', half: true },
+      { key: 'offer_messaging_clarity', label: 'What should your offer messaging make clearer?', ph: 'What objection or misunderstanding should your sales page address?', half: true }
+    ] },
+  { label: 'Pattern Summary', helper: 'Summarise the strongest signal this research is showing you. This appears in your export.',
+    fields: [
+      { key: 'pattern_summary_text', label: 'What is the strongest pattern this research is showing you?', ph: 'Summarise the clearest repeated language, belief, objection, desire, or buyer moment.', rows: 4 }
+    ] }
+];
+
+var STRATEGY_BLOCKS = [
+  { key: 'strategy_content_angles', title: 'Content Angles', fields: [
+    { key: 'hook_idea', label: 'Hook Idea', ph: 'A compelling opening hook' },
+    { key: 'post_concept', label: 'Post Concept', ph: 'The overall post or content idea' },
+    { key: 'core_message', label: 'Core Message', ph: 'The key takeaway' },
+    { key: 'belief_challenged', label: 'Audience Belief Being Challenged', ph: 'What belief does this reframe?' },
+    { key: 'cta_idea', label: 'CTA Idea', ph: 'Call to action' } ] },
+  { key: 'strategy_objection_content', title: 'Objection-Handling Content', fields: [
+    { key: 'objection', label: 'Objection', ph: 'The objection itself' },
+    { key: 'why_exists', label: 'Why This Objection Exists', ph: 'What creates this resistance' },
+    { key: 'content_angle', label: 'Content Angle To Address It', ph: 'How to address this in content' },
+    { key: 'proof_or_story', label: 'Proof Or Story To Include', ph: 'Evidence or narrative to include' },
+    { key: 'offer_bridge', label: 'Offer Bridge', ph: 'How this connects to your offer' } ] },
+  { key: 'strategy_faqs', title: 'FAQ Builder', fields: [
+    { key: 'question', label: 'Audience Question', ph: 'What they are asking' },
+    { key: 'real_question', label: 'What They Are Really Asking', ph: 'The question underneath' },
+    { key: 'simple_answer', label: 'Simple Answer', ph: 'A clear, direct answer' },
+    { key: 'deeper_reframe', label: 'Deeper Reframe', ph: 'A perspective shift' },
+    { key: 'cta', label: 'CTA', ph: 'What to do next' } ] },
+  { key: 'strategy_sales_messaging', title: 'Sales Messaging', fields: [
+    { key: 'audience_thinks_need', label: 'What They Think They Need', ph: '' },
+    { key: 'actually_need', label: 'What They Actually Need', ph: '' },
+    { key: 'offer_helps', label: 'What Your Offer Helps Them Do', ph: '' },
+    { key: 'why_now', label: 'Why Now', ph: '' },
+    { key: 'why_this_method', label: 'Why This Method', ph: '' } ] },
+  { key: 'strategy_offer_bridges', title: 'Offer Bridges', fields: [
+    { key: 'research_insight', label: 'Research Insight', ph: '' },
+    { key: 'offer_feature', label: 'Offer Feature', ph: '' },
+    { key: 'offer_benefit', label: 'Offer Benefit', ph: '' },
+    { key: 'emotional_payoff', label: 'Emotional Payoff', ph: '' },
+    { key: 'reason_to_act', label: 'Reason To Act Now', ph: '' } ] }
+];
+
+var RESEARCH_STEPS = [
+  { num: 1, label: 'Choose Source' },
+  { num: 2, label: 'Collect Language' },
+  { num: 3, label: 'Extract Pattern' },
+  { num: 4, label: 'Create Strategy' },
+  { num: 5, label: 'Export' }
+];
+
+var TRACKER_MILESTONES = [
+  { step: 1, label: 'Source Selected' },
+  { step: 2, label: 'Language Collected' },
+  { step: 3, label: 'Patterns Extracted' },
+  { step: 4, label: 'Strategy Created' },
+  { step: 5, label: 'Ready To Export' }
+];
+
+var DISCLAIMER = 'This work is the sole property of Jessica Pinili. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, or create derivative works in any capacity. All rights on intellectual property of this digital product are proprietary and reserved for exclusive use by Jessica Pinili alone.';
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   Storage
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+var CONTENT_KEY = 'wmhq_content_review_data';
+var RESEARCH_KEY = 'wmhq_market_research_data';
+var RITUAL_KEY = 'wmhq_ritual_calendar';
+
+function defaultContentState() { return { entries: [], lastSaved: null }; }
+function defaultResearchState() {
+  return {
+    project: {
+      name: 'My Influence Research',
+      current_step: 1,
+      steps_completed: [],
+      pattern_summary: {},
+      strategy_content_angles: [],
+      strategy_objection_content: [],
+      strategy_faqs: [],
+      strategy_sales_messaging: [],
+      strategy_offer_bridges: []
+    },
+    entries: [],
+    lastSaved: null
+  };
+}
+
+function loadJSON(key, fallback) {
+  try {
+    var raw = localStorage.getItem(key);
+    return raw ? JSON.parse(raw) : fallback;
+  } catch (e) { return fallback; }
+}
+
+var contentState = loadJSON(CONTENT_KEY, null) || defaultContentState();
+var researchState = loadJSON(RESEARCH_KEY, null) || defaultResearchState();
+if (!researchState.project) researchState = defaultResearchState();
+
+var saveStatus = 'saved';
+var saveTimer = null;
+
+function scheduleSave() {
+  saveStatus = 'unsaved';
+  updateSaveIndicators();
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(function () {
+    contentState.lastSaved = new Date().toISOString();
+    researchState.lastSaved = contentState.lastSaved;
+    try {
+      localStorage.setItem(CONTENT_KEY, JSON.stringify(contentState));
+      localStorage.setItem(RESEARCH_KEY, JSON.stringify(researchState));
+    } catch (e) {}
+    saveStatus = 'saved';
+    updateSaveIndicators();
+  }, 700);
+}
+
+function updateSaveIndicators() {
+  var nodes = document.querySelectorAll('.save-indicator');
+  for (var i = 0; i < nodes.length; i++) {
+    var n = nodes[i];
+    if (saveStatus === 'saved') {
+      n.classList.remove('saving');
+      n.querySelector('.stext').textContent = 'Saved in this browser';
+    } else {
+      n.classList.add('saving');
+      n.querySelector('.stext').textContent = 'Saving';
+    }
+  }
+}
+
+function uid() {
+  if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+  return 'id-' + Math.floor(performance.now() * 1000) + '-' + (idCounter++);
+}
+var idCounter = 0;
+
+/* Ritual calendar storage */
+function loadRitual() { return loadJSON(RITUAL_KEY, {}) || {}; }
+function markRitualComplete(type) {
+  var data = loadRitual();
+  var now = new Date();
+  var ym = now.getFullYear() + '-' + String(now.getMonth() + 1).padStart(2, '0');
+  var day = now.getDate();
+  if (!data[ym]) data[ym] = { completions: {} };
+  if (!data[ym].completions[day]) data[ym].completions[day] = {};
+  data[ym].completions[day][type] = now.toISOString();
+  try { localStorage.setItem(RITUAL_KEY, JSON.stringify(data)); } catch (e) {}
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   DOM helpers
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+function el(tag, cls, text) {
+  var n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (text !== undefined && text !== null) n.textContent = text;
+  return n;
+}
+
+function btn(cls, text, onClick) {
+  var b = el('button', cls, text);
+  b.type = 'button';
+  if (onClick) b.addEventListener('click', onClick);
+  return b;
+}
+
+var toastTimer = null;
+function toast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { t.classList.remove('show'); }, 2200);
+}
+
+function copyText(text, cb) {
+  function done() { if (cb) cb(); }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
+function copyBtn(label, getText) {
+  var b = btn('btn-mini', label, function () {
+    copyText(getText(), function () {
+      b.textContent = 'Copied';
+      b.classList.add('copied');
+      setTimeout(function () { b.textContent = label; b.classList.remove('copied'); }, 2000);
+    });
+  });
+  return b;
+}
+
+function saveIndicator() {
+  var w = el('span', 'save-indicator' + (saveStatus === 'saved' ? '' : ' saving'));
+  w.appendChild(el('span', 'sdot'));
+  w.appendChild(el('span', 'stext', saveStatus === 'saved' ? 'Saved in this browser' : 'Saving'));
+  return w;
+}
+
+/* Build a labelled field. opts: {label, helper, value, onInput, placeholder, type, options, rows, half} */
+function buildField(opts) {
+  var wrap = el('div', 'field');
+  if (opts.half) wrap.style.margin = '0 0 20px';
+  var lab = el('label', 'field-label', opts.label);
+  var fid = 'f-' + (idCounter++);
+  lab.setAttribute('for', fid);
+  wrap.appendChild(lab);
+  if (opts.helper) wrap.appendChild(el('p', 'field-helper', opts.helper));
+
+  var ctrl;
+  if (opts.type === 'select') {
+    ctrl = document.createElement('select');
+    var ph = document.createElement('option');
+    ph.value = '';
+    ph.textContent = opts.placeholder || 'Select an option';
+    ctrl.appendChild(ph);
+    opts.options.forEach(function (o) {
+      var op = document.createElement('option');
+      op.value = o;
+      op.textContent = o;
+      ctrl.appendChild(op);
+    });
+    ctrl.value = opts.value || '';
+  } else if (opts.type === 'textarea') {
+    ctrl = document.createElement('textarea');
+    ctrl.rows = opts.rows || 3;
+    ctrl.placeholder = opts.placeholder || '';
+    ctrl.value = opts.value || '';
+  } else {
+    ctrl = document.createElement('input');
+    ctrl.type = 'text';
+    ctrl.placeholder = opts.placeholder || '';
+    ctrl.value = opts.value || '';
+  }
+  ctrl.id = fid;
+  ctrl.addEventListener('input', function () { opts.onInput(ctrl.value); });
+  ctrl.addEventListener('change', function () { opts.onInput(ctrl.value); });
+  wrap.appendChild(ctrl);
+  return wrap;
+}
+
+function buildPills(options, selected, onChange) {
+  var wrap = el('div', 'pill-set');
+  options.forEach(function (opt) {
+    var b = btn('pill-opt' + (selected.indexOf(opt) >= 0 ? ' on' : ''), opt, function () {
+      var idx = selected.indexOf(opt);
+      if (idx >= 0) selected.splice(idx, 1); else selected.push(opt);
+      b.classList.toggle('on');
+      onChange(selected);
+    });
+    wrap.appendChild(b);
+  });
+  return wrap;
+}
+
+function buildAccordion(title, bodyText) {
+  var acc = el('div', 'acc');
+  var head = btn('acc-head', null, function () {
+    var open = acc.classList.toggle('open');
+    head.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  head.appendChild(el('span', 'acc-title', title));
+  var chev = el('span', 'acc-chev', '‚ñº');
+  chev.setAttribute('aria-hidden', 'true');
+  head.appendChild(chev);
+  head.setAttribute('aria-expanded', 'false');
+  var body = el('div', 'acc-body');
+  body.appendChild(el('p', null, bodyText));
+  acc.appendChild(head);
+  acc.appendChild(body);
+  return acc;
+}
+
+function kv(label, value, full) {
+  if (!value) return null;
+  var d = el('div', 'kv' + (full ? ' full' : ''));
+  d.appendChild(el('span', 'kv-label', label));
+  d.appendChild(el('p', 'kv-value', value));
+  return d;
+}
+
+function sectionCard(eyebrow, title, sub) {
+  var c = el('section', 'card');
+  if (eyebrow) c.appendChild(el('div', 'card-num', eyebrow));
+  if (title) c.appendChild(el('h2', null, title));
+  if (sub) c.appendChild(el('p', 'card-sub', sub));
+  return c;
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   Routing
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+var ROUTES = [
+  { hash: '#/', label: 'Home' },
+  { hash: '#/content-review', label: 'Content Review' },
+  { hash: '#/research', label: 'Influence Research' },
+  { hash: '#/library', label: 'Library' }
+];
+
+function go(hash) {
+  if (location.hash === hash) render();
+  else location.hash = hash;
+}
+
+function renderNav() {
+  var nav = document.getElementById('navLinks');
+  nav.innerHTML = '';
+  var current = location.hash || '#/';
+  ROUTES.forEach(function (r) {
+    var b = btn('nav-link' + (current === r.hash ? ' active' : ''), r.label, function () { go(r.hash); });
+    nav.appendChild(b);
+  });
+}
+
+window.addEventListener('hashchange', function () {
+  render();
+  window.scrollTo(0, 0);
+});
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   HOME
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+function renderHome(app) {
+  var intro = sectionCard('WMHQ Research Tools', 'Two tools, one purpose',
+    'Use Content Data Review when analysing your own posts. Use Influence Research Builder when collecting audience language from DMs, calls, comments, or clients.');
+
+  var grid = el('div', 'tool-grid');
+
+  var t1 = el('div', 'tool-card');
+  t1.appendChild(el('span', 'tool-tag', 'Recommended first'));
+  t1.appendChild(el('div', 'tool-eyebrow', 'Tool One, Content'));
+  t1.appendChild(el('h3', null, 'Content Data Review'));
+  t1.appendChild(el('p', null, 'Review what your content has already shown you. Track which posts created movement, what themes performed, and what should be repeated or refined.'));
+  t1.appendChild(btn('btn-pill-ghost', 'Start Content Review', function () { go('#/content-review'); }));
+  grid.appendChild(t1);
+
+  var t2 = el('div', 'tool-card dark');
+  t2.appendChild(el('span', 'tool-tag', 'Use anytime'));
+  t2.appendChild(el('div', 'tool-eyebrow', 'Tool Two, Influence'));
+  t2.appendChild(el('h3', null, 'Influence Research Builder'));
+  t2.appendChild(el('p', null, 'Collect exact audience language, emotional patterns, hidden beliefs, objections, desires, and offer bridges to turn real insight into stronger content and sales messaging.'));
+  t2.appendChild(btn('btn-blush', 'Start Influence Research', function () { go('#/research'); }));
+  grid.appendChild(t2);
+
+  intro.appendChild(grid);
+  app.appendChild(intro);
+
+  app.appendChild(renderRitualCalendar());
+
+  var note = sectionCard('How To Use This', 'Where to start', null);
+  var nb = el('div', 'soft-box');
+  nb.appendChild(el('p', null, 'Start with Content Data Review when you want to understand what your existing content already proved. It shows you which posts created movement rather than just views.'));
+  nb.appendChild(el('p', null, 'Move to Influence Research Builder when you want the exact words your audience uses. That language becomes your hooks, your sales page, and your objection handling.'));
+  nb.appendChild(el('p', null, 'Everything you type saves to this browser only. If you switch devices, clear your cookies, or use incognito, your work will start fresh. Export before you clear anything.'));
+  note.appendChild(nb);
+  app.appendChild(note);
+}
+
+function renderRitualCalendar() {
+  var card = sectionCard('Research Ritual', 'Your monthly rhythm',
+    'Mark each session so you can see your research consistency at a glance.');
+
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = now.getMonth() + 1;
+  var ym = year + '-' + String(month).padStart(2, '0');
+  var data = loadRitual();
+  var monthData = data[ym] || { completions: {} };
+  var daysInMonth = new Date(year, month, 0).getDate();
+  var firstDow = new Date(year, month - 1, 1).getDay();
+  var offset = (firstDow + 6) % 7;
+  var today = now.getDate();
+
+  var monthLabel = el('p', 'field-helper', now.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }));
+  monthLabel.style.marginBottom = '12px';
+  card.appendChild(monthLabel);
+
+  var grid = el('div', 'cal-grid');
+  ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'].forEach(function (d) {
+    grid.appendChild(el('div', 'cal-dow', d));
+  });
+  for (var i = 0; i < offset; i++) grid.appendChild(el('div'));
+
+  var contentCount = 0, researchCount = 0;
+  for (var day = 1; day <= daysInMonth; day++) {
+    var dayData = monthData.completions[day] || {};
+    if (dayData.content) contentCount++;
+    if (dayData.research) researchCount++;
+    var cell = el('div', 'cal-day' + (day === today ? ' today' : ''));
+    cell.appendChild(el('span', null, String(day)));
+    var dots = el('div', 'cal-dots');
+    if (dayData.content) dots.appendChild(el('div', 'dot content'));
+    if (dayData.research) dots.appendChild(el('div', 'dot research'));
+    cell.appendChild(dots);
+    grid.appendChild(cell);
+  }
+  card.appendChild(grid);
+
+  var legend = el('div', 'legend');
+  [['content', 'Content Review'], ['research', 'Influence Research']].forEach(function (pair) {
+    var li = el('div', 'legend-item');
+    li.appendChild(el('div', 'dot ' + pair[0]));
+    li.appendChild(el('span', null, pair[1]));
+    legend.appendChild(li);
+  });
+  card.appendChild(legend);
+
+  var stats = el('div', 'stat-row');
+  var s1 = el('div', 'stat');
+  s1.appendChild(el('span', 'stat-label', 'Content Reviews'));
+  var v1 = el('span', 'stat-value blush-val', String(contentCount));
+  s1.appendChild(v1);
+  stats.appendChild(s1);
+  var s2 = el('div', 'stat');
+  s2.appendChild(el('span', 'stat-label', 'Research Sessions'));
+  s2.appendChild(el('span', 'stat-value', String(researchCount)));
+  stats.appendChild(s2);
+  card.appendChild(stats);
+
+  var row = el('div', 'btn-row');
+  row.style.marginTop = '0';
+  row.appendChild(btn('btn-pill-ghost', 'Mark Content Review Done Today', function () {
+    markRitualComplete('content');
+    toast('Marked on your ritual calendar');
+    render();
+  }));
+  row.appendChild(btn('btn-pill-dark', 'Mark Research Done Today', function () {
+    markRitualComplete('research');
+    toast('Marked on your ritual calendar');
+    render();
+  }));
+  card.appendChild(row);
+
+  return card;
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   CONTENT DATA REVIEW
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+var contentView = {
+  step: 'preframe',       // preframe | form | summary
+  linkQueue: [],
+  queueIndex: 0,
+  draft: null,
+  editingId: null,
+  showEntries: false
+};
+
+function emptyContentEntry() {
+  return {
+    content_link: '', platform: '', post_title: '', what_created_movement: '',
+    views_reach: '', saves: '', shares: '', comments: '', dms: '',
+    link_clicks: '', inquiries: '', sales_bookings: '',
+    theme: '', problem: '', desire: '', belief_challenged: '',
+    exact_language: '', repeat_or_refine: '', strategic_notes: '', final_content_insight: ''
+  };
+}
+
+function renderContentReview(app) {
+  var header = el('div');
+  header.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px';
+  var hleft = el('div');
+  hleft.appendChild(el('div', 'card-num', 'Tool One'));
+  var h = el('h2', null, 'Content Data Review');
+  h.style.cssText = 'font-size:26px;font-weight:800;letter-spacing:-0.015em';
+  hleft.appendChild(h);
+  header.appendChild(hleft);
+  header.appendChild(saveIndicator());
+  app.appendChild(header);
+
+  // Step pills
+  var bar = el('div', 'steps-bar');
+  var s1 = btn('step-pill' + (contentView.step !== 'summary' ? ' current' : ' done'), null, function () {
+    contentView.step = 'preframe'; render();
+  });
+  s1.appendChild(el('span', 'sp-num', '1'));
+  s1.appendChild(el('span', null, 'Content Entry'));
+  bar.appendChild(s1);
+  var s2 = btn('step-pill' + (contentView.step === 'summary' ? ' current' : ''), null, function () {
+    if (contentState.entries.length) { contentView.step = 'summary'; render(); }
+    else toast('Save at least one entry first');
+  });
+  s2.appendChild(el('span', 'sp-num', '2'));
+  s2.appendChild(el('span', null, 'Summary And Export'));
+  bar.appendChild(s2);
+  var viewBtn = btn('step-pill', null, function () {
+    contentView.showEntries = !contentView.showEntries; render();
+  });
+  viewBtn.appendChild(el('span', null, (contentView.showEntries ? 'Hide' : 'View') + ' Entries (' + contentState.entries.length + ')'));
+  bar.appendChild(viewBtn);
+  app.appendChild(bar);
+
+  if (contentView.showEntries) {
+    app.appendChild(renderContentEntriesPanel());
+    return;
+  }
+
+  if (contentView.step === 'preframe') renderContentPreframe(app);
+  else if (contentView.step === 'form') renderContentForm(app);
+  else renderContentSummary(app);
+}
+
+function renderContentEntriesPanel() {
+  var card = sectionCard('Entries Library', 'Your content entries',
+    contentState.entries.length + ' ' + (contentState.entries.length === 1 ? 'entry' : 'entries') + ' saved in this browser.');
+  if (!contentState.entries.length) {
+    var es = el('div', 'empty-state');
+    es.appendChild(el('p', null, 'No content entries yet.'));
+    es.appendChild(el('p', 'sub', 'Add your first post review to start building the picture.'));
+    card.appendChild(es);
+  } else {
+    contentState.entries.forEach(function (entry) {
+      card.appendChild(contentEntryCard(entry));
+    });
+  }
+  var row = el('div', 'btn-row');
+  row.appendChild(btn('btn-pill-dark', 'Add Another Entry', function () {
+    contentView.showEntries = false; contentView.step = 'preframe'; render();
+  }));
+  card.appendChild(row);
+  return card;
+}
+
+function contentEntryCard(entry) {
+  var e = el('div', 'entry');
+  var head = btn('entry-head', null, function () { e.classList.toggle('open'); });
+  var left = el('div', 'entry-head-left');
+  if (entry.platform) left.appendChild(el('span', 'tag', entry.platform));
+  left.appendChild(el('span', 'entry-quote', entry.post_title || 'Untitled entry'));
+  head.appendChild(left);
+  head.appendChild(el('span', 'acc-chev', '‚ñº'));
+  e.appendChild(head);
+
+  var body = el('div', 'entry-body');
+  if (entry.content_link) {
+    var link = el('p', 'kv-value');
+    var a = document.createElement('a');
+    a.href = entry.content_link;
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = entry.content_link;
+    a.style.color = 'var(--deep-red)';
+    link.appendChild(a);
+    link.style.margin = '14px 0 10px';
+    body.appendChild(link);
+  }
+  var metrics = CONTENT_METRICS.filter(function (m) { return entry[m[1]]; })
+    .map(function (m) { return m[0] + ': ' + entry[m[1]]; }).join('   |   ');
+  var g = el('div', 'kv-grid');
+  if (metrics) g.appendChild(kv('Performance', metrics, true));
+  [['What Created Movement', 'what_created_movement', true], ['Theme', 'theme'], ['Problem', 'problem'],
+   ['Desire', 'desire'], ['Belief Challenged', 'belief_challenged'], ['Exact Language', 'exact_language', true],
+   ['Repeat Or Refine', 'repeat_or_refine', true], ['Strategic Notes', 'strategic_notes', true],
+   ['Final Content Insight', 'final_content_insight', true]].forEach(function (row) {
+    var node = kv(row[0], entry[row[1]], row[2]);
+    if (node) g.appendChild(node);
+  });
+  body.appendChild(g);
+
+  var actions = el('div', 'entry-actions');
+  actions.appendChild(btn('btn-mini', 'Edit', function () {
+    contentView.editingId = entry.id;
+    contentView.draft = Object.assign(emptyContentEntry(), entry);
+    contentView.linkQueue = [];
+    contentView.showEntries = false;
+    contentView.step = 'form';
+    render();
+  }));
+  actions.appendChild(copyBtn('Copy', function () { return buildContentText([entry]); }));
+  actions.appendChild(btn('btn-mini danger', 'Delete', function () {
+    if (!confirm('Delete this entry? This cannot be undone.')) return;
+    contentState.entries = contentState.entries.filter(function (x) { return x.id !== entry.id; });
+    scheduleSave();
+    toast('Entry deleted');
+    render();
+  }));
+  body.appendChild(actions);
+  e.appendChild(body);
+  return e;
+}
+
+function renderContentPreframe(app) {
+  var card = sectionCard('Before You Begin', 'Collect up to 10 pieces of content from the last 30 days',
+    'Choose up to 10 posts from the last 30 days that created the most movement. This does not only mean the posts with the most views.');
+
+  card.appendChild(el('p', 'field-helper', 'Look for content that created:'));
+  var cg = el('div', 'check-grid');
+  MOVEMENT_ITEMS.forEach(function (m) { cg.appendChild(el('div', null, m)); });
+  card.appendChild(cg);
+
+  var p = el('p', 'field-helper');
+  p.style.margin = '18px 0';
+  p.textContent = 'Then you will review each piece of content individually so you can understand what worked, what created movement, and what should be repeated or refined.';
+  card.appendChild(p);
+
+  card.appendChild(buildAccordion('What counts as movement?', MOVEMENT_TEXT));
+
+  var callout = el('div', 'soft-box');
+  callout.appendChild(el('div', 'sb-label', 'Do not over-analyse this'));
+  callout.appendChild(el('p', null, 'Choose the posts that clearly created movement, review the pattern, and move to action. The goal is usable insight, not a research thesis.'));
+  card.appendChild(callout);
+
+  var dark = el('div', 'dark-panel');
+  dark.style.marginTop = '16px';
+  dark.appendChild(el('div', 'dp-eyebrow', 'The Point'));
+  dark.appendChild(el('p', null, 'The goal is not to worship the algorithm. The goal is to find what moved people closer to trust, action, or buying.'));
+  card.appendChild(dark);
+  app.appendChild(card);
+
+  // Link collection
+  var linkCard = sectionCard('Paste Your Top Content Links', 'Add up to 10 links from the last 30 days',
+    'Paste links from your highest-movement content. You can add Instagram, TikTok, YouTube, podcast, email, blog, sales page, or other content links.');
+
+  if (!contentView.linkQueue.length) contentView.linkQueue = [{ url: '', platform: '', title: '' }];
+
+  contentView.linkQueue.forEach(function (link, i) {
+    var row = el('div', 'link-row');
+    var rh = el('div', 'link-row-head');
+    rh.appendChild(el('span', null, 'Link ' + (i + 1)));
+    rh.appendChild(btn('btn-mini danger', 'Remove', function () {
+      contentView.linkQueue.splice(i, 1);
+      if (!contentView.linkQueue.length) contentView.linkQueue = [{ url: '', platform: '', title: '' }];
+      render();
+    }));
+    row.appendChild(rh);
+
+    var lg = el('div', 'link-grid');
+    var urlIn = document.createElement('input');
+    urlIn.type = 'text';
+    urlIn.className = 'inp';
+    urlIn.placeholder = 'Paste content link here';
+    urlIn.value = link.url;
+    urlIn.addEventListener('input', function () { link.url = urlIn.value; });
+    lg.appendChild(urlIn);
+
+    var sel = document.createElement('select');
+    sel.className = 'inp';
+    var ph = document.createElement('option');
+    ph.value = '';
+    ph.textContent = 'Platform';
+    sel.appendChild(ph);
+    PLATFORMS.forEach(function (pf) {
+      var o = document.createElement('option');
+      o.value = pf; o.textContent = pf;
+      sel.appendChild(o);
+    });
+    sel.value = link.platform;
+    sel.addEventListener('change', function () { link.platform = sel.value; });
+    lg.appendChild(sel);
+    row.appendChild(lg);
+
+    var titleIn = document.createElement('input');
+    titleIn.type = 'text';
+    titleIn.className = 'inp';
+    titleIn.placeholder = 'Post title or topic (optional)';
+    titleIn.value = link.title;
+    titleIn.addEventListener('input', function () { link.title = titleIn.value; });
+    row.appendChild(titleIn);
+
+    linkCard.appendChild(row);
+  });
+
+  if (contentView.linkQueue.length < 10) {
+    linkCard.appendChild(btn('btn-pill-ghost', 'Add Another Link (' + contentView.linkQueue.length + ' of 10)', function () {
+      contentView.linkQueue.push({ url: '', platform: '', title: '' });
+      render();
+    }));
+  }
+
+  var row2 = el('div', 'btn-row');
+  row2.appendChild(btn('btn-pill-dark', 'Start Reviewing Links', function () {
+    var filled = contentView.linkQueue.filter(function (l) { return l.url.trim(); });
+    if (!filled.length) { toast('Paste at least one link, or skip to review one post'); return; }
+    contentView.linkQueue = filled;
+    contentView.queueIndex = 0;
+    contentView.editingId = null;
+    contentView.draft = Object.assign(emptyContentEntry(), {
+      content_link: filled[0].url, platform: filled[0].platform, post_title: filled[0].title
+    });
+    contentView.step = 'form';
+    render();
+  }));
+  row2.appendChild(btn('btn-pill-ghost', 'Skip And Review One Post', function () {
+    contentView.linkQueue = [];
+    contentView.queueIndex = 0;
+    contentView.editingId = null;
+    contentView.draft = emptyContentEntry();
+    contentView.step = 'form';
+    render();
+  }));
+  linkCard.appendChild(row2);
+  linkCard.appendChild(el('p', 'save-note', 'Your links and entries save to this browser only. If you switch devices, clear your cookies, or use incognito, they will start fresh.'));
+  app.appendChild(linkCard);
+}
+
+function renderContentForm(app) {
+  var form = contentView.draft || emptyContentEntry();
+  contentView.draft = form;
+  var inQueue = contentView.linkQueue.length > 0;
+  var total = contentView.linkQueue.length;
+  var idx = contentView.queueIndex;
+
+  if (inQueue) {
+    var rp = el('div', 'review-progress');
+    var rpl = el('div');
+    rpl.appendChild(el('div', 'card-num', 'Content Review Progress'));
+    var rpt = el('p', null, 'Reviewing ' + (idx + 1) + ' of ' + total + ' posts');
+    rpt.style.cssText = 'font-size:14px;font-weight:600';
+    rpl.appendChild(rpt);
+    rp.appendChild(rpl);
+    var dots = el('div', 'rp-dots');
+    for (var i = 0; i < total; i++) {
+      dots.appendChild(el('div', 'rp-dot' + (i < idx ? ' done' : i === idx ? ' now' : '')));
+    }
+    rp.appendChild(dots);
+    app.appendChild(rp);
+  }
+
+  var card = sectionCard('Step 01, Content Entry', 'Review the content that created movement, not just attention',
+    'Use this section to analyse each post from your top content list. Look at what performed, what people responded to, what created action, and what should be repeated or refined.');
+
+  var set = function (k) { return function (v) { form[k] = v; }; };
+
+  var g1 = el('div', 'grid-2');
+  g1.appendChild(buildField({ label: 'Content Link', value: form.content_link, onInput: set('content_link'), placeholder: 'Paste the link to this post, Reel, TikTok, email, or sales page', half: true }));
+  g1.appendChild(buildField({ label: 'Platform', type: 'select', options: PLATFORMS, value: form.platform, onInput: set('platform'), placeholder: 'Select platform', half: true }));
+  card.appendChild(g1);
+
+  card.appendChild(buildField({ label: 'Post Title Or Topic', value: form.post_title, onInput: set('post_title'), placeholder: 'What was this post or piece of content about?' }));
+  card.appendChild(buildField({ label: 'What created movement?', type: 'textarea', rows: 2, value: form.what_created_movement, onInput: set('what_created_movement'), placeholder: 'What specifically made this post work, and what action, feeling, or result did it create?' }));
+
+  var metricsCard = el('div', 'subcard');
+  metricsCard.appendChild(el('div', 'subcard-label', 'Performance Metrics'));
+  metricsCard.appendChild(el('p', 'subcard-helper', MOVEMENT_TEXT));
+  var mg = el('div', 'grid-4');
+  CONTENT_METRICS.forEach(function (m) {
+    mg.appendChild(buildField({ label: m[0], value: form[m[1]], onInput: set(m[1]), placeholder: m[2] || '', half: true }));
+  });
+  metricsCard.appendChild(mg);
+  card.appendChild(metricsCard);
+
+  var analysisCard = el('div', 'subcard');
+  analysisCard.appendChild(el('div', 'subcard-label', 'Content Analysis'));
+  var ag = el('div', 'grid-2');
+  CONTENT_ANALYSIS.forEach(function (a) {
+    ag.appendChild(buildField({ label: a[0], type: 'textarea', rows: 2, value: form[a[1]], onInput: set(a[1]), placeholder: a[2], half: true }));
+  });
+  analysisCard.appendChild(ag);
+  card.appendChild(analysisCard);
+
+  card.appendChild(buildField({ label: 'Strategic Notes', helper: 'Optional. Any notes about how this could inform your next content plan or offer messaging.', type: 'textarea', rows: 2, value: form.strategic_notes, onInput: set('strategic_notes'), placeholder: 'Any strategic observations from this piece of content' }));
+  card.appendChild(buildField({ label: 'Final Content Insight', helper: 'Based on this review, what content pattern should you repeat, refine, or build a series around?', type: 'textarea', rows: 3, value: form.final_content_insight, onInput: set('final_content_insight'), placeholder: 'What is the main insight from this post that should shape what you create next?' }));
+
+  var row = el('div', 'btn-row split');
+  var leftBtns = el('div', 'btn-row');
+  leftBtns.style.margin = '0';
+  leftBtns.appendChild(btn('btn-pill-ghost', 'Edit Content Links', function () {
+    contentView.step = 'preframe';
+    render();
+  }));
+  row.appendChild(leftBtns);
+
+  var rightBtns = el('div', 'btn-row');
+  rightBtns.style.margin = '0';
+  var hasNext = inQueue && idx < total - 1;
+  if (hasNext) {
+    rightBtns.appendChild(btn('btn-pill-dark', 'Save And Review Next Link', function () {
+      saveContentDraft();
+      contentView.queueIndex++;
+      var nextLink = contentView.linkQueue[contentView.queueIndex];
+      contentView.draft = Object.assign(emptyContentEntry(), {
+        content_link: nextLink.url, platform: nextLink.platform, post_title: nextLink.title
+      });
+      toast('Entry saved');
+      render();
+      window.scrollTo(0, 0);
+    }));
+  } else {
+    rightBtns.appendChild(btn('btn-pill-dark', inQueue ? 'Save And Go To Summary' : 'Save This Review', function () {
+      saveContentDraft();
+      contentView.linkQueue = [];
+      contentView.queueIndex = 0;
+      contentView.draft = null;
+      contentView.step = 'summary';
+      toast('Entry saved');
+      render();
+      window.scrollTo(0, 0);
+    }));
+  }
+  row.appendChild(rightBtns);
+  card.appendChild(row);
+  card.appendChild(el('p', 'save-note', 'Your entries save to this browser only. Export before you clear your browser data.'));
+  app.appendChild(card);
+}
+
+function saveContentDraft() {
+  var form = contentView.draft;
+  if (!form) return;
+  if (contentView.editingId) {
+    contentState.entries = contentState.entries.map(function (e) {
+      return e.id === contentView.editingId ? Object.assign({}, e, form) : e;
+    });
+    contentView.editingId = null;
+  } else {
+    var entry = Object.assign({}, form, { id: uid(), created_date: new Date().toISOString() });
+    contentState.entries.unshift(entry);
+  }
+  scheduleSave();
+}
+
+function renderContentSummary(app) {
+  var card = sectionCard('Step 02, Summary And Export', 'Content Review Summary',
+    contentState.entries.length + ' ' + (contentState.entries.length === 1 ? 'entry' : 'entries') + ' reviewed. Export below, or open an entry to review the detail.');
+
+  if (!contentState.entries.length) {
+    var es = el('div', 'empty-state');
+    es.appendChild(el('p', null, 'No entries yet.'));
+    es.appendChild(el('p', 'sub', 'Review at least one post to see your summary.'));
+    card.appendChild(es);
+    card.appendChild(btn('btn-pill-dark', 'Start A Review', function () { contentView.step = 'preframe'; render(); }));
+    app.appendChild(card);
+    return;
+  }
+
+  contentState.entries.forEach(function (entry) { card.appendChild(contentEntryCard(entry)); });
+  app.appendChild(card);
+
+  // Export
+  var ex = sectionCard('Export', 'Save your content review',
+    'Download a PDF or copy a clean version to paste into Google Docs, Notion, or your WMHQ Portal.');
+  var note = el('div', 'notice');
+  note.appendChild(el('p', null, 'Reminder: download or copy your work before clearing your browser data. This tool does not use logins or cloud accounts.'));
+  ex.appendChild(note);
+
+  var exRow = el('div', 'btn-row');
+  exRow.style.marginTop = '0';
+  exRow.appendChild(btn('btn-pill-dark', 'Save As PDF', function () { window.print(); }));
+  var gd = btn('btn-pill-ghost', 'Copy For Google Docs', function () {
+    copyText(buildContentMarkdown(contentState.entries), function () {
+      gd.textContent = 'Copied';
+      setTimeout(function () { gd.textContent = 'Copy For Google Docs'; }, 2000);
+      toast('Copied. Paste into Google Docs, Notion, or your Portal');
+    });
+  });
+  exRow.appendChild(gd);
+  var pt = btn('btn-pill-ghost', 'Copy Plain Text', function () {
+    copyText(buildContentText(contentState.entries), function () { toast('Copied to clipboard'); });
+  });
+  exRow.appendChild(pt);
+  ex.appendChild(exRow);
+  app.appendChild(ex);
+
+  // Create from insight
+  var cfi = sectionCard('Next Steps', 'Create From This Insight',
+    'Five ways to turn this content review into your next piece of content.');
+  CREATE_FROM_INSIGHT.forEach(function (a) {
+    var r = el('div', 'action-row');
+    var t = el('div', 'ar-text');
+    t.appendChild(el('div', 'ar-label', a[0]));
+    t.appendChild(el('div', 'ar-desc', a[1]));
+    r.appendChild(t);
+    r.appendChild(copyBtn('Copy', function () { return a[0] + ': ' + a[1]; }));
+    cfi.appendChild(r);
+  });
+  app.appendChild(cfi);
+
+  // Ritual + actions
+  var fin = sectionCard('Finish', 'Close the loop', null);
+  var ritual = el('div', 'soft-box');
+  ritual.appendChild(el('div', 'sb-label', 'Ritual Calendar'));
+  ritual.appendChild(el('p', null, 'Mark Content Review as complete for today. This adds a dot to today on your home page ritual calendar.'));
+  var rrow = el('div', 'btn-row');
+  rrow.appendChild(btn('btn-pill-dark', 'Mark Complete', function () {
+    markRitualComplete('content');
+    toast('Marked on your ritual calendar');
+  }));
+  ritual.appendChild(rrow);
+  fin.appendChild(ritual);
+
+  var arow = el('div', 'btn-row');
+  arow.appendChild(btn('btn-pill-ghost', 'Add Another Entry', function () {
+    contentView.step = 'preframe';
+    contentView.draft = null;
+    render();
+  }));
+  arow.appendChild(btn('btn-pill-ghost', 'Return To Tool Menu', function () { go('#/'); }));
+  arow.appendChild(btn('btn-danger', 'Clear Content Review', function () {
+    if (!confirm('Clear all content review data from this browser? This cannot be undone. Export first.')) return;
+    contentState = defaultContentState();
+    contentView.step = 'preframe';
+    contentView.linkQueue = [];
+    contentView.draft = null;
+    scheduleSave();
+    toast('Content review cleared');
+    render();
+  }));
+  fin.appendChild(arow);
+  app.appendChild(fin);
+}
+
+function buildContentText(entries) {
+  var out = 'WMHQ CONTENT DATA REVIEW\nExported: ' + new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + '\n\n';
+  entries.forEach(function (e, i) {
+    out += '--- ENTRY ' + (i + 1) + ' ---\n';
+    if (e.platform) out += 'Platform: ' + e.platform + '\n';
+    if (e.post_title) out += 'Post Title: ' + e.post_title + '\n';
+    if (e.content_link) out += 'Link: ' + e.content_link + '\n';
+    var metrics = CONTENT_METRICS.filter(function (m) { return e[m[1]]; })
+      .map(function (m) { return m[0] + ': ' + e[m[1]]; });
+    if (metrics.length) out += '\nPerformance: ' + metrics.join(' | ') + '\n';
+    if (e.what_created_movement) out += '\nWhat Created Movement: ' + e.what_created_movement + '\n';
+    if (e.theme) out += 'Theme: ' + e.theme + '\n';
+    if (e.problem) out += 'Problem: ' + e.problem + '\n';
+    if (e.desire) out += 'Desire: ' + e.desire + '\n';
+    if (e.belief_challenged) out += 'Belief Challenged: ' + e.belief_challenged + '\n';
+    if (e.exact_language) out += 'Exact Language: ' + e.exact_language + '\n';
+    if (e.repeat_or_refine) out += 'Repeat Or Refine: ' + e.repeat_or_refine + '\n';
+    if (e.strategic_notes) out += 'Strategic Notes: ' + e.strategic_notes + '\n';
+    if (e.final_content_insight) out += 'Final Content Insight: ' + e.final_content_insight + '\n';
+    out += '\n';
+  });
+  out += '\n' + DISCLAIMER + '\n';
+  return out;
+}
+
+function buildContentMarkdown(entries) {
+  var out = '# WMHQ Content Data Review\n**Exported:** ' + new Date().toLocaleDateString() + '\n\n---\n\n';
+  entries.forEach(function (e, i) {
+    out += '## Entry ' + (i + 1) + (e.post_title ? ': ' + e.post_title : '') + '\n\n';
+    if (e.platform) out += '**Platform:** ' + e.platform + '  \n';
+    if (e.content_link) out += '**Link:** ' + e.content_link + '  \n';
+    var metrics = CONTENT_METRICS.filter(function (m) { return e[m[1]]; })
+      .map(function (m) { return '**' + m[0] + ':** ' + e[m[1]]; });
+    if (metrics.length) out += '\n' + metrics.join('  \n') + '  \n';
+    if (e.what_created_movement) out += '\n**What Created Movement**\n' + e.what_created_movement + '\n\n';
+    if (e.theme) out += '**Theme:** ' + e.theme + '  \n';
+    if (e.problem) out += '**Problem:** ' + e.problem + '  \n';
+    if (e.desire) out += '**Desire:** ' + e.desire + '  \n';
+    if (e.belief_challenged) out += '**Belief Challenged:** ' + e.belief_challenged + '  \n';
+    if (e.exact_language) out += '**Exact Language:** ' + e.exact_language + '  \n';
+    if (e.repeat_or_refine) out += '**Repeat Or Refine:** ' + e.repeat_or_refine + '  \n';
+    if (e.strategic_notes) out += '\n**Strategic Notes:** ' + e.strategic_notes + '  \n';
+    if (e.final_content_insight) out += '**Final Content Insight:** ' + e.final_content_insight + '  \n';
+    out += '\n---\n\n';
+  });
+  out += '\n' + DISCLAIMER + '\n';
+  return out;
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   INFLUENCE RESEARCH BUILDER
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+var researchView = {
+  step: 1,
+  selectedSource: '',
+  draft: null,
+  editingId: null,
+  showEntries: false
+};
+
+function emptyResearchEntry() {
+  return {
+    research_source: '', exact_phrase: '', emotion_underneath: '', core_problem: '',
+    deeper_problem: '', hidden_belief: '', objection: '', desire: '', buyer_moment: '',
+    content_angle: '', offer_bridge: '', use_this_in: [], offer_connection_strength: '',
+    final_insight: '', audience_readiness: '', priority_level: '', tags: []
+  };
+}
+
+function completeStep(n) {
+  var done = researchState.project.steps_completed || [];
+  if (done.indexOf(n) < 0) done.push(n);
+  researchState.project.steps_completed = done;
+  researchState.project.current_step = n;
+  scheduleSave();
+}
+
+function goStep(n) {
+  researchView.step = n;
+  researchState.project.current_step = n;
+  scheduleSave();
+  render();
+  window.scrollTo(0, 0);
+}
+
+function renderResearch(app) {
+  var header = el('div');
+  header.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:18px';
+  var hleft = el('div');
+  hleft.appendChild(el('div', 'card-num', 'Tool Two, Influence'));
+  var h = el('h2', null, 'Influence Research Builder');
+  h.style.cssText = 'font-size:26px;font-weight:800;letter-spacing:-0.015em';
+  hleft.appendChild(h);
+  header.appendChild(hleft);
+  header.appendChild(saveIndicator());
+  app.appendChild(header);
+
+  var bar = el('div', 'steps-bar');
+  var done = researchState.project.steps_completed || [];
+  RESEARCH_STEPS.forEach(function (s) {
+    var cls = 'step-pill';
+    if (researchView.step === s.num) cls += ' current';
+    else if (done.indexOf(s.num) >= 0) cls += ' done';
+    var b = btn(cls, null, function () { goStep(s.num); });
+    b.appendChild(el('span', 'sp-num', String(s.num)));
+    b.appendChild(el('span', null, s.label));
+    bar.appendChild(b);
+  });
+  app.appendChild(bar);
+
+  if (researchView.showEntries) {
+    app.appendChild(renderResearchEntriesPanel());
+    return;
+  }
+
+  if (researchView.step === 5) completeStep(5);
+
+  var layout = el('div', 'with-sidebar');
+  var main = el('div');
+  layout.appendChild(main);
+
+  var side = el('div', 'sidebar');
+  var sticky = el('div', 'sidebar-sticky');
+  sticky.appendChild(renderTracker());
+  sticky.appendChild(btn('btn-pill-ghost', 'View Entries (' + researchState.entries.length + ')', function () {
+    researchView.showEntries = true;
+    render();
+    window.scrollTo(0, 0);
+  }));
+  side.appendChild(sticky);
+  layout.appendChild(side);
+  app.appendChild(layout);
+
+  if (researchView.step === 1) renderStepSource(main);
+  else if (researchView.step === 2) renderStepEntry(main);
+  else if (researchView.step === 3) renderStepPattern(main);
+  else if (researchView.step === 4) renderStepStrategy(main);
+  else renderStepExport(main);
+}
+
+function renderTracker() {
+  var done = researchState.project.steps_completed || [];
+  var t = el('div', 'tracker');
+  var head = el('div', 'tracker-head');
+  head.appendChild(el('span', null, 'Progress'));
+  var count = TRACKER_MILESTONES.filter(function (m) { return done.indexOf(m.step) >= 0; }).length;
+  head.appendChild(el('span', null, count + ' of ' + TRACKER_MILESTONES.length));
+  t.appendChild(head);
+  var bar = el('div', 'bar');
+  var fill = el('div', 'bar-fill');
+  fill.style.width = (count / TRACKER_MILESTONES.length * 100) + '%';
+  bar.appendChild(fill);
+  t.appendChild(bar);
+  TRACKER_MILESTONES.forEach(function (m) {
+    var on = done.indexOf(m.step) >= 0;
+    var item = el('div', 'tracker-item' + (on ? ' on' : ''));
+    var tick = el('div', 'tick' + (on ? ' on' : ''), on ? '‚úì' : '');
+    item.appendChild(tick);
+    item.appendChild(el('span', null, m.label));
+    t.appendChild(item);
+  });
+  return t;
+}
+
+/* ‚îÄ‚îÄ Step 1: Source ‚îÄ‚îÄ */
+function renderStepSource(app) {
+  var card = sectionCard('Step 01', 'Choose Your Research Source',
+    'Choose where this piece of research came from. Different sources reveal different layers of your audience psychology.');
+
+  var grid = el('div', 'source-grid');
+  SOURCES.forEach(function (s) {
+    var b = btn('source-btn' + (researchView.selectedSource === s.value ? ' on' : ''), s.label, function () {
+      researchView.selectedSource = s.value;
+      render();
+    });
+    grid.appendChild(b);
+  });
+  card.appendChild(grid);
+
+  var active = null;
+  SOURCES.forEach(function (s) { if (s.value === researchView.selectedSource) active = s; });
+
+  if (active) {
+    var detail = el('div', 'subcard');
+    detail.style.marginTop = '20px';
+    detail.appendChild(el('div', 'subcard-label', active.label));
+    detail.appendChild(el('p', 'subcard-helper', active.description));
+    detail.appendChild(el('div', 'card-num', 'Look For'));
+    var ul = el('ul', 'bullet-list');
+    active.lookFor.forEach(function (item) { ul.appendChild(el('li', null, item)); });
+    detail.appendChild(ul);
+    if (active.note) {
+      var dp = el('div', 'dark-panel');
+      dp.style.marginTop = '18px';
+      dp.appendChild(el('div', 'dp-eyebrow', 'Important'));
+      dp.appendChild(el('p', null, active.note));
+      detail.appendChild(dp);
+    }
+    var spacer = el('div');
+    spacer.style.height = '16px';
+    detail.appendChild(spacer);
+    card.appendChild(detail);
+  }
+
+  var row = el('div', 'btn-row');
+  var next = btn('btn-pill-dark', 'Next Step', function () {
+    if (!researchView.selectedSource) { toast('Choose a source to continue'); return; }
+    completeStep(1);
+    goStep(2);
+  });
+  if (!researchView.selectedSource) next.disabled = true;
+  row.appendChild(next);
+  card.appendChild(row);
+  app.appendChild(card);
+}
+
+/* ‚îÄ‚îÄ Step 2: Collect language ‚îÄ‚îÄ */
+function renderStepEntry(app) {
+  var card = sectionCard('Step 02', 'Collect Raw Language',
+    'Add research entries with the exact words your audience uses. Each entry saves to this browser.');
+
+  if (researchState.entries.length) {
+    card.appendChild(el('div', 'card-num', researchState.entries.length + ' ' + (researchState.entries.length === 1 ? 'entry' : 'entries') + ' saved'));
+    researchState.entries.forEach(function (entry) { card.appendChild(researchEntryCard(entry)); });
+    card.appendChild(el('div', 'divider'));
+  }
+
+  var form = researchView.draft || Object.assign(emptyResearchEntry(), { research_source: researchView.selectedSource });
+  researchView.draft = form;
+  var set = function (k) { return function (v) { form[k] = v; }; };
+
+  card.appendChild(el('h3', null, researchView.editingId ? 'Edit Entry' : 'Add Entry'));
+
+  // Source + readiness
+  var c1 = el('div', 'subcard');
+  c1.appendChild(el('div', 'subcard-label', 'Source And Readiness'));
+  var g1 = el('div', 'grid-2');
+  g1.appendChild(buildField({ label: 'Research Source', type: 'select', options: SOURCE_VALUES, value: form.research_source, onInput: set('research_source'), placeholder: 'Select source', half: true }));
+  g1.appendChild(buildField({ label: 'Audience Readiness', helper: 'Where is this person emotionally and strategically?', type: 'select', options: AUDIENCE_READINESS, value: form.audience_readiness, onInput: set('audience_readiness'), placeholder: 'Select readiness', half: true }));
+  c1.appendChild(g1);
+  card.appendChild(c1);
+
+  // Raw language
+  var c2 = el('div', 'subcard');
+  c2.appendChild(el('div', 'subcard-label', 'Raw Language'));
+  c2.appendChild(buildField({ label: 'Exact Phrase', helper: 'Paste the exact words they used. Do not clean it up yet.', type: 'textarea', rows: 3, value: form.exact_phrase, onInput: set('exact_phrase'), placeholder: '"I know I need to show up more, but every time I go to post, I overthink what people will think."' }));
+  card.appendChild(c2);
+
+  // Psychology
+  var c3 = el('div', 'subcard');
+  c3.appendChild(el('div', 'subcard-label', 'Audience Psychology'));
+  var g3 = el('div', 'grid-2');
+  g3.appendChild(buildField({ label: 'Emotion Underneath', helper: 'Fear, frustration, shame, desire, confusion, hope, overwhelm?', type: 'textarea', rows: 3, value: form.emotion_underneath, onInput: set('emotion_underneath'), placeholder: 'What emotion is sitting under this?', half: true }));
+  g3.appendChild(buildField({ label: 'Core Problem', helper: 'What do they think the problem is?', type: 'textarea', rows: 3, value: form.core_problem, onInput: set('core_problem'), placeholder: 'What do they think the problem is?', half: true }));
+  g3.appendChild(buildField({ label: 'Deeper Problem', helper: 'What is actually going on underneath?', type: 'textarea', rows: 3, value: form.deeper_problem, onInput: set('deeper_problem'), placeholder: 'What is actually going on underneath?', half: true }));
+  g3.appendChild(buildField({ label: 'Hidden Belief', helper: '"I have to do everything myself." "If I slow down, it falls apart."', type: 'textarea', rows: 3, value: form.hidden_belief, onInput: set('hidden_belief'), placeholder: 'What belief is shaping how they see the problem?', half: true }));
+  c3.appendChild(g3);
+  card.appendChild(c3);
+
+  // Friction + desire
+  var c4 = el('div', 'subcard');
+  c4.appendChild(el('div', 'subcard-label', 'Buying Friction And Desire'));
+  var g4 = el('div', 'grid-2');
+  g4.appendChild(buildField({ label: 'Objection', helper: '"I do not have time." "I am not ready." "I need to think about it."', type: 'textarea', rows: 3, value: form.objection, onInput: set('objection'), placeholder: 'What might stop them from taking action?', half: true }));
+  g4.appendChild(buildField({ label: 'Desire', helper: 'What do they actually want?', type: 'textarea', rows: 3, value: form.desire, onInput: set('desire'), placeholder: 'What do they actually want?', half: true }));
+  c4.appendChild(g4);
+  c4.appendChild(buildField({ label: 'Buyer Moment', helper: 'What moment is this person in when this problem becomes urgent?', type: 'textarea', rows: 3, value: form.buyer_moment, onInput: set('buyer_moment'), placeholder: 'Describe the situation, trigger, or moment that makes this problem feel immediate.' }));
+  var exAcc = buildAccordion('See examples across industries', BUYER_MOMENT_EXAMPLES.join('\n\n'));
+  exAcc.querySelector('.acc-body p').style.whiteSpace = 'pre-line';
+  c4.appendChild(exAcc);
+  card.appendChild(c4);
+
+  // Strategy translation
+  var c5 = el('div', 'subcard');
+  c5.appendChild(el('div', 'subcard-label', 'Strategy Translation'));
+  var g5 = el('div', 'grid-2');
+  g5.appendChild(buildField({ label: 'Content Angle', helper: 'Hook, Reel topic, carousel, email, story sequence.', type: 'textarea', rows: 3, value: form.content_angle, onInput: set('content_angle'), placeholder: 'Content idea from this research.', half: true }));
+  g5.appendChild(buildField({ label: 'Offer Bridge', helper: 'How does this connect to your offer or method?', type: 'textarea', rows: 3, value: form.offer_bridge, onInput: set('offer_bridge'), placeholder: 'How this connects to your offer, method, or client result.', half: true }));
+  c5.appendChild(g5);
+
+  var utiWrap = el('div', 'field');
+  utiWrap.appendChild(el('label', 'field-label', 'Use This In'));
+  utiWrap.appendChild(el('p', 'field-helper', 'Where could this research insight be used immediately?'));
+  utiWrap.appendChild(buildPills(USE_THIS_IN_OPTIONS, form.use_this_in, function () {}));
+  c5.appendChild(utiWrap);
+
+  c5.appendChild(buildField({ label: 'Offer Connection Strength', helper: 'Not every insight needs to become a pitch. Use this to decide whether the research belongs in sales messaging, nurture content, or audience understanding.', type: 'select', options: OFFER_CONNECTION_OPTIONS, value: form.offer_connection_strength, onInput: set('offer_connection_strength'), placeholder: 'Select connection strength' }));
+  c5.appendChild(buildField({ label: 'Final Research Insight', type: 'textarea', rows: 3, value: form.final_insight, onInput: set('final_insight'), placeholder: 'What is the single most important thing this research told you?' }));
+  card.appendChild(c5);
+
+  // Organisation
+  var c6 = el('div', 'subcard');
+  c6.appendChild(el('div', 'subcard-label', 'Organisation'));
+  var g6 = el('div', 'grid-2');
+  g6.appendChild(buildField({ label: 'Priority Level', type: 'select', options: PRIORITIES, value: form.priority_level, onInput: set('priority_level'), placeholder: 'Select priority', half: true }));
+
+  var tagWrap = el('div', 'field');
+  tagWrap.appendChild(el('label', 'field-label', 'Tags'));
+  var tagRow = el('div');
+  tagRow.style.cssText = 'display:flex;gap:8px';
+  var tagIn = document.createElement('input');
+  tagIn.type = 'text';
+  tagIn.className = 'inp';
+  tagIn.placeholder = 'Add a tag';
+  var tagList = el('div', 'pill-set');
+  tagList.style.marginTop = '8px';
+  function refreshTags() {
+    tagList.innerHTML = '';
+    form.tags.forEach(function (t) {
+      var b = btn('pill-opt on', t + '  √ó', function () {
+        form.tags = form.tags.filter(function (x) { return x !== t; });
+        refreshTags();
+      });
+      tagList.appendChild(b);
+    });
+    if (!form.tags.length) {
+      SUGGESTED_TAGS.forEach(function (t) {
+        var b = btn('pill-opt', '+ ' + t, function () {
+          if (form.tags.indexOf(t) < 0) form.tags.push(t);
+          refreshTags();
+        });
+        tagList.appendChild(b);
+      });
+    }
+  }
+  function addTag() {
+    var v = tagIn.value.trim();
+    if (v && form.tags.indexOf(v) < 0) form.tags.push(v);
+    tagIn.value = '';
+    refreshTags();
+  }
+  tagIn.addEventListener('keydown', function (ev) {
+    if (ev.key === 'Enter') { ev.preventDefault(); addTag(); }
+  });
+  tagRow.appendChild(tagIn);
+  tagRow.appendChild(btn('btn-mini', 'Add', addTag));
+  tagWrap.appendChild(tagRow);
+  tagWrap.appendChild(tagList);
+  refreshTags();
+  g6.appendChild(tagWrap);
+  c6.appendChild(g6);
+  card.appendChild(c6);
+
+  var saveRow = el('div', 'btn-row');
+  saveRow.appendChild(btn('btn-pill-dark', researchView.editingId ? 'Save Changes' : 'Save Entry', function () {
+    if (!form.research_source || !form.exact_phrase.trim()) {
+      toast('Add a source and the exact phrase before saving');
+      return;
+    }
+    if (researchView.editingId) {
+      researchState.entries = researchState.entries.map(function (e) {
+        return e.id === researchView.editingId ? Object.assign({}, e, form) : e;
+      });
+      researchView.editingId = null;
+      toast('Entry updated');
+    } else {
+      researchState.entries.unshift(Object.assign({}, form, { id: uid(), created_date: new Date().toISOString() }));
+      toast('Entry saved to this browser');
+    }
+    researchView.draft = null;
+    completeStep(2);
+    scheduleSave();
+    render();
+    window.scrollTo(0, 0);
+  }));
+  if (researchView.editingId) {
+    saveRow.appendChild(btn('btn-pill-ghost', 'Cancel Edit', function () {
+      researchView.editingId = null;
+      researchView.draft = null;
+      render();
+    }));
+  }
+  card.appendChild(saveRow);
+
+  var navRow = el('div', 'btn-row split');
+  navRow.appendChild(btn('btn-pill-ghost', 'Previous', function () { goStep(1); }));
+  var next = btn('btn-pill-dark', 'Next Step', function () {
+    if (!researchState.entries.length) { toast('Save at least one entry to continue'); return; }
+    completeStep(2);
+    goStep(3);
+  });
+  if (!researchState.entries.length) next.disabled = true;
+  navRow.appendChild(next);
+  card.appendChild(navRow);
+  card.appendChild(el('p', 'save-note', 'Your entries save to this browser only. If you switch devices, clear your cookies, or use incognito, they will start fresh.'));
+  app.appendChild(card);
+}
+
+function researchEntryCard(entry) {
+  var e = el('div', 'entry');
+  var head = btn('entry-head', null, function () { e.classList.toggle('open'); });
+  var left = el('div', 'entry-head-left');
+  left.appendChild(el('span', 'tag', entry.research_source));
+  if (entry.priority_level) {
+    left.appendChild(el('span', 'tag' + (entry.priority_level === 'High' ? ' blush' : ''), entry.priority_level));
+  }
+  var q = entry.exact_phrase || '';
+  left.appendChild(el('span', 'entry-quote', '"' + (q.length > 60 ? q.substring(0, 60) + '...' : q) + '"'));
+  head.appendChild(left);
+  head.appendChild(el('span', 'acc-chev', '‚ñº'));
+  e.appendChild(head);
+
+  var body = el('div', 'entry-body');
+  body.appendChild(el('p', 'eb-quote', '"' + entry.exact_phrase + '"'));
+  var g = el('div', 'kv-grid');
+  [['Audience Readiness', 'audience_readiness'], ['Emotion', 'emotion_underneath'],
+   ['Core Problem', 'core_problem'], ['Deeper Problem', 'deeper_problem'],
+   ['Hidden Belief', 'hidden_belief'], ['Objection', 'objection'], ['Desire', 'desire'],
+   ['Buyer Moment', 'buyer_moment', true], ['Content Angle', 'content_angle'],
+   ['Offer Bridge', 'offer_bridge', true], ['Offer Connection', 'offer_connection_strength'],
+   ['Final Insight', 'final_insight', true]].forEach(function (row) {
+    var node = kv(row[0], entry[row[1]], row[2]);
+    if (node) g.appendChild(node);
+  });
+  if (entry.use_this_in && entry.use_this_in.length) {
+    g.appendChild(kv('Use This In', entry.use_this_in.join(', ')));
+  }
+  if (entry.tags && entry.tags.length) {
+    g.appendChild(kv('Tags', entry.tags.join(', ')));
+  }
+  body.appendChild(g);
+
+  var actions = el('div', 'entry-actions');
+  actions.appendChild(btn('btn-mini', 'Edit', function () {
+    researchView.editingId = entry.id;
+    researchView.draft = Object.assign(emptyResearchEntry(), entry, {
+      use_this_in: (entry.use_this_in || []).slice(),
+      tags: (entry.tags || []).slice()
+    });
+    researchView.showEntries = false;
+    researchView.step = 2;
+    render();
+    window.scrollTo(0, 0);
+  }));
+  actions.appendChild(btn('btn-mini', 'Duplicate', function () {
+    var copy = Object.assign({}, entry, {
+      id: uid(),
+      created_date: new Date().toISOString(),
+      exact_phrase: entry.exact_phrase + ' (copy)'
+    });
+    researchState.entries.unshift(copy);
+    scheduleSave();
+    toast('Entry duplicated');
+    render();
+  }));
+  actions.appendChild(copyBtn('Copy', function () { return researchEntryText(entry); }));
+  actions.appendChild(btn('btn-mini danger', 'Delete', function () {
+    if (!confirm('Delete this entry? This cannot be undone.')) return;
+    researchState.entries = researchState.entries.filter(function (x) { return x.id !== entry.id; });
+    scheduleSave();
+    toast('Entry deleted');
+    render();
+  }));
+  body.appendChild(actions);
+  e.appendChild(body);
+  return e;
+}
+
+function researchEntryText(e) {
+  var t = 'Source: ' + e.research_source + '\nQuote: "' + e.exact_phrase + '"\n';
+  if (e.emotion_underneath) t += 'Emotion: ' + e.emotion_underneath + '\n';
+  if (e.core_problem) t += 'Core Problem: ' + e.core_problem + '\n';
+  if (e.buyer_moment) t += 'Buyer Moment: ' + e.buyer_moment + '\n';
+  if (e.content_angle) t += 'Content Angle: ' + e.content_angle + '\n';
+  if (e.offer_bridge) t += 'Offer Bridge: ' + e.offer_bridge + '\n';
+  if (e.use_this_in && e.use_this_in.length) t += 'Use This In: ' + e.use_this_in.join(', ') + '\n';
+  if (e.offer_connection_strength) t += 'Offer Connection: ' + e.offer_connection_strength + '\n';
+  return t;
+}
+
+/* ‚îÄ‚îÄ Step 3: Pattern ‚îÄ‚îÄ */
+function renderStepPattern(app) {
+  var card = sectionCard('Step 03', 'Find The Pattern',
+    'Review your research entries and identify what keeps showing up. Look for the recurring language, emotions, problems, and beliefs.');
+
+  if (researchState.entries.length) {
+    var ref = el('div', 'subcard');
+    ref.appendChild(el('div', 'subcard-label', 'Your Research, ' + researchState.entries.length + ' ' + (researchState.entries.length === 1 ? 'entry' : 'entries')));
+    var list = el('div');
+    list.style.cssText = 'max-height:200px;overflow-y:auto;margin-bottom:16px';
+    researchState.entries.forEach(function (e) {
+      var r = el('div');
+      r.style.cssText = 'padding:9px 0;border-bottom:1px solid var(--border)';
+      var s = el('span', 'kv-label', e.research_source);
+      r.appendChild(s);
+      r.appendChild(el('p', 'kv-value', '"' + e.exact_phrase + '"'));
+      list.appendChild(r);
+    });
+    ref.appendChild(list);
+    card.appendChild(ref);
+  }
+
+  var ps = researchState.project.pattern_summary || {};
+  researchState.project.pattern_summary = ps;
+
+  PATTERN_CARDS.forEach(function (pc) {
+    var sub = el('div', 'subcard');
+    sub.appendChild(el('div', 'subcard-label', pc.label));
+    sub.appendChild(el('p', 'subcard-helper', pc.helper));
+    var halves = pc.fields.filter(function (f) { return f.half; });
+    var fulls = pc.fields.filter(function (f) { return !f.half; });
+    if (halves.length) {
+      var g = el('div', 'grid-2');
+      halves.forEach(function (f) {
+        g.appendChild(buildField({
+          label: f.label, type: 'textarea', rows: f.rows || 3, placeholder: f.ph,
+          value: ps[f.key], half: true,
+          onInput: (function (key) { return function (v) { ps[key] = v; scheduleSave(); }; })(f.key)
+        }));
+      });
+      sub.appendChild(g);
+    }
+    fulls.forEach(function (f) {
+      sub.appendChild(buildField({
+        label: f.label, type: 'textarea', rows: f.rows || 3, placeholder: f.ph,
+        value: ps[f.key],
+        onInput: (function (key) { return function (v) { ps[key] = v; scheduleSave(); }; })(f.key)
+      }));
+    });
+    card.appendChild(sub);
+  });
+
+  var row = el('div', 'btn-row split');
+  row.appendChild(btn('btn-pill-ghost', 'Previous', function () { goStep(2); }));
+  row.appendChild(btn('btn-pill-dark', 'Next Step', function () {
+    completeStep(3);
+    goStep(4);
+  }));
+  card.appendChild(row);
+  app.appendChild(card);
+}
+
+/* ‚îÄ‚îÄ Step 4: Strategy ‚îÄ‚îÄ */
+function renderStepStrategy(app) {
+  var card = sectionCard('Step 04', 'Turn Research Into Strategy',
+    'Transform your research patterns into specific content angles, objection-handling content, FAQs, sales messaging, and offer bridges.');
+
+  STRATEGY_BLOCKS.forEach(function (block) {
+    if (!researchState.project[block.key]) researchState.project[block.key] = [];
+    var items = researchState.project[block.key];
+
+    var sub = el('div', 'subcard');
+    var head = el('div');
+    head.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px';
+    head.appendChild(el('div', 'subcard-label', block.title));
+    head.appendChild(copyBtn('Copy', function () {
+      return items.map(function (item, i) {
+        return '--- ' + block.title + ' ' + (i + 1) + ' ---\n' +
+          block.fields.map(function (f) { return f.label + ': ' + (item[f.key] || ''); }).join('\n');
+      }).join('\n\n');
+    }));
+    sub.appendChild(head);
+
+    if (!items.length) {
+      sub.appendChild(el('p', 'subcard-helper', 'No items yet. Add one below.'));
+    }
+
+    items.forEach(function (item, i) {
+      var box = el('div');
+      box.style.cssText = 'border:1px solid var(--border);border-radius:10px;padding:16px 16px 2px;margin-bottom:12px;background:var(--card-bg)';
+      var bh = el('div');
+      bh.style.cssText = 'display:flex;align-items:center;justify-content:space-between;margin-bottom:12px';
+      bh.appendChild(el('span', 'kv-label', block.title + ' ' + (i + 1)));
+      bh.appendChild(btn('btn-mini danger', 'Remove', function () {
+        items.splice(i, 1);
+        scheduleSave();
+        render();
+      }));
+      box.appendChild(bh);
+      block.fields.forEach(function (f) {
+        box.appendChild(buildField({
+          label: f.label, type: 'textarea', rows: 2, placeholder: f.ph,
+          value: item[f.key],
+          onInput: (function (key) { return function (v) { item[key] = v; scheduleSave(); }; })(f.key)
+        }));
+      });
+      sub.appendChild(box);
+    });
+
+    sub.appendChild(btn('btn-pill-ghost', 'Add ' + block.title, function () {
+      var empty = {};
+      block.fields.forEach(function (f) { empty[f.key] = ''; });
+      items.push(empty);
+      scheduleSave();
+      render();
+    }));
+    var sp = el('div');
+    sp.style.height = '16px';
+    sub.appendChild(sp);
+    card.appendChild(sub);
+  });
+
+  var row = el('div', 'btn-row split');
+  row.appendChild(btn('btn-pill-ghost', 'Previous', function () { goStep(3); }));
+  row.appendChild(btn('btn-pill-dark', 'Finish And Export', function () {
+    completeStep(4);
+    goStep(5);
+  }));
+  card.appendChild(row);
+  app.appendChild(card);
+}
+
+/* ‚îÄ‚îÄ Step 5: Export ‚îÄ‚îÄ */
+function renderStepExport(app) {
+  var card = sectionCard('Step 05', 'Export Your Influence Research',
+    'Download your research or copy it into Google Docs, Notion, or your WMHQ Portal.');
+
+  var warn = el('div', 'notice warn');
+  warn.appendChild(el('p', null, 'Before you leave: save your PDF or copy your research. Your work is only stored in this browser.'));
+  card.appendChild(warn);
+
+  var row = el('div', 'btn-row');
+  row.style.marginTop = '0';
+  row.appendChild(btn('btn-pill-dark', 'Save As PDF', function () { window.print(); }));
+  var gd = btn('btn-pill-ghost', 'Copy For Google Docs', function () {
+    copyText(buildResearchMarkdown(), function () {
+      gd.textContent = 'Copied';
+      setTimeout(function () { gd.textContent = 'Copy For Google Docs'; }, 2000);
+      toast('Copied. Paste into Google Docs, Notion, or your Portal');
+    });
+  });
+  row.appendChild(gd);
+  card.appendChild(row);
+  app.appendChild(card);
+
+  // Summary preview
+  var prev = sectionCard('Preview', 'What you have collected', null);
+  var stats = el('div', 'stat-row');
+  var s1 = el('div', 'stat');
+  s1.appendChild(el('span', 'stat-label', 'Research Entries'));
+  s1.appendChild(el('span', 'stat-value', String(researchState.entries.length)));
+  stats.appendChild(s1);
+  var strategyCount = 0;
+  STRATEGY_BLOCKS.forEach(function (b) { strategyCount += (researchState.project[b.key] || []).length; });
+  var s2 = el('div', 'stat');
+  s2.appendChild(el('span', 'stat-label', 'Strategy Items'));
+  s2.appendChild(el('span', 'stat-value', String(strategyCount)));
+  stats.appendChild(s2);
+  var patternFilled = Object.keys(researchState.project.pattern_summary || {}).filter(function (k) {
+    return researchState.project.pattern_summary[k];
+  }).length;
+  var s3 = el('div', 'stat');
+  s3.appendChild(el('span', 'stat-label', 'Pattern Fields'));
+  s3.appendChild(el('span', 'stat-value', String(patternFilled)));
+  stats.appendChild(s3);
+  prev.appendChild(stats);
+
+  var summaryText = (researchState.project.pattern_summary || {}).pattern_summary_text;
+  if (summaryText) {
+    var dp = el('div', 'dark-panel');
+    dp.appendChild(el('div', 'dp-eyebrow', 'Strongest Pattern'));
+    dp.appendChild(el('p', null, summaryText));
+    prev.appendChild(dp);
+  }
+  researchState.entries.forEach(function (entry) { prev.appendChild(researchEntryCard(entry)); });
+  app.appendChild(prev);
+
+  // Create from research
+  var cfr = sectionCard('Next Steps', 'Create From This Research',
+    'Five ways to turn this research into your next piece of content.');
+  CREATE_FROM_RESEARCH.forEach(function (a) {
+    var r = el('div', 'action-row');
+    var t = el('div', 'ar-text');
+    t.appendChild(el('div', 'ar-label', a[0]));
+    t.appendChild(el('div', 'ar-desc', a[1]));
+    r.appendChild(t);
+    r.appendChild(copyBtn('Copy', function () { return a[0] + ': ' + a[1]; }));
+    cfr.appendChild(r);
+  });
+  app.appendChild(cfr);
+
+  // Finish
+  var fin = sectionCard('Finish', 'Close the loop', null);
+  var ritual = el('div', 'soft-box');
+  ritual.appendChild(el('div', 'sb-label', 'Ritual Calendar'));
+  ritual.appendChild(el('p', null, 'Mark Influence Research as complete for today. This adds a dot to today on your home page ritual calendar.'));
+  var rrow = el('div', 'btn-row');
+  rrow.appendChild(btn('btn-pill-dark', 'Mark Complete', function () {
+    markRitualComplete('research');
+    toast('Marked on your ritual calendar');
+  }));
+  ritual.appendChild(rrow);
+  fin.appendChild(ritual);
+
+  var privacy = el('div', 'notice');
+  privacy.style.marginTop = '18px';
+  privacy.appendChild(el('p', null, 'Your work is stored only in this browser unless you choose to save or copy it. There are no logins and no cloud accounts.'));
+  fin.appendChild(privacy);
+
+  var arow = el('div', 'btn-row split');
+  arow.appendChild(btn('btn-pill-ghost', 'Previous', function () { goStep(4); }));
+  arow.appendChild(btn('btn-danger', 'Clear All Research', function () {
+    if (!confirm('Clear all research saved in this browser? This cannot be undone. Save your PDF first.')) return;
+    researchState = defaultResearchState();
+    researchView.step = 1;
+    researchView.selectedSource = '';
+    researchView.draft = null;
+    scheduleSave();
+    toast('All research cleared');
+    render();
+  }));
+  fin.appendChild(arow);
+  app.appendChild(fin);
+}
+
+function buildResearchMarkdown() {
+  var p = researchState.project;
+  var entries = researchState.entries;
+  var text = '# WMHQ Influence Research\n';
+  text += '**Date:** ' + new Date().toLocaleDateString() + '\n\n---\n\n';
+
+  text += '## Research Entries (' + entries.length + ')\n\n';
+  entries.forEach(function (e, i) {
+    text += '### Entry ' + (i + 1) + ', ' + e.research_source + '\n\n';
+    if (e.audience_readiness) text += '**Audience Readiness:** ' + e.audience_readiness + '\n\n';
+    text += '**Quote:** "' + e.exact_phrase + '"\n\n';
+    if (e.emotion_underneath) text += '**Emotion:** ' + e.emotion_underneath + '\n\n';
+    if (e.core_problem) text += '**Core Problem:** ' + e.core_problem + '\n\n';
+    if (e.deeper_problem) text += '**Deeper Problem:** ' + e.deeper_problem + '\n\n';
+    if (e.hidden_belief) text += '**Hidden Belief:** ' + e.hidden_belief + '\n\n';
+    if (e.objection) text += '**Objection:** ' + e.objection + '\n\n';
+    if (e.desire) text += '**Desire:** ' + e.desire + '\n\n';
+    if (e.buyer_moment) text += '**Buyer Moment:** ' + e.buyer_moment + '\n\n';
+    if (e.content_angle) text += '**Content Angle:** ' + e.content_angle + '\n\n';
+    if (e.offer_bridge) text += '**Offer Bridge:** ' + e.offer_bridge + '\n\n';
+    if (e.use_this_in && e.use_this_in.length) text += '**Use This In:** ' + e.use_this_in.join(', ') + '\n\n';
+    if (e.offer_connection_strength) text += '**Offer Connection Strength:** ' + e.offer_connection_strength + '\n\n';
+    if (e.final_insight) text += '**Final Insight:** ' + e.final_insight + '\n\n';
+    if (e.tags && e.tags.length) text += '**Tags:** ' + e.tags.join(', ') + '\n\n';
+    text += '---\n\n';
+  });
+
+  var ps = p.pattern_summary || {};
+  var psLabels = [
+    ['pattern_summary_text', 'Strongest Pattern'],
+    ['repeated_phrases', 'Repeated Exact Phrases'],
+    ['repeated_words', 'Repeated Words'],
+    ['repeated_questions', 'Repeated Questions'],
+    ['repeated_emotions', 'Repeated Emotional Patterns'],
+    ['repeated_frustrations', 'Repeated Frustrations'],
+    ['repeated_desires', 'Repeated Desires'],
+    ['repeated_problems', 'Repeated Surface Problems'],
+    ['repeated_deeper_problems', 'Repeated Deeper Problems'],
+    ['repeated_beliefs', 'Repeated Hidden Beliefs'],
+    ['repeated_objections', 'Repeated Objections'],
+    ['repeated_hesitations', 'Repeated Hesitations'],
+    ['repeated_delay_reasons', 'Repeated Delay Reasons'],
+    ['strategic_interpretation', 'Strategic Interpretation'],
+    ['belief_to_shift', 'Belief To Shift'],
+    ['content_from_pattern', 'Content From This Pattern'],
+    ['offer_messaging_clarity', 'Offer Messaging Clarity']
+  ];
+  if (psLabels.some(function (l) { return ps[l[0]]; })) {
+    text += '## Pattern Summary\n\n';
+    psLabels.forEach(function (l) {
+      if (ps[l[0]]) text += '**' + l[1] + '**\n' + ps[l[0]] + '\n\n';
+    });
+    text += '---\n\n';
+  }
+
+  STRATEGY_BLOCKS.forEach(function (block) {
+    var items = p[block.key] || [];
+    if (!items.length) return;
+    text += '## ' + block.title + '\n\n';
+    items.forEach(function (item, i) {
+      text += '### ' + block.title + ' ' + (i + 1) + '\n\n';
+      block.fields.forEach(function (f) {
+        if (item[f.key]) text += '**' + f.label + ':** ' + item[f.key] + '\n\n';
+      });
+    });
+    text += '---\n\n';
+  });
+
+  text += '\n' + DISCLAIMER + '\n';
+  return text;
+}
+
+function renderResearchEntriesPanel() {
+  var card = sectionCard('Secondary Workspace', 'Research Entries',
+    researchState.entries.length + ' ' + (researchState.entries.length === 1 ? 'entry' : 'entries') + ' saved in this browser.');
+  if (!researchState.entries.length) {
+    var es = el('div', 'empty-state');
+    es.appendChild(el('p', null, 'No research entries yet.'));
+    es.appendChild(el('p', 'sub', 'Start by adding the exact words your audience is already using.'));
+    card.appendChild(es);
+  } else {
+    researchState.entries.forEach(function (entry) { card.appendChild(researchEntryCard(entry)); });
+  }
+  var row = el('div', 'btn-row');
+  row.appendChild(btn('btn-pill-dark', 'Return To Influence Research', function () {
+    researchView.showEntries = false;
+    render();
+    window.scrollTo(0, 0);
+  }));
+  card.appendChild(row);
+  return card;
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   LIBRARY
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+var libraryFilters = { search: '', source: 'All', readiness: 'All', priority: 'All', tag: '' };
+
+function renderLibrary(app) {
+  var card = sectionCard('Research Library', 'Your Research Entries',
+    'All research entries currently saved in this browser.');
+
+  var notice = el('div', 'notice');
+  notice.appendChild(el('p', null, 'This library only contains research currently saved in this browser. To keep your work, use the export step in the Influence Research Builder.'));
+  card.appendChild(notice);
+
+  var fbox = el('div', 'subcard');
+  fbox.appendChild(el('div', 'subcard-label', 'Filters'));
+  var fg = el('div', 'grid-2');
+  fg.appendChild(buildField({
+    label: 'Search', value: libraryFilters.search, placeholder: 'Search entries', half: true,
+    onInput: function (v) { libraryFilters.search = v; refreshList(); }
+  }));
+  fg.appendChild(buildField({
+    label: 'Source', type: 'select', options: ['All'].concat(SOURCE_VALUES), value: libraryFilters.source, half: true,
+    onInput: function (v) { libraryFilters.source = v || 'All'; refreshList(); }
+  }));
+  fg.appendChild(buildField({
+    label: 'Audience Readiness', type: 'select', options: ['All'].concat(AUDIENCE_READINESS), value: libraryFilters.readiness, half: true,
+    onInput: function (v) { libraryFilters.readiness = v || 'All'; refreshList(); }
+  }));
+  fg.appendChild(buildField({
+    label: 'Priority', type: 'select', options: ['All'].concat(PRIORITIES), value: libraryFilters.priority, half: true,
+    onInput: function (v) { libraryFilters.priority = v || 'All'; refreshList(); }
+  }));
+  fbox.appendChild(fg);
+
+  var allTags = [];
+  researchState.entries.forEach(function (e) {
+    (e.tags || []).forEach(function (t) { if (allTags.indexOf(t) < 0) allTags.push(t); });
+  });
+  if (allTags.length) {
+    fbox.appendChild(buildField({
+      label: 'Tag', type: 'select', options: ['All'].concat(allTags.sort()), value: libraryFilters.tag || 'All',
+      onInput: function (v) { libraryFilters.tag = (v === 'All' || !v) ? '' : v; refreshList(); }
+    }));
+  }
+  card.appendChild(fbox);
+
+  var countLine = el('p', 'card-num');
+  card.appendChild(countLine);
+  var listWrap = el('div');
+  card.appendChild(listWrap);
+
+  function refreshList() {
+    var filtered = researchState.entries.filter(function (e) {
+      if (libraryFilters.source !== 'All' && e.research_source !== libraryFilters.source) return false;
+      if (libraryFilters.readiness !== 'All' && e.audience_readiness !== libraryFilters.readiness) return false;
+      if (libraryFilters.priority !== 'All' && e.priority_level !== libraryFilters.priority) return false;
+      if (libraryFilters.tag && (e.tags || []).indexOf(libraryFilters.tag) < 0) return false;
+      if (libraryFilters.search) {
+        var q = libraryFilters.search.toLowerCase();
+        var hay = [e.exact_phrase, e.emotion_underneath, e.core_problem, e.deeper_problem,
+          e.hidden_belief, e.objection, e.desire, e.buyer_moment, e.content_angle,
+          e.offer_bridge, e.final_insight].join(' ').toLowerCase();
+        if (hay.indexOf(q) < 0) return false;
+      }
+      return true;
+    });
+
+    countLine.textContent = filtered.length + ' of ' + researchState.entries.length + ' entries';
+    listWrap.innerHTML = '';
+
+    if (!researchState.entries.length) {
+      var es = el('div', 'empty-state');
+      es.appendChild(el('p', null, 'No research entries yet.'));
+      es.appendChild(el('p', 'sub', 'Start by adding the exact words your audience is already using.'));
+      listWrap.appendChild(es);
+      return;
+    }
+    if (!filtered.length) {
+      var es2 = el('div', 'empty-state');
+      es2.appendChild(el('p', null, 'No entries match your filters.'));
+      listWrap.appendChild(es2);
+      return;
+    }
+    filtered.forEach(function (entry) { listWrap.appendChild(researchEntryCard(entry)); });
+  }
+  refreshList();
+
+  var row = el('div', 'btn-row');
+  row.appendChild(btn('btn-pill-dark', 'Add Research', function () { go('#/research'); }));
+  card.appendChild(row);
+  app.appendChild(card);
+
+  // Content entries too
+  var ccard = sectionCard('Content Library', 'Your Content Entries',
+    contentState.entries.length + ' ' + (contentState.entries.length === 1 ? 'entry' : 'entries') + ' saved in this browser.');
+  if (!contentState.entries.length) {
+    var ces = el('div', 'empty-state');
+    ces.appendChild(el('p', null, 'No content entries yet.'));
+    ces.appendChild(el('p', 'sub', 'Review a post in Content Data Review to start.'));
+    ccard.appendChild(ces);
+  } else {
+    contentState.entries.forEach(function (entry) { ccard.appendChild(contentEntryCard(entry)); });
+  }
+  var crow = el('div', 'btn-row');
+  crow.appendChild(btn('btn-pill-ghost', 'Open Content Data Review', function () { go('#/content-review'); }));
+  ccard.appendChild(crow);
+  app.appendChild(ccard);
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   Render
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+function render() {
+  renderNav();
+  var app = document.getElementById('app');
+  app.innerHTML = '';
+  var hash = location.hash || '#/';
+  if (hash.indexOf('#/content-review') === 0) renderContentReview(app);
+  else if (hash.indexOf('#/research') === 0) renderResearch(app);
+  else if (hash.indexOf('#/library') === 0) renderLibrary(app);
+  else renderHome(app);
+}
+
+render();
+</script>
+</body>
+</html>
