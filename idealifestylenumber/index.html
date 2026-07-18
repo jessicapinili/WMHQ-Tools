@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ideal Lifestyle Number | Woman Mastery HQ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%238a2121'/%3E%3Ctext x='32' y='31' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23f8f1e2' text-anchor='middle'%3EWM%3C/text%3E%3Ctext x='32' y='58' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23f8f1e2' text-anchor='middle'%3EHQ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep-red: #660810;
+  --dark-red: #3D0D0C;
+  --merlot: #3D0D0C;
+  --blush: #F2C6D0;
+  --stone: #f1ebeb;
+  --off-white: #f2f2f2;
+  --card-bg: #ffffff;
+  --card-soft: #f7f7f7;
+  --ink: #1a0a0a;
+  --muted: #7a5a5a;
+  --taupe: #7a5a5a;
+  --border: rgba(61,13,12,0.09);
+  --border-strong: rgba(61,13,12,0.2);
+  --green-ok: #4E8A52;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ‚îÄ‚îÄ Hero ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.hero {
+  background: var(--dark-red);
+  padding: 88px 24px 72px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(241,235,235,0.03) 80px);
+  pointer-events: none;
+}
+.hero-wordmark {
+  position: absolute; top: 26px; left: 30px;
+  z-index: 2; text-align: left;
+}
+.hero-wordmark .wm-top {
+  font-size: 12px; font-weight: 800; letter-spacing: 0.24em;
+  color: var(--stone); text-transform: uppercase; opacity: 0.95;
+}
+.hero-wordmark .wm-sub {
+  font-size: 8.5px; font-weight: 500; letter-spacing: 0.14em;
+  color: rgba(242,198,208,0.55); text-transform: lowercase;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--blush);
+  border: 1px solid rgba(242,198,208,0.3);
+  padding: 7px 18px; margin-bottom: 26px;
+  position: relative; z-index: 1;
+}
+.hero h1 {
+  font-size: clamp(30px, 4.6vw, 52px);
+  font-weight: 800; letter-spacing: -0.02em;
+  line-height: 1.08; color: var(--stone);
+  max-width: 760px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.hero h1 em { font-style: normal; color: var(--blush); }
+.hero-sub {
+  font-size: 15px; color: rgba(241,235,235,0.75);
+  max-width: 560px; margin: 18px auto 0;
+  line-height: 1.65; position: relative; z-index: 1;
+}
+
+/* ‚îÄ‚îÄ Body / cards ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.body { max-width: 880px; margin: 0 auto; padding: 52px 24px 30px; }
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 38px 38px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(61,13,12,0.03);
+}
+.card-num {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--taupe); margin-bottom: 14px;
+}
+.card h2 {
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 800; letter-spacing: -0.015em;
+  line-height: 1.15; margin-bottom: 8px; color: var(--ink);
+}
+.card-sub {
+  font-size: 14px; color: var(--muted);
+  margin-bottom: 26px; line-height: 1.6; max-width: 640px;
+}
+
+.card-head-row {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.phase-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.phase-chip {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #E6EFE7; border-radius: 100px; padding: 7px 16px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: #47603F;
+}
+.phase-dot { width: 8px; height: 8px; border-radius: 50%; background: #7A9C7C; }
+
+/* ‚îÄ‚îÄ Hero stat panel ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.dark-panel {
+  background: var(--merlot); color: var(--stone);
+  border-radius: 14px; padding: 34px 28px;
+  text-align: center; margin-bottom: 16px;
+}
+.panel-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--blush); margin-bottom: 12px;
+}
+.hero-value {
+  font-size: clamp(32px, 6vw, 52px); font-weight: 800;
+  letter-spacing: -0.025em; line-height: 1.05; color: var(--stone);
+  word-break: break-word;
+}
+.panel-sub {
+  font-size: 13px; color: rgba(241,235,235,0.6);
+  margin-top: 12px; line-height: 1.6;
+}
+
+.trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.trio-card {
+  background: var(--card-soft);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px 14px; text-align: center;
+}
+.trio-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--taupe); margin-bottom: 8px;
+}
+.trio-value {
+  font-size: clamp(16px, 2.4vw, 22px); font-weight: 800;
+  letter-spacing: -0.02em; color: var(--deep-red); word-break: break-word;
+}
+
+/* ‚îÄ‚îÄ Table ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+table.expense { width: 100%; min-width: 620px; border-collapse: collapse; }
+table.expense th {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--taupe);
+  text-align: left; padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+table.expense th.num, table.expense td.num { text-align: right; }
+table.expense td {
+  padding: 12px 8px 12px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px; color: var(--ink);
+  vertical-align: middle;
+}
+table.expense td.name { font-weight: 600; white-space: nowrap; }
+table.expense td.num { color: var(--muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.amount-cell { display: flex; align-items: center; gap: 3px; }
+.amount-prefix { color: var(--muted); font-size: 14px; }
+.amount-input {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 600; color: var(--ink);
+  background: transparent; border: none; outline: none;
+  border-bottom: 1px solid var(--border-strong);
+  padding: 4px 0; width: 100%; min-width: 90px;
+  font-variant-numeric: tabular-nums;
+}
+.amount-input:focus { border-bottom-color: var(--deep-red); }
+.freq-select, .currency-select {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 600; color: var(--ink);
+  background: var(--card-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 100px; padding: 7px 14px;
+  cursor: pointer; outline: none;
+}
+.currency-select {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+table.expense tfoot td {
+  border-bottom: none; border-top: 2px solid var(--merlot);
+  padding-top: 14px; font-weight: 800; color: var(--ink);
+}
+.total-week {
+  font-size: 12px; color: var(--muted); margin-top: 10px;
+}
+
+/* ‚îÄ‚îÄ Breakdown bars ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.bar-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+.bar-name {
+  width: 150px; flex-shrink: 0; font-size: 13px;
+  font-weight: 600; color: var(--ink);
+}
+.bar-track {
+  flex: 1; height: 20px; border-radius: 4px;
+  background: var(--off-white); overflow: hidden;
+}
+.bar-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+.bar-figure {
+  width: 150px; flex-shrink: 0; text-align: right;
+  font-size: 11px; color: var(--muted); white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.bar-pct { font-size: 10px; margin-left: 3px; }
+
+/* ‚îÄ‚îÄ Comparison ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.compare-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.field-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--taupe); margin-bottom: 8px;
+}
+.field-box {
+  display: flex; align-items: center; gap: 4px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px; padding: 11px 14px;
+}
+.field-box:focus-within { border-color: var(--deep-red); }
+.field-input {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px; font-weight: 600; color: var(--ink);
+  background: transparent; border: none; outline: none; width: 100%;
+  font-variant-numeric: tabular-nums;
+}
+.field-input::placeholder { color: var(--muted); opacity: 0.6; font-weight: 400; }
+.diff-wrap {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--border);
+}
+.diff-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--taupe); margin-bottom: 6px;
+}
+.diff-value {
+  font-size: clamp(20px, 3vw, 26px); font-weight: 800;
+  letter-spacing: -0.02em; line-height: 1.15; word-break: break-word;
+}
+.diff-value.gap { color: var(--deep-red); }
+.diff-value.surplus { color: var(--green-ok); }
+.diff-note { font-size: 11px; color: var(--muted); margin-top: 3px; }
+.compare-empty { font-size: 13px; color: var(--muted); margin-top: 20px; }
+
+/* ‚îÄ‚îÄ Buttons ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.btn-pill-dark {
+  padding: 14px 32px; background: var(--merlot); color: var(--stone);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; border: none; border-radius: 100px; cursor: pointer;
+}
+.btn-pill-dark:hover { background: var(--deep-red); }
+.btn-pill-ghost {
+  padding: 11px 22px; background: transparent; color: var(--merlot);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; border: 1px solid var(--border-strong);
+  border-radius: 100px; cursor: pointer;
+}
+.btn-pill-ghost:hover { border-color: var(--merlot); }
+.btn-underline {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--merlot);
+  text-decoration: none; border-bottom: 1px solid var(--merlot); padding-bottom: 3px;
+}
+.link-row { display: flex; gap: 26px; flex-wrap: wrap; }
+.pdf-export-wrap { text-align: center; margin: 34px 0 8px; }
+.save-note {
+  font-size: 12px; color: var(--muted); text-align: center;
+  max-width: 560px; margin: 16px auto 0; line-height: 1.6;
+}
+
+/* ‚îÄ‚îÄ Disclaimer + footer ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.pdf-disclaimer {
+  font-size: 10.5px; line-height: 1.6; color: var(--muted);
+  opacity: 0.55; max-width: 640px; margin: 36px auto 52px;
+  text-align: center; padding: 0 24px; font-weight: 400;
+}
+.wmhq-footer {
+  background: var(--merlot); color: rgba(241,235,235,0.55);
+  padding: 26px 24px 30px; text-align: center;
+  border-top: 1px solid rgba(241,235,235,0.08);
+}
+.wmhq-footer-inner { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.wmhq-footer-copy { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(241,235,235,0.7); }
+.wmhq-footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.wmhq-footer-links a { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(241,235,235,0.5); text-decoration: none; }
+.wmhq-footer-links a:hover { color: var(--blush); }
+
+:focus-visible { outline: 2px solid var(--deep-red); outline-offset: 3px; }
+
+/* ‚îÄ‚îÄ Responsive ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+@media (max-width: 760px) {
+  .hero { padding: 62px 20px 54px; }
+  .body { padding: 34px 16px 20px; }
+  .card { padding: 26px 20px 28px; }
+  .trio { grid-template-columns: 1fr; }
+  .compare-grid, .diff-wrap { grid-template-columns: 1fr; }
+  .bar-name { width: 110px; font-size: 12px; }
+  .bar-figure { width: 110px; font-size: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ‚îÄ‚îÄ Print ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+@media print {
+  @page { margin: 14mm 12mm; size: A4; }
+  body { background: #fff !important; font-size: 10.5pt; }
+  .hero { background: #fff !important; border-bottom: 2px solid var(--merlot); padding: 20px 0; }
+  .hero::before, .hero-wordmark { display: none !important; }
+  .hero h1, .hero h1 em { color: var(--merlot) !important; }
+  .hero-sub { color: var(--muted) !important; }
+  .hero-eyebrow { color: var(--merlot); border-color: var(--merlot); }
+  .card { box-shadow: none !important; border: 1px solid #999 !important; page-break-inside: avoid; }
+  .dark-panel { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .table-scroll { overflow: visible !important; }
+  table.expense { min-width: 0 !important; }
+  .amount-input, .field-input { border-bottom: none !important; }
+  .btn-pill-dark, .btn-pill-ghost, .pdf-export-wrap, .wmhq-footer,
+  .save-note, .currency-select { display: none !important; }
+  .freq-select { border: none !important; padding: 0 !important; -webkit-appearance: none; appearance: none; }
+  .pdf-disclaimer { display: block !important; opacity: 0.5 !important; font-size: 7.5pt !important; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-wordmark" aria-hidden="true">
+    <div class="wm-top">Woman Mastery HQ</div>
+    <div class="wm-sub">strategy. subconscious. mastery.</div>
+  </div>
+  <span class="hero-eyebrow">WMHQ Member Tool</span>
+  <h1>Ideal <em>Lifestyle Number</em></h1>
+  <p class="hero-sub">Calculate the exact revenue your business must generate to fund the life you actually want.</p>
+</header>
+
+<main class="body">
+
+  <!-- ============ Card 1: your number ============ -->
+  <section class="card">
+    <div class="phase-row">
+      <span class="phase-chip"><span class="phase-dot"></span>WMHQ Phase: Cash</span>
+      <button class="btn-pill-ghost" id="resetBtn" type="button">Reset</button>
+    </div>
+
+    <div class="card-num">Step One</div>
+    <h2>Your number</h2>
+    <p class="card-sub">This is what your life costs to run at the standard you actually want. Everything below feeds it.</p>
+
+    <div class="dark-panel">
+      <div class="panel-eyebrow">Your total annual ILN</div>
+      <div class="hero-value" id="annualTotal">A$2,149,564.00</div>
+      <div class="panel-sub" id="panelSub">A$179,130.33 per month, A$41,337.77 per week</div>
+    </div>
+
+    <div class="trio">
+      <div class="trio-card">
+        <div class="trio-label">Per month</div>
+        <div class="trio-value" id="trioMonth">A$179,130.33</div>
+      </div>
+      <div class="trio-card">
+        <div class="trio-label">Per week</div>
+        <div class="trio-value" id="trioWeek">A$41,337.77</div>
+      </div>
+      <div class="trio-card">
+        <div class="trio-label">Per day</div>
+        <div class="trio-value" id="trioDay">A$5,889.22</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Card 2: categories ============ -->
+  <section class="card">
+    <div class="card-head-row">
+      <div>
+        <div class="card-num">Step Two</div>
+        <h2>Your lifestyle categories</h2>
+        <p class="card-sub" style="margin-bottom:0">Enter what you genuinely want, not what feels safe.</p>
+      </div>
+      <select class="currency-select" id="currency" aria-label="Currency">
+        <option value="AUD">AUD (A$)</option>
+        <option value="USD">USD ($)</option>
+        <option value="GBP">GBP (¬£)</option>
+        <option value="EUR">EUR (‚Ç¨)</option>
+        <option value="NZD">NZD (NZ$)</option>
+        <option value="SGD">SGD (S$)</option>
+      </select>
+    </div>
+
+    <div class="table-scroll">
+      <table class="expense">
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Frequency</th>
+            <th class="num">Monthly equiv</th>
+            <th class="num">Annual equiv</th>
+          </tr>
+        </thead>
+        <tbody id="expenseBody"></tbody>
+        <tfoot>
+          <tr>
+            <td>Total</td>
+            <td></td>
+            <td></td>
+            <td class="num" id="footMonthly">A$179,130.33</td>
+            <td class="num" id="footAnnual">A$2,149,564.00</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <p class="total-week">Total per week: <span id="footWeekly">A$41,337.77</span></p>
+  </section>
+
+  <!-- ============ Card 3: breakdown ============ -->
+  <section class="card">
+    <div class="card-num">Step Three</div>
+    <h2>Spending breakdown</h2>
+    <p class="card-sub">Annual contribution per category, largest first. The top two are where your number is really made.</p>
+    <div id="breakdown"></div>
+  </section>
+
+  <!-- ============ Card 4: current vs ideal ============ -->
+  <section class="card">
+    <div class="card-num">Step Four</div>
+    <h2>Current vs ideal</h2>
+    <p class="card-sub">Complete this section last. Enter what you earn now to see the gap you are actually closing.</p>
+
+    <div class="compare-grid">
+      <div>
+        <div class="field-label">Current monthly income</div>
+        <div class="field-box">
+          <span class="amount-prefix" id="cmPrefix">A$</span>
+          <input class="field-input" id="currentMonthly" type="text" inputmode="decimal" placeholder="0" aria-label="Current monthly income">
+        </div>
+      </div>
+      <div>
+        <div class="field-label">Current annual income</div>
+        <div class="field-box">
+          <span class="amount-prefix" id="caPrefix">A$</span>
+          <input class="field-input" id="currentAnnual" type="text" inputmode="decimal" placeholder="0" aria-label="Current annual income">
+        </div>
+      </div>
+    </div>
+
+    <div id="diffWrap"></div>
+  </section>
+
+  <!-- ============ Card 5: next ============ -->
+  <section class="card">
+    <div class="card-num">Next Step</div>
+    <h2>Take it into the Vault</h2>
+    <p class="card-sub">Your number sets the revenue target. CEO Cash tells you how to build an offer that carries it.</p>
+    <div class="link-row">
+      <a class="btn-underline" href="https://www.jessicapinili.com/login" target="_blank" rel="noopener">Open the WMHQ Vault</a>
+      <a class="btn-underline" href="https://womanmasteryhqportal.com" target="_blank" rel="noopener">Open your Personal Portal</a>
+      <a class="btn-underline" href="https://www.jessicapinili.com/products/communities/v2/womanmasteryhq" target="_blank" rel="noopener">Submit to Ask JP</a>
+    </div>
+  </section>
+
+  <div class="pdf-export-wrap">
+    <button class="btn-pill-dark" id="pdfBtn" type="button">Save as PDF</button>
+    <p class="save-note">Your numbers save to this browser only. If you switch devices, clear your cookies or use incognito, the calculator will start fresh.</p>
+  </div>
+</main>
+
+<p class="pdf-disclaimer">This work is the sole property of Jessica Pinili. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, or create derivative works in any capacity. All rights on intellectual property of this digital product are proprietary and reserved for exclusive use by Jessica Pinili alone.</p>
+
+<footer class="wmhq-footer">
+  <div class="wmhq-footer-inner">
+    <p class="wmhq-footer-copy">&copy; <span id="footerYear"></span> Jessica Pinili. All rights reserved.</p>
+    <div class="wmhq-footer-links">
+      <a href="https://www.jessicapinili.com/terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+      <a href="https://www.jessicapinili.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+(function () {
+  var STORAGE_KEY = 'wmhq-ideal-lifestyle-number';
+
+  var CURRENCIES = {
+    AUD: 'A$', USD: '$', GBP: '¬£', EUR: '‚Ç¨', NZD: 'NZ$', SGD: 'S$'
+  };
+
+  var DEFAULT_CATEGORIES = [
+    { id: 1, name: 'Living', amount: 1000, frequency: 'Month' },
+    { id: 2, name: 'Cars/Transport', amount: 50000, frequency: 'Month' },
+    { id: 3, name: 'Travel', amount: 15000, frequency: 'Month' },
+    { id: 4, name: 'Necessities', amount: 5000, frequency: 'Week' },
+    { id: 5, name: 'Education', amount: 8890, frequency: 'Week' },
+    { id: 6, name: 'Business/Other Expenses', amount: 10987, frequency: 'Week' },
+    { id: 7, name: 'Other', amount: 1230, frequency: 'Week' }
+  ];
+
+  function freshState() {
+    return {
+      categories: DEFAULT_CATEGORIES.map(function (c) { return Object.assign({}, c); }),
+      currency: 'AUD',
+      currentMonthly: '',
+      currentAnnual: ''
+    };
+  }
+
+  var state = freshState();
+
+  /* ‚îÄ‚îÄ Maths, unchanged from the original tool ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+  function calcMonthly(amount, frequency) {
+    if (frequency === 'Month') return amount;
+    return (amount * 52) / 12;
+  }
+  function calcAnnual(amount, frequency) {
+    if (frequency === 'Month') return amount * 12;
+    return amount * 52;
+  }
+  function symbol() { return CURRENCIES[state.currency] || 'A$'; }
+  // Sign sits outside the symbol, so a surplus reads -A$6,732.00 and not
+  // A$-6,732.00. The gap figures are prefixed with + the same way.
+  function formatCurrency(value) {
+    var sign = value < 0 ? '-' : '';
+    return sign + symbol() + Math.abs(value).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function totals() {
+    var totalMonthly = 0, totalAnnual = 0;
+    state.categories.forEach(function (c) {
+      totalMonthly += calcMonthly(c.amount, c.frequency);
+      totalAnnual += calcAnnual(c.amount, c.frequency);
+    });
+    return {
+      totalMonthly: totalMonthly,
+      totalAnnual: totalAnnual,
+      totalWeekly: totalAnnual / 52,
+      totalDaily: totalAnnual / 365
+    };
+  }
+
+  // People type money as 30,000 or A$30,000. parseFloat stops at the first
+  // comma or symbol, so strip anything that is not a digit or decimal point.
+  function parseMoney(str) {
+    var cleaned = String(str).replace(/[^0-9.]/g, '');
+    var n = parseFloat(cleaned);
+    return isNaN(n) ? 0 : n;
+  }
+
+  // Persist data only. Element references live in `els`, never in state.
+  function save() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({
+        categories: state.categories.map(function (c) {
+          return { id: c.id, amount: c.amount, frequency: c.frequency };
+        }),
+        currency: state.currency,
+        currentMonthly: state.currentMonthly,
+        currentAnnual: state.currentAnnual
+      }));
+    } catch (e) {}
+  }
+
+  function load() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var s = JSON.parse(raw);
+      if (CURRENCIES[s.currency]) state.currency = s.currency;
+      if (typeof s.currentMonthly === 'string') state.currentMonthly = s.currentMonthly;
+      if (typeof s.currentAnnual === 'string') state.currentAnnual = s.currentAnnual;
+      if (Array.isArray(s.categories)) {
+        state.categories = DEFAULT_CATEGORIES.map(function (def) {
+          var hit = s.categories.filter(function (c) { return c && c.id === def.id; })[0];
+          if (!hit) return Object.assign({}, def);
+          return {
+            id: def.id,
+            name: def.name,
+            amount: typeof hit.amount === 'number' && isFinite(hit.amount) && hit.amount >= 0 ? hit.amount : def.amount,
+            frequency: hit.frequency === 'Week' || hit.frequency === 'Month' ? hit.frequency : def.frequency
+          };
+        });
+      }
+    } catch (e) {}
+  }
+
+  var body = document.getElementById('expenseBody');
+  var els = {}; // element references by category id, kept out of state
+
+  function buildRows() {
+    body.innerHTML = '';
+    els = {};
+    state.categories.forEach(function (item) {
+      var tr = document.createElement('tr');
+
+      var tdName = document.createElement('td');
+      tdName.className = 'name';
+      tdName.textContent = item.name;
+
+      var tdAmount = document.createElement('td');
+      var wrap = document.createElement('div');
+      wrap.className = 'amount-cell';
+      var pre = document.createElement('span');
+      pre.className = 'amount-prefix';
+      pre.setAttribute('data-prefix', '1');
+      var input = document.createElement('input');
+      input.className = 'amount-input';
+      input.type = 'text';
+      input.setAttribute('inputmode', 'decimal');
+      input.setAttribute('aria-label', item.name + ' amount');
+      input.setAttribute('data-id', String(item.id));
+      input.addEventListener('input', function () {
+        item.amount = parseMoney(input.value);
+        render(true);
+      });
+      input.addEventListener('blur', function () {
+        input.value = item.amount === 0 ? '' : item.amount.toLocaleString('en-US');
+      });
+      wrap.appendChild(pre); wrap.appendChild(input);
+      tdAmount.appendChild(wrap);
+
+      var tdFreq = document.createElement('td');
+      var sel = document.createElement('select');
+      sel.className = 'freq-select';
+      sel.setAttribute('aria-label', item.name + ' frequency');
+      ['Month', 'Week'].forEach(function (f) {
+        var o = document.createElement('option');
+        o.value = f; o.textContent = f;
+        sel.appendChild(o);
+      });
+      sel.addEventListener('change', function () {
+        item.frequency = sel.value;
+        render(true);
+      });
+      tdFreq.appendChild(sel);
+
+      var tdM = document.createElement('td'); tdM.className = 'num';
+      var tdA = document.createElement('td'); tdA.className = 'num';
+
+      tr.appendChild(tdName); tr.appendChild(tdAmount); tr.appendChild(tdFreq);
+      tr.appendChild(tdM); tr.appendChild(tdA);
+      body.appendChild(tr);
+
+      els[item.id] = { input: input, sel: sel, m: tdM, a: tdA, pre: pre };
+    });
+  }
+
+  function renderBreakdown(t) {
+    var wrap = document.getElementById('breakdown');
+    wrap.innerHTML = '';
+    var items = state.categories.map(function (c) {
+      return { name: c.name, annual: calcAnnual(c.amount, c.frequency) };
+    }).sort(function (a, b) { return b.annual - a.annual; });
+
+    var maxAnnual = items.length > 0 ? items[0].annual : 1;
+
+    items.forEach(function (item, i) {
+      var pct = t.totalAnnual > 0 ? (item.annual / t.totalAnnual) * 100 : 0;
+      var opacity = Math.max(1 - i * 0.08, 0.25);
+
+      var row = document.createElement('div');
+      row.className = 'bar-row';
+
+      var name = document.createElement('div');
+      name.className = 'bar-name';
+      name.textContent = item.name;
+
+      var track = document.createElement('div');
+      track.className = 'bar-track';
+      var fill = document.createElement('div');
+      fill.className = 'bar-fill';
+      fill.style.width = (maxAnnual > 0 ? (item.annual / maxAnnual) * 100 : 0) + '%';
+      fill.style.background = 'rgba(102, 8, 16, ' + opacity + ')';
+      fill.style.minWidth = item.annual > 0 ? '4px' : '0';
+      track.appendChild(fill);
+
+      var fig = document.createElement('div');
+      fig.className = 'bar-figure';
+      fig.textContent = formatCurrency(item.annual);
+      var pctEl = document.createElement('span');
+      pctEl.className = 'bar-pct';
+      pctEl.textContent = '(' + pct.toFixed(1) + '%)';
+      fig.appendChild(pctEl);
+
+      row.appendChild(name); row.appendChild(track); row.appendChild(fig);
+      wrap.appendChild(row);
+    });
+  }
+
+  function renderDiff(t) {
+    var wrap = document.getElementById('diffWrap');
+    var pm = parseMoney(state.currentMonthly);
+    var pa = parseMoney(state.currentAnnual);
+
+    if (pm <= 0 && pa <= 0) {
+      wrap.innerHTML = '<p class="compare-empty">Enter your current income to see the gap.</p>';
+      return;
+    }
+
+    var html = '<div class="diff-wrap">';
+    if (pm > 0) {
+      var md = t.totalMonthly - pm;
+      html += '<div><div class="diff-label">Monthly difference</div>' +
+        '<div class="diff-value ' + (md > 0 ? 'gap' : 'surplus') + '">' + (md > 0 ? '+' : '') + formatCurrency(md) + '</div>' +
+        '<div class="diff-note">' + (md > 0 ? 'Gap to close' : 'Surplus') + '</div></div>';
+    }
+    if (pa > 0) {
+      var ad = t.totalAnnual - pa;
+      html += '<div><div class="diff-label">Annual difference</div>' +
+        '<div class="diff-value ' + (ad > 0 ? 'gap' : 'surplus') + '">' + (ad > 0 ? '+' : '') + formatCurrency(ad) + '</div>' +
+        '<div class="diff-note">' + (ad > 0 ? 'Gap to close' : 'Surplus') + '</div></div>';
+    }
+    html += '</div>';
+    wrap.innerHTML = html;
+  }
+
+  function render(skipFocused) {
+    var t = totals();
+    var s = symbol();
+
+    document.getElementById('annualTotal').textContent = formatCurrency(t.totalAnnual);
+    document.getElementById('panelSub').textContent =
+      formatCurrency(t.totalMonthly) + ' per month, ' + formatCurrency(t.totalWeekly) + ' per week';
+    document.getElementById('trioMonth').textContent = formatCurrency(t.totalMonthly);
+    document.getElementById('trioWeek').textContent = formatCurrency(t.totalWeekly);
+    document.getElementById('trioDay').textContent = formatCurrency(t.totalDaily);
+
+    state.categories.forEach(function (item) {
+      var e = els[item.id];
+      if (!e) return;
+      e.pre.textContent = s;
+      e.m.textContent = formatCurrency(calcMonthly(item.amount, item.frequency));
+      e.a.textContent = formatCurrency(calcAnnual(item.amount, item.frequency));
+      e.sel.value = item.frequency;
+      // Never overwrite the field the member is typing in.
+      if (!(skipFocused && document.activeElement === e.input)) {
+        e.input.value = item.amount === 0 ? '' : item.amount.toLocaleString('en-US');
+      }
+    });
+
+    document.getElementById('footMonthly').textContent = formatCurrency(t.totalMonthly);
+    document.getElementById('footAnnual').textContent = formatCurrency(t.totalAnnual);
+    document.getElementById('footWeekly').textContent = formatCurrency(t.totalWeekly);
+
+    document.getElementById('cmPrefix').textContent = s;
+    document.getElementById('caPrefix').textContent = s;
+    document.getElementById('currency').value = state.currency;
+
+    var cm = document.getElementById('currentMonthly');
+    var ca = document.getElementById('currentAnnual');
+    if (!(skipFocused && document.activeElement === cm)) cm.value = state.currentMonthly;
+    if (!(skipFocused && document.activeElement === ca)) ca.value = state.currentAnnual;
+
+    renderBreakdown(t);
+    renderDiff(t);
+    save();
+  }
+
+  document.getElementById('currency').addEventListener('change', function (e) {
+    state.currency = e.target.value;
+    render(true);
+  });
+
+  document.getElementById('currentMonthly').addEventListener('input', function (e) {
+    state.currentMonthly = e.target.value.replace(/[^0-9.,]/g, '');
+    render(true);
+  });
+  document.getElementById('currentAnnual').addEventListener('input', function (e) {
+    state.currentAnnual = e.target.value.replace(/[^0-9.,]/g, '');
+    render(true);
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function () {
+    state = freshState();
+    buildRows();
+    render();
+  });
+
+  document.getElementById('pdfBtn').addEventListener('click', function () {
+    window.print();
+  });
+
+  load();
+  buildRows();
+  render();
+})();
+</script>
+</body>
+</html>
