@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hook Formula Suite | Woman Mastery HQ</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%238a2121'/%3E%3Ctext x='32' y='31' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23f8f1e2' text-anchor='middle'%3EWM%3C/text%3E%3Ctext x='32' y='58' font-family='Georgia,serif' font-size='30' font-weight='700' fill='%23f8f1e2' text-anchor='middle'%3EHQ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --deep-red: #660810;
+  --dark-red: #3D0D0C;
+  --merlot: #3D0D0C;
+  --blush: #F2C6D0;
+  --stone: #f1ebeb;
+  --off-white: #f2f2f2;
+  --card-bg: #ffffff;
+  --card-soft: #f7f7f7;
+  --ink: #1a0a0a;
+  --muted: #7a5a5a;
+  --taupe: #7a5a5a;
+  --border: rgba(61,13,12,0.09);
+  --border-strong: rgba(61,13,12,0.2);
+  --green-ok: #4E8A52;
+  /* Visibility pillar */
+  --pillar: #FBEEE4;
+  --pillar-deep: #B88A66;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ‚îÄ‚îÄ Hero ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.hero {
+  background: var(--dark-red);
+  padding: 80px 24px 66px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(241,235,235,0.03) 80px);
+  pointer-events: none;
+}
+.hero-wordmark {
+  position: absolute; top: 26px; left: 30px;
+  z-index: 2; text-align: left;
+}
+.hero-wordmark .wm-top {
+  font-size: 12px; font-weight: 800; letter-spacing: 0.24em;
+  color: var(--stone); text-transform: uppercase; opacity: 0.95;
+}
+.hero-wordmark .wm-sub {
+  font-size: 8.5px; font-weight: 500; letter-spacing: 0.14em;
+  color: rgba(242,198,208,0.55); text-transform: lowercase;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--pillar);
+  border: 1px solid rgba(251,238,228,0.32);
+  padding: 7px 18px; margin-bottom: 24px;
+  position: relative; z-index: 1;
+}
+.hero-eyebrow .phase-dot {
+  width: 8px; height: 8px; border-radius: 100px;
+  background: var(--pillar-deep); flex-shrink: 0;
+}
+.hero h1 {
+  font-size: clamp(30px, 4.6vw, 50px);
+  font-weight: 800; letter-spacing: -0.02em; line-height: 1.08;
+  color: var(--stone); max-width: 760px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.hero h1 em { font-style: normal; color: var(--blush); }
+.hero-sub {
+  font-size: 15px; color: rgba(241,235,235,0.75);
+  max-width: 580px; margin: 18px auto 0; line-height: 1.65;
+  position: relative; z-index: 1;
+}
+
+/* ‚îÄ‚îÄ Body / cards ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.body { max-width: 880px; margin: 0 auto; padding: 46px 24px 30px; }
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 34px 36px 36px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 2px rgba(61,13,12,0.03);
+}
+.card-num {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.24em; text-transform: uppercase;
+  color: var(--taupe); margin-bottom: 12px;
+}
+.card h2 {
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 800; letter-spacing: -0.015em;
+  line-height: 1.15; margin-bottom: 8px; color: var(--ink);
+}
+.card-sub {
+  font-size: 14px; color: var(--muted);
+  margin-bottom: 24px; line-height: 1.6; max-width: 640px;
+}
+
+/* ‚îÄ‚îÄ Control bar ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.control-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; flex-wrap: wrap; margin-bottom: 18px;
+}
+.tone-wrap { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.tone-label { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.tone-toggle {
+  display: inline-flex; gap: 4px;
+  background: var(--card-soft);
+  border: 1px solid var(--border-strong);
+  border-radius: 100px; padding: 4px;
+}
+.tone-toggle button {
+  font-family: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 8px 20px; border: none; border-radius: 100px;
+  background: transparent; color: var(--deep-red); cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.tone-toggle button.active { background: var(--merlot); color: var(--stone); }
+
+/* ‚îÄ‚îÄ Progress ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.progress-wrap { margin-bottom: 26px; }
+.progress-track {
+  width: 100%; height: 5px; border-radius: 100px;
+  background: rgba(61,13,12,0.1); overflow: hidden;
+}
+.progress-fill {
+  height: 100%; border-radius: 100px;
+  background: var(--merlot);
+  transition: width 0.45s ease;
+}
+.progress-steps {
+  display: flex; justify-content: space-between; gap: 8px;
+  margin-top: 10px;
+}
+.progress-steps span {
+  font-size: 9px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted); opacity: 0.6;
+  white-space: nowrap;
+}
+.progress-steps span.on { color: var(--deep-red); opacity: 1; }
+@media (max-width: 620px) {
+  .progress-steps span { font-size: 8px; letter-spacing: 0.08em; }
+}
+
+/* ‚îÄ‚îÄ Choice cards ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.choice-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 640px) { .choice-grid { grid-template-columns: 1fr; } }
+.choice-card {
+  font-family: inherit; text-align: left; cursor: pointer;
+  background: var(--card-bg); border: 1px solid var(--border-strong);
+  border-radius: 14px; padding: 24px 24px 26px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.choice-card:hover, .choice-card:focus-visible { border-color: var(--deep-red); background: #fdf9f9; }
+.choice-card .cc-title { font-size: 19px; font-weight: 800; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 6px; }
+.choice-card .cc-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.choice-card.on { background: var(--merlot); border-color: var(--merlot); }
+.choice-card.on .cc-title { color: var(--stone); }
+.choice-card.on .cc-desc { color: rgba(241,235,235,0.75); }
+
+.pill-row { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill-choice {
+  font-family: inherit; font-size: 12px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 12px 24px; border-radius: 100px; cursor: pointer;
+  border: 1px solid var(--border-strong); background: var(--card-bg); color: var(--ink);
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.pill-choice:hover, .pill-choice:focus-visible { border-color: var(--deep-red); color: var(--deep-red); }
+.pill-choice.on { background: var(--merlot); border-color: var(--merlot); color: var(--stone); }
+
+/* ‚îÄ‚îÄ Formula cards ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.formula {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 16px;
+  background: var(--card-soft); border: 1px solid var(--border);
+  border-radius: 12px; padding: 18px 20px; margin-bottom: 10px;
+}
+.formula-left { display: flex; gap: 14px; align-items: flex-start; min-width: 0; flex: 1; }
+.formula-num {
+  font-size: 11px; font-weight: 700; color: var(--taupe);
+  min-width: 22px; flex-shrink: 0; padding-top: 3px;
+}
+.formula-text { font-size: 15px; color: var(--ink); line-height: 1.6; }
+.formula-cat {
+  display: inline-block; margin-top: 8px;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--pillar-deep);
+}
+.selection-line {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted);
+  margin-bottom: 22px;
+}
+
+/* ‚îÄ‚îÄ Buttons ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+.btn-pill-dark {
+  padding: 14px 30px; background: var(--merlot); color: var(--stone);
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; border: none; border-radius: 100px;
+  cursor: pointer; font-family: inherit;
+}
+.btn-pill-dark:hover { background: var(--deep-red); }
+.btn-pill-ghost {
+  padding: 12px 24px; background: transparent; color: var(--merlot);
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em;
+  text-transform: uppercase; border: 1px solid var(--border-strong);
+  border-radius: 100px; cursor: pointer; font-family: inherit;
+}
+.btn-pill-ghost:hover { border-color: var(--deep-red); color: var(--deep-red); }
+.btn-mini {
+  font-family: inherit; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--merlot); background: var(--card-bg);
+  border: 1px solid var(--border-strong); border-radius: 100px;
+  padding: 7px 15px; cursor: pointer; flex-shrink: 0;
+}
+.btn-mini:hover { border-color: var(--deep-red); color: var(--deep-red); }
+.btn-mini.copied { color: var(--green-ok); border-color: var(--green-ok); }
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 26px; }
+.btn-row.split { justify-content: space-between; }
+
+.save-note { font-size: 11.5px; color: var(--muted); opacity: 0.85; margin-top: 16px; line-height: 1.6; max-width: 640px; }
+
+/* Toast */
+.toast {
+  position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
+  background: var(--merlot); color: var(--stone);
+  font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+  padding: 13px 24px; border-radius: 100px; z-index: 100;
+  box-shadow: 0 6px 24px rgba(61,13,12,0.25);
+  opacity: 0; pointer-events: none; transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(-4px); }
+
+/* IP disclaimer + footer */
+.pdf-disclaimer {
+  font-size: 10.5px; line-height: 1.6; color: var(--muted);
+  opacity: 0.55; max-width: 640px; margin: 36px auto 52px;
+  text-align: center; padding: 0 24px; font-weight: 400;
+}
+.wmhq-footer {
+  background: var(--merlot); color: rgba(241,235,235,0.55);
+  padding: 26px 24px 30px; text-align: center;
+  border-top: 1px solid rgba(241,235,235,0.08);
+}
+.wmhq-footer-inner { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; align-items: center; }
+.wmhq-footer-copy { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(241,235,235,0.7); }
+.wmhq-footer-links { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.wmhq-footer-links a { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(241,235,235,0.5); text-decoration: none; }
+.wmhq-footer-links a:hover { color: var(--blush); }
+
+:focus-visible { outline: 2px solid var(--deep-red); outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+@media (max-width: 640px) {
+  .hero { padding: 70px 20px 52px; }
+  .card { padding: 26px 22px 28px; }
+  .body { padding: 32px 16px 24px; }
+}
+
+/* ‚îÄ‚îÄ Print ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ‚îÄ */
+@media print {
+  @page { margin: 14mm 12mm; size: A4; }
+  body { background: #fff !important; font-size: 10.5pt; }
+  .hero { background: #fff !important; border-bottom: 2px solid var(--merlot); padding: 18px 0; text-align: left; }
+  .hero::before, .hero-wordmark { display: none !important; }
+  .hero h1, .hero h1 em { color: var(--merlot) !important; font-size: 20pt; }
+  .hero-sub { color: var(--muted) !important; }
+  .hero-eyebrow { color: var(--merlot); border-color: var(--merlot); }
+  .card { box-shadow: none !important; border: 1px solid #999 !important; page-break-inside: avoid; }
+  .formula { page-break-inside: avoid; }
+  .btn-pill-dark, .btn-pill-ghost, .btn-mini, .tone-toggle, .control-bar,
+  .progress-wrap, .wmhq-footer, .toast, .btn-row, .save-note { display: none !important; }
+  .pdf-disclaimer { display: block !important; opacity: 0.5 !important; font-size: 7.5pt !important; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-wordmark" aria-hidden="true">
+    <div class="wm-top">Woman Mastery HQ</div>
+    <div class="wm-sub">strategy. subconscious. mastery.</div>
+  </div>
+  <span class="hero-eyebrow"><span class="phase-dot"></span>WMHQ Phase: Visibility</span>
+  <h1>Hook <em>Formula</em> Suite</h1>
+  <p class="hero-sub" id="heroSub">Pick your model, funnel stage, and content type to generate scroll-stopping hook formulas tailored to your brand.</p>
+</header>
+
+<main class="body" id="app"></main>
+
+<p class="pdf-disclaimer">This work is the sole property of Jessica Pinili. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, or create derivative works in any capacity. All rights on intellectual property of this digital product are proprietary and reserved for exclusive use by Jessica Pinili alone.</p>
+
+<footer class="wmhq-footer">
+  <div class="wmhq-footer-inner">
+    <p class="wmhq-footer-copy">&copy; <span id="footerYear"></span> Jessica Pinili. All rights reserved.</p>
+    <div class="wmhq-footer-links">
+      <a href="https://www.jessicapinili.com/terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+      <a href="https://www.jessicapinili.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+document.getElementById('footerYear').textContent = new Date().getFullYear();
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   Formula library
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+var formulaLibrary = {
+  curiosity: [
+    "The [topic] mistake most [audience] don't realise they're making",
+    "Nobody talks about the [topic] problem that's keeping you stuck",
+    "What actually happens when you [action]",
+    "The real reason [common belief] isn't working for you",
+    "What [expert/industry] won't tell you about [topic]",
+    "The [topic] truth that took me [timeframe] to figure out",
+    "Here's what changed everything about how I [action]",
+    "The [adjective] thing about [topic] that no one is saying",
+    "Something I noticed about [audience] who [result]",
+    "The part of [topic] we're all pretending doesn't exist"
+  ],
+  contrarian: [
+    "Unpopular opinion: [common belief] is actually holding you back",
+    "Stop [common advice]. Do this instead.",
+    "[Common advice] is a lie and here's the proof",
+    "The [topic] advice everyone gives is wrong",
+    "I used to believe [common belief]. I was completely wrong.",
+    "Hot take: you don't need [commonly recommended thing]",
+    "[Topic] doesn't have to look like what you've been told",
+    "The [industry] keeps selling you [thing] because it profits from your [fear/problem]",
+    "Forget [popular strategy]. This is what actually works.",
+    "[Common belief] made sense until I looked at the data"
+  ],
+  proof: [
+    "How I went from [before] to [after] without [sacrifice]",
+    "I [achieved result] in [timeframe]. Here's exactly what I did.",
+    "The [number]-step process that got me [result]",
+    "My client went from [before] to [after] in [timeframe]",
+    "How [audience] are getting [result] without [common obstacle]",
+    "The exact [strategy/framework] I used to [result]",
+    "[Number] things I did differently that changed my [outcome]",
+    "What [timeframe] of [action] taught me about [topic]",
+    "I tested [thing] for [timeframe]. Here's what happened.",
+    "The strategy behind [impressive result] most people overlook"
+  ],
+  relatable: [
+    "If you've ever felt [emotion] about [topic], this is for you",
+    "Can we talk about the part of [topic] that feels really hard?",
+    "You're not failing at [topic]. The model is broken.",
+    "The [emotion] nobody tells you comes with [achievement/stage]",
+    "It's not your [skill/mindset]. It's your [real root cause].",
+    "Every time I talk to [audience], they tell me the same thing",
+    "You've probably been told [thing]. I want to offer you a different lens.",
+    "If [topic] feels overwhelming, it's not because you're doing it wrong",
+    "The season of business nobody prepares you for",
+    "There's a version of [topic] that doesn't cost you your peace"
+  ],
+  pain: [
+    "The fear beneath [common fear] that's actually driving your decisions",
+    "What [topic] looks like when fear is running the show",
+    "You're avoiding [action] and you probably know why",
+    "The visibility fear loop that keeps [audience] playing small",
+    "[Common behaviour] isn't laziness. It's a nervous system response.",
+    "What's really behind your resistance to [action]",
+    "The subconscious story that's sabotaging your [goal]",
+    "Why you keep starting [thing] and not finishing it",
+    "The [emotion] that's disguised as procrastination",
+    "What your [self-sabotage pattern] is actually trying to protect you from"
+  ],
+  identity: [
+    "The shift that happens when you stop being a [old identity] and become a [new identity]",
+    "You don't have a [skill] problem. You have an identity problem.",
+    "Who you become on the way to [goal] matters more than the goal",
+    "The version of you who has [result] thinks differently about [topic]",
+    "What it actually means to be a woman who [identity statement]",
+    "The identity upgrade that precedes every income upgrade",
+    "Becoming [desired identity] starts with believing [belief]",
+    "The gap between who you are and who you need to become to [result]",
+    "Most [audience] are trying to do [new thing] with an old version of themselves",
+    "Your next level requires a different story about [topic]"
+  ],
+  framework: [
+    "The [number]-part framework for [outcome] that nobody's teaching",
+    "How to [achieve result] without [common sacrifice]",
+    "A simpler way to think about [complicated topic]",
+    "The [topic] system that works even when [obstacle]",
+    "Break [big goal] into these [number] steps and watch it become doable",
+    "The difference between [thing A] and [thing B] is [insight]",
+    "Here's the [topic] framework I come back to every single time",
+    "Why most [topic] strategies fail and what to do instead",
+    "The [season/stage] specific approach to [topic] nobody's mapping out for you",
+    "[Topic] gets easier when you understand these [number] principles"
+  ],
+  story: [
+    "[Timeframe] ago I made a decision that changed everything",
+    "The moment I realised [insight] was the moment [outcome shifted]",
+    "I was sitting in [setting] when it hit me",
+    "My [coach/mentor/client] said something that I can't stop thinking about",
+    "I almost quit [thing] the week before [success happened]",
+    "There's a conversation I had with a client that I keep coming back to",
+    "The [season/moment] that broke me also built me",
+    "I didn't expect [situation] to teach me this about [topic]",
+    "Looking back at [timeframe] ago, I can now see exactly why [outcome]",
+    "This time last year I was [before state]. Here's the full story."
+  ],
+  numbers: [
+    "[Number] things the most visible [audience] have in common",
+    "[Number] signs your [problem] is actually a [root cause]",
+    "The [number] minute habit that changed how I [action]",
+    "[Number] reasons your [thing] isn't converting",
+    "[Number] truths about [topic] they don't teach in [common resource]",
+    "[Number] stages every [audience] goes through before [result]",
+    "[Number] ways to [achieve goal] without [undesirable action]",
+    "[Number] things I'd do differently if I started [topic] today",
+    "[Number] signs you're ready for [next stage] even if it doesn't feel like it",
+    "[Number] questions to ask yourself before [decision]"
+  ],
+  urgency: [
+    "What [current trend/season] means for your [topic]",
+    "The [topic] shift happening right now that will affect [audience]",
+    "If you're building [thing] in [year/era], this matters",
+    "This is what [topic] looks like in the current climate",
+    "Before you [common action], read this",
+    "The window for [opportunity] is closing and here's why",
+    "Why right now is actually the [best/most important] time to [action]",
+    "What I'm watching in [industry] that tells me [insight]",
+    "The [topic] conversation we should have been having six months ago",
+    "If you've been waiting for the right time to [action], this is it"
+  ],
+  reframe: [
+    "What you call failure, I call data",
+    "The thing you're embarrassed about is probably your biggest asset",
+    "Slow growth is not the same as no growth",
+    "Your sensitivity isn't a weakness in business. It's a signal.",
+    "The [result] you have right now is evidence that you can [bigger result]",
+    "What if the hard season isn't a sign to stop, but a sign to go deeper",
+    "You're further along than you think. Here's how I know.",
+    "The messy middle is where all the real work happens",
+    "There is no behind. You're exactly where you need to be.",
+    "Permission to [do thing differently] and still call it success"
+  ],
+  direct: [
+    "Write this down: [insight or framework]",
+    "Read this if you're serious about [goal]",
+    "Do not launch [thing] until you've done this",
+    "Before you [common action], answer these questions honestly",
+    "Say this out loud: [affirmation or belief statement]",
+    "Ask yourself: [powerful question]",
+    "Stop measuring your success by [wrong metric]",
+    "Audit your [thing] before you scale anything",
+    "Decide right now what kind of [identity] you want to be",
+    "Give yourself permission to [reframe or action]"
+  ],
+  social: [
+    "Every client I work with who reaches [result] has this one thing in common",
+    "The women in my community who [achieve result] all do [thing] differently",
+    "I've worked with [number] [audience] and here's the pattern I keep seeing",
+    "The most successful [audience] I know share these traits",
+    "What [audience] at [stage] are getting wrong that [advanced audience] figured out",
+    "The shift I see in clients right before their [breakthrough]",
+    "High-earning [audience] don't [common behaviour]. They [alternative behaviour].",
+    "What separates [audience] who [result] from those who don't",
+    "The most overlooked quality in [successful audience] is [quality]",
+    "[Audience] who [result] usually all say this same thing"
+  ],
+  bts: [
+    "What my [month/year] actually looked like behind the highlights",
+    "The part of [topic] I don't talk about enough",
+    "Here's what I got wrong about [topic] in my first year",
+    "What building a [thing] really costs that nobody's honest about",
+    "The conversation I have with myself before every [action]",
+    "What I'm still working on even after [achievement]",
+    "The moment I stopped pretending [thing] was working",
+    "An honest look at what [strategy] took to implement",
+    "What I wish someone had told me before [milestone/decision]",
+    "Inside the decision that scared me and changed my business"
+  ],
+  questions: [
+    "What if [common belief] is the very thing slowing you down?",
+    "When did [topic] start feeling like [negative emotion] instead of [positive emotion]?",
+    "What would you do differently if you knew [outcome was guaranteed]?",
+    "Are you building a business or are you building a job?",
+    "What story are you telling yourself about why [result] isn't possible for you?",
+    "Is your [strategy/offer/brand] actually aligned with the life you want?",
+    "What if the reason [thing] isn't working has nothing to do with [common blame]?",
+    "How much of your strategy is built on fear versus vision?",
+    "What would [action] look like if it felt easy?",
+    "Who do you need to become to make [goal] inevitable?"
+  ]
+};
+
+var categoryMapping = {
+  "attract/edufluential": ["framework", "numbers", "curiosity"],
+  "attract/perspective": ["contrarian", "curiosity", "questions"],
+  "attract/connection": ["relatable", "reframe", "pain"],
+  "attract/storytelling": ["story", "bts", "curiosity"],
+  "nurture/edufluential": ["framework", "reframe", "numbers"],
+  "nurture/perspective": ["reframe", "contrarian", "questions"],
+  "nurture/connection": ["relatable", "reframe", "identity"],
+  "nurture/storytelling": ["story", "bts", "relatable"],
+  "position/edufluential": ["framework", "proof", "numbers"],
+  "position/perspective": ["contrarian", "proof", "reframe"],
+  "position/connection": ["social", "identity", "relatable"],
+  "position/storytelling": ["story", "bts", "social"],
+  "convert/edufluential": ["direct", "proof", "framework"],
+  "convert/perspective": ["direct", "contrarian", "urgency"],
+  "convert/connection": ["direct", "reframe", "social"],
+  "convert/storytelling": ["direct", "story", "bts"]
+};
+
+var safePriority = ["relatable", "reframe"];
+var safeSecondary = ["identity", "story", "bts"];
+var spicyPriority = ["contrarian", "direct"];
+var spicySecondary = ["urgency", "proof"];
+var productBias = ["numbers", "proof"];
+var serviceBias = ["identity", "relatable"];
+
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function pickFormulas(opts) {
+  var key = opts.funnel + '/' + opts.contentType;
+  var baseCats = categoryMapping[key] || ["curiosity", "framework", "relatable"];
+
+  var tonePri = opts.tone === 'spicy' ? spicyPriority : safePriority;
+  var toneSec = opts.tone === 'spicy' ? spicySecondary : safeSecondary;
+  var modelBias = opts.model === 'product' ? productBias : serviceBias;
+
+  var allCats = {};
+  baseCats.concat(tonePri, toneSec, modelBias).forEach(function (c) { allCats[c] = true; });
+
+  var weighted = [];
+  Object.keys(allCats).forEach(function (cat) {
+    var formulas = formulaLibrary[cat] || [];
+    var weight = 1;
+    if (baseCats.indexOf(cat) >= 0) weight += 3;
+    if (tonePri.indexOf(cat) >= 0) weight += 3;
+    if (toneSec.indexOf(cat) >= 0) weight += 1;
+    if (modelBias.indexOf(cat) >= 0) weight += 1;
+    formulas.forEach(function (f) {
+      weighted.push({ text: f, category: cat, weight: weight });
+    });
+  });
+
+  weighted = shuffle(weighted);
+  weighted.sort(function (a, b) { return b.weight - a.weight; });
+
+  var seen = {};
+  var result = [];
+  for (var i = 0; i < weighted.length; i++) {
+    var item = weighted[i];
+    if (seen[item.text]) continue;
+    seen[item.text] = true;
+    result.push({ text: item.text, category: item.category });
+    if (result.length >= 15) break;
+  }
+  return result;
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   Options and labels
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+var MODEL_CHOICES = [
+  { key: 'product', label: 'Product-based', desc: 'Physical or digital products' },
+  { key: 'service', label: 'Service-based', desc: 'Coaching, consulting, done-for-you' }
+];
+var FUNNEL_CHOICES = ['attract', 'nurture', 'position', 'convert'];
+var CONTENT_CHOICES = [
+  { key: 'edufluential', label: 'Edu-fluential' },
+  { key: 'perspective', label: 'Perspective Shifting' },
+  { key: 'connection', label: 'Connection' },
+  { key: 'storytelling', label: 'Storytelling' }
+];
+var LABELS = {
+  product: 'Product-based', service: 'Service-based',
+  attract: 'Attract', nurture: 'Nurture', position: 'Position', convert: 'Convert',
+  edufluential: 'Edu-fluential', perspective: 'Perspective Shifting',
+  connection: 'Connection', storytelling: 'Storytelling',
+  safe: 'Safe', spicy: 'Spicy'
+};
+var STEP_LABELS = ['Business Model', 'Funnel Stage', 'Content Type', 'Your Hooks'];
+var STEP_PROGRESS = { 1: 0, 2: 33, 3: 66, 4: 100 };
+
+var DISCLAIMER = 'This work is the sole property of Jessica Pinili. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, or create derivative works in any capacity. All rights on intellectual property of this digital product are proprietary and reserved for exclusive use by Jessica Pinili alone.';
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   State and storage
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+var STORAGE_KEY = 'wmhq_hook_suite';
+
+var state = {
+  step: 1,
+  tone: 'safe',
+  model: null,
+  funnel: null,
+  contentType: null,
+  formulas: []
+};
+
+(function loadState() {
+  try {
+    var raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    var saved = JSON.parse(raw);
+    if (saved && typeof saved === 'object') {
+      state.step = saved.step || 1;
+      state.tone = saved.tone === 'spicy' ? 'spicy' : 'safe';
+      state.model = saved.model || null;
+      state.funnel = saved.funnel || null;
+      state.contentType = saved.contentType || null;
+      state.formulas = Array.isArray(saved.formulas) ? saved.formulas : [];
+      if (state.step === 4 && !state.formulas.length) state.step = 1;
+    }
+  } catch (e) {}
+})();
+
+function saveState() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) {}
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   DOM helpers
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+function el(tag, cls, text) {
+  var n = document.createElement(tag);
+  if (cls) n.className = cls;
+  if (text !== undefined && text !== null) n.textContent = text;
+  return n;
+}
+function btn(cls, text, onClick) {
+  var b = el('button', cls, text);
+  b.type = 'button';
+  if (onClick) b.addEventListener('click', onClick);
+  return b;
+}
+var toastTimer = null;
+function toast(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function () { t.classList.remove('show'); }, 2000);
+}
+function copyText(text, cb) {
+  function done() { if (cb) cb(); }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done, function () { fallbackCopy(text); done(); });
+  } else { fallbackCopy(text); done(); }
+}
+function fallbackCopy(text) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   Actions
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+function generate() {
+  state.formulas = pickFormulas({
+    model: state.model,
+    funnel: state.funnel,
+    contentType: state.contentType,
+    tone: state.tone
+  });
+}
+
+function goStep(n) {
+  state.step = n;
+  saveState();
+  render();
+  window.scrollTo(0, 0);
+}
+
+function startOver() {
+  state.step = 1;
+  state.model = null;
+  state.funnel = null;
+  state.contentType = null;
+  state.formulas = [];
+  saveState();
+  render();
+  window.scrollTo(0, 0);
+}
+
+function toggleTone(next) {
+  state.tone = next;
+  if (state.step === 4) generate();
+  saveState();
+  render();
+}
+
+function buildAllFormulasText() {
+  var header = 'WMHQ HOOK FORMULA SUITE\n' +
+    [LABELS[state.model], LABELS[state.funnel], LABELS[state.contentType], LABELS[state.tone]].join('  |  ') + '\n\n';
+  var lines = state.formulas.map(function (f, i) {
+    return String(i + 1).padStart(2, '0') + '. ' + f.text + '   [' + f.category + ']';
+  }).join('\n');
+  return header + lines + '\n\n' + DISCLAIMER + '\n';
+}
+
+/* ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê
+   Render
+   ‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê‚ïê */
+function renderControlBar() {
+  var bar = el('div', 'control-bar');
+
+  var toneWrap = el('div', 'tone-wrap');
+  toneWrap.appendChild(el('span', 'tone-label', 'Output energy'));
+  var toggle = el('div', 'tone-toggle');
+  ['safe', 'spicy'].forEach(function (t) {
+    var b = btn(state.tone === t ? 'active' : '', LABELS[t], function () { toggleTone(t); });
+    toggle.appendChild(b);
+  });
+  toneWrap.appendChild(toggle);
+  bar.appendChild(toneWrap);
+
+  bar.appendChild(btn('btn-pill-ghost', 'Start Over', startOver));
+  return bar;
+}
+
+function renderProgress() {
+  var wrap = el('div', 'progress-wrap');
+  var track = el('div', 'progress-track');
+  var fill = el('div', 'progress-fill');
+  fill.style.width = (STEP_PROGRESS[state.step] || 0) + '%';
+  track.appendChild(fill);
+  wrap.appendChild(track);
+  var steps = el('div', 'progress-steps');
+  STEP_LABELS.forEach(function (label, i) {
+    steps.appendChild(el('span', state.step >= i + 1 ? 'on' : '', label));
+  });
+  wrap.appendChild(steps);
+  return wrap;
+}
+
+function renderStepModel(app) {
+  var card = el('section', 'card');
+  card.appendChild(renderControlBar());
+  card.appendChild(renderProgress());
+  card.appendChild(el('div', 'card-num', 'Step 01'));
+  card.appendChild(el('h2', null, 'What are you?'));
+  card.appendChild(el('p', 'card-sub', 'Pick your business model so the suggestions match how you sell.'));
+
+  var grid = el('div', 'choice-grid');
+  MODEL_CHOICES.forEach(function (c) {
+    var b = btn('choice-card' + (state.model === c.key ? ' on' : ''), null, function () {
+      state.model = c.key;
+      goStep(2);
+    });
+    b.appendChild(el('div', 'cc-title', c.label));
+    b.appendChild(el('div', 'cc-desc', c.desc));
+    grid.appendChild(b);
+  });
+  card.appendChild(grid);
+  card.appendChild(el('p', 'save-note', 'Your choices save to this browser only. If you switch devices, clear your cookies, or use incognito, this tool will start fresh.'));
+  app.appendChild(card);
+}
+
+function renderStepFunnel(app) {
+  var card = el('section', 'card');
+  card.appendChild(renderControlBar());
+  card.appendChild(renderProgress());
+  card.appendChild(el('div', 'card-num', 'Step 02'));
+  card.appendChild(el('h2', null, 'What part of the funnel?'));
+  card.appendChild(el('p', 'card-sub', 'Different hooks do different jobs. Choose the intention.'));
+
+  var row = el('div', 'pill-row');
+  FUNNEL_CHOICES.forEach(function (f) {
+    row.appendChild(btn('pill-choice' + (state.funnel === f ? ' on' : ''), LABELS[f], function () {
+      state.funnel = f;
+      goStep(3);
+    }));
+  });
+  card.appendChild(row);
+
+  var nav = el('div', 'btn-row');
+  nav.appendChild(btn('btn-pill-ghost', 'Previous', function () { goStep(1); }));
+  card.appendChild(nav);
+  app.appendChild(card);
+}
+
+function renderStepContentType(app) {
+  var card = el('section', 'card');
+  card.appendChild(renderControlBar());
+  card.appendChild(renderProgress());
+  card.appendChild(el('div', 'card-num', 'Step 03'));
+  card.appendChild(el('h2', null, 'Pick a content type'));
+  card.appendChild(el('p', 'card-sub', 'This controls the flavour of the hook suggestions.'));
+
+  var row = el('div', 'pill-row');
+  CONTENT_CHOICES.forEach(function (c) {
+    row.appendChild(btn('pill-choice' + (state.contentType === c.key ? ' on' : ''), c.label, function () {
+      state.contentType = c.key;
+      generate();
+      goStep(4);
+    }));
+  });
+  card.appendChild(row);
+
+  var nav = el('div', 'btn-row');
+  nav.appendChild(btn('btn-pill-ghost', 'Previous', function () { goStep(2); }));
+  card.appendChild(nav);
+  app.appendChild(card);
+}
+
+function renderStepResults(app) {
+  var card = el('section', 'card');
+  card.appendChild(renderControlBar());
+  card.appendChild(renderProgress());
+  card.appendChild(el('div', 'card-num', 'Step 04'));
+  card.appendChild(el('h2', null, 'Your 15 hook formulas'));
+
+  card.appendChild(el('p', 'selection-line',
+    [LABELS[state.model], LABELS[state.funnel], LABELS[state.contentType], LABELS[state.tone]].join('  |  ')));
+
+  var note = el('p', 'card-sub');
+  note.textContent = 'Swap the bracketed prompts for your own topic, audience, and result. Do not use all 15. Choose the ones that fit what you are actually posting about.';
+  card.appendChild(note);
+
+  state.formulas.forEach(function (f, i) {
+    var row = el('div', 'formula');
+    var left = el('div', 'formula-left');
+    left.appendChild(el('span', 'formula-num', String(i + 1).padStart(2, '0')));
+    var textWrap = el('div');
+    textWrap.appendChild(el('p', 'formula-text', f.text));
+    textWrap.appendChild(el('span', 'formula-cat', f.category));
+    left.appendChild(textWrap);
+    row.appendChild(left);
+
+    var b = btn('btn-mini', 'Copy', function () {
+      copyText(f.text, function () {
+        b.textContent = 'Copied';
+        b.classList.add('copied');
+        setTimeout(function () { b.textContent = 'Copy'; b.classList.remove('copied'); }, 1800);
+      });
+    });
+    row.appendChild(b);
+    card.appendChild(row);
+  });
+
+  var actions = el('div', 'btn-row');
+  actions.appendChild(btn('btn-pill-dark', 'Show Me Another 15', function () {
+    generate();
+    saveState();
+    render();
+    window.scrollTo(0, 0);
+    toast('Fresh set generated');
+  }));
+  var copyAll = btn('btn-pill-ghost', 'Copy All 15', function () {
+    copyText(buildAllFormulasText(), function () {
+      copyAll.textContent = 'Copied';
+      setTimeout(function () { copyAll.textContent = 'Copy All 15'; }, 2000);
+      toast('All 15 copied to clipboard');
+    });
+  });
+  actions.appendChild(copyAll);
+  actions.appendChild(btn('btn-pill-ghost', 'Save As PDF', function () { window.print(); }));
+  card.appendChild(actions);
+
+  var nav = el('div', 'btn-row');
+  nav.appendChild(btn('btn-pill-ghost', 'Change Content Type', function () { goStep(3); }));
+  nav.appendChild(btn('btn-pill-ghost', 'Start Over', startOver));
+  card.appendChild(nav);
+
+  card.appendChild(el('p', 'save-note', 'Your hooks save to this browser only. If you switch devices, clear your cookies, or use incognito, this tool will start fresh. Copy or save what you want to keep.'));
+  app.appendChild(card);
+}
+
+function render() {
+  document.getElementById('heroSub').textContent = state.tone === 'safe'
+    ? 'Pick your model, funnel stage, and content type to generate scroll-stopping hook formulas tailored to your brand.'
+    : 'Spicy mode weights contrarian and direct hooks for maximum pattern interrupt and bold brand positioning.';
+
+  var app = document.getElementById('app');
+  app.innerHTML = '';
+  if (state.step === 1) renderStepModel(app);
+  else if (state.step === 2) renderStepFunnel(app);
+  else if (state.step === 3) renderStepContentType(app);
+  else renderStepResults(app);
+}
+
+render();
+</script>
+</body>
+</html>
