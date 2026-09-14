@@ -11,8 +11,8 @@ function emailHtml(link: string): string {
     <tr><td align="center">
       <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:480px;background:#ffffff;border-radius:16px;overflow:hidden;">
         <tr><td style="background:#3D0D0C;padding:24px 32px;">
-          <div style="font-size:17px;font-weight:800;color:#f1ebeb;">Woman Mastery HQ</div>
-          <div style="font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#F2C6D0;margin-top:6px;">WMHQ Tools</div>
+          <div style="font-size:17px;font-weight:800;color:#f1ebeb;">Woman Mastery HQ Membership</div>
+          <div style="font-size:10px;font-weight:700;letter-spacing:0.24em;text-transform:uppercase;color:#F2C6D0;margin-top:6px;">Access your WMHQ Tools Dashboard</div>
         </td></tr>
         <tr><td style="padding:32px;">
           <h1 style="margin:0 0 8px;font-size:22px;font-weight:800;">Your login link</h1>
