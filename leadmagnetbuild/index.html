@@ -129,7 +129,7 @@ body {
   background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
   overflow: hidden; box-shadow: 0 1px 2px rgba(61,13,12,0.03);
 }
-.class-thumb { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; background: var(--merlot); }
+.class-thumb { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: var(--merlot); }
 .class-body { padding: 18px 20px 20px; }
 .class-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--pillar-cash-deep); }
 .class-title { font-size: 19px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.2; color: var(--ink); margin: 6px 0 10px; }
@@ -150,8 +150,8 @@ body {
 
 @media (max-width: 1080px) {
   .page-layout { display: block; max-width: 880px; }
-  .class-card { position: static; display: grid; grid-template-columns: 240px minmax(0, 1fr); margin-bottom: 28px; }
-  .class-thumb { height: 100%; aspect-ratio: auto; min-height: 160px; }
+  .class-card { position: static; display: grid; grid-template-columns: minmax(0, 42%) minmax(0, 1fr); align-items: center; margin-bottom: 28px; }
+  .class-thumb { margin: 18px 0 18px 18px; width: calc(100% - 18px); border-radius: 10px; }
 }
 
 .card {
@@ -401,7 +401,7 @@ input::placeholder, textarea::placeholder { color: rgba(122,90,90,0.45); }
 @media (max-width: 640px) {
   .page-layout { padding: 32px 16px 24px; }
   .class-card { display: block; }
-  .class-thumb { aspect-ratio: 16 / 9; height: auto; min-height: 0; }
+  .class-thumb { margin: 0; width: 100%; border-radius: 0; }
   .hero { padding: 60px 20px 48px; }
   .card { padding: 26px 22px 28px; }
   .body { padding: 32px 16px 24px; }
