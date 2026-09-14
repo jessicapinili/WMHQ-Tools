@@ -27,6 +27,26 @@ body {
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
 }
+.topstrip {
+  background: var(--dark-red);
+  padding: 14px 16px;
+}
+.topstrip-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+}
+.topstrip a {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--stone);
+  text-decoration: none;
+  opacity: 0.85;
+}
+.topstrip a:hover { opacity: 1; text-decoration: underline; }
 .page {
   flex: 1;
   display: flex;
@@ -108,6 +128,12 @@ button:disabled { opacity: 0.6; cursor: default; }
 </style>
 </head>
 <body>
+<header class="topstrip">
+  <div class="topstrip-inner">
+    <a href="https://www.jessicapinili.com/login">Login to Vault instead &rarr;</a>
+  </div>
+</header>
+
 <div class="page">
 <main class="card">
   <div class="card-head">
