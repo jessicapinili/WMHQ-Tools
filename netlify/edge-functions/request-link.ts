@@ -1,6 +1,7 @@
-// Login form submits here. Emails a 15-minute link only if the email has the Kajabi tag.
+// Login form submits here. Emails a 15-minute link only if the email is on the member list.
 // The response is identical either way so the page never reveals who is a member.
-import { env, hasToolsAccess, LINK_TTL_MS, normalizeEmail, signToken } from "../lib/auth.ts";
+import { env, LINK_TTL_MS, normalizeEmail, signToken } from "../lib/auth.ts";
+import { hasToolsAccess } from "../lib/members.ts";
 
 const DEFAULT_FROM = "Woman Mastery HQ <login@womanmasteryhqportal.com>";
 

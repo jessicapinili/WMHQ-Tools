@@ -1,17 +1,13 @@
-// Protects the dashboard home page. Tool pages are intentionally left open.
+// Protects the dashboard home page and the admin page. Tool pages are intentionally left open.
 import {
   clearedSessionCookie,
-  hasToolsAccess,
-  readCookie,
+  getSession,
   RECHECK_MS,
-  SESSION_COOKIE,
   SESSION_TTL_MS,
   sessionCookie,
   signToken,
-  verifyToken,
 } from "../lib/auth.ts";
-
-type Session = { e: string; iat: number; chk: number };
+import { hasToolsAccess, isAdmin } from "../lib/members.ts";
 
 function toLogin(req: Request, clearCookie = false): Response {
   const headers = new Headers({ Location: new URL("/login/", req.url).toString(), "Cache-Control": "no-store" });
@@ -20,11 +16,14 @@ function toLogin(req: Request, clearCookie = false): Response {
 }
 
 export default async (req: Request, context: { next: () => Promise<Response> }) => {
-  const session = await verifyToken<Session>("session", readCookie(req, SESSION_COOKIE));
+  const session = await getSession(req);
+  if (!session) return toLogin(req, true);
+
+  if (new URL(req.url).pathname.startsWith("/admin") && !isAdmin(session.e)) {
+    return new Response(null, { status: 302, headers: { Location: new URL("/", req.url).toString() } });
+  }
+
   const now = Date.now();
-
-  if (!session || now - session.iat > SESSION_TTL_MS) return toLogin(req, Boolean(session));
-
   let refreshedCookie: string | null = null;
   if (now - session.chk > RECHECK_MS) {
     try {
@@ -32,7 +31,7 @@ export default async (req: Request, context: { next: () => Promise<Response> }) 
       const token = await signToken("session", { e: session.e, iat: session.iat, chk: now });
       refreshedCookie = sessionCookie(token, SESSION_TTL_MS - (now - session.iat));
     } catch (err) {
-      // Kajabi unreachable: keep the member in rather than locking everyone out. Retry next visit.
+      // Member list unreachable: keep the member in rather than locking everyone out. Retry next visit.
       console.error("Daily access re-check failed:", err);
     }
   }
@@ -45,5 +44,5 @@ export default async (req: Request, context: { next: () => Promise<Response> }) 
 };
 
 export const config = {
-  path: ["/", "/index.html"],
+  path: ["/", "/index.html", "/admin", "/admin/", "/admin/index.html"],
 };

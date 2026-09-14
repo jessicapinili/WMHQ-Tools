@@ -1,14 +1,10 @@
-// Shared helpers for the dashboard login: signed tokens, cookies, Kajabi tag check.
+// Shared helpers for the dashboard login: signed tokens, cookies, email normalising.
 // Runs in Netlify Edge Functions (Deno), so only web-standard APIs are used.
 
 export const SESSION_COOKIE = "wmhq_session";
 export const LINK_TTL_MS = 15 * 60 * 1000; // login link: 15 minutes
 export const SESSION_TTL_MS = 60 * 24 * 60 * 60 * 1000; // session: 60 days
-export const RECHECK_MS = 24 * 60 * 60 * 1000; // re-confirm the Kajabi tag once a day
-
-// Not secrets: which Kajabi site and tag grant access. Overridable via env.
-const DEFAULT_SITE_ID = "2147575052";
-const DEFAULT_TAG_ID = "2150348318"; // wmhq-tools
+export const RECHECK_MS = 24 * 60 * 60 * 1000; // re-confirm membership once a day
 
 export function env(name: string, fallback?: string): string {
   const value = Netlify.env.get(name) ?? fallback;
@@ -83,7 +79,7 @@ export function clearedSessionCookie(): string {
   return `${SESSION_COOKIE}=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax`;
 }
 
-// ---------- Kajabi ----------
+// ---------- members ----------
 
 export function normalizeEmail(raw: unknown): string | null {
   if (typeof raw !== "string") return null;
@@ -91,47 +87,12 @@ export function normalizeEmail(raw: unknown): string | null {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254 ? email : null;
 }
 
-async function kajabiToken(): Promise<string> {
-  const res = await fetch("https://api.kajabi.com/v1/oauth/token", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({
-      grant_type: "client_credentials",
-      client_id: env("KAJABI_CLIENT_ID"),
-      client_secret: env("KAJABI_CLIENT_SECRET"),
-    }),
-  });
-  if (!res.ok) throw new Error(`Kajabi token request failed (HTTP ${res.status})`);
-  const data = await res.json();
-  if (!data.access_token) throw new Error("Kajabi token response had no access_token");
-  return data.access_token;
-}
+// ---------- sessions ----------
 
-type KajabiContact = {
-  attributes?: { email?: string };
-  relationships?: { tags?: { data?: { id: string }[] } };
-};
+export type Session = { e: string; iat: number; chk: number };
 
-// True if a Kajabi contact with exactly this email has the access tag.
-// Throws if Kajabi can't be reached, so callers can decide how to fail.
-export async function hasToolsAccess(email: string): Promise<boolean> {
-  const tagId = env("KAJABI_TAG_ID", DEFAULT_TAG_ID);
-  const url = new URL("https://api.kajabi.com/v1/contacts");
-  url.searchParams.set("filter[site_id]", env("KAJABI_SITE_ID", DEFAULT_SITE_ID));
-  url.searchParams.set("filter[email_contains]", email);
-  url.searchParams.set("filter[has_tag_id]", tagId);
-  url.searchParams.set("page[size]", "25");
-
-  const res = await fetch(url, {
-    headers: { Authorization: `Bearer ${await kajabiToken()}`, Accept: "application/json" },
-  });
-  if (!res.ok) throw new Error(`Kajabi contacts lookup failed (HTTP ${res.status})`);
-  const { data = [] } = (await res.json()) as { data?: KajabiContact[] };
-
-  return data.some((contact) => {
-    if (contact.attributes?.email?.trim().toLowerCase() !== email) return false;
-    // If Kajabi includes the tag list, confirm it too rather than relying on the filter alone.
-    const tags = contact.relationships?.tags?.data;
-    return tags ? tags.some((tag) => String(tag.id) === tagId) : true;
-  });
+// The signed-in session from the request cookie, or null if missing, tampered or older than 60 days.
+export async function getSession(req: Request): Promise<Session | null> {
+  const session = await verifyToken<Session>("session", readCookie(req, SESSION_COOKIE));
+  return session && Date.now() - session.iat <= SESSION_TTL_MS ? session : null;
 }
