@@ -78,7 +78,7 @@ a { color: inherit; }
   height: 1px; background: rgba(241,235,235,0.12);
   margin: 26px 0 22px; position: relative; z-index: 2;
 }
-.sb-nav { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 4px; }
+.sb-nav { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 4px; overflow-y: auto; }
 .sb-link {
   display: flex; align-items: center; justify-content: space-between;
   font-size: 13px; font-weight: 600; letter-spacing: 0.01em;
@@ -102,6 +102,53 @@ a { color: inherit; }
 }
 
 /* ============ MOBILE HEADER ============ */
+  /* ---- WMHQ Voice Vault card ---- */
+.sb-vault {
+  position: relative; z-index: 2;
+  display: block; text-decoration: none;
+  margin: 26px 0 4px;
+  padding: 18px 14px 13px;
+  border: 1.5px dotted var(--blush);
+  border-radius: 12px;
+  background: rgba(242,198,208,0.06);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+.sb-vault:hover {
+  background: rgba(242,198,208,0.12);
+  border-color: #f7dbe2;
+  transform: translateY(-2px);
+}
+.sb-vault-tag {
+  position: absolute; top: -9px; left: 14px;
+  font-size: 8.5px; font-weight: 800; letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dark-red); background: var(--blush);
+  padding: 3px 8px; border-radius: 999px;
+  box-shadow: 0 0 0 4px var(--dark-red);
+}
+.sb-vault-title {
+  display: block; margin-top: 2px;
+  font-size: 14px; font-weight: 800; letter-spacing: -0.01em;
+  color: var(--stone); line-height: 1.25;
+}
+.sb-vault-sub {
+  display: block;
+  font-size: 11px; font-weight: 500; line-height: 1.45;
+  color: rgba(241,235,235,0.62);
+  margin-top: 5px;
+}
+.sb-vault-cta {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--blush);
+  margin-top: 11px;
+}
+.sb-vault-cta .arr { font-size: 11px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sb-vault { transition: none; }
+  .sb-vault:hover { transform: none; }
+}
 .mobile-bar {
   display: none;
   position: sticky; top: 0; z-index: 50;
@@ -321,6 +368,13 @@ a { color: inherit; }
   <div class="sb-divider"></div>
   <nav class="sb-nav">
     <a class="sb-link active" href="#">Dashboard</a>
+
+        <a class="sb-vault" href="https://tools.womanmasteryhqportal.com/voicevault/">
+      <span class="sb-vault-tag">New</span>
+      <span class="sb-vault-title">WMHQ Voice Vault</span>
+      <span class="sb-vault-sub">Short strategy drops, straight from Jess.</span>
+      <span class="sb-vault-cta">Listen in <span class="arr">&#8594;</span></span>
+    </a>
 
     <div class="sb-group-label">Access</div>
     <a class="sb-link" href="https://womanmasteryhqportal.com" target="_blank" rel="noopener">Login WMHQ Portal <span class="arr">&#8599;</span></a>
