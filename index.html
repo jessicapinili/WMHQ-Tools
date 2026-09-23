@@ -443,6 +443,13 @@ a { color: inherit; }
    ========================================================= */
 const TOOLS = [
   {
+    title: "One Liner Builder",
+    pillar: "influence",
+    isNew: true,
+    description: "One sentence can be the difference between someone paying you and choosing someone else. Build yours here.",
+    url: "https://tools.womanmasteryhqportal.com/onelinerbuilder/"
+  },
+  {
     title: "Lead Magnet Builder",
     pillar: "cash",
     isNew: true,
@@ -452,7 +459,6 @@ const TOOLS = [
   {
     title: "The Black Friday Sales Tool",
     pillar: "cash",
-    isNew: true,
     description: "Build one Black Friday offer worth buying. Price it without eating your profit, pick the right deal type, run the 30 day campaign, and architect the offer before you build anything.",
     url: "https://blackfridaytool.womanmasteryhqportal.com/"
   },
@@ -553,12 +559,13 @@ function renderCards(filter) {
 
 /* filters + remember choice for this browser */
 const filters = document.getElementById('filters');
-let active = localStorage.getItem('wmhq_tool_filter') || 'all';
+let active = 'all';
+try { active = localStorage.getItem('wmhq_tool_filter') || 'all'; } catch (e) {}
 if (!PILLAR_LABEL[active] && active !== 'all') active = 'all';
 
 function setActive(filter) {
   active = filter;
-  localStorage.setItem('wmhq_tool_filter', filter);
+  try { localStorage.setItem('wmhq_tool_filter', filter); } catch (e) {}
   [...filters.children].forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
   renderCards(filter);
 }
