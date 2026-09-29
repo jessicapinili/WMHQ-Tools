@@ -219,31 +219,52 @@ a { color: inherit; }
 /* body */
 .body { max-width: 1120px; margin: 0 auto; padding: 46px 40px 20px; }
 
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; }
 .section-eyebrow {
+  display: flex; align-items: center; gap: 12px;
   font-size: 10px; font-weight: 700; letter-spacing: 0.24em;
-  text-transform: uppercase; color: var(--taupe); margin-bottom: 12px;
+  text-transform: uppercase; color: var(--deep-red); margin-bottom: 14px;
 }
+.section-eyebrow::before { content: ''; width: 28px; height: 2px; border-radius: 2px; background: var(--blush); }
 .section-head h2 {
-  font-size: clamp(24px, 3vw, 32px); font-weight: 800;
-  letter-spacing: -0.02em; line-height: 1.1; color: var(--ink);
+  font-size: clamp(30px, 4vw, 42px); font-weight: 800;
+  letter-spacing: -0.03em; line-height: 1.05; color: var(--ink);
 }
-.section-head p { font-size: 14px; color: var(--muted); margin-top: 6px; }
+.section-head p { font-size: 15px; color: var(--muted); margin-top: 10px; }
+.tool-count {
+  flex-shrink: 0; text-align: right;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted);
+}
+.tool-count strong { display: block; font-size: 34px; letter-spacing: -0.03em; color: var(--merlot); line-height: 1; margin-bottom: 4px; }
 
 /* filters */
-.filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 30px; }
-.filter-pill {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: inherit; font-size: 12px; font-weight: 700;
-  letter-spacing: 0.05em; text-transform: none;
-  padding: 9px 20px; border-radius: 100px; cursor: pointer;
-  background: var(--card-bg); color: var(--ink);
-  border: 1px solid var(--border-strong);
-  transition: all 0.18s ease;
+.filters {
+  display: inline-flex; gap: 4px; margin: 30px 0 34px; padding: 6px;
+  max-width: 100%; overflow-x: auto; scrollbar-width: none;
+  background: #fff; border-radius: 100px;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 2px rgba(61,13,12,0.04), 0 10px 24px -12px rgba(61,13,12,0.18);
 }
-.filter-pill .fdot { width: 8px; height: 8px; border-radius: 50%; }
-.filter-pill:hover { border-color: var(--merlot); }
-.filter-pill.active { background: var(--merlot); color: var(--stone); border-color: var(--merlot); }
-.filter-pill.active .fdot { box-shadow: 0 0 0 2px rgba(241,235,235,0.25); }
+.filters::-webkit-scrollbar { display: none; }
+.filter-pill {
+  flex-shrink: 0;
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: inherit; font-size: 13px; font-weight: 700;
+  letter-spacing: 0.01em; white-space: nowrap;
+  padding: 10px 18px; border-radius: 100px; cursor: pointer;
+  background: transparent; color: var(--muted);
+  border: none;
+  transition: background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+.filter-pill .fdot { width: 8px; height: 8px; border-radius: 50%; background: var(--pillar-deep); }
+.filter-pill .fcount {
+  font-size: 10px; font-weight: 800; min-width: 20px; padding: 2px 6px; border-radius: 100px;
+  background: rgba(61,13,12,0.06); color: inherit; text-align: center;
+}
+.filter-pill:hover { color: var(--ink); background: var(--pillar, var(--stone)); }
+.filter-pill.active { background: var(--pillar, var(--merlot)); color: var(--pillar-deep, var(--stone)); box-shadow: 0 4px 12px -4px rgba(var(--pillar-shadow, 61,13,12), 0.45); }
+.filter-pill.active .fcount { background: rgba(255,255,255,0.7); }
+.filter-pill.active[data-filter="all"] .fcount { background: rgba(241,235,235,0.18); }
 
 /* grid */
 .grid {
@@ -352,6 +373,8 @@ a { color: inherit; }
 }
 @media (max-width: 560px) {
   .grid { grid-template-columns: 1fr; }
+  .tool-count { display: none; }
+  .filter-pill { padding: 9px 14px; font-size: 12px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -413,18 +436,21 @@ a { color: inherit; }
   <!-- BODY -->
   <main class="body">
     <div class="section-head">
-      <div class="section-eyebrow">Member Tools</div>
-      <h2>WMHQ Tools</h2>
-      <p>Select a tool below to get started.</p>
+      <div>
+        <div class="section-eyebrow">Member Tools</div>
+        <h2>WMHQ Tools</h2>
+        <p>Select a tool below to get started.</p>
+      </div>
+      <div class="tool-count" id="toolCount"></div>
     </div>
 
     <!-- FILTERS -->
     <div class="filters" id="filters">
-      <button class="filter-pill active" data-filter="all">All</button>
-      <button class="filter-pill" data-filter="influence"><span class="fdot" style="background:#6E86B5"></span>Influence</button>
-      <button class="filter-pill" data-filter="visibility"><span class="fdot" style="background:#B88A66"></span>Visibility</button>
-      <button class="filter-pill" data-filter="cash"><span class="fdot" style="background:#7A9C7C"></span>Cash</button>
-      <button class="filter-pill" data-filter="identity"><span class="fdot" style="background:#8E7EB0"></span>Identity</button>
+      <button class="filter-pill active" data-filter="all">All <span class="fcount"></span></button>
+      <button class="filter-pill pillar-influence" data-filter="influence"><span class="fdot"></span>Influence <span class="fcount"></span></button>
+      <button class="filter-pill pillar-visibility" data-filter="visibility"><span class="fdot"></span>Visibility <span class="fcount"></span></button>
+      <button class="filter-pill pillar-cash" data-filter="cash"><span class="fdot"></span>Cash <span class="fcount"></span></button>
+      <button class="filter-pill pillar-identity" data-filter="identity"><span class="fdot"></span>Identity <span class="fcount"></span></button>
     </div>
 
     <!-- GRID -->
@@ -576,6 +602,13 @@ const filters = document.getElementById('filters');
 let active = 'all';
 try { active = localStorage.getItem('wmhq_tool_filter') || 'all'; } catch (e) {}
 if (!PILLAR_LABEL[active] && active !== 'all') active = 'all';
+
+/* counts on each filter + total */
+[...filters.children].forEach(b => {
+  const f = b.dataset.filter;
+  b.querySelector('.fcount').textContent = f === 'all' ? TOOLS.length : TOOLS.filter(t => t.pillar === f).length;
+});
+document.getElementById('toolCount').innerHTML = `<strong>${TOOLS.length}</strong>Tools inside`;
 
 function setActive(filter) {
   active = filter;
