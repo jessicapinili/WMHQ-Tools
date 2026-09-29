@@ -27,10 +27,10 @@
 }
 
 /* pillar tokens */
-.pillar-influence    { --pillar: #E6EDFA; --pillar-deep: #6E86B5; }
-.pillar-visibility   { --pillar: #FBEEE4; --pillar-deep: #B88A66; }
-.pillar-cash         { --pillar: #E6EFE7; --pillar-deep: #7A9C7C; }
-.pillar-identity     { --pillar: #EDE8F4; --pillar-deep: #8E7EB0; }
+.pillar-influence    { --pillar: #E3EAF8; --pillar-deep: #5E78AB; --pillar-shadow: 94,120,171; }
+.pillar-visibility   { --pillar: #F8E9DD; --pillar-deep: #A87A55; --pillar-shadow: 168,122,85; }
+.pillar-cash         { --pillar: #E2EDE3; --pillar-deep: #62886A; --pillar-shadow: 98,136,106; }
+.pillar-identity     { --pillar: #EAE4F4; --pillar-deep: #7E6DA6; --pillar-shadow: 126,109,166; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -248,25 +248,38 @@ a { color: inherit; }
 /* grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 26px;
 }
 
 /* card */
 .tool-card {
-  background: var(--card-bg);
-  border: 2px dotted var(--pillar-deep);
-  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 55%), var(--pillar);
+  border: 1px solid rgba(var(--pillar-shadow), 0.18);
+  border-radius: 20px;
   padding: 4px 0 26px;
-  box-shadow: 0 1px 2px rgba(61,13,12,0.03);
+  box-shadow:
+    0 1px 2px rgba(61,13,12,0.04),
+    0 8px 18px -6px rgba(var(--pillar-shadow), 0.22),
+    0 22px 44px -14px rgba(61,13,12,0.18);
   display: flex; flex-direction: column;
   overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-.tool-card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(61,13,12,0.1); }
+.tool-card:hover {
+  transform: translateY(-5px);
+  box-shadow:
+    0 2px 4px rgba(61,13,12,0.05),
+    0 14px 28px -8px rgba(var(--pillar-shadow), 0.32),
+    0 34px 60px -18px rgba(61,13,12,0.26);
+}
 .tool-body { padding: 24px 28px 0; display: flex; flex-direction: column; flex: 1; }
 .tool-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-.tool-pillar { display: inline-flex; align-items: center; gap: 8px; }
+.tool-pillar {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.75); padding: 6px 12px 6px 10px; border-radius: 100px;
+  box-shadow: 0 1px 2px rgba(var(--pillar-shadow), 0.15);
+}
 .tool-pillar .pdot { width: 8px; height: 8px; border-radius: 50%; background: var(--pillar-deep); }
 .tool-pillar span {
   font-size: 10px; font-weight: 700; letter-spacing: 0.2em;
@@ -274,15 +287,15 @@ a { color: inherit; }
 }
 .tool-new {
   font-size: 9px; font-weight: 800; letter-spacing: 0.14em;
-  text-transform: uppercase; color: var(--deep-red);
-  border: 1px solid rgba(102,8,16,0.3); border-radius: 100px;
-  padding: 4px 11px;
+  text-transform: uppercase; color: var(--merlot);
+  background: var(--blush); border-radius: 100px;
+  padding: 5px 11px;
 }
 .tool-card h3 {
   font-size: 21px; font-weight: 800; letter-spacing: -0.015em;
   line-height: 1.2; color: var(--ink); margin-bottom: 14px;
 }
-.tool-rule { height: 1px; background: var(--border); margin-bottom: 14px; }
+.tool-rule { height: 1px; background: rgba(var(--pillar-shadow), 0.22); margin-bottom: 14px; }
 .tool-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 22px; }
 .tool-cta-wrap { padding: 0 28px; }
 .tool-cta {
@@ -293,6 +306,7 @@ a { color: inherit; }
   text-transform: uppercase; border-radius: 100px;
   transition: background 0.18s ease;
 }
+.tool-cta { box-shadow: 0 6px 14px -6px rgba(61,13,12,0.45); }
 .tool-cta:hover { background: var(--deep-red); }
 .tool-cta .arr { font-size: 13px; }
 
@@ -333,7 +347,7 @@ a { color: inherit; }
   .sb-close { display: block; }
   body.nav-open .backdrop { display: block; }
   .hero { padding: 52px 24px 48px; }
-  .hero-logo { right: 22px; top: 20px; }
+  .hero-logo { display: none; }
   .body { padding: 36px 22px 20px; }
 }
 @media (max-width: 560px) {
