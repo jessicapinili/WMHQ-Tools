@@ -458,12 +458,12 @@ a { color: inherit; }
   </main>
 
   <!-- IP DISCLAIMER -->
-  <p class="pdf-disclaimer">This work is the sole property of Jessica Pinili. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, or create derivative works in any capacity. All rights on intellectual property of this digital product are proprietary and reserved for exclusive use by Jessica Pinili alone.</p>
+  <p class="pdf-disclaimer">This work is the sole property of Jessica Marie Holdings Pty Ltd. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, or create derivative works in any capacity. All rights on intellectual property of this digital product are proprietary and reserved for exclusive use by Jessica Marie Holdings Pty Ltd alone.</p>
 
   <!-- FOOTER -->
   <footer class="wmhq-footer">
     <div class="wmhq-footer-inner">
-      <p class="wmhq-footer-copy">&copy; <span id="footerYear"></span> Jessica Pinili. All rights reserved.</p>
+      <p class="wmhq-footer-copy">&copy; <span id="footerYear"></span> Jessica Marie Holdings Pty Ltd. All rights reserved.</p>
       <div class="wmhq-footer-links">
         <a href="https://www.jessicapinili.com/terms" target="_blank" rel="noopener">Terms &amp; Conditions</a>
         <a href="https://www.jessicapinili.com/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
@@ -479,9 +479,17 @@ a { color: inherit; }
    To add a tool, copy one block and change the values.
    pillar must be one of: influence | visibility | cash | identity
    isNew: true shows the NEW tag. Delete the line or set false to hide.
+   isUpdated: true shows the UPDATED tag instead.
    Put the real link in url.
    ========================================================= */
 const TOOLS = [
+  {
+    title: "WMHQ Belief Break Loop Tool",
+    pillar: "identity",
+    isUpdated: true,
+    description: "Uncover the belief beneath your resistance, separate fact from prediction, and take your next move before procrastination takes over.",
+    url: "https://tools.womanmasteryhqportal.com/beliefloop/"
+  },
   {
     title: "One Liner Builder",
     pillar: "influence",
@@ -513,12 +521,6 @@ const TOOLS = [
     pillar: "influence",
     description: "Map who you are really speaking to. Build the language, desires, and objections behind your messaging so your content lands with the right buyer.",
     url: "https://tools.womanmasteryhqportal.com/researchbuilder/"
-  },
-  {
-    title: "WMHQ Belief Break Loop Tool",
-    pillar: "identity",
-    description: "Catch the belief driving the sabotage. Name the pattern, break the loop, and rewire the story keeping you smaller than your capacity.",
-    url: "https://tools.womanmasteryhqportal.com/beliefloop/"
   },
   {
     title: "WMHQ Signature Series Builder",
@@ -584,7 +586,7 @@ function renderCards(filter) {
       <div class="tool-body">
         <div class="tool-top">
           <span class="tool-pillar"><span class="pdot"></span><span>${PILLAR_LABEL[t.pillar]}</span></span>
-          ${t.isNew ? '<span class="tool-new">New</span>' : ''}
+          ${t.isUpdated ? '<span class="tool-new">Updated</span>' : t.isNew ? '<span class="tool-new">New</span>' : ''}
         </div>
         <h3>${t.title}</h3>
         <div class="tool-rule"></div>
