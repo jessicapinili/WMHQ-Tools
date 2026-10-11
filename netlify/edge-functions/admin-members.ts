@@ -1,6 +1,6 @@
 // Admin API for the member list. Only signed-in admins can read or change it.
 import { getSession, normalizeEmail } from "../lib/auth.ts";
-import { getMembers, isAdmin, saveMembers } from "../lib/members.ts";
+import { getMembers, isAdmin, saveMembers, updateMembers } from "../lib/members.ts";
 
 type Change =
   | { action: "add"; emails: string[] }
@@ -34,15 +34,19 @@ export default async (req: Request) => {
   const incoming = Array.isArray(change?.emails)
     ? change.emails.map(normalizeEmail).filter((e): e is string => Boolean(e))
     : [];
-  const current = (await getMembers()).emails;
-
-  let next: string[];
-  if (change.action === "add") next = [...current, ...incoming];
-  else if (change.action === "remove") next = current.filter((e) => !incoming.includes(e));
-  else if (change.action === "replace") next = incoming;
-  else return Response.json({ ok: false, error: "Unknown action." }, { status: 400, headers: noStore });
-
-  return Response.json({ ok: true, ...(await saveMembers(next)) }, { headers: noStore });
+  if (change.action === "add") {
+    return Response.json({ ok: true, ...(await updateMembers((current) => [...current, ...incoming])) }, { headers: noStore });
+  }
+  if (change.action === "remove") {
+    return Response.json(
+      { ok: true, ...(await updateMembers((current) => current.filter((e) => !incoming.includes(e)))) },
+      { headers: noStore },
+    );
+  }
+  if (change.action === "replace") {
+    return Response.json({ ok: true, ...(await saveMembers(incoming)) }, { headers: noStore });
+  }
+  return Response.json({ ok: false, error: "Unknown action." }, { status: 400, headers: noStore });
 };
 
 export const config = {
