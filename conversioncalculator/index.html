@@ -653,7 +653,7 @@ input[type=range]:focus-visible { outline: 2px solid var(--deep-red); outline-of
     <div class="class-body">
       <div class="class-eyebrow">WMHQ Signature Masterclass</div>
       <h2 class="class-title">Build Your Complete Sales Ecosystem</h2>
-      <p class="class-desc">Find where you‚Äôre losing potential buyers, understand why they drop off, and make the changes that turn more of your existing attention into sales.</p>
+      <p class="class-desc">Find where you&#x2019;re losing potential buyers, understand why they drop off, and make the changes that turn more of your existing attention into sales.</p>
       <div class="class-runtime">&#9654; Runtime <strong>1 hour</strong></div>
       <span class="class-cta is-soon" aria-disabled="true">Coming soon</span>
     </div>
@@ -664,7 +664,7 @@ input[type=range]:focus-visible { outline: 2px solid var(--deep-red); outline-of
     <div class="class-body">
       <div class="class-eyebrow">WMHQ CEO Cash Training</div>
       <h2 class="class-title">What is Money Mindset?</h2>
-      <p class="class-desc">You‚Äôll learn the two layers behind CEO Cash: the numbers that drive your business, and the beliefs and identity patterns that shape how you earn, hold and grow money.</p>
+      <p class="class-desc">You&#x2019;ll learn the two layers behind CEO Cash: the numbers that drive your business, and the beliefs and identity patterns that shape how you earn, hold and grow money.</p>
       <div class="class-runtime">&#9654; Runtime <strong>22 mins</strong></div>
       <a class="class-cta" href="https://www.jessicapinili.com/login" target="_blank" rel="noopener">Watch the full class &#8599;</a>
     </div>
@@ -1383,7 +1383,7 @@ document.addEventListener('DOMContentLoaded', function () {
 (function () {
   var STORAGE_KEY = 'wmhq-funnel-offers';
   var MAX_OFFERS = 10;
-  var CURRENCY_SYMBOLS = { AUD: 'A$', USD: '$', GBP: '¬£', EUR: '‚Ç¨', NZD: 'NZ$', SGD: 'S$' };
+  var CURRENCY_SYMBOLS = { AUD: 'A$', USD: '$', GBP: '\u00a3', EUR: '\u20ac', NZD: 'NZ$', SGD: 'S$' };
 
   // lo/hi: typical range (%) for arriving at this stage from the one before.
   // Broad starting guides, used only to judge which handoff is weakest.
@@ -1399,9 +1399,9 @@ document.addEventListener('DOMContentLoaded', function () {
   var DIAGNOSIS = {
     lead: { title: 'People see you, but few take the next step.', why: 'Attention is not buying intent. Check your content ends with a reason to move: action, specific benefit and where it takes her.', repair: 'Rewrite one CTA', measure: 'Click-through or opt-in rate' },
     conversation: { title: 'People sign up, then nothing happens.', why: 'Interest has a shelf life. Look at what a new lead receives in her first 48 hours, and whether it invites a reply or a booking.', repair: 'Write one clear next-step email', measure: 'Replies or bookings from new leads' },
-    offer: { title: 'Conversations happen, but the offer rarely gets made.', why: 'Acknowledge, Understand, Recommend, Invite. If the invitation never comes, she can‚Äôt say yes.', repair: 'Add the invitation to every conversation', measure: 'Invitations made per conversation' },
-    followup: { title: 'People see the offer, then go quiet.', why: 'Not now isn‚Äôt never. An unanswered question, an unresolved hesitation and timing each need a different, useful follow-up.', repair: 'Set up a simple follow-up process', measure: 'Replies and decisions from follow-ups' },
-    purchase: { title: 'Interested people aren‚Äôt completing the purchase.', why: 'Check your offer page answers the questions between her and yes (outcome, proof, price, what happens next), then test checkout yourself.', repair: 'Improve headline, value and proof, then test checkout', measure: 'Offer-view-to-purchase rate' }
+    offer: { title: 'Conversations happen, but the offer rarely gets made.', why: 'Acknowledge, Understand, Recommend, Invite. If the invitation never comes, she can\u2019t say yes.', repair: 'Add the invitation to every conversation', measure: 'Invitations made per conversation' },
+    followup: { title: 'People see the offer, then go quiet.', why: 'Not now isn\u2019t never. An unanswered question, an unresolved hesitation and timing each need a different, useful follow-up.', repair: 'Set up a simple follow-up process', measure: 'Replies and decisions from follow-ups' },
+    purchase: { title: 'Interested people aren\u2019t completing the purchase.', why: 'Check your offer page answers the questions between her and yes (outcome, proof, price, what happens next), then test checkout yourself.', repair: 'Improve headline, value and proof, then test checkout', measure: 'Offer-view-to-purchase rate' }
   };
 
   function $(id) { return document.getElementById(id); }
@@ -1464,7 +1464,7 @@ document.addEventListener('DOMContentLoaded', function () {
     $('stageInputs').innerHTML = STAGES.map(function (s) {
       return '<div class="sub-card"><div class="stage-top"><span class="stage-n">' + s.n + '</span><span class="stage-name">' + s.name + '</span></div>' +
         '<div class="stage-job">' + s.job + '</div><div class="sub-label" data-help="' + s.help + '">' + s.label + '</div>' +
-        '<input class="num-input" data-stage="' + s.key + '" type="text" inputmode="numeric" placeholder="‚Äì" aria-label="' + s.name + ': ' + s.label + '">' +
+        '<input class="num-input" data-stage="' + s.key + '" type="text" inputmode="numeric" placeholder="\u2013" aria-label="' + s.name + ': ' + s.label + '">' +
         '<p class="field-hint">' + s.hint + '</p></div>';
     }).join('');
     each('[data-stage]', function (inp) {
@@ -1485,8 +1485,8 @@ document.addEventListener('DOMContentLoaded', function () {
       var w = 34 + 66 * (Math.log(x.v + 1) / Math.log(max + 1));
       if (k > 0) {
         var hop = h[k - 1];
-        html += '<div class="f-hop' + (hop === leak ? ' is-leak' : '') + '"><span class="f-arrow" aria-hidden="true">‚Üì</span><b>' + pct(hop.rate) + '</b>' +
-          '<span>of ' + hop.from.s.name + ' moved on to ' + hop.to.s.name + (hop === leak ? ' <em>¬∑ biggest gap</em>' : '') + '</span></div>';
+        html += '<div class="f-hop' + (hop === leak ? ' is-leak' : '') + '"><span class="f-arrow" aria-hidden="true">\u2193</span><b>' + pct(hop.rate) + '</b>' +
+          '<span>of ' + hop.from.s.name + ' moved on to ' + hop.to.s.name + (hop === leak ? ' <em>\u00b7 biggest gap</em>' : '') + '</span></div>';
       }
       html += '<div class="f-layer' + (k === t.length - 1 ? ' is-last' : '') + '" style="width:' + w + '%">' +
         '<span class="f-name">' + x.s.n + ' ' + x.s.name + '</span><span class="f-val">' + fmt(x.v) + '</span></div>';
@@ -1496,7 +1496,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var first = t[0], last = t[t.length - 1];
       html += '<p class="f-total">Out of every <strong>' + fmt(first.v) + ' ' + first.s.label.toLowerCase() + '</strong>, <strong>' + fmt(last.v) + '</strong> reached ' +
         last.s.name + ': <strong>' + pct(first.v ? last.v / first.v : 0) + '</strong> end to end.' +
-        (last.s.key === 'purchase' && o.price ? ' That‚Äôs about <strong>' + sym() + fmt(last.v * o.price) + '</strong> this month.' : '') + '</p>';
+        (last.s.key === 'purchase' && o.price ? ' That\u2019s about <strong>' + sym() + fmt(last.v * o.price) + '</strong> this month.' : '') + '</p>';
     }
     $('funnelViz').innerHTML = html + '</div>';
   }
@@ -1511,7 +1511,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var max = Math.max(x.hi * 1.6, x.rate * 1.1, 0.0001);
       var w = function (r) { return Math.min(100, r / max * 100); };
       return '<div class="hop' + (x === leak ? ' is-leak' : '') + '">' +
-        '<div class="hop-name">' + x.from.s.name + ' ‚Üí ' + x.to.s.name + '<small>' + fmt(x.from.v) + ' to ' + fmt(x.to.v) +
+        '<div class="hop-name">' + x.from.s.name + ' \u2192 ' + x.to.s.name + '<small>' + fmt(x.from.v) + ' to ' + fmt(x.to.v) +
         (x.rate > 1 ? ' (more than 100%, check this)' : '') + '</small></div>' +
         '<div class="hop-track"><span class="hop-band" style="left:' + w(x.lo) + '%;width:' + (w(x.hi) - w(x.lo)) + '%"></span>' +
         '<span class="hop-fill" style="width:' + w(x.rate) + '%"></span></div>' +
@@ -1522,7 +1522,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var d = DIAGNOSIS[leak.to.s.key];
     var healthy = leak.rate >= leak.lo;
     $('leakPanel').innerHTML = '<div class="leak-panel">' +
-      '<div class="gap-eyebrow">' + (healthy ? 'Your weakest step' : 'Your biggest gap') + ': ' + leak.from.s.name + ' ‚Üí ' + leak.to.s.name + '</div>' +
+      '<div class="gap-eyebrow">' + (healthy ? 'Your weakest step' : 'Your biggest gap') + ': ' + leak.from.s.name + ' \u2192 ' + leak.to.s.name + '</div>' +
       '<h3>' + d.title + '</h3><p>' +
       (healthy ? 'Every handoff sits inside its typical range, so this is your relative weak spot rather than a hole. '
                : 'Only ' + pct(leak.rate) + ' move on here, against a typical ' + pct(leak.lo) + ' to ' + pct(leak.hi) + '. ') +
@@ -1550,7 +1550,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }).join('') + '</tbody></table>' +
       '<div class="insight"><div class="insight-eyebrow">JP &times; WMHQ, your number</div><p>Right now <strong>' + esc(name) +
       '</strong> brings in about <strong>' + s + fmt(last.v * o.price) + ' a month</strong>. To reach <strong>' + s + fmt(o.revenue) +
-      '</strong> without changing a single handoff you‚Äôd need <strong>' + fmt(rows[0].need) + ' ' + rows[0].t.s.label.toLowerCase() +
+      '</strong> without changing a single handoff you\u2019d need <strong>' + fmt(rows[0].need) + ' ' + rows[0].t.s.label.toLowerCase() +
       '</strong> a month. Fixing your biggest gap is usually the cheaper way to close that gap.</p></div>';
   }
 
@@ -1573,7 +1573,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var bestConv = best('conv'), bestRev = best('rev');
     $('compareWrap').innerHTML = '<table class="compare-table"><thead><tr><th>Offer</th><th>Price</th><th>Top of funnel</th><th>Purchases</th><th>End to end</th><th>Revenue / mo</th><th>Of goal</th><th>Biggest gap</th></tr></thead><tbody>' +
       rows.map(function (r) {
-        var dash = '‚Äì';
+        var dash = '\u2013';
         return '<tr' + (r.o.id === data.active ? ' class="is-active"' : '') + '>' +
           '<td><button type="button" data-open="' + r.o.id + '">' + esc(r.name) + '</button></td>' +
           '<td>' + (r.o.price ? s + fmt(r.o.price) : dash) + '</td>' +
@@ -1582,7 +1582,7 @@ document.addEventListener('DOMContentLoaded', function () {
           '<td' + (r.conv && r.conv === bestConv ? ' class="best"' : '') + '>' + (r.conv !== null ? pct(r.conv) : dash) + '</td>' +
           '<td' + (r.rev && r.rev === bestRev ? ' class="best"' : '') + '>' + (r.rev !== null ? s + fmt(r.rev) : dash) + '</td>' +
           '<td>' + (r.rev !== null && r.o.revenue ? Math.round(r.rev / r.o.revenue * 100) + '%' : dash) + '</td>' +
-          '<td>' + (r.leak ? r.leak.from.s.name + ' ‚Üí ' + r.leak.to.s.name : dash) + '</td></tr>';
+          '<td>' + (r.leak ? r.leak.from.s.name + ' \u2192 ' + r.leak.to.s.name : dash) + '</td></tr>';
       }).join('') + '</tbody></table>';
     each('[data-open]', function (b) {
       b.addEventListener('click', function () { data.active = b.dataset.open; render(true); window.scrollTo({ top: $('tabFunnel').offsetTop - 20, behavior: 'smooth' }); });
