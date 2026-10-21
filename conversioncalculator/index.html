@@ -562,6 +562,41 @@ input[type=range]:focus-visible { outline: 2px solid var(--deep-red); outline-of
 .funnel-fill-row .offer-select { flex: 0 1 260px; font-size: 14px; }
 .funnel-fill-msg { font-size: 12px; color: var(--muted); flex-basis: 100%; }
 
+.mini-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; margin-bottom: 26px; }
+.mini-card {
+  display: flex; flex-direction: column; gap: 12px; text-align: left; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; color: var(--ink);
+  background: var(--stone); border: 2px solid transparent; border-radius: 14px; padding: 16px 16px 14px;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.mini-card:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+.mini-card.is-active { border-color: var(--merlot); background: #fff; }
+.mini-top { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.mini-name { font-size: 16px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.2; }
+.mini-price { font-size: 12px; font-weight: 700; color: var(--muted); white-space: nowrap; }
+.mini-funnel { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.mini-bar { display: flex; justify-content: space-between; align-items: center; gap: 6px; height: 24px; padding: 0 9px; border-radius: 6px; background: var(--merlot); color: var(--stone); max-width: 100%; }
+.mini-bar.is-last { background: var(--deep-red); }
+.mini-bar span { font-size: 8.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blush); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.mini-bar b { font-size: 12px; font-weight: 800; white-space: nowrap; }
+.mini-pct { font-size: 10.5px; font-weight: 800; color: #47603F; background: var(--pillar-cash); border-radius: 100px; padding: 0 8px; line-height: 17px; }
+.mini-pct.is-gap { background: var(--blush); color: var(--deep-red); }
+.mini-empty { font-size: 12px; color: var(--muted); text-align: center; padding: 18px 6px; border: 1px dashed var(--border-strong); border-radius: 10px; }
+.mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; border-top: 1px solid var(--border); padding-top: 10px; }
+.mini-stats div { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--taupe); }
+.mini-stats b { display: block; font-size: 15px; letter-spacing: -0.01em; text-transform: none; color: var(--ink); margin-top: 2px; }
+.mini-stats b.best { color: var(--green-ok); }
+.mini-gap { font-size: 11px; color: var(--deep-red); font-weight: 700; }
+.mini-open { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--merlot); }
+.focus-bar {
+  display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap;
+  background: var(--merlot); color: var(--stone); border-radius: 14px; padding: 14px 18px 14px 22px; margin-bottom: 20px;
+  font-size: 14px;
+}
+.focus-bar b { color: var(--blush); }
+.focus-bar .btn-pill-ghost { color: var(--stone); border-color: rgba(242,198,208,0.4); }
+.focus-bar .btn-pill-ghost:hover { border-color: var(--blush); }
+
 .offer-count { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .btn-pill-ghost:disabled { opacity: 0.4; cursor: not-allowed; }
 
@@ -915,6 +950,19 @@ input[type=range]:focus-visible { outline: 2px solid var(--deep-red); outline-of
     </section>
 
     <div id="funnelBody" hidden>
+      <section class="card" id="compareCard" hidden>
+        <div class="step-head"><div class="card-num">All your offers</div><div class="voice-mini" data-voice-mini="funnel6"></div></div>
+        <h2 data-help="End to end means how many people bought out of everyone at the top of the funnel. Of goal shows how close each offer is to its money goal. Tap any funnel to look at that offer on its own.">Compare your offers</h2>
+        <p class="card-sub">Every offer, side by side. Look for the one that turns attention into sales best, not just the one that sells most. Tap a funnel to look at it on its own.</p>
+        <div class="mini-grid" id="miniFunnels"></div>
+        <div class="table-scroll" id="compareWrap"></div>
+      </section>
+
+      <div class="focus-bar" id="focusBar" hidden>
+        <span>Now looking at <b id="focusName"></b></span>
+        <button class="btn-pill-ghost" id="focusBackBtn" type="button">&#8593; Back to all offers</button>
+      </div>
+
       <section class="card">
         <div class="step-head"><div class="card-num">Step Two</div><div class="voice-mini" data-voice-mini="funnel2"></div></div>
         <h2 data-help="Use last month. Tap the ? on each stage to see what to count. If you do not know a number, leave it blank.">Your numbers, stage by stage</h2>
@@ -949,12 +997,6 @@ input[type=range]:focus-visible { outline: 2px solid var(--deep-red); outline-of
         <div id="planWrap"></div>
       </section>
 
-      <section class="card" id="compareCard" hidden>
-        <div class="step-head"><div class="card-num">Step Six</div><div class="voice-mini" data-voice-mini="funnel6"></div></div>
-        <h2 data-help="End to end means how many people bought out of everyone at the top of the funnel. Of goal shows how close each offer is to its money goal. Tap an offer name to open it.">Compare your offers</h2>
-        <p class="card-sub">The same month, side by side. Look for the offer that converts best from the attention it gets, not just the one that sells most.</p>
-        <div class="table-scroll" id="compareWrap"></div>
-      </section>
     </div>
   </div>
 
@@ -1555,9 +1597,12 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function renderCompare() {
-    var show = data.mode === 'compare' && data.offers.length >= 2;
+    var show = data.mode === 'compare' && data.offers.length >= 1;
     $('compareCard').hidden = !show;
+    $('focusBar').hidden = !show;
     if (!show) return;
+    var active = current();
+    $('focusName').textContent = offerName(active, data.offers.indexOf(active));
     var s = sym();
     var rows = data.offers.map(function (o, i) {
       var t = tracked(o), h = handoffs(o), leak = findLeak(h);
@@ -1571,9 +1616,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     var best = function (key) { return Math.max.apply(null, rows.map(function (r) { return r[key] || 0; })); };
     var bestConv = best('conv'), bestRev = best('rev');
+    var dash = '\u2013';
+
+    // One small funnel per offer, side by side. Same log scale as the big
+    // funnel so a 40,000 top and 2 sales both stay readable.
+    $('miniFunnels').innerHTML = rows.map(function (r) {
+      var t = tracked(r.o), h = handoffs(r.o);
+      var max = Math.max.apply(null, t.map(function (x) { return x.v; }).concat(1));
+      var body = t.length ? t.map(function (x, k) {
+        var w = 38 + 62 * (Math.log(x.v + 1) / Math.log(max + 1));
+        var hop = k > 0 ? h[k - 1] : null;
+        return (hop ? '<span class="mini-pct' + (r.leak && hop.to.s.key === r.leak.to.s.key ? ' is-gap' : '') + '">' + pct(hop.rate) + '</span>' : '') +
+          '<div class="mini-bar' + (k === t.length - 1 ? ' is-last' : '') + '" style="width:' + w + '%"><span>' + x.s.name + '</span><b>' + fmt(x.v) + '</b></div>';
+      }).join('') : '<div class="mini-empty">No numbers yet. Tap to add them.</div>';
+      return '<button type="button" class="mini-card' + (r.o.id === data.active ? ' is-active' : '') + '" data-open="' + r.o.id + '">' +
+        '<div class="mini-top"><span class="mini-name">' + esc(r.name) + '</span><span class="mini-price">' + (r.o.price ? s + fmt(r.o.price) : '') + '</span></div>' +
+        '<div class="mini-funnel">' + body + '</div>' +
+        '<div class="mini-stats"><div>End to end<b' + (r.conv && r.conv === bestConv ? ' class="best"' : '') + '>' + (r.conv !== null ? pct(r.conv) : dash) + '</b></div>' +
+        '<div>Revenue / mo<b' + (r.rev && r.rev === bestRev ? ' class="best"' : '') + '>' + (r.rev !== null ? s + fmt(r.rev) : dash) + '</b></div></div>' +
+        (r.leak ? '<div class="mini-gap">Biggest gap: ' + r.leak.from.s.name + ' \u2192 ' + r.leak.to.s.name + '</div>' : '') +
+        '<div class="mini-open">' + (r.o.id === data.active ? 'Looking at this one \u2193' : 'Look at this one \u2192') + '</div></button>';
+    }).join('');
     $('compareWrap').innerHTML = '<table class="compare-table"><thead><tr><th>Offer</th><th>Price</th><th>Top of funnel</th><th>Purchases</th><th>End to end</th><th>Revenue / mo</th><th>Of goal</th><th>Biggest gap</th></tr></thead><tbody>' +
       rows.map(function (r) {
-        var dash = '\u2013';
         return '<tr' + (r.o.id === data.active ? ' class="is-active"' : '') + '>' +
           '<td><button type="button" data-open="' + r.o.id + '">' + esc(r.name) + '</button></td>' +
           '<td>' + (r.o.price ? s + fmt(r.o.price) : dash) + '</td>' +
@@ -1585,7 +1650,10 @@ document.addEventListener('DOMContentLoaded', function () {
           '<td>' + (r.leak ? r.leak.from.s.name + ' \u2192 ' + r.leak.to.s.name : dash) + '</td></tr>';
       }).join('') + '</tbody></table>';
     each('[data-open]', function (b) {
-      b.addEventListener('click', function () { data.active = b.dataset.open; render(true); window.scrollTo({ top: $('tabFunnel').offsetTop - 20, behavior: 'smooth' }); });
+      b.addEventListener('click', function () {
+        data.active = b.dataset.open; render(true);
+        window.scrollTo({ top: $('focusBar').getBoundingClientRect().top + window.scrollY - 20, behavior: 'smooth' });
+      });
     });
   }
 
@@ -1632,6 +1700,9 @@ document.addEventListener('DOMContentLoaded', function () {
     $('offerName').focus();
   }
   $('offerFirstBtn').addEventListener('click', addOffer);
+  $('focusBackBtn').addEventListener('click', function () {
+    window.scrollTo({ top: $('compareCard').getBoundingClientRect().top + window.scrollY - 20, behavior: 'smooth' });
+  });
   // Everything lives only in this browser, so a reset cannot be undone.
   $('funnelResetBtn').addEventListener('click', function () {
     if (!data.offers.length) return;
