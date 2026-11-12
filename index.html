@@ -334,7 +334,12 @@ a { color: inherit; }
   --pillar: #ECEAEA; --pillar-deep: #9A9494; --pillar-shadow: 120,115,115;
   filter: grayscale(1); opacity: 0.6; pointer-events: none;
 }
-.tool-card.soon h3 { color: #8A8484; }
+.tool-card.soon h3 { color: #8A8484; margin: 8px 0 0; font-size: 17px; }
+.soon-stack { display: flex; flex-direction: column; gap: 14px; }
+.soon-stack .tool-card.soon { flex: 1; padding: 0 0 16px; }
+.soon-stack .tool-card.soon .tool-body { padding: 18px 24px 12px; }
+.soon-stack .tool-card.soon .tool-cta-wrap { padding: 0 24px; }
+.grid.list .soon-stack { gap: 10px; }
 .tool-soon { flex: 1; overflow: hidden; white-space: nowrap; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #9A9494; }
 .tool-star {
   background: none; border: none; cursor: pointer; padding: 4px;
@@ -522,6 +527,13 @@ const TOOLS = [
     url: ""
   },
   {
+    title: "Email Journey Builder",
+    pillar: "soon",
+    comingSoon: true,
+    description: "Coming soon.",
+    url: ""
+  },
+  {
     title: "Ideal Buyer Avatar Builder",
     pillar: "influence",
     isNew: true,
@@ -628,17 +640,17 @@ function renderCards(filter) {
       : '<div class="empty-state">No tools in this category yet.</div>';
     return;
   }
-  grid.innerHTML = list.map(t => t.comingSoon ? `
+  const soonCard = t => `
     <article class="tool-card soon" aria-disabled="true">
       <div class="tool-body">
-        <div class="tool-top"><span class="tool-pillar"><span>Coming soon</span></span></div>
+        <span class="tool-pillar"><span>Coming soon</span></span>
         <h3>${t.title}</h3>
-        <div class="tool-rule"></div>
-        <p class="tool-desc">In the works. Check back soon.</p>
       </div>
       <div class="tool-cta-wrap"><span class="tool-soon" aria-label="Coming soon"><span class="track" aria-hidden="true"><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span></span></span></div>
-    </article>
-  ` : `
+    </article>`;
+  const soon = list.filter(t => t.comingSoon);
+  const soonHtml = soon.length ? `<div class="soon-stack">${soon.map(soonCard).join('')}</div>` : '';
+  grid.innerHTML = soonHtml + list.filter(t => !t.comingSoon).map(t => `
     <article class="tool-card pillar-${t.pillar}">
       <div class="tool-body">
         <div class="tool-top">
