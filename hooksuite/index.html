@@ -276,6 +276,11 @@ body {
 .btn-mini.copied { color: var(--green-ok); border-color: var(--green-ok); }
 .btn-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 26px; }
 .btn-row.split { justify-content: space-between; }
+.btn-row.center { justify-content: center; }
+.btn-row.sub-nav { margin-top: 14px; gap: 10px; }
+.btn-text { background: rgba(61,13,12,0.06); border: none; border-radius: 100px; cursor: pointer; font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--merlot); padding: 12px 22px; transition: background .18s ease; }
+.btn-text::before { margin-right: 8px; }
+.btn-text:hover { background: rgba(61,13,12,0.12); }
 
 .save-note { font-size: 11.5px; color: var(--muted); opacity: 0.85; margin-top: 16px; line-height: 1.6; max-width: 640px; text-align: center; margin-left: auto; margin-right: auto; }
 
@@ -929,7 +934,7 @@ function renderStepResults(app) {
     card.appendChild(row);
   });
 
-  var actions = el('div', 'btn-row');
+  var actions = el('div', 'btn-row center');
   actions.appendChild(btn('btn-pill-dark', 'Show Me Another 15', function () {
     generate();
     saveState();
@@ -948,9 +953,9 @@ function renderStepResults(app) {
   actions.appendChild(btn('btn-pill-ghost', 'Save As PDF', function () { window.print(); }));
   card.appendChild(actions);
 
-  var nav = el('div', 'btn-row');
-  nav.appendChild(btn('btn-pill-ghost', 'Change Content Type', function () { goStep(3); }));
-  nav.appendChild(btn('btn-pill-ghost', 'Start Over', startOver));
+  var nav = el('div', 'btn-row center sub-nav');
+  nav.appendChild(btn('btn-text', '\u2190 Change Content Type', function () { goStep(3); }));
+  nav.appendChild(btn('btn-text', '\u21BA Start Over', startOver));
   card.appendChild(nav);
 
   card.appendChild(el('p', 'save-note', 'Your hooks save to this browser only. If you switch devices, clear your cookies, or use incognito, this tool will start\u00a0fresh. Copy or save what you want to keep.'));
