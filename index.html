@@ -477,7 +477,8 @@ a { color: inherit; }
     <!-- FILTERS -->
     <div class="filter-row">
     <div class="filters" id="filters">
-      <button class="filter-pill active" data-filter="all">All</button>
+      <button class="filter-pill active" data-filter="new">New</button>
+      <button class="filter-pill" data-filter="all">All</button>
       <button class="filter-pill pillar-influence" data-filter="influence">Influence</button>
       <button class="filter-pill pillar-visibility" data-filter="visibility">Visibility</button>
       <button class="filter-pill pillar-cash" data-filter="cash">Cash</button>
@@ -632,6 +633,7 @@ function saveStarred() { try { localStorage.setItem('wmhq_starred', JSON.stringi
 
 function renderCards(filter) {
   const list = filter === 'all' ? [...TOOLS]
+    : filter === 'new' ? TOOLS.filter(t => t.isNew || t.isUpdated)
     : filter === 'starred' ? TOOLS.filter(t => starred.includes(t.url))
     : TOOLS.filter(t => t.pillar === filter);
   list.sort((a, b) => (b.comingSoon ? 1 : 0) - (a.comingSoon ? 1 : 0) || a.title.localeCompare(b.title));
@@ -674,15 +676,13 @@ function renderCards(filter) {
 
 /* filters + remember choice for this browser */
 const filters = document.getElementById('filters');
-let active = 'all';
-try { active = localStorage.getItem('wmhq_tool_filter') || 'all'; } catch (e) {}
-if (!PILLAR_LABEL[active] && active !== 'all' && active !== 'starred') active = 'all';
+/* always open on the New tab */
+let active = 'new';
 
 document.getElementById('toolCount').innerHTML = `<strong>${TOOLS.filter(t => !t.comingSoon).length}</strong>Tools inside`;
 
 function setActive(filter) {
   active = filter;
-  try { localStorage.setItem('wmhq_tool_filter', filter); } catch (e) {}
   [...filters.children].forEach(b => b.classList.toggle('active', b.dataset.filter === filter));
   renderCards(filter);
 }
