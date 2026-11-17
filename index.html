@@ -317,6 +317,7 @@ a { color: inherit; }
   text-transform: uppercase; color: var(--merlot);
 }
 .tool-new::before { content: "\2726  "; color: #C9677A; }
+.tool-new.very::before { content: "\2605  "; color: #F2C230; }
 .tool-new { animation: newPulse 1.8s ease-in-out infinite; }
 @keyframes newPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 .tool-soon .track { display: inline-flex; animation: soonScroll 12s linear infinite; }
@@ -532,6 +533,7 @@ const TOOLS = [
     title: "Email Journey Mapper",
     pillar: "cash",
     isNew: true,
+    veryNew: true,
     description: "Map the full email journey your buyer takes, from first opt-in to purchase, so every email has a job and moves them closer to yes.",
     url: "https://tools.womanmasteryhqportal.com/emailmapper/"
   },
@@ -660,7 +662,7 @@ function renderCards(filter) {
       <div class="tool-body">
         <div class="tool-top">
           <span class="tool-pillar"><span>${PILLAR_LABEL[t.pillar]}</span></span>
-          ${t.isUpdated ? '<span class="tool-new">Updated</span>' : t.isNew ? '<span class="tool-new">New</span>' : ''}
+          ${t.isUpdated ? '<span class="tool-new">Updated</span>' : t.veryNew ? '<span class="tool-new very">Very New</span>' : t.isNew ? '<span class="tool-new">New</span>' : ''}
         </div>
         <h3>${t.title}</h3>
         <div class="tool-rule"></div>
