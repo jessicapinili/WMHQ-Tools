@@ -334,7 +334,8 @@ a { color: inherit; }
   --pillar: #ECEAEA; --pillar-deep: #9A9494; --pillar-shadow: 120,115,115;
   filter: grayscale(1); opacity: 0.6; pointer-events: none;
 }
-.tool-card.soon h3 { color: #8A8484; margin: 8px 0 0; font-size: 17px; }
+.tool-card.soon h3 { color: #8A8484; }
+.tool-card.soon .tool-desc { color: #9A9494; }
 .soon-stack { display: flex; flex-direction: column; gap: 14px; }
 .soon-stack .tool-card.soon { flex: 1; padding: 0 0 16px; }
 .soon-stack .tool-card.soon .tool-body { padding: 18px 24px 12px; }
@@ -527,11 +528,11 @@ const TOOLS = [
     url: ""
   },
   {
-    title: "Email Journey Builder",
-    pillar: "soon",
-    comingSoon: true,
-    description: "Coming soon.",
-    url: ""
+    title: "Email Journey Mapper",
+    pillar: "cash",
+    isNew: true,
+    description: "Map the full email journey your buyer takes, from first opt-in to purchase, so every email has a job and moves them closer to yes.",
+    url: "https://tools.womanmasteryhqportal.com/emailmapper/"
   },
   {
     title: "Ideal Buyer Avatar Builder",
@@ -645,11 +646,13 @@ function renderCards(filter) {
       <div class="tool-body">
         <span class="tool-pillar"><span>Coming soon</span></span>
         <h3>${t.title}</h3>
+        <div class="tool-rule"></div>
+        <p class="tool-desc">${t.description}</p>
       </div>
       <div class="tool-cta-wrap"><span class="tool-soon" aria-label="Coming soon"><span class="track" aria-hidden="true"><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span><span>Coming soon &#183;</span></span></span></div>
     </article>`;
   const soon = list.filter(t => t.comingSoon);
-  const soonHtml = soon.length ? `<div class="soon-stack">${soon.map(soonCard).join('')}</div>` : '';
+  const soonHtml = soon.map(soonCard).join('');
   grid.innerHTML = soonHtml + list.filter(t => !t.comingSoon).map(t => `
     <article class="tool-card pillar-${t.pillar}">
       <div class="tool-body">
