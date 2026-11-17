@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WMHQ Tool | Email Mapping Journey</title>
+<meta name="description" content="Map your email journey before you write a single email. One job, one CTA, every email.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://tools.womanmasteryhq.com/emailmapper/">
+<meta property="og:title" content="WMHQ Tool | Email Mapping Journey">
+<meta property="og:description" content="Map your email journey before you write a single email. One job, one CTA, every email.">
+<meta property="og:image" content="https://tools.womanmasteryhq.com/emailmapper/email-journey-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="WMHQ Tool | Email Mapping Journey">
+<meta name="twitter:image" content="https://tools.womanmasteryhq.com/emailmapper/email-journey-share.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark-red: #270707; --merlot: #3D0A10; --cherry: #A2122A; --deep-red: #660810;
+  --blush: #F2C6D0; --stone: #f1ebeb; --page: #f2f2f2; --ink: #1a0a0a;
+  --card-bg: #ffffff; --card-soft: #f7f7f7; --muted: #7a5a5a;
+  --border: rgba(61,10,16,0.09); --border-strong: rgba(61,10,16,0.2);
+  --cash: #E6EFE7; --cash-deep: #4E7A52;
+  --influence: #E6EDFA; --influence-sky: #CAECFF; --influence-deep: #4F6A9E; --navy: #1F3A68;
+  --amber: #B7791F; --amber-soft: #FBF1DF; --green-ok: #4E8A52;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--page); color: var(--ink); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+.eyebrow { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+
+/* Hero */
+.hero { background: var(--merlot); padding: 76px 24px 58px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(241,235,235,0.03) 80px); pointer-events: none; }
+.hero-wordmark { position: absolute; top: 26px; left: 30px; z-index: 2; text-align: left; }
+.hero-wordmark .wm-top { font-size: 12px; font-weight: 800; letter-spacing: 0.24em; color: var(--stone); text-transform: uppercase; }
+.hero-wordmark .wm-sub { font-size: 8.5px; font-weight: 500; letter-spacing: 0.14em; color: rgba(242,198,208,0.55); }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blush); border: 1px solid rgba(242,198,208,0.3); padding: 7px 16px; margin-bottom: 24px; position: relative; }
+.hero-eyebrow .dot { width: 7px; height: 7px; border-radius: 100px; background: #B9DDBD; }
+.hero h1 { font-size: clamp(30px, 4.6vw, 50px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.08; color: var(--stone); max-width: 760px; margin: 0 auto; position: relative; }
+.hero h1 em { font-style: normal; color: var(--blush); }
+.hero-sub { font-size: 15px; color: rgba(241,235,235,0.75); max-width: 600px; margin: 16px auto 0; line-height: 1.65; position: relative; }
+
+/* Step nav */
+.stepnav { position: sticky; top: 0; z-index: 40; background: rgba(61,10,16,0.97); backdrop-filter: blur(6px); }
+.stepnav-inner { max-width: 1000px; margin: 0 auto; padding: 0 16px; height: 54px; display: flex; align-items: center; gap: 4px; overflow-x: auto; scrollbar-width: none; }
+.stepnav-inner::-webkit-scrollbar { display: none; }
+@media (min-width: 900px) { .stepnav-inner { justify-content: center; } }
+.stepnav button { font-family: inherit; background: none; cursor: pointer; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(241,235,235,0.62); white-space: nowrap; padding: 8px 13px; border-radius: 100px; border: 1px solid transparent; display: inline-flex; align-items: center; gap: 6px; }
+.stepnav button:hover { color: var(--blush); }
+.stepnav button.active { background: var(--blush); color: var(--merlot); }
+.stepnav .sn-num { opacity: 0.7; }
+.stepnav .sn-done { width: 6px; height: 6px; border-radius: 100px; background: #B9DDBD; }
+.progress { height: 3px; background: rgba(241,235,235,0.1); }
+.progress-fill { height: 100%; background: var(--blush); width: 0; transition: width 0.3s ease; }
+
+.save-flash { position: fixed; top: 70px; right: 18px; z-index: 60; background: var(--merlot); color: var(--stone); font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 8px 16px; border-radius: 100px; opacity: 0; transform: translateY(-6px); pointer-events: none; transition: opacity 0.2s, transform 0.2s; }
+.save-flash.show { opacity: 1; transform: none; }
+
+.body { max-width: 920px; margin: 0 auto; padding: 46px 24px 40px; }
+.card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 34px 36px 38px; margin-bottom: 22px; box-shadow: 0 1px 2px rgba(61,10,16,0.03); }
+.card h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; letter-spacing: -0.015em; line-height: 1.15; margin: 8px 0 8px; }
+.card-sub { font-size: 15px; color: var(--muted); line-height: 1.65; max-width: 660px; }
+.anchor-line { font-size: clamp(19px, 2.5vw, 23px); font-weight: 800; letter-spacing: -0.015em; color: var(--deep-red); line-height: 1.3; margin: 18px 0 6px; }
+.block { margin-top: 30px; }
+.section-h { font-size: 17px; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 4px; }
+.section-sub { font-size: 13.5px; color: var(--muted); margin-bottom: 16px; line-height: 1.6; }
+@media (max-width: 640px) { .body { padding: 26px 16px 30px; } .card { padding: 24px 18px 26px; } .hero-wordmark { left: 16px; } }
+
+/* Journey picker */
+.journeys { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.jcard { text-align: left; font-family: inherit; cursor: pointer; background: var(--card-soft); border: 1.5px solid var(--border); border-radius: 14px; padding: 18px 18px 16px; transition: border-color .15s, background .15s, transform .15s; color: var(--ink); }
+.jcard:hover { border-color: var(--deep-red); transform: translateY(-1px); }
+.jcard.on { background: var(--cash); border-color: var(--cash-deep); }
+.jcard .j-icon { width: 34px; height: 34px; border-radius: 100px; background: var(--card-bg); display: flex; align-items: center; justify-content: center; color: var(--deep-red); margin-bottom: 10px; }
+.jcard .j-icon svg { width: 17px; height: 17px; }
+.jcard b { display: block; font-size: 15.5px; font-weight: 800; letter-spacing: -0.01em; }
+.jcard .j-trig { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--cash-deep); margin: 3px 0 6px; display: block; }
+.jcard p { font-size: 13px; color: var(--muted); line-height: 1.55; }
+
+/* Inputs */
+label.f { display: block; font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+input[type=text], textarea, select { width: 100%; font-family: inherit; font-size: 14.5px; color: var(--ink); background: var(--card-bg); border: 1.5px solid var(--border-strong); border-radius: 10px; padding: 10px 12px; outline: none; transition: border-color .15s; }
+textarea { resize: vertical; min-height: 64px; line-height: 1.55; }
+input:focus, textarea:focus, select:focus { border-color: var(--deep-red); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.grid2 > div, .fld { margin-bottom: 14px; }
+@media (max-width: 640px) { .grid2 { grid-template-columns: 1fr; gap: 0; } }
+
+/* Email editor cards */
+.email { border: 1.5px solid var(--border); border-radius: 14px; margin-bottom: 14px; overflow: hidden; background: var(--card-bg); }
+.email-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--card-soft); border-bottom: 1px solid var(--border); }
+.email-num { width: 30px; height: 30px; flex-shrink: 0; border-radius: 100px; background: var(--merlot); color: var(--stone); font-weight: 800; font-size: 13px; display: flex; align-items: center; justify-content: center; }
+.name-wrap { flex: 1; min-width: 0; }
+@media (max-width: 640px) { .email-head { flex-wrap: wrap; } .name-wrap { flex: 1 1 calc(100% - 52px); } .email-head .icon-btn:first-of-type { margin-left: 52px; } }
+.name-wrap small { display: block; font-family: var(--mono); font-size: 9px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: 0 0 3px 2px; }
+.name-field { position: relative; }
+.name-field svg { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; color: var(--muted); pointer-events: none; }
+.email-head .name-field input { font-weight: 700; border: 1.5px dashed var(--border-strong); background: var(--card-bg); padding: 7px 32px 7px 10px; }
+.email-head .name-field input:hover, .email-head .name-field input:focus { border-style: solid; border-color: var(--deep-red); }
+.sum { border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin-bottom: 10px; background: var(--card-bg); display: grid; grid-template-columns: 34px 1fr; gap: 14px; }
+.sum .email-num { margin-top: 2px; }
+.sum-top { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: baseline; }
+.sum-top b { font-size: 16px; font-weight: 800; }
+.sum-subj { font-size: 14px; margin-top: 6px; }
+.sum-subj span, .sum-row span { font-family: var(--mono); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--influence-deep); margin-right: 6px; }
+.sum-prev { font-size: 13px; color: var(--muted); }
+.sum-rows { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 14px; margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 13px; }
+@media (max-width: 640px) { .sum-rows { grid-template-columns: 1fr; } }
+.export-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
+@media (max-width: 640px) { .export-opts { grid-template-columns: 1fr; } }
+.xbtn { font-family: inherit; text-align: left; cursor: pointer; background: var(--merlot); color: var(--stone); border: none; border-radius: 14px; padding: 18px 20px; display: flex; gap: 14px; align-items: center; transition: background .2s; }
+.xbtn:hover { background: var(--deep-red); }
+.xbtn.alt { background: var(--card-soft); color: var(--ink); border: 1.5px solid var(--border-strong); }
+.xbtn.alt:hover { border-color: var(--deep-red); background: var(--card-soft); }
+.xbtn svg { width: 26px; height: 26px; flex-shrink: 0; }
+.xbtn b { display: block; font-size: 15px; font-weight: 800; }
+.xbtn small { font-size: 12.5px; opacity: .75; line-height: 1.45; display: block; }
+.node .n-mail { background: var(--card-soft); border-radius: 8px; padding: 7px 9px; }
+.node .n-prev { font-size: 11.5px; color: var(--ink); opacity: .5; line-height: 1.35; margin-top: 2px; }
+.node .n-subj { font-size: 12px; font-weight: 600; color: var(--deep-red); line-height: 1.35; }
+.email-body { padding: 16px 16px 4px; }
+.icon-btn { font-family: inherit; cursor: pointer; background: none; border: 1px solid var(--border-strong); border-radius: 100px; width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; color: var(--muted); flex-shrink: 0; }
+.icon-btn:hover { color: var(--cherry); border-color: var(--cherry); }
+.icon-btn svg { width: 14px; height: 14px; }
+.f-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.f-head label.f { margin-bottom: 0; }
+.tip-btn { width: 20px; height: 20px; border-radius: 100px; flex-shrink: 0; border: 1px solid var(--border-strong); background: var(--card-bg); color: var(--deep-red); font-family: inherit; font-size: 11px; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+.tip-btn:hover, .tip-btn[aria-expanded="true"] { background: var(--blush); border-color: var(--deep-red); }
+.tipbox { display: none; margin: 0 0 8px; background: #FAF6F0; border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; font-size: 13px; line-height: 1.6; color: #4a3434; }
+.tipbox.open { display: block; }
+.tipbox .eyebrow { display: block; color: var(--deep-red); margin-bottom: 3px; font-size: 9.5px; }
+.angles { display: flex; flex-wrap: wrap; gap: 8px; }
+.angle { font-family: inherit; cursor: pointer; background: var(--card-bg); border: 1.5px solid var(--border-strong); color: var(--merlot); border-radius: 100px; padding: 8px 16px; font-size: 13px; font-weight: 700; transition: border-color .15s, background .15s; }
+.angle:hover { border-color: var(--deep-red); }
+.angle.on { background: var(--merlot); color: var(--stone); border-color: var(--merlot); }
+.btn.add-email { background: #FDEFF2; color: var(--cherry); border: 1.5px dashed var(--cherry); padding: 10px 18px; font-size: 10.5px; }
+.btn.add-email:hover { background: var(--blush); color: var(--merlot); border-style: solid; }
+.btn.add-email svg { width: 14px; height: 14px; }
+.offer-row { display: flex; gap: 8px; margin-bottom: 8px; }
+.offer-row .icon-btn { margin-top: 6px; }
+.link-btn { font-family: inherit; background: none; border: none; cursor: pointer; color: var(--cherry); font-size: 12.5px; font-weight: 700; padding: 2px 0; }
+.link-btn:hover { text-decoration: underline; }
+.guide { background: #FBF6F0; border: 1px solid #EFE2D2; border-radius: 12px; margin-bottom: 16px; font-size: 13px; }
+.guide summary { cursor: pointer; padding: 10px 14px; font-weight: 700; color: var(--deep-red); font-size: 12.5px; }
+.guide .g-in { padding: 0 16px 14px; line-height: 1.55; color: var(--ink); }
+.guide ul, .guide ol { margin: 4px 0 10px 18px; padding: 0; }
+.guide i { color: var(--cherry); font-style: normal; }
+.write-toggle { font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; background: var(--card-soft); border: 1px solid var(--border-strong); color: var(--merlot); border-radius: 100px; padding: 8px 16px; font-size: 12.5px; font-weight: 700; margin: 2px 0 14px; }
+.write-toggle:hover { border-color: var(--deep-red); }
+.write-toggle svg { width: 14px; height: 14px; }
+.write-toggle span { font-weight: 500; color: var(--muted); }
+.write-box { border-top: 1px dashed var(--border-strong); padding-top: 14px; margin-bottom: 14px; }
+.write-box textarea { min-height: 180px; }
+.write-tools { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+.write-tools small { color: var(--muted); font-size: 12px; }
+.modal { position: fixed; inset: 0; z-index: 90; background: rgba(39,7,7,.6); display: none; align-items: flex-start; justify-content: center; padding: 40px 16px; overflow-y: auto; }
+.modal.open { display: flex; }
+.switch-box { margin: auto; width: 100%; max-width: 460px; background: #fff; border-radius: 16px; padding: 26px 26px 22px; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+.switch-box h3 { font-size: 21px; color: var(--merlot); margin: 6px 0 10px; letter-spacing: -.01em; }
+.switch-box p { font-size: 14px; line-height: 1.55; color: var(--muted); margin: 0 0 10px; }
+.sw-btns { display: flex; flex-direction: column; gap: 8px; margin-top: 16px; }
+.sw-btns .btn { justify-content: center; }
+.sw-stay { background: none; border: 0; font-family: inherit; font-size: 12.5px; color: var(--muted); text-decoration: underline; cursor: pointer; padding: 6px; }
+.j-saved { display: inline-block; margin: 4px 0 2px; font-family: var(--mono); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--cash-deep); background: var(--cash); padding: 3px 8px; border-radius: 100px; }
+.mail { width: 100%; max-width: 640px; background: #fff; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.3); }
+.mail-bar { display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: var(--card-soft); border-bottom: 1px solid var(--border); }
+.mail-bar .eyebrow { color: var(--deep-red); }
+.inbox-row { display: grid; grid-template-columns: 36px 1fr auto; gap: 12px; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--border); background: #FBF9F9; }
+.inbox-row .av { width: 36px; height: 36px; border-radius: 100px; background: var(--merlot); color: var(--stone); font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.inbox-row .ir-from { font-size: 13.5px; font-weight: 800; }
+.inbox-row .ir-line { font-size: 13px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.inbox-row .ir-line b { color: var(--ink); }
+.inbox-row time { font-size: 11.5px; color: var(--muted); }
+.mail-open { padding: 22px 26px 30px; }
+.mail-open h4 { font-size: 21px; font-weight: 800; letter-spacing: -0.01em; line-height: 1.25; margin-bottom: 12px; }
+.mail-body { font-size: 15px; line-height: 1.7; color: #2a1a1a; white-space: pre-wrap; }
+.mail-cta { display: inline-block; margin-top: 20px; background: var(--merlot); color: var(--stone); padding: 12px 24px; border-radius: 100px; font-weight: 700; font-size: 14px; }
+.mail-empty { color: var(--muted); font-style: italic; }
+.map-tools { display: flex; justify-content: flex-end; margin-bottom: 10px; }
+.map.full { position: fixed; inset: 0; z-index: 85; border-radius: 0; overflow-y: auto; padding: 28px 28px 40px; }
+.map.full { box-sizing: border-box; width: 100vw; }
+.map.full .flow { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; overflow: visible; padding-bottom: 0; }
+.map.full .conn { display: none; }
+.map.full .node { min-height: 0; }
+.map.full .map-top { flex-wrap: wrap; }
+.seg { display: inline-flex; border: 1px solid rgba(242,198,208,.35); border-radius: 100px; padding: 2px; }
+.seg button { font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; background: none; border: none; color: var(--blush); padding: 5px 11px; border-radius: 100px; cursor: pointer; }
+.seg button.on { background: var(--blush); color: var(--merlot); font-weight: 600; }
+.map.down .flow { flex-direction: column; align-items: center; overflow: visible; }
+.map.down .node { flex: none; width: min(420px, 100%); }
+.map.down .node.trigger, .map.down .node.exit { min-height: 0; padding: 14px 16px; }
+.map.down .conn { flex: none; width: auto; height: 46px; flex-direction: row; gap: 8px; }
+.map.down .conn .line { width: 2px; height: 100%; background: repeating-linear-gradient(180deg, var(--blush) 0 5px, transparent 5px 9px); }
+.map.down .conn .line::after { right: -4px; top: auto; bottom: -1px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 7px solid var(--blush); border-bottom: 0; }
+.map.full.down .flow { display: flex; }
+.map.full.down .conn { display: flex; }
+.map-close { font-family: inherit; cursor: pointer; background: var(--blush); color: var(--merlot); border: none; border-radius: 100px; padding: 7px 14px; font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.map.full .map-close { display: inline-block !important; }
+.export-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 22px; }
+@media (max-width: 760px) { .export-grid { grid-template-columns: 1fr; } }
+.export { font-family: inherit; text-align: left; cursor: pointer; background: var(--card-bg); border: 1px solid var(--border-strong); border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 4px; transition: border-color 0.15s ease, box-shadow 0.15s ease; }
+.export:hover { border-color: var(--deep-red); box-shadow: 0 6px 18px rgba(61,10,16,0.08); }
+.export .ex-fmt { font-family: var(--mono); font-size: 10.5px; font-weight: 600; letter-spacing: 0.12em; color: var(--cherry); }
+.export .ex-name { font-size: 16px; font-weight: 800; color: var(--ink); }
+.export .ex-note { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.dark-panel { background: var(--merlot); color: var(--stone); border-radius: 14px; padding: 26px 28px; }
+.dark-panel .eyebrow { color: var(--blush); }
+.portal { display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin-top: 22px; }
+.portal-main { flex: 1; min-width: 220px; }
+.portal-title { font-size: 20px; font-weight: 800; letter-spacing: -0.015em; color: var(--stone); margin-top: 6px; }
+.portal-desc { font-size: 13.5px; color: rgba(241,235,235,0.78); margin-top: 4px; }
+.btn-blush { display: inline-flex; align-items: center; text-decoration: none; white-space: nowrap; border-radius: 100px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; padding: 13px 26px; background: var(--blush); color: var(--merlot); border: none; font-weight: 800; transition: background .2s; }
+.btn-blush:hover { background: #fff; }
+@media (max-width: 640px) { .dark-panel { padding: 22px 20px; } }
+.assets { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.rem { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink); }
+.rem .tick { width: 15px; height: 15px; color: var(--cherry); flex-shrink: 0; }
+.rem button { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 11px; opacity: 0; transition: opacity .15s; }
+.rem:hover button, .rem button:focus { opacity: 1; }
+.rem button:hover { color: var(--cherry); }
+.asset-new { width: 100%; }
+.chip { display: inline-flex; align-items: center; gap: 6px; background: var(--card-soft); border: 1px solid var(--border-strong); border-radius: 100px; padding: 5px 6px 5px 12px; font-size: 13px; }
+.chip button { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 11px; width: 18px; height: 18px; border-radius: 100px; }
+.chip button:hover { color: var(--cherry); background: #FDEFF2; }
+.chip.add { font-family: inherit; cursor: pointer; padding: 6px 14px; border-style: dashed; color: var(--cherry); font-weight: 700; font-size: 12.5px; background: #FDEFF2; }
+.chip.add:hover { background: var(--blush); }
+.asset-new { display: flex; gap: 8px; flex: 1; min-width: 240px; }
+.asset-new .btn { padding: 8px 16px; }
+.opt { font-family: var(--mono); font-size: 9px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-left: 6px; }
+input.slim { padding: 8px 12px; font-size: 13.5px; background: var(--card-soft); border-style: dashed; }
+input.slim:focus { background: var(--card-bg); border-style: solid; }
+.formula-link { font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--cherry); background: #FDEFF2; border: 1px solid rgba(162,18,42,.25); border-radius: 100px; padding: 3px 9px; margin-left: 6px; cursor: pointer; vertical-align: 1px; }
+.formula-link:hover { background: var(--blush); }
+.drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(400px, 100vw); z-index: 70; background: var(--card-bg); border-left: 1px solid var(--border-strong); box-shadow: -12px 0 40px rgba(61,10,16,.12); display: flex; flex-direction: column; transform: translateX(105%); transition: transform .25s ease; }
+.drawer.open { transform: none; }
+.dr-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; padding: 18px 18px 10px; }
+.dr-head .eyebrow { color: var(--deep-red); }
+.dr-for { font-size: 13px; color: var(--muted); margin-top: 3px; }
+.dr-tools { padding: 0 18px 10px; display: flex; flex-direction: column; gap: 8px; }
+.dr-tools input { padding: 8px 12px; font-size: 13.5px; }
+.seg.light { border-color: var(--border-strong); display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+.seg.light button { padding: 8px 10px; text-align: center; }
+.dr-head .map-close { flex-shrink: 0; }
+#drGroup { padding: 8px 12px; font-size: 13.5px; font-weight: 600; color: var(--merlot); cursor: pointer; }
+.dr-tools { border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+.seg.light button { color: var(--merlot); }
+.seg.light button.on { background: var(--merlot); color: var(--stone); }
+.dr-groups { display: flex; gap: 6px; overflow-x: auto; padding: 0 18px 10px; scrollbar-width: none; border-bottom: 1px solid var(--border); }
+.dr-groups::-webkit-scrollbar { display: none; }
+.dr-groups button { font-family: inherit; white-space: nowrap; cursor: pointer; background: var(--card-soft); border: 1px solid var(--border); color: var(--muted); border-radius: 100px; padding: 5px 11px; font-size: 12px; font-weight: 600; }
+.dr-groups button.on { background: var(--blush); color: var(--merlot); border-color: var(--blush); }
+.dr-list { flex: 1; overflow-y: auto; padding: 6px 18px 30px; }
+.dr-g { font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--cherry); margin: 16px 0 6px; }
+.fm { display: flex; align-items: center; gap: 8px; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 13.5px; line-height: 1.4; }
+.fm span { flex: 1; }
+.fm span i { font-style: normal; color: var(--cherry); background: #FDEFF2; border-radius: 4px; padding: 0 3px; }
+.fm button { font-family: inherit; cursor: pointer; border-radius: 100px; font-size: 10.5px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; padding: 5px 10px; flex-shrink: 0; }
+.fm .use { background: var(--merlot); color: var(--stone); border: none; }
+.fm .use:hover { background: var(--deep-red); }
+.fm .cp { background: none; border: 1px solid var(--border-strong); color: var(--muted); }
+.fm .cp.done { background: var(--blush); color: var(--merlot); border-color: var(--blush); }
+.dr-empty { color: var(--muted); font-size: 13px; padding: 20px 0; }
+@media (min-width: 1100px) { body.drawer-on .page-layout { padding-right: 420px; } }
+@media (max-width: 640px) { .drawer { top: auto; height: 55vh; width: 100vw; border-left: none; border-top: 1px solid var(--border-strong); border-radius: 16px 16px 0 0; transform: translateY(105%); } }
+.desk-note { display: flex; gap: 10px; align-items: flex-start; background: #FFF6D6; border: 1px solid #F0DE9A; color: #5c4a12; border-radius: 12px; padding: 12px 16px; font-size: 13.5px; line-height: 1.55; margin: 26px 0 14px; }
+.desk-note svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; color: #9a7b14; }
+.desk-note strong { color: #3f320b; }
+.hint { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.45; }
+.warn { color: var(--amber); font-weight: 600; }
+
+/* Buttons */
+.btn-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+.btn { font-family: inherit; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; background: var(--merlot); color: var(--stone); border: none; border-radius: 100px; padding: 12px 22px; font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; transition: background .2s; }
+.btn:hover { background: var(--deep-red); }
+.btn svg { width: 15px; height: 15px; }
+.btn.ghost { background: var(--card-bg); color: var(--merlot); border: 1px solid var(--border-strong); }
+.btn.ghost:hover { border-color: var(--deep-red); }
+.btn.blush { background: var(--blush); color: var(--merlot); }
+.stage-foot { display: flex; justify-content: space-between; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
+
+/* Rule bar */
+.voice { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; background: var(--merlot); border-radius: 14px; padding: 18px 22px; margin: 22px 0 6px; }
+.voice-pts { flex-basis: 100%; border-top: 1px solid rgba(242,198,208,.18); padding-top: 12px; margin-top: -4px; }
+.voice-pts summary { list-style: none; cursor: pointer; font-family: var(--mono); font-size: 10.5px; letter-spacing: .12em; text-transform: uppercase; color: var(--blush); display: flex; align-items: center; justify-content: space-between; }
+.voice-pts summary::-webkit-details-marker { display: none; }
+.voice-pts summary::after { content: '+'; font-size: 15px; letter-spacing: 0; }
+.voice-pts[open] summary::after { content: '\2013'; }
+.voice-pts ul { margin: 10px 0 2px; padding-left: 18px; color: var(--stone); font-size: 13.5px; line-height: 1.55; }
+.voice-pts li { margin-bottom: 5px; }
+.voice-pts li::marker { color: var(--blush); }
+.voice-play { width: 50px; height: 50px; border-radius: 100px; flex-shrink: 0; border: none; cursor: pointer; background: var(--blush); color: var(--merlot); display: flex; align-items: center; justify-content: center; transition: background .15s ease; }
+.voice-play:hover { background: #fff; }
+.voice-play:disabled { background: rgba(242,198,208,.18); color: rgba(242,198,208,.5); cursor: default; }
+.voice-play svg { width: 18px; height: 18px; }
+.voice-main { flex: 1; min-width: 0; }
+.voice .eyebrow { color: var(--blush); }
+.voice-title { font-size: 15px; font-weight: 700; color: var(--stone); margin-top: 2px; }
+.voice-bar { display: flex; align-items: center; gap: 10px; margin-top: 8px; }
+.voice-track { flex: 1; height: 4px; border-radius: 100px; background: rgba(241,235,235,.16); cursor: pointer; position: relative; }
+.voice-track::before { content: ''; position: absolute; left: 0; right: 0; top: -10px; bottom: -10px; }
+.voice-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; border-radius: 100px; background: var(--blush); }
+.voice-time { font-family: var(--mono); font-size: 10.5px; color: rgba(241,235,235,.6); white-space: nowrap; }
+.voice-soon { font-size: 13px; color: rgba(241,235,235,.6); margin-top: 3px; }
+.voice-speed { display: flex; gap: 4px; flex-shrink: 0; }
+.voice-speed button { font-family: var(--mono); font-size: 10.5px; font-weight: 600; cursor: pointer; background: transparent; color: rgba(241,235,235,.7); border: 1px solid rgba(242,198,208,.28); border-radius: 100px; padding: 5px 9px; min-width: 40px; }
+.voice-speed button:hover { color: var(--blush); border-color: var(--blush); }
+.voice-speed button.on { background: var(--blush); color: var(--merlot); border-color: var(--blush); }
+.voice-speed button:disabled { opacity: .4; cursor: default; }
+@media (max-width: 640px) {
+  .voice { flex-wrap: wrap; gap: 14px; padding: 16px; }
+  .voice-play { width: 46px; height: 46px; }
+  .voice-title { font-size: 14px; line-height: 1.35; }
+  .voice-speed { width: 100%; }
+  .voice-speed button { flex: 1; padding: 9px 0; font-size: 11px; }
+}
+.rule { margin-top: 22px; background: #FDEFF2; border: 1px solid #EDB8C4; border-radius: 14px; padding: 16px 18px; font-size: 14.5px; line-height: 1.6; color: #3a2626; }
+.rule strong { color: var(--ink); }
+.rule mark { background: var(--blush); color: var(--merlot); font-weight: 800; padding: 1px 5px; border-radius: 4px; }
+
+/* Visual map */
+.map { background: var(--merlot); border-radius: 16px; padding: 26px 22px 28px; color: var(--stone); position: relative; overflow: hidden; }
+.map::before { content: ''; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(241,235,235,0.035) 80px); pointer-events: none; }
+.map-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; position: relative; margin-bottom: 22px; }
+.map-top .eyebrow { color: var(--blush); }
+.map-top h3 { font-size: 22px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.2; margin-top: 4px; }
+.map-goal { font-size: 13px; color: rgba(241,235,235,.75); max-width: 520px; margin-top: 4px; }
+.map-pill { font-family: var(--mono); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; border: 1px solid rgba(242,198,208,.35); color: var(--blush); padding: 6px 12px; border-radius: 100px; white-space: nowrap; }
+.flow { display: flex; align-items: flex-start; gap: 0; overflow-x: auto; padding-bottom: 8px; position: relative; scrollbar-color: rgba(242,198,208,.4) transparent; }
+.node { flex: 0 0 210px; background: var(--card-bg); color: var(--ink); border-radius: 14px; padding: 14px 14px 14px; display: flex; flex-direction: column; gap: 8px; }
+.node.trigger, .node.exit { align-self: stretch; }
+.node.trigger { flex-basis: 140px; background: var(--blush); color: var(--merlot); justify-content: center; }
+.node.trigger b { font-size: 15px; font-weight: 800; line-height: 1.25; }
+.node.exit { flex-basis: 170px; background: #B9DDBD; color: #1f3a22; justify-content: center; }
+.node.exit b { font-size: 14px; font-weight: 800; line-height: 1.3; }
+.node .n-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+.n-acc { border-top: 1px solid var(--border); padding-top: 6px; font-size: 12px; }
+.n-acc summary { cursor: pointer; font-weight: 700; color: var(--deep-red); font-size: 11.5px; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+.n-acc summary::-webkit-details-marker { display: none; }
+.n-acc summary::after { content: '+'; font-size: 14px; color: var(--cherry); }
+.n-acc[open] summary::after { content: '\2212'; }
+.n-acc-in { margin: 6px 0 2px; color: #3a2626; line-height: 1.5; }
+.n-body { white-space: pre-wrap; max-height: 220px; overflow-y: auto; background: var(--card-soft); border-radius: 8px; padding: 8px 10px; }
+ul.n-acc-in { padding-left: 16px; }
+.node .n-num { white-space: nowrap; flex-shrink: 0; }
+.node .n-num { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .12em; color: var(--muted); }
+.node .n-time { font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .06em; background: var(--amber-soft); color: var(--amber); padding: 3px 8px; border-radius: 100px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; max-width: 72%; }
+.node .n-name { font-size: 14.5px; font-weight: 800; line-height: 1.25; letter-spacing: -0.01em; }
+.node .n-job { font-size: 12.5px; color: #3a2626; line-height: 1.45; }
+.node .n-job i { font-style: normal; color: var(--muted); }
+.node .n-meta { margin-top: auto; display: flex; flex-direction: column; gap: 5px; padding-top: 8px; border-top: 1px solid var(--border); }
+.node .tag { font-size: 11px; line-height: 1.35; display: flex; gap: 6px; }
+.node .tag em { font-style: normal; font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; color: var(--influence-deep); flex: 0 0 34px; padding-top: 1px; }
+.node .tag.rm em { color: var(--cherry); }
+.node .cta { background: var(--merlot); color: var(--stone); font-size: 11px; font-weight: 700; padding: 6px 10px; border-radius: 100px; text-align: center; margin-top: 4px; }
+.node .missing { color: var(--cherry); font-style: italic; }
+.map:not(.down) .conn { align-self: stretch; }
+.conn { flex: 0 0 44px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+.conn .line { width: 100%; height: 2px; background: repeating-linear-gradient(90deg, var(--blush) 0 5px, transparent 5px 9px); position: relative; }
+.conn .line::after { content: ''; position: absolute; right: -1px; top: -4px; border-left: 7px solid var(--blush); border-top: 5px solid transparent; border-bottom: 5px solid transparent; }
+.map:not(.down) .conn small { display: none; }
+.conn small { font-family: var(--mono); font-size: 8.5px; letter-spacing: .06em; color: rgba(242,198,208,.8); text-align: center; line-height: 1.2; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 16px; font-size: 11.5px; color: rgba(241,235,235,.7); position: relative; }
+.legend span::before { content: ''; display: inline-block; width: 9px; height: 9px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; background: var(--c); }
+
+/* Audit */
+.score-wrap { display: grid; grid-template-columns: 170px 1fr; gap: 24px; align-items: center; background: var(--card-soft); border: 1px solid var(--border); border-radius: 16px; padding: 22px; }
+@media (max-width: 640px) { .score-wrap { grid-template-columns: 1fr; text-align: center; } .score-ring { margin: 0 auto; } }
+.score-ring { width: 150px; height: 150px; position: relative; }
+.score-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.score-ring .num { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.score-ring .num b { font-size: 40px; font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+.score-ring .num span { font-family: var(--mono); font-size: 9.5px; letter-spacing: .12em; color: var(--muted); margin-top: 4px; }
+.verdict { font-size: 21px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.25; }
+.verdict-sub { font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.6; }
+.checks { margin-top: 18px; display: flex; flex-direction: column; gap: 8px; }
+.check { display: flex; gap: 12px; align-items: flex-start; border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; background: var(--card-bg); }
+.check .ci { width: 24px; height: 24px; border-radius: 100px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 800; }
+.check.pass .ci { background: var(--cash); color: var(--green-ok); }
+.check.warn .ci { background: var(--amber-soft); color: var(--amber); }
+.check.fail .ci { background: #FDEFF2; color: var(--cherry); }
+.check b { font-size: 14px; display: block; }
+.check p { font-size: 13px; color: var(--muted); line-height: 1.5; margin-top: 2px; }
+.check .where { font-family: var(--mono); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--influence-deep); }
+
+.page-layout {
+  max-width: 1240px; margin: 0 auto; padding: 46px 24px 30px;
+  display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 32px; align-items: start;
+}
+.page-layout .body { max-width: none; margin: 0; padding: 0; }
+.class-card {
+  position: sticky; top: 78px;
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px;
+  overflow: hidden; box-shadow: 0 1px 2px rgba(61,10,16,0.03);
+}
+.class-thumb { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: contain; background: var(--merlot); }
+.class-thumb-ph { display: flex; flex-direction: column; justify-content: center; gap: 6px; padding: 18px 20px; }
+.class-thumb-ph .ct-eyebrow { font-family: var(--mono); font-size: 9px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blush); }
+.class-thumb-ph .ct-title { font-size: 15px; font-weight: 800; line-height: 1.25; letter-spacing: -0.01em; color: var(--stone); }
+.class-body { padding: 18px 20px 20px; }
+.class-eyebrow { font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--cash-deep); }
+.class-title { font-size: 19px; font-weight: 800; letter-spacing: -0.015em; line-height: 1.2; color: var(--ink); margin: 6px 0 10px; }
+.class-desc { font-size: 13px; line-height: 1.65; color: var(--muted); }
+.class-runtime {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; color: var(--muted);
+  border-top: 1px solid var(--border); margin-top: 16px; padding-top: 14px;
+}
+.class-runtime strong { color: var(--cash-deep); }
+.class-cta {
+  display: block; text-align: center; text-decoration: none; margin-top: 14px; white-space: nowrap;
+  background: var(--merlot); color: var(--stone); border-radius: 100px; padding: 11px 12px;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  transition: background 0.2s ease;
+}
+.class-cta:hover { background: var(--deep-red); }
+@media (max-width: 1080px) {
+  .page-layout { display: block; max-width: 880px; }
+  .class-card { position: static; display: grid; grid-template-columns: minmax(0, 42%) minmax(0, 1fr); align-items: center; margin-bottom: 22px; }
+  .class-thumb { margin: 18px 0 18px 18px; width: calc(100% - 18px); border-radius: 10px; }
+}
+@media (max-width: 640px) {
+  .page-layout { padding: 26px 16px 20px; }
+  .class-card { display: block; border-radius: 14px; }
+  .class-thumb { margin: 0; width: 100%; border-radius: 0; }
+}
+
+.hidden { display: none !important; }
+
+/* Print = PDF */
+.print-only { display: none; }
+@media print {
+  @page { size: A4 landscape; margin: 12mm; }
+  body { background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .hero, .stepnav, .save-flash, .no-print, .stage-foot, .btn-row { display: none !important; }
+  .stage { display: none !important; }
+  .print-only { display: block !important; }
+  .body { padding: 0; max-width: none; }
+  .page-layout { display: block; padding: 0; max-width: none; }
+  .card { border: none; box-shadow: none; padding: 0; margin-bottom: 14px; }
+  .pm-card, .check, .score-wrap, .ptable tr { break-inside: avoid; }
+  .print-page-break { padding-top: 4px; }
+  .print-page-break { break-before: page; }
+}
+#print { font-size: 12px; }
+.pm-goal { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 16px; margin-bottom: 12px; font-size: 12px; }
+.pm-goal .eyebrow { display: block; font-size: 8.5px; margin-bottom: 2px; }
+.pm-goal b { font-size: 15px; color: var(--deep-red); }
+.pm-band { border-radius: 10px; padding: 8px 14px; font-size: 13px; font-weight: 700; display: flex; gap: 12px; align-items: center; }
+.pm-band .eyebrow { font-size: 8.5px; }
+.pm-band.trig { background: var(--blush); color: var(--merlot); margin-bottom: 10px; }
+.pm-band.exit { background: #DCEFDF; color: #1f3a22; margin-top: 10px; }
+.pm-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.pm-card { border: 1.5px solid var(--border-strong); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; font-size: 11px; line-height: 1.4; }
+.pm-card b { font-size: 13px; line-height: 1.25; }
+.pm-top { display: flex; justify-content: space-between; align-items: center; }
+.pm-n { width: 20px; height: 20px; border-radius: 100px; background: var(--merlot); color: var(--stone); font-weight: 800; font-size: 10.5px; display: flex; align-items: center; justify-content: center; }
+.pm-t { font-family: var(--mono); font-size: 9px; background: var(--amber-soft); color: var(--amber); padding: 2px 7px; border-radius: 100px; }
+.pm-subj { color: var(--deep-red); font-weight: 600; }
+.pm-row em { font-style: normal; font-family: var(--mono); font-size: 8px; letter-spacing: .1em; text-transform: uppercase; color: var(--influence-deep); margin-right: 5px; }
+.pm-row.rm em { color: var(--cherry); }
+.pm-cta { margin-top: auto; border-top: 1px solid var(--border); padding-top: 5px; font-weight: 700; color: var(--merlot); }
+.print-head { border-bottom: 2px solid var(--merlot); padding-bottom: 10px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: flex-end; }
+.print-head b { font-size: 22px; font-weight: 800; }
+.ptable { width: 100%; border-collapse: collapse; font-size: 11.5px; margin-top: 12px; }
+.ptable th { text-align: left; background: var(--merlot); color: var(--stone); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; padding: 7px 8px; }
+.ptable td { border-bottom: 1px solid var(--border-strong); padding: 7px 8px; vertical-align: top; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-wordmark"><div class="wm-top">Woman Mastery HQ</div><div class="wm-sub">tools for the woman who builds</div></div>
+  <div class="hero-eyebrow"><span class="dot"></span>Cash ¬∑ Email</div>
+  <h1>Email Journey <em>Mapper</em></h1>
+  <p class="hero-sub">Map the journey before you write a single email. Choose the journey first. Then give every email one job, a send time, a segment and a single CTA. Copy comes last, once the map is right.</p>
+</header>
+
+<nav class="stepnav">
+  <div class="stepnav-inner" id="nav"></div>
+  <div class="progress"><div class="progress-fill" id="prog"></div></div>
+</nav>
+<div class="save-flash" id="flash">Saved</div>
+<aside class="drawer" id="drawer" aria-label="Subject line formulas" aria-hidden="true">
+  <div class="dr-head"><div><div class="eyebrow">Subject line formulas</div><div class="dr-for" id="drFor"></div></div><button type="button" class="map-close" id="closeDrawer">‚úï Close</button></div>
+  <div class="dr-tools"><div class="seg light" id="drKind"></div><select id="drGroup"></select><input type="text" id="drSearch" placeholder="Search formulas"></div>
+  
+  <div class="dr-list" id="drList"></div>
+</aside>
+<div class="modal" id="switchModal"><div class="switch-box" id="switchBox"></div></div>
+<div class="modal" id="previewModal"><div class="mail" id="mail"></div></div>
+
+<div class="page-layout">
+  <aside class="class-card no-print" aria-label="Training for this tool">
+    <img class="class-thumb" src="training-cover.jpg" alt="Create an email welcome sequence training cover">
+    <div class="class-body">
+      <div class="class-eyebrow">WMHQ CEO Cash Training</div>
+      <h2 class="class-title">The Email Welcome Sequence That Sells</h2>
+      <p class="class-desc">The five emails that turn a new subscriber into a buyer: deliver, teach, tell the story, handle the objection, then pitch. Map them here as you watch.</p>
+      <div class="class-runtime">&#9654; Runtime <strong>13 mins</strong></div>
+      <a class="class-cta" href="https://www.jessicapinili.com/login" target="_blank" rel="noopener">Watch the full class &#8599;</a>
+    </div>
+  </aside>
+<main class="body">
+
+  <!-- STAGE 1 -->
+  <section class="stage" data-stage="0">
+    <div class="card">
+      <div class="eyebrow">Stage 1 ¬∑ The journey</div>
+      <h2>Which journey are you building?</h2>
+      <p class="card-sub">A journey is a set of emails that send automatically after someone does something. That action is the trigger. Pick the moment you're responding to, and the builder loads a proven starting map you can reshape.</p>
+      <div class="voice-slot" data-vs="1"></div>
+      <div class="desk-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span><strong>Best on desktop.</strong> I recommend using this tool on a laptop or desktop, not your phone, so you can see the full map and every email side by side.</span></div>
+      <div class="journeys" id="journeys"></div>
+
+      <div class="block">
+        <div class="section-h">The point of the whole journey</div>
+        <p class="section-sub">If someone reads every email, what do they do at the end? One outcome. Not three.</p>
+        <div class="grid2">
+          <div><div class="f-head"><label class="f">Journey goal</label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>The one thing they do if they read every email</div><input type="text" id="goal" placeholder="Type your answer here"></div>
+          <div><div class="f-head"><label class="f">Who enters</label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>The exact people who start this journey</div><input type="text" id="entry" placeholder="Type your answer here"></div>
+        </div>
+        <div class="grid2">
+          <div><div class="f-head"><label class="f">Exit the journey when</label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>The action that takes them out of the whole journey, so no more emails send, e.g. they buy or book</div><input type="text" id="exit" placeholder="Type your answer here"></div>
+          <div><div class="f-head"><label class="f">Offer it leads to</label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>The paid offer this journey sells</div><div id="offers"></div><button type="button" class="link-btn" id="addOffer">+ Add another offer</button></div>
+        </div>
+      </div>
+      <div class="stage-foot"><span></span><button class="btn" data-go="1">Map the emails ‚Üí</button></div>
+    </div>
+  </section>
+
+  <!-- STAGE 2 -->
+  <section class="stage hidden" data-stage="1">
+    <div class="card">
+      <div class="eyebrow">Stage 2 ¬∑ The emails</div>
+      <h2>One email. One job.</h2>
+      <p class="card-sub">Before any copy: decide what each email has to make happen, when it sends, who gets it, and the one thing you're asking them to do.</p>
+      <div class="voice-slot" data-vs="2"></div>
+      <div class="rule"><strong>The one-job rule.</strong> If you need the word <mark>and</mark> to describe an email's job, it's two emails. If it has two CTAs, the reader picks neither.</div>
+      <div class="block" id="emails"></div>
+      <button class="btn add-email" id="addEmail">+ Add email</button>
+      <div class="stage-foot"><button class="btn ghost" data-go="0">‚Üê Journey</button><button class="btn" data-go="2">See the map ‚Üí</button></div>
+    </div>
+  </section>
+
+  <!-- STAGE 3 -->
+  <section class="stage hidden" data-stage="2">
+    <div class="card">
+      <div class="eyebrow">Stage 3 ¬∑ The map</div>
+      <h2>Your journey, at a glance.</h2>
+      <p class="card-sub">Read it from start to finish. Each email should hand the reader to the next one. If two neighbours do the same job, cut one.</p>
+      <div class="voice-slot" data-vs="3"></div>
+      <div class="block" id="mapWrap"></div>
+      <div class="stage-foot"><button class="btn ghost" data-go="1">‚Üê Edit emails</button><button class="btn" data-go="3">Export ‚Üí</button></div>
+    </div>
+  </section>
+
+  <!-- STAGE 4 -->
+  <section class="stage hidden" data-stage="3">
+    <div class="card">
+      <div class="eyebrow">Stage 4 ¬∑ Export</div>
+      <h2>Your journey, ready to write.</h2>
+      <p class="card-sub">Every email in order. Your export includes the map, each email and a full journey audit, so you know what to fix before you write the copy.</p>
+      <div class="block" id="summary"></div>
+      <div class="export-grid">
+        <button type="button" class="export" data-export="docx"><span class="ex-fmt">.DOCX</span><span class="ex-name">Word document</span><span class="ex-note">Opens in Word and Google Docs.</span></button>
+        <button type="button" class="export" data-export="pdf"><span class="ex-fmt">.PDF</span><span class="ex-name">PDF</span><span class="ex-note">A clean, branded copy of your map, every email and the audit.</span></button>
+        <button type="button" class="export" data-export="fillable"><span class="ex-fmt">.PDF</span><span class="ex-name">Editable PDF</span><span class="ex-note">Every field as a fillable box, pre-filled with your answers, so you can keep editing in any PDF reader.</span></button>
+      </div>
+      <div class="dark-panel portal"><div class="portal-main"><div class="eyebrow">Want expert eyes on it?</div><div class="portal-title">Get feedback in Ask JP</div><p class="portal-desc">Export your email journey and post it in Ask JP in the WMHQ community for feedback.</p></div><a class="btn-blush" href="https://www.jessicapinili.com/products/communities/v2/womanmasteryhq" target="_blank" rel="noopener">Open the WMHQ community</a></div>
+      <div class="stage-foot"><button class="btn ghost" data-go="2">‚Üê The map</button><button class="btn ghost" id="reset">Start over</button></div>
+    </div>
+  </section>
+
+  <!-- PRINT -->
+</main>
+</div>
+
+<script>
+(function () {
+var KEY = 'wmhq_email_journey_v1';
+var STAGES = ['Journey', 'Emails', 'Map', 'Export'];
+var ICONS = {
+  welcomeseq: '<path d="M12 21s-7-4.5-9.5-9A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6c-2.5 4.5-9.5 9-9.5 9z"/>',
+  quiz: '<path d="M9 9a3 3 0 1 1 4 2.8c-.6.3-1 .9-1 1.6V14M12 17.5v.5"/><circle cx="12" cy="12" r="9.5"/>',
+  welcome: '<path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/>',
+  browse: '<circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/>',
+  purchase: '<path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/>',
+  weekly: '<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/>'
+};
+function E(name, timing, job, segment, cta) { return { name: name, timing: timing, job: job, segment: segment, cta: cta, subject: '', preview: '', removeIf: null }; }
+function T(e, k) { e.tpl = k; return e; }
+var GUIDES = {
+  ws1: { subj: 'Keep it simple and clear. Confirmation language works.', ex: ['Here\'s your [lead magnet/discount code name]', 'Your [thing] is ready', '[Lead magnet name/code %], download inside'], parts: ['Deliver immediately (first 2 sentences). Don\'t bury the link.', 'Quick context (1 to 2 sentences): what to do with it.', 'Set expectations (2 to 3 sentences): what\'s coming in this series.', 'Make it personal (2 to 3 sentences): who you are and why you care.', 'Soft CTA: a reply prompt about their biggest challenge.'] },
+  ws2: { subj: 'Curiosity or value-driven.', ex: ['The one thing most people get wrong about [topic]', 'Why [common approach] doesn\'t work', 'Here\'s what I wish someone told me about [topic]'], parts: ['Name a problem or mistake (2 to 3 sentences).', 'Teach the better way (4 to 6 sentences). Give them something usable.', 'Position your method (2 sentences). Name it.', 'Soft close with value (1 to 2 sentences). A next step that isn\'t buying.'] },
+  ws3: { subj: 'Story-driven or result-driven.', ex: ['How [name/customer] went from [before] to [after]', 'This is what happened when [situation]', 'The week everything changed for [person]'], parts: ['Set the scene (2 to 3 sentences): the before state.', 'The turning point (3 to 4 sentences): what changed.', 'The after state (2 sentences). Be specific.', 'Introduce your offer softly (2 to 3 sentences). Name it, don\'t pitch it.', 'Transition to tomorrow (1 sentence): tease the biggest objection.'] },
+  ws4: { subj: 'Lead with the objection.', ex: ['But will this actually work for me?', 'I\'ve tried everything and nothing works', 'What if this is just like all the others?'], parts: ['Name the objection directly (2 sentences).', 'Validate it (1 to 2 sentences). Don\'t dismiss it.', 'Reframe it (4 to 5 sentences) using your mechanism.', 'Introduce your offer directly (3 to 4 sentences): what, who, what\'s inside.', 'Soft CTA (2 sentences): where to learn more.'] },
+  ws5: { subj: 'Direct and clear.', ex: ['Here\'s how to get [product name]', 'Ready? Here\'s your next step', 'Let\'s do this, [offer/product] is available now'], parts: ['Recap the journey (2 to 3 sentences).', 'Restate the offer clearly (3 to 4 sentences).', 'Address one final objection (2 sentences): the second biggest.', 'Add urgency only if it\'s real (1 to 2 sentences).', 'Clear CTA (2 to 3 sentences): exactly what to do.', 'P.S. (optional): handle the last hesitation or add a bonus.'] }
+};
+var JOURNEYS = {
+  welcomeseq: { title: 'Welcome Sequence', trigger: 'Joins your list for the first time', desc: 'Pick this if: someone joins your list through your main freebie. The Email Welcome Sequence That Sells. Five emails: deliver, teach, tell the story, handle the objection, then pitch.', goal: 'Make the first purchase',
+    emails: [T(E('Deliver + connect', 'Immediately', 'Deliver the freebie in the first 10 seconds', 'Everyone who joined', 'Hit reply with your biggest challenge'), 'ws1'),
+      T(E('Teach + position', 'Day 1', 'Teach the better way so your method makes sense', 'Everyone who joined', 'Reply with what you\'ll try first'), 'ws2'),
+      T(E('Story + soft intro', 'Day 2', 'Show a real before-to-after story', 'Has not bought', 'Read about the offer'), 'ws3'),
+      T(E('Objection + position offer', 'Day 3', 'Handle the biggest objection so the offer feels safe', 'Has not bought', 'Learn more about the offer'), 'ws4'),
+      T(E('The pitch', 'Day 4', 'Ask for the sale', 'Has not bought', 'Buy now'), 'ws5')] },
+  quiz: { title: 'Quiz / Lead Magnet', trigger: 'Takes a quiz or grabs a freebie', desc: 'Pick this if: you have a second freebie or quiz tied to one offer. For one specific quiz, guide, sample or discount. Deliver it, get them using it, then bridge to the one offer it naturally leads to.', goal: 'Buy the offer it leads to',
+    emails: [E('Deliver the result', 'Immediately', 'Get them using the freebie today', 'Everyone who joined', 'Get your result'),
+      E('Quick win', 'Day 1', 'Help them get one fast win from it', 'Everyone who joined', 'Try this today'),
+      E('The bigger problem', 'Day 3', 'Show the freebie solves part of a bigger problem', 'Has not bought', 'See the full picture'),
+      E('Proof', 'Day 5', 'Show someone like them who got the result with the offer', 'Has not bought', 'See the results'),
+      E('The invitation', 'Day 7', 'Make the offer with a real reason to act now', 'Has not bought', 'Get the offer')] },
+  welcome: { title: 'New Subscriber', trigger: 'Signs up with no freebie', desc: 'Pick this if: they join without a freebie. For people who join from your newsletter form, website or checkout. Set expectations, earn the second open, and show what you stand for.', goal: 'Make the first purchase',
+    emails: [E('Welcome + what to expect', 'Immediately', 'Confirm they are in the right place', 'New subscribers', 'Reply with your biggest question'),
+      E('Origin story', 'Day 2', 'Make them trust why you do this', 'New subscribers', 'Read the full story'),
+      E('Most useful thing', 'Day 4', 'Give them your single most useful tip, guide or pick', 'New subscribers', 'See it here'),
+      E('First offer', 'Day 6', 'Invite them to your best starting offer', 'Has not bought', 'See the offer')] },
+  browse: { title: 'Browse Abandonment', trigger: 'Views a sales page or cart, no buy', desc: 'Needs an email platform that tracks page visits, e.g. Shopify, Kajabi or Klaviyo. Catch interest while it is warm. Answer the question that stopped them, without sounding like a stalker.', goal: 'Complete the purchase',
+    emails: [E('Still thinking?', '1 hour after', 'Bring them back to the page they viewed', 'Viewed, has not bought', 'Take another look'),
+      E('The objection', 'Day 1', 'Answer the main reason people hesitate', 'Has not bought', 'Get your answer'),
+      E('Proof', 'Day 3', 'Show proof that makes it an easy yes', 'Has not bought', 'Get it now')] },
+  purchase: { title: 'Post-Purchase', trigger: 'Buys something', desc: 'Kill buyer\'s remorse, get them to their first result fast, then open the door to what\'s next.', goal: 'Make the second purchase',
+    emails: [E('You\'re in', 'Immediately', 'Make them feel great about buying', 'New buyers', 'Get started'),
+      E('Start here', 'Day 1', 'Get them to their first use or first step', 'Not started yet', 'Take the first step'),
+      E('Check-in', 'Day 5', 'Catch any problem before it becomes a refund', 'All buyers', 'Hit reply'),
+      E('Share your result', 'Day 10', 'Turn their result into a review or testimonial', 'Got a result', 'Leave a review'),
+      E('What\'s next', 'Day 14', 'Introduce the next offer that fits', 'Got a result', 'Get the next offer')] },
+  weekly: { title: 'Weekly Sales Email', trigger: 'Every week, on schedule', desc: 'One sales email to the whole list each week. Pick this week\'s angle, map the email, send it, then come back next week for the next one.', goal: 'Sell the core offer this week',
+    emails: [E('This week\'s sales email', 'This week, Tue 7am', '', 'Whole list, not bought yet', '')] }
+};
+
+var ANGLES = {
+  story: { label: 'Story', job: 'Make the problem feel real through a story', cta: 'See the offer' },
+  proof: { label: 'Proof', job: 'Show a result someone like them got', cta: 'See the results' },
+  objection: { label: 'Objection', job: 'Answer the main reason people wait', cta: 'Get the details' },
+  offer: { label: 'Direct offer', job: 'Give a clear reason to buy this week', cta: 'Buy now' },
+  value: { label: 'Value', job: 'Teach one useful thing that leads to the offer', cta: 'See the offer' }
+};
+function isAngleDefault(v, k) { return !v || Object.keys(ANGLES).some(function (a) { return ANGLES[a][k] === v; }); }
+var FORMULAS = [{"k": "product", "label": "Products", "groups": [{"name": "Curiosity driven", "items": ["The detail everyone misses about [product]", "We made one small change\u2026", "What\u2019s inside the new [collection]?", "This one surprised us", "The [product] we keep coming back to", "A little something for your [routine]", "You asked. We listened.", "The piece that pulls it all together", "Wait until you see the inside", "There\u2019s a reason this feels different"]}, {"name": "Clear benefit", "items": ["Meet your easier [morning routine]", "Your [desired result] starts here", "Less [frustration]. More [benefit].", "Make [task] the easy part", "A better way to [use case]", "Your everyday [category], upgraded", "Comfort that lasts past [occasion]", "Get ready in half the fuss", "More room for what matters", "The shortcut to [desired experience]"]}, {"name": "Problem and solution", "items": ["Still dealing with [problem]?", "Finally, a fix for [common frustration]", "For the days when [problem happens]", "Tired of replacing your [product category]?", "Your [problem] has met its match", "When [old option] just isn\u2019t working", "The answer to your [use case] problem", "A simpler fix for [daily annoyance]", "No more guessing which [product] to choose", "Built for the way you actually [activity]"]}, {"name": "New arrivals and launches", "items": ["Just landed: [product name]", "Your first look at [collection name]", "It\u2019s here. Meet [product name].", "New colour, same favourite fit", "Introducing your next everyday essential", "The [season] collection is live", "Fresh in: [product category]", "We made the [product] you asked for", "Meet the newest member of the range", "A new take on [customer favourite]"]}, {"name": "Specific product details", "items": ["The [material] makes the difference", "Here\u2019s why we chose [ingredient]", "One [product], three ways to use it", "Small detail. Big difference.", "Take a closer look at [feature]", "Designed to fit [specific need]", "What makes this [product] last?", "The [feature] you\u2019ll notice first", "Made for [specific situation]", "Everything your [old product] was missing"]}, {"name": "Customer voice and social proof", "items": ["Why customers keep choosing [product]", "\u201cI use it every day\u201d", "The [product] you keep recommending", "Your most loved [category], back again", "Here\u2019s how [customer] uses [product]", "The reviews are in for [product]", "You made this one a favourite", "What buyers noticed first", "Real customers, real [product] photos", "The one customers came back for"]}, {"name": "Offers and value", "items": ["[Discount] off the [product] you\u2019ve been eyeing", "Your [offer] starts today", "More of what you love, for less", "A little extra with your [product]", "Your [bundle name] is ready", "The easiest way to try [category]", "Save on your everyday favourites", "A better deal on the full set", "Your [gift/free shipping] is waiting", "The [product] bundle makes sense"]}, {"name": "Urgency and scarcity", "items": ["Last day for [offer]", "[Offer] ends tonight", "Final hours to shop [collection]", "Going, going\u2026 [product name]", "Your last chance at [limited colour]", "Almost gone: [product name]", "[Deadline] is your last chance", "Before this batch sells out", "The [offer] closes at [time]", "Last call for [seasonal collection]"]}, {"name": "Browsing and cart follow-up", "items": ["Still thinking about [product]?", "A closer look at the [product] you viewed", "Your [product] is still here", "You left something good behind", "Questions about [product]? Start here.", "Take another look at your picks", "Your cart is ready when you are", "The details on the [product] you liked", "Your favourites, all in one place", "Ready to finish your order?"]}, {"name": "Repeat purchase and recommendations", "items": ["Time to restock [product]?", "Your favourite [product] has a new partner", "What goes with your [previous purchase]?", "Try this next if you loved [product]", "Your next [routine] essential", "Make more of your [previous purchase]", "The refill your routine is missing", "Another way to use your [product]", "We picked these for [specific preference]", "A fresh take on your last favourite"]}]}, {"k": "service", "label": "Services & info", "groups": [{"name": "Curiosity driven", "items": ["The part of [topic] nobody explains", "What changed when I stopped doing this", "A question worth asking before [decision]", "This might be why [goal] feels hard", "The mistake hiding in your [process]", "I changed my mind about [topic]", "One thing I\u2019d do differently", "What happens after [milestone]?", "The overlooked step in [process]", "Let\u2019s talk about the bit in the middle"]}, {"name": "Outcome focused", "items": ["A clearer path to [desired result]", "Make your next [project] easier", "How to get from [current state] to [goal]", "A practical way to improve [metric]", "Plan your [goal] in one afternoon", "Build a [system] you can actually maintain", "Get more from the time you already have", "A simpler way to make [decision]", "Turn your ideas into a [deliverable]", "Your next step toward [goal]"]}, {"name": "Pain point and recognition", "items": ["If [task] keeps slipping down the list", "Still stuck on [specific problem]?", "For the days you don\u2019t know what to do next", "When your [process] feels messy", "You shouldn\u2019t have to guess at [task]", "If [common tactic] isn\u2019t working anymore", "The reason [task] keeps taking so long", "Does your [system] depend on you remembering everything?", "When you\u2019re doing all the things but seeing little progress", "If you\u2019re tired of starting over"]}, {"name": "How-to and education", "items": ["How to [result] without [common obstacle]", "Three ways to improve your [process]", "Start here if you\u2019re new to [topic]", "The first step in [process]", "A quick guide to [specific task]", "What to do before you [action]", "How I\u2019d approach [problem] today", "A checklist for your next [project]", "The questions to ask before [decision]", "Try this the next time [problem occurs]"]}, {"name": "Myth busting and perspective shifts", "items": ["You might not need more [common tactic]", "The problem with \u201cjust [common advice]\u201d", "Why [popular tactic] isn\u2019t always the answer", "More [activity] won\u2019t fix this", "Let\u2019s rethink [common assumption]", "What if [problem] isn\u2019t the real problem?", "You can stop doing [unnecessary task]", "The advice I\u2019d ignore about [topic]", "A different way to look at [challenge]", "Before you blame your [skill/system]"]}, {"name": "Stories and behind the scenes", "items": ["What one client question taught me", "Behind the scenes of [project]", "I nearly made this mistake too", "The conversation that changed my approach", "Here\u2019s what I noticed this week", "What happened when we tried [approach]", "The decision behind [offer/process]", "An honest look at [challenge]", "Why I built [service/resource]", "A lesson from my last [project]"]}, {"name": "Proof and case studies", "items": ["How [client] approached [problem]", "What changed for [client] after [action]", "Inside a recent [project/client result]", "The before and after of [process]", "What we learned from [specific result]", "A closer look at [client outcome]", "The work behind [result]", "From [starting point] to [outcome]", "What made this [project] work", "A real example of [method] in action"]}, {"name": "Direct invitations", "items": ["Want help with [specific problem]?", "Let\u2019s work on your [goal]", "You\u2019re invited to [event]", "Come build your [deliverable] with me", "Your seat for [workshop] is ready", "Ready for support with [task]?", "Join me for [training topic]", "Let\u2019s make a plan for [goal]", "Here\u2019s how we can work together", "Apply for [service/programme] here"]}, {"name": "Objections and decision support", "items": ["Is [offer] right for you?", "What\u2019s included in [programme]", "How much time does [programme] take?", "What happens after you sign up?", "Is now the right time for [service]?", "Here\u2019s who [offer] is for", "Your questions about [offer], answered", "What you\u2019ll actually do inside [programme]", "A look at the [service] process", "Before you decide on [offer]"]}, {"name": "Deadlines and follow-up", "items": ["Enrolment for [programme] closes [day]", "Last day to join [workshop]", "[Number] places left for [service]", "The [offer] ends tonight", "We start [day]", "Your last chance to ask about [offer]", "Still considering [programme]?", "A quick reminder about [deadline]", "Applications close at [time]", "Doors close today for [programme]"]}]}];
+var REMOVE = { welcomeseq: 'They buy anything', quiz: 'They buy the offer', welcome: 'They buy anything', browse: 'They complete the purchase', purchase: 'They request a refund', weekly: 'They bought this week\'s offer' };
+function withRemove(list, k) { return list.map(function (e) { var c = Object.assign({}, e); if (c.removeIf == null) c.removeIf = REMOVE[k] || ''; return c; }); }
+var state = load();
+if (!state.offers) state.offers = [state.offer || ''];
+if (state.journey && !JOURNEYS[state.journey]) { state.journey = ''; state.emails = []; state.stage = 0; }
+function defaultState() { return { stage: 0, journey: '', goal: '', entry: '', exit: '', offer: '', offers: [''], emails: [], visited: [0] }; }
+function load() { try { var r = localStorage.getItem(KEY); if (r) return Object.assign(defaultState(), JSON.parse(r)); } catch (e) {} return defaultState(); }
+var flashT;
+function store() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+function save(quiet) {
+  if (state.journey) state.editedAt = Date.now();
+  try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {}
+  if (quiet) return;
+  var f = document.getElementById('flash'); f.classList.add('show'); clearTimeout(flashT); flashT = setTimeout(function () { f.classList.remove('show'); }, 900);
+}
+function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+function $(id) { return document.getElementById(id); }
+
+function renderNav() {
+  $('nav').innerHTML = STAGES.map(function (s, i) {
+    return '<button class="' + (i === state.stage ? 'active' : '') + '" data-go="' + i + '"><span class="sn-num">' + (i + 1) + '</span>' + s + '</button>';
+  }).join('');
+  $('prog').style.width = ((state.stage + 1) / STAGES.length * 100) + '%';
+}
+function go(i) {
+  if (i > 0 && !state.journey) { i = 0; var f = $('flash'); f.textContent = 'Pick a journey first'; f.classList.add('show'); setTimeout(function () { f.classList.remove('show'); f.textContent = 'Saved'; }, 1600); }
+  state.stage = i; if (state.visited.indexOf(i) < 0) state.visited.push(i);
+  document.querySelectorAll('.stage').forEach(function (s) { s.classList.toggle('hidden', +s.dataset.stage !== i); });
+  if (i !== 1 && $('drawer')) closeDrawer();
+  if (i === 1) renderEmails(); if (i === 2) renderMap(); if (i === 3) renderSummary();
+  document.querySelectorAll(".voice-slot audio").forEach(function (a) { a.pause(); }); renderNav(); store(); window.scrollTo({ top: document.querySelector('.stepnav').offsetTop, behavior: 'smooth' });
+}
+
+function renderJourneys() {
+  $('journeys').innerHTML = Object.keys(JOURNEYS).map(function (k) {
+    var j = JOURNEYS[k];
+    return '<button class="jcard' + (state.journey === k ? ' on' : '') + '" data-j="' + k + '"><div class="j-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + ICONS[k] + '</svg></div><b>' + j.title + '</b>' + (hasWork(k) ? '<span class="j-saved">' + (state.journey === k ? 'Working on this' : 'Saved draft') + '</span>' : '') + '<span class="j-trig">Trigger ¬∑ ' + j.trigger + '</span><p>' + j.desc + '</p></button>';
+  }).join('');
+  ['goal', 'entry', 'exit'].forEach(function (f) { $(f).value = state[f]; });
+  renderOffers();
+}
+function hasWork(k) { if (state.journey === k) return !!state.editedAt; var d = (state.drafts || {})[k]; return !!(d && (Array.isArray(d) || d.editedAt)); }
+function renderOffers() {
+  if (!state.offers.length) state.offers = [''];
+  $('offers').innerHTML = state.offers.map(function (o, i) {
+    return '<div class="offer-row"><input type="text" data-offer="' + i + '" value="' + esc(o) + '" placeholder="Type your answer here">' + (state.offers.length > 1 ? '<button type="button" class="icon-btn" data-deloffer="' + i + '" title="Remove offer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' : '') + '</div>';
+  }).join('');
+}
+function needsExportPrompt() { return state.journey && state.editedAt && (!state.exportedAt || state.exportedAt < state.editedAt); }
+
+/* VOICE NOTES: put each stage's audio file in the voice/ folder and set its path, e.g. 'voice/stage-1.m4a'. Leave '' to show "Voice note coming soon." */
+var VOICE_NOTES = { 1: 'voice/stage-1.m4a', 2: 'voice/stage-2.m4a', 3: 'voice/stage-3.m4a' };
+var VOICE_TITLES = { 1: 'Pick the moment you\'re responding to.', 2: 'Give every email one job.', 3: 'Read your journey start to finish.' };
+var VOICE_POINTS = {
+  1: ['The trigger decides the conversation. A buyer, a cart-leaver and a freebie downloader need different emails.', 'Intent fades fast, so the trigger also tells you how quickly to send.', 'Set four things first: the goal, who enters, when they exit the journey, and the offer.', 'No named offer means it\'s a newsletter, not a journey.', 'Use the goal as the filter. If an email doesn\'t move them toward it, cut it.'],
+  2: ['Give each email one job, written as something the reader does.', 'Order them the way people decide: give, teach, prove, handle the objection, then offer.', 'Each email earns the right to send the next one.', 'Match timing to the trigger: hours for a cart, a day or two for a welcome, slower after a purchase.', 'One CTA per email. Repeat the link if you like, but send everyone to the same place.', 'Subject and preview work as a pair. Put the key words first because inboxes cut them off.'],
+  3: ['Read the map as your subscriber, not as the person who knows what\'s coming.', 'Check each email does its one job and hands off to the next.', 'Use open loops like "Tomorrow I\'ll show you..." so they open the next one.', 'Don\'t hide from the ask. The journey exists to make the ask feel obvious.', 'Once live, check opens, clicks and drop-off per email, and fix the one that leaks.']
+};
+function pointsHTML(n) { var p = VOICE_POINTS[n]; return p ? '<details class="voice-pts"><summary>Key points</summary><ul>' + p.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul></details>' : ''; }
+var RATES = [1, 1.2, 1.5, 2];
+var ICON_PLAY = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4.5v15a1 1 0 0 0 1.5.86l12.5-7.5a1 1 0 0 0 0-1.72L8.5 3.64A1 1 0 0 0 7 4.5z"/></svg>';
+var ICON_PAUSE = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>';
+function fmtT(t) { if (!isFinite(t)) return '0:00'; var m = Math.floor(t / 60), x = Math.floor(t % 60); return m + ':' + (x < 10 ? '0' : '') + x; }
+function speedHTML(dis) { var cur = state.rate || 1; return '<div class="voice-speed" role="group" aria-label="Playback speed">' + RATES.map(function (r) { return '<button type="button" data-rate="' + r + '" class="' + (r === cur ? 'on' : '') + '"' + (dis ? ' disabled' : '') + ' aria-pressed="' + (r === cur) + '">' + r + 'x</button>'; }).join('') + '</div>'; }
+function renderVoices() {
+  document.querySelectorAll('.voice-slot').forEach(function (slot) {
+    var n = slot.dataset.vs, src = VOICE_NOTES[n], title = VOICE_TITLES[n];
+    if (!src) { slot.innerHTML = '<div class="voice"><button class="voice-play" type="button" disabled aria-label="Voice note not available yet">' + ICON_PLAY + '</button><div class="voice-main"><div class="eyebrow">Listen first</div><div class="voice-title">' + title + '</div><div class="voice-soon">Voice note coming soon.</div></div>' + speedHTML(true) + pointsHTML(n) + '</div>'; return; }
+    slot.innerHTML = '<div class="voice"><button class="voice-play" type="button" aria-label="Play voice note">' + ICON_PLAY + '</button><div class="voice-main"><div class="eyebrow">Listen first</div><div class="voice-title">' + title + '</div><div class="voice-bar"><div class="voice-track"><div class="voice-fill"></div></div><span class="voice-time">0:00</span></div></div>' + speedHTML(false) + pointsHTML(n) + '<audio preload="metadata" src="' + src + '"></audio></div>';
+    var audio = slot.querySelector('audio'), btn = slot.querySelector('.voice-play'), fill = slot.querySelector('.voice-fill'), time = slot.querySelector('.voice-time');
+    function setIcon(p) { btn.innerHTML = p ? ICON_PAUSE : ICON_PLAY; btn.setAttribute('aria-label', p ? 'Pause voice note' : 'Play voice note'); }
+    audio.addEventListener('loadedmetadata', function () { time.textContent = fmtT(audio.duration); audio.playbackRate = state.rate || 1; });
+    audio.addEventListener('timeupdate', function () { fill.style.width = (audio.currentTime / audio.duration * 100) + '%'; time.textContent = fmtT(audio.currentTime) + ' / ' + fmtT(audio.duration); });
+    audio.addEventListener('ended', function () { setIcon(false); });
+    audio.addEventListener('pause', function () { setIcon(false); });
+    audio.addEventListener('play', function () { setIcon(true); });
+    btn.addEventListener('click', function () {
+      if (audio.paused) { document.querySelectorAll('.voice-slot audio').forEach(function (a) { if (a !== audio) a.pause(); }); audio.playbackRate = state.rate || 1; audio.play(); } else audio.pause();
+    });
+    slot.querySelector('.voice-track').addEventListener('click', function (e) { var r = this.getBoundingClientRect(); if (audio.duration) audio.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * audio.duration; });
+  });
+}
+function setRate(r) {
+  state.rate = r; store();
+  document.querySelectorAll('.voice-slot audio').forEach(function (a) { a.playbackRate = r; });
+  document.querySelectorAll('[data-rate]').forEach(function (b) { var on = parseFloat(b.dataset.rate) === r; b.classList.toggle('on', on); b.setAttribute('aria-pressed', on); });
+}
+function pickJourney(k, force) {
+  if (state.journey === k) return;
+  if (!force && needsExportPrompt()) return openSwitch(k);
+  var j = JOURNEYS[k];
+  state.drafts = state.drafts || {};
+  if (state.journey) state.drafts[state.journey] = { emails: state.emails, goal: state.goal, entry: state.entry, exit: state.exit, offers: state.offers, editedAt: state.editedAt || 0, exportedAt: state.exportedAt || 0 };
+  var d = state.drafts[k];
+  if (Array.isArray(d)) d = { emails: d };
+  state.journey = k;
+  state.emails = d && d.emails ? d.emails : withRemove(j.emails, k);
+  state.goal = d && d.goal != null ? d.goal : j.goal;
+  state.entry = d && d.entry != null ? d.entry : 'People who: ' + j.trigger.toLowerCase();
+  state.exit = d && d.exit != null ? d.exit : '';
+  state.offers = d && d.offers ? d.offers : [''];
+  state.editedAt = d ? d.editedAt || 0 : 0; state.exportedAt = d ? d.exportedAt || 0 : 0;
+  renderJourneys(); store();
+}
+var switchTo = null;
+function openSwitch(k) {
+  switchTo = k;
+  var from = JOURNEYS[state.journey].title, to = JOURNEYS[k].title;
+  $('switchBox').innerHTML = '<div class="eyebrow">New email journey</div><h3>You\'re about to start your ' + esc(to) + ' journey</h3>' +
+    '<p>Your ' + esc(from) + ' map is saved in this browser, and you can open it again by clicking its card. But you haven\'t exported it since your last changes.</p>' +
+    '<p>Export a copy first so it\'s safe if you clear your browser or switch devices.</p>' +
+    '<div class="sw-btns"><button type="button" class="btn" data-sw="export">Export PDF, then start</button><button type="button" class="btn ghost" data-sw="go">Start without exporting</button><button type="button" class="sw-stay" data-sw="stay">Stay on ' + esc(from) + '</button></div>';
+  $('switchModal').classList.add('open');
+}
+function isStarterGoal(g) { return Object.keys(JOURNEYS).some(function (x) { return JOURNEYS[x].goal === g; }); }
+
+var drawerFor = null, drKind = 'product', drGroup = 'all';
+var ANGLE_GROUP = { story: ['Stories and behind the scenes', 'Curiosity driven'], proof: ['Proof and case studies', 'Customer voice and social proof'], objection: ['Objections and decision support', 'Problem and solution'], offer: ['Offers and value', 'Direct invitations'], value: ['How-to and education', 'Clear benefit'] };
+var JOURNEY_GROUP = { browse: 'Browsing and cart follow-up', purchase: 'Repeat purchase and recommendations' };
+function kindData() { return FORMULAS.filter(function (d) { return d.k === drKind; })[0]; }
+function openDrawer(i) {
+  drawerFor = i; var e = state.emails[i];
+  var want = (state.journey === 'weekly' && e.angle) ? ANGLE_GROUP[e.angle] : (JOURNEY_GROUP[state.journey] ? [JOURNEY_GROUP[state.journey]] : []);
+  var names = kindData().groups.map(function (g) { return g.name; });
+  drGroup = want.filter(function (n) { return names.indexOf(n) > -1; })[0] || 'all';
+  renderDrawer();
+  $('drawer').classList.add('open'); $('drawer').setAttribute('aria-hidden', 'false'); document.body.classList.add('drawer-on');
+}
+function closeDrawer() { $('drawer').classList.remove('open'); $('drawer').setAttribute('aria-hidden', 'true'); document.body.classList.remove('drawer-on'); }
+function renderDrawer() {
+  var e = state.emails[drawerFor];
+  $('drFor').textContent = e ? 'For Email ' + (drawerFor + 1) + (e.name ? ': ' + e.name : '') : '';
+  $('drKind').innerHTML = FORMULAS.map(function (d) { return '<button type="button" data-drkind="' + d.k + '" class="' + (d.k === drKind ? 'on' : '') + '">' + d.label + '</button>'; }).join('');
+  var groups = kindData().groups;
+  $('drGroup').innerHTML = '<option value="all">All types</option>' + groups.map(function (g) { return '<option value="' + esc(g.name) + '"' + (drGroup === g.name ? ' selected' : '') + '>' + esc(g.name) + '</option>'; }).join('');
+  var q = ($('drSearch').value || '').toLowerCase().trim(), html = '';
+  groups.forEach(function (g) {
+    if (drGroup !== 'all' && drGroup !== g.name && !q) return;
+    var items = g.items.filter(function (f) { return !q || f.toLowerCase().indexOf(q) > -1 || g.name.toLowerCase().indexOf(q) > -1; });
+    if (!items.length) return;
+    html += '<div class="dr-g">' + esc(g.name) + '</div>' + items.map(function (f) {
+      return '<div class="fm"><span>' + esc(f).replace(/\[([^\]]+)\]/g, '<i>[$1]</i>') + '</span><button type="button" class="cp" data-copyf="' + esc(f) + '">Copy</button><button type="button" class="use" data-usef="' + esc(f) + '">Use</button></div>';
+    }).join('');
+  });
+  $('drList').innerHTML = html || '<div class="dr-empty">No formulas match that search.</div>';
+}
+function assetList(e) { var a = e.assets; if (!a) return []; if (typeof a === 'string') return a.trim() ? [a.trim()] : []; return a.filter(Boolean); }
+function assetsHTML(e, i) {
+  var list = assetList(e);
+  return '<div class="assets">' + list.map(function (a, k) { return '<div class="rem"><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span>' + esc(a) + '</span><button type="button" data-delasset="' + i + ':' + k + '" aria-label="Remove">\u2715</button></div>'; }).join('') +
+    (e.addingAsset ? '<span class="asset-new"><input type="text" class="slim" data-newasset="' + i + '" placeholder="Type your answer here"><button type="button" class="btn ghost" data-saveasset="' + i + '">Save</button></span>' : '<button type="button" class="chip add" data-addasset="' + i + '">+ Add a reminder</button>') + '</div>';
+}
+function saveAsset(i) {
+  var inp = document.querySelector('[data-newasset="' + i + '"]'), v = inp ? inp.value.trim() : '', e = state.emails[i];
+  if (v) { e.assets = assetList(e).concat([v]); }
+  e.addingAsset = false; renderEmails(); save();
+}
+function guideHTML(e, i) {
+  var g = GUIDES[e.tpl]; if (!g) return '';
+  return '<details class="guide"' + (e.guideOpen ? ' open' : '') + ' data-guide="' + i + '"><summary>Template guide for this email</summary><div class="g-in"><b>Subject line:</b> ' + esc(g.subj) + '<ul>' + g.ex.map(function (x) { return '<li>' + esc(x).replace(/\[([^\]]+)\]/g, '<i>[$1]</i>') + '</li>'; }).join('') + '</ul><b>Body</b><ol>' + g.parts.map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ol></div></details>';
+}
+function renderEmails() {
+  $('emails').innerHTML = state.emails.map(function (e, i) {
+    var two = /\band\b/i.test(e.job || '');
+    return '<div class="email" data-i="' + i + '"><div class="email-head"><div class="email-num">' + (i + 1) + '</div><div class="name-wrap"><small>Email name ¬∑ click to rename</small><div class="name-field"><input type="text" data-k="name" value="' + esc(e.name) + '" placeholder="Type your answer here"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></div></div>' +
+      ('<button class="icon-btn" data-up="' + i + '" title="Move up"' + (i === 0 ? ' disabled style="opacity:.3"' : '') + '><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>' +
+      '<button class="icon-btn" data-down="' + i + '" title="Move down"' + (i === state.emails.length - 1 ? ' disabled style="opacity:.3"' : '') + '><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></button>' +
+      '<button class="icon-btn" data-dup="' + i + '" title="Duplicate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h3"/></svg></button>' +
+      '<button class="icon-btn" data-del="' + i + '" title="Remove"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg></button>') + '</div>' +
+      '<div class="email-body">' + guideHTML(e, i) + (state.journey === 'weekly' ? '<div class="fld"><div class="f-head"><label class="f">This week\'s angle</label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>Pick one. Rotate it each week so the list never hears the same pitch twice</div><div class="angles">' + Object.keys(ANGLES).map(function (a) { return '<button type="button" class="angle' + (e.angle === a ? ' on' : '') + '" data-angle="' + a + '" data-ei="' + i + '">' + ANGLES[a].label + '</button>'; }).join('') + '</div></div>' : '') + '<div class="grid2"><div><div class="f-head"><label class="f">Subject line <button type="button" class="formula-link" data-formulas="' + i + '">Click for formulas</button></label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>What shows in the inbox. Earn the open</div><input type="text" data-k="subject" value="' + esc(e.subject) + '" placeholder="Type your answer here"></div>' +
+      '<div><div class="f-head"><label class="f">Preview text</label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>The line after the subject. Add to it, don\'t repeat it</div><input type="text" data-k="preview" value="' + esc(e.preview) + '" placeholder="Type your answer here"></div></div>' +
+      '<div class="fld"><div class="f-head"><label class="f">The one job</label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>What this email must make happen</div><input type="text" data-k="job" value="' + esc(e.job) + '" placeholder="Type your answer here">' + (two ? '<div class="hint warn">You used "and". Is this two jobs?</div>' : '') + '</div>' +
+      '<div class="grid2"><div><div class="f-head"><label class="f">Timing</label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>When it sends, counted from the trigger (the moment they joined, bought or clicked). Day 1 means one day after that</div><input type="text" data-k="timing" value="' + esc(e.timing) + '" placeholder="Type your answer here"></div>' +
+      '<div><div class="f-head"><label class="f">Segment</label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>Who gets it. A segment is a filter in your email platform, e.g. "has not bought", so the email only goes to the right people</div><input type="text" data-k="segment" value="' + esc(e.segment) + '" placeholder="Type your answer here"></div></div>' +
+      '<div class="fld"><div class="f-head"><label class="f">CTA</label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>Call to action: the one thing you ask them to do, usually a click. A reply counts too</div><input type="text" data-k="cta" value="' + esc(e.cta) + '" placeholder="Type your answer here"></div>' +
+      '<div class="fld"><div class="f-head"><label class="f">Skip this email if</label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>Only this one email is skipped. They stay in the journey for the rest, e.g. skip the offer email if they already bought</div><input type="text" data-k="removeIf" value="' + esc(e.removeIf) + '" placeholder="Type your answer here"></div>' +
+      '<div class="fld"><div class="f-head"><label class="f">Reminder to add images or links <span class="opt">optional</span></label><button type="button" class="tip-btn" aria-expanded="false" aria-label="Why this matters">?</button></div><div class="tipbox"><span class="eyebrow">Why this matters</span>Note anything to add when you build it: a photo, a GIF, a product image, the sales page link, a booking link</div>' + assetsHTML(e, i) + '</div>' +
+      '<button type="button" class="write-toggle" data-write="' + i + '"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg>' + (e.writeOpen ? 'Hide the email' : 'Write this email') + ' <span>¬∑ optional</span></button>' +
+      (e.writeOpen ? '<div class="write-box"><div class="f-head"><label class="f">The email</label></div><textarea data-k="body" placeholder="Type your answer here">' + esc(e.body) + '</textarea><div class="write-tools"><small>Write to the one job above. Nothing else.</small><button type="button" class="btn ghost" data-preview="' + i + '">Preview email</button></div></div>' : '') +
+      '</div></div>';
+  }).join('') || '<p class="card-sub">No emails yet. Add the first one.</p>';
+  $('addEmail').innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>' + (state.journey === 'weekly' ? 'Add another email this week' : 'Add another email');
+}
+
+function nodeExtras(e) {
+  var h = '', body = (e.body || '').trim(), rem = assetList(e);
+  if (body) h += '<details class="n-acc"><summary>Read the email</summary><div class="n-acc-in n-body">' + esc(body) + '</div></details>';
+  if (rem.length) h += '<details class="n-acc"><summary>Reminders (' + rem.length + ')</summary><ul class="n-acc-in">' + rem.map(function (r) { return '<li>' + esc(r) + '</li>'; }).join('') + '</ul></details>';
+  return h;
+}
+function renderMap() {
+  var j = JOURNEYS[state.journey] || {};
+  var miss = '<span class="missing">not set</span>';
+  var dir = state.mapDir ? (state.mapDir === 'down' ? 'down' : 'across') : (window.innerWidth < 640 ? 'down' : 'across');
+  var html = '<div class="map' + (dir === 'down' ? ' down' : '') + '"><div class="map-top"><div><div class="eyebrow">' + esc(j.title || '') + ' journey</div><h3>' + (esc(state.goal) || 'No goal set') + '</h3><div class="map-goal">Enters: ' + (esc(state.entry) || '‚Äî') + (offersList().length ? ' ¬∑ Leads to: ' + esc(offersList().join(', ')) : '') + '</div></div><div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap"><div class="seg"><button type="button" data-dir="across" class="' + (dir === 'across' ? 'on' : '') + '">\u2192 Across</button><button type="button" data-dir="down" class="' + (dir === 'down' ? 'on' : '') + '">\u2193 Down</button></div><div class="map-pill">' + state.emails.length + ' emails</div><button type="button" class="copy-x map-close" id="closeMap" style="display:none">\u2715 Close</button></div></div><div class="flow">';
+  html += '<div class="node trigger"><span class="eyebrow" style="color:var(--deep-red)">Trigger</span><b>' + esc(j.trigger || '') + '</b></div>';
+  state.emails.forEach(function (e, i) {
+    html += '<div class="conn"><div class="line"></div><small>' + (esc(e.timing) || '?') + '</small></div>';
+    html += '<div class="node"><div class="n-top"><span class="n-num">EMAIL ' + (i + 1) + '</span><span class="n-time">' + (esc(e.timing) || '‚Äî') + '</span></div><div class="n-name">' + (esc(e.name) || 'Untitled') + '</div>' + (e.subject || e.preview ? '<div class="n-mail">' + (e.subject ? '<div class="n-subj">' + esc(e.subject) + '</div>' : '') + (e.preview ? '<div class="n-prev">' + esc(e.preview) + '</div>' : '') + '</div>' : '') + '<div class="n-job"><i>Job: </i>' + (esc(e.job) || miss) + '</div><div class="n-meta"><div class="tag"><em>Who</em><span>' + (esc(e.segment) || miss) + '</span></div><div class="tag rm"><em>Skip</em><span>' + (e.removeIf ? 'if ' + esc(lc(e.removeIf)) : '<span class="missing">no rule</span>') + '</span></div><div class="cta">' + (esc(e.cta) || 'No CTA') + ' ‚Üí</div></div>' + nodeExtras(e) + '</div>';
+  });
+  html += '<div class="conn"><div class="line"></div></div><div class="node exit"><span class="eyebrow" style="color:#1f3a22">Exit</span><b>' + (esc(state.exit) || 'No exit rule') + '</b></div>';
+  html += '</div><div class="legend"><span style="--c:var(--blush)">Trigger</span><span style="--c:#fff">Email</span><span style="--c:#B9DDBD">Journey exit</span><span style="--c:var(--amber-soft)">Send time</span></div></div>';
+  $('mapWrap').innerHTML = '<div class="map-tools"><button type="button" class="btn ghost" id="expandMap">\u2922 Expand map</button></div>' + html;
+  return html;
+}
+
+function hoursOf(t) {
+  t = (t || '').toLowerCase();
+  if (/immediat|instant|right away|0 ?min/.test(t)) return 0;
+  var m = t.match(/(\d+(?:\.\d+)?)\s*(min|hour|hr|h\b|day|d\b|week|wk)/);
+  if (!m) {
+    m = t.match(/day\s*(\d+)/); if (m) return +m[1] * 24;
+    var wd = t.match(/\b(mon|tue|wed|thu|fri|sat|sun)/); if (!wd) return null;
+    var hr = 9, tm = t.match(/(\d{1,2})(?::(\d\d))?\s*(am|pm)/);
+    if (tm) { hr = +tm[1] % 12 + (tm[3] === 'pm' ? 12 : 0) + (tm[2] ? +tm[2] / 60 : 0); }
+    return ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'].indexOf(wd[1]) * 24 + hr + (/next week/.test(t) ? 168 : 0);
+  }
+  var n = +m[1], u = m[2];
+  if (u.indexOf('min') === 0) return n / 60; if (/^h/.test(u)) return n; if (/^d/.test(u)) return n * 24; return n * 168;
+}
+
+function audit() {
+  var C = [], em = state.emails, j = state.journey;
+  function add(status, title, text, where, w) { C.push({ s: status, t: title, p: text, w: where || '', wt: w || 1 }); }
+  add(state.goal ? 'pass' : 'fail', 'Journey has one goal', state.goal ? '"' + state.goal + '"' : 'Name the single outcome this journey exists for. Without it you can\'t judge any email.', 'Journey', 2);
+  add(state.exit ? 'pass' : 'warn', 'Exit rule defined', state.exit ? 'People leave when: ' + state.exit : 'Decide what pulls someone out (they buy, they book). Otherwise buyers keep getting sold to.', 'Journey', 1.5);
+  add(state.entry ? 'pass' : 'warn', 'Entry segment is clear', state.entry ? state.entry : 'Define exactly who enters this journey.', 'Journey', 1);
+  if (j === 'weekly') {
+    var noA = [], used = {}, rep2 = [];
+    em.forEach(function (e, i) { if (!e.angle) noA.push('Email ' + (i + 1)); else if (used[e.angle]) rep2.push('Email ' + (i + 1)); else used[e.angle] = 1; });
+    add(noA.length ? 'warn' : 'pass', 'Angle chosen for every email', noA.length ? 'Pick an angle so you are not repeating the same pitch.' : 'Every email this week has an angle.', noA.join(', '), 1.5);
+    if (em.length > 1) add(rep2.length ? 'warn' : 'pass', 'Different angle each email', rep2.length ? 'These repeat an angle already used this week. Swap to a fresh one.' : 'Each email this week comes from a new angle.', rep2.join(', '), 1.5);
+  }
+  var len = em.length, ideal = { welcomeseq: [4, 7], quiz: [4, 7], welcome: [3, 6], browse: [2, 4], purchase: [3, 6], weekly: [1, 1] }[j] || [3, 6];
+  if (j !== 'weekly') add(len >= ideal[0] && len <= ideal[1] ? 'pass' : 'warn', 'Journey length fits the trigger', len + ' emails. For this journey ' + ideal[0] + '‚Äì' + ideal[1] + ' is the usual sweet spot' + (len > ideal[1] ? '. Cut the ones that repeat a job.' : len < ideal[0] ? '. You may be ending before the reader is ready.' : '.'), 'Journey', 1.5);
+  var noJob = [], twoJob = [], noTime = [], noSeg = [], noCta = [], twoCta = [];
+  em.forEach(function (e, i) {
+    var n = 'Email ' + (i + 1);
+    if (!(e.job || '').trim()) noJob.push(n); else if (/\band\b/i.test(e.job)) twoJob.push(n);
+    if (!(e.timing || '').trim()) noTime.push(n);
+    if (!(e.segment || '').trim()) noSeg.push(n);
+    if (!(e.cta || '').trim()) noCta.push(n); else if (/\b(and|or)\b|[\/&+]/.test(e.cta)) twoCta.push(n);
+  });
+  add(noJob.length ? 'fail' : 'pass', 'Every email has a job', noJob.length ? 'Missing a job. Decide what it must make happen before you write it.' : 'Each email knows what it\'s for.', noJob.join(', '), 3);
+  add(twoJob.length ? 'warn' : 'pass', 'One job per email', twoJob.length ? 'These jobs use "and". Split them, or pick the one that matters.' : 'No email is doing double duty.', twoJob.join(', '), 2);
+  add(noCta.length ? 'fail' : 'pass', 'Every email has a CTA', noCta.length ? 'No CTA means no next step. Even a nurture email asks for a reply or a click.' : 'Every email asks for something.', noCta.join(', '), 2.5);
+  add(twoCta.length ? 'warn' : 'pass', 'One CTA per email', twoCta.length ? 'These CTAs look like two asks. Give the reader one door.' : 'One door per email.', twoCta.join(', '), 2);
+  add(noTime.length ? 'fail' : 'pass', 'Timing set for every email', noTime.length ? 'Set when each sends, counted from the trigger.' : 'Every send is scheduled.', noTime.join(', '), 1.5);
+  add(noSeg.length ? 'warn' : 'pass', 'Segment set for every email', noSeg.length ? 'Who should get it? Later emails usually filter out people who already converted.' : 'Every email has an audience.', noSeg.join(', '), 1.5);
+  if (em.length) {
+    var h0 = hoursOf(em[0].timing), fast = { welcomeseq: 0.5, quiz: 0.5, welcome: 0.5, browse: 4, purchase: 0.5, weekly: 9999 }[j] || 1;
+    if (h0 !== null && j !== 'weekly') add(h0 <= fast ? 'pass' : 'warn', 'First email lands while intent is hot', h0 <= fast ? 'First send: ' + em[0].timing + '.' : 'First send is ' + em[0].timing + '. For this trigger, send ' + (fast < 1 ? 'immediately' : 'within ' + fast + ' hours') + '.', 'Email 1', 1.5);
+    var hs = em.map(function (e) { return hoursOf(e.timing); }), back = [];
+    for (var i = 1; i < hs.length; i++) if (hs[i] !== null && hs[i - 1] !== null && hs[i] < hs[i - 1]) back.push('Email ' + (i + 1));
+    add(back.length ? 'warn' : 'pass', 'Timing runs forward', back.length ? 'These send earlier than the email before them. Reorder or fix timing.' : 'The sequence moves forward in time.', back.join(', '), 1);
+    var noRm = []; em.forEach(function (e, i) { if (!(e.removeIf || '').trim()) noRm.push('Email ' + (i + 1)); });
+    add(noRm.length ? 'warn' : 'pass', 'Every email has a remove rule', noRm.length ? 'Say what stops these sending, so someone who already bought or booked does not get sold to again.' : 'Every email knows when to stand down.', noRm.join(', '), 2);
+    var segs = em.slice(1).map(function (e) { return (e.segment || '').toLowerCase(); });
+    var filters = segs.some(function (s) { return /not|no |did ?n|haven|still|without|exclude/.test(s); });
+    if (j !== 'weekly') add(filters || em.length < 3 ? 'pass' : 'warn', 'Converters get filtered out', filters ? 'Later emails exclude people who already took action.' : 'No later email excludes people who already converted. Add a "did not buy / book" condition.', 'Segments', 1.5);
+    var seen = {}, dupes = [];
+    em.forEach(function (e, i) { var k = (e.cta || '').trim().toLowerCase(); if (k && seen[k] !== undefined && i - seen[k] === 1) dupes.push('Emails ' + (seen[k] + 1) + '‚Äì' + (i + 1)); seen[k] = i; });
+    add(dupes.length ? 'warn' : 'pass', 'Neighbouring emails move the reader forward', dupes.length ? 'Back-to-back emails share the same CTA. Is the second one doing a new job?' : 'Each email hands off to the next.', dupes.join(', '), 1);
+    var last = em[em.length - 1];
+    var goalWords = (state.goal || '').toLowerCase().split(/\W+/).filter(function (w) { return w.length > 3; });
+    var lastTxt = ((last.job || '') + ' ' + (last.cta || '')).toLowerCase();
+    var hit = goalWords.some(function (w) { return lastTxt.indexOf(w.slice(0, 4)) > -1; }) || /buy|join|book|enrol|get|start|review|purchase|apply/.test(lastTxt);
+    add(hit ? 'pass' : 'warn', 'The journey ends on the goal', hit ? 'The final email asks for the outcome the journey exists for.' : 'Your last email doesn\'t clearly ask for the goal. Make the final CTA the outcome.', 'Email ' + em.length, 2);
+  }
+  var tot = 0, got = 0;
+  C.forEach(function (c) { tot += c.wt; got += c.wt * (c.s === 'pass' ? 1 : c.s === 'warn' ? 0.5 : 0); });
+  return { checks: C, score: Math.round(got / tot * 100) };
+}
+
+function auditHTML() {
+  var a = audit(), s = a.score;
+  var col = s >= 85 ? 'var(--green-ok)' : s >= 60 ? 'var(--amber)' : 'var(--cherry)';
+  var verdict = s >= 85 ? 'Ready for copy.' : s >= 60 ? 'Close. Tighten a few emails first.' : 'Not ready yet. Fix the map before you write.';
+  var sub = s >= 85 ? 'The strategy holds. Now write each email to its one job, and nothing else.' : 'Work through the flags below. Every fix here saves you rewriting copy later.';
+  var r = 64, circ = 2 * Math.PI * r, order = { fail: 0, warn: 1, pass: 2 };
+  var checks = a.checks.slice().sort(function (x, y) { return order[x.s] - order[y.s]; });
+  var fails = checks.filter(function (c) { return c.s !== 'pass'; }).length;
+  return '<div class="score-wrap"><div class="score-ring"><svg viewBox="0 0 150 150"><circle cx="75" cy="75" r="' + r + '" fill="none" stroke="rgba(61,10,16,.08)" stroke-width="12"/><circle cx="75" cy="75" r="' + r + '" fill="none" stroke="' + col + '" stroke-width="12" stroke-linecap="round" stroke-dasharray="' + circ + '" stroke-dashoffset="' + (circ * (1 - s / 100)) + '"/></svg><div class="num"><b>' + s + '</b><span>JOURNEY SCORE</span></div></div><div><div class="verdict">' + verdict + '</div><div class="verdict-sub">' + sub + ' ' + (fails ? fails + ' item' + (fails > 1 ? 's' : '') + ' to look at.' : 'All checks passed.') + '</div></div></div>' +
+    '<div class="checks">' + checks.map(function (c) {
+      return '<div class="check ' + c.s + '"><div class="ci">' + (c.s === 'pass' ? '‚úì' : c.s === 'warn' ? '!' : '√ó') + '</div><div><b>' + esc(c.t) + '</b>' + (c.w && c.s !== 'pass' ? '<span class="where">' + esc(c.w) + '</span>' : '') + '<p>' + esc(c.p) + '</p></div></div>';
+    }).join('') + '</div>';
+}
+function renderSummary() {
+  $('summary').innerHTML = state.emails.map(function (e, i) {
+    return '<div class="sum"><div class="email-num">' + (i + 1) + '</div><div><div class="sum-top"><b>' + (esc(e.name) || 'Untitled') + '</b><span style="font-family:var(--mono);font-size:10px;background:var(--amber-soft);color:var(--amber);padding:3px 9px;border-radius:100px">' + (esc(e.timing) || 'No timing') + '</span></div>' +
+      '<div class="sum-subj"><span>Subject</span>' + (esc(e.subject) || '<i class="sum-prev">not written yet</i>') + '</div>' + (e.preview ? '<div class="sum-prev">' + esc(e.preview) + '</div>' : '') +
+      '<div class="sum-rows"><div class="sum-row"><span>Job</span>' + (esc(e.job) || '‚Äî') + '</div><div class="sum-row"><span>Who</span>' + (esc(e.segment) || '‚Äî') + '</div><div class="sum-row"><span>CTA</span>' + (esc(e.cta) || '‚Äî') + '</div><div class="sum-row" style="grid-column:1/-1"><span style="color:var(--cherry)">Remove if</span>' + (esc(e.removeIf) || '‚Äî') + '</div>' + (assetList(e).length ? '<div class="sum-row" style="grid-column:1/-1"><span>Reminder to add</span>' + esc(assetList(e).join(' ¬∑ ')) + '</div>' : '') + '</div></div></div>';
+  }).join('') || '<p class="card-sub">No emails yet.</p>';
+}
+function lc(t) { t = String(t || '').replace(/^if /i, ''); return t.charAt(0).toLowerCase() + t.slice(1); }
+/* ---------------- Exports (matches the One-Liner Offer Builder) ---------------- */
+var LINKS = { community: 'https://www.jessicapinili.com/products/communities/v2/womanmasteryhq' };
+var EXPORT_IP = 'This work is the sole property of Jessica Marie Holdings Pty Ltd. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, reproduce, or create derivative works from this material in any capacity. All intellectual property rights relating to this digital product are proprietary and reserved exclusively by Jessica Marie Holdings Pty Ltd.';
+var EXPORT_COPY = '¬© 2026 Jessica Marie Holdings Pty Ltd. All rights reserved.';
+var EXPORT_FEEDBACK = 'Want expert eyes on it? Post your email journey in Ask JP in the WMHQ community for feedback.';
+
+function offersList() { return (state.offers || []).map(function (o) { return (o || '').trim(); }).filter(Boolean); }
+function exportData(all) {
+  var j = JOURNEYS[state.journey] || {}, a = audit();
+  var d = {
+    title: j.title || 'Email', trigger: j.trigger || '', date: new Date().toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' }),
+    glance: [
+      { k: 'goal', label: 'Journey goal', v: (state.goal || '').trim() },
+      { k: 'entry', label: 'Who enters', v: (state.entry || '').trim() },
+      { k: 'exit', label: 'Exit the journey when', v: (state.exit || '').trim() },
+      { k: 'offers', label: offersList().length > 1 ? 'Offers it leads to' : 'Offer it leads to', v: offersList().join('\n') },
+      { k: 'trigger', label: 'Trigger', v: j.trigger || '', fixed: true }
+    ],
+    score: a.score, checks: a.checks, emails: []
+  };
+  d.emails = state.emails.map(function (e, i) {
+    var rows = [];
+    if (state.journey === 'weekly') rows.push({ q: 'Angle', key: 'e' + i + '.angle', a: e.angle ? ANGLES[e.angle].label : '' });
+    [['Timing', 'timing'], ['Subject line', 'subject'], ['Preview text', 'preview'], ['The one job', 'job'], ['Segment', 'segment'], ['CTA', 'cta'], ['Skip this email if', 'removeIf'], ['Reminder to add', 'assets']]
+      .forEach(function (p) { var v = p[1] === 'assets' ? assetList(e).join('\n') : (e[p[1]] || '').trim(); if (v || all) rows.push({ q: p[0], key: 'e' + i + '.' + p[1], a: v }); });
+    return { n: i + 1, name: (e.name || '').trim() || 'Untitled', rows: rows, guide: guideText(e), body: (e.body || '').trim(), bodyKey: 'e' + i + '.body' };
+  });
+  return d;
+}
+function guideText(e) {
+  var g = GUIDES[e.tpl]; if (!g) return '';
+  return 'Subject line: ' + g.subj + '\n' + g.ex.map(function (x) { return '- ' + x; }).join('\n') + '\n\nBody\n' + g.parts.map(function (x, k) { return (k + 1) + '. ' + x; }).join('\n');
+}
+function exportName() { return 'My-' + (JOURNEYS[state.journey] ? JOURNEYS[state.journey].title : 'Email').replace(/[^a-z0-9]+/gi, '-').replace(/-+$/, '') + '-Journey'; }
+function downloadBlob(blob, name) {
+  var url = URL.createObjectURL(blob), a = document.createElement('a');
+  a.href = url; a.download = name; a.rel = 'noopener';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+}
+function note(msg) { var f = $('flash'); f.textContent = msg; f.classList.add('show'); clearTimeout(flashT); flashT = setTimeout(function () { f.classList.remove('show'); f.textContent = 'Saved'; }, 1800); }
+function runExport(kind) {
+  if (!state.emails.length) return note('Add an email first');
+  note('Preparing your file‚Ä¶');
+  var job = kind === 'docx' ? Promise.resolve(buildDocx()).then(function (b) { downloadBlob(b, exportName() + '.docx'); })
+    : buildPdf(kind === 'fillable').then(function (bytes) { downloadBlob(new Blob([bytes], { type: 'application/pdf' }), exportName() + (kind === 'fillable' ? '-Editable' : '') + '.pdf'); });
+  job.then(function () { state.exportedAt = Date.now(); store(); renderJourneys(); note('Downloaded'); }, function (err) { if (window.console) console.error(err); note('Something went wrong. Please try again.'); });
+}
+
+/* Word (.docx) */
+var CRC_TABLE = (function () { var t = [], c; for (var n = 0; n < 256; n++) { c = n; for (var k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; t[n] = c >>> 0; } return t; })();
+function crc32(u) { var c = 0xFFFFFFFF; for (var i = 0; i < u.length; i++) c = CRC_TABLE[(c ^ u[i]) & 255] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function zipFiles(files, type) {
+  var enc = new TextEncoder(), parts = [], central = [], offset = 0;
+  files.forEach(function (f) {
+    var name = enc.encode(f.name), data = enc.encode(f.data), crc = crc32(data);
+    var lh = new DataView(new ArrayBuffer(30));
+    lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint16(6, 0x0800, true);
+    lh.setUint16(10, 0, true); lh.setUint16(12, 0x21, true); lh.setUint32(14, crc, true);
+    lh.setUint32(18, data.length, true); lh.setUint32(22, data.length, true); lh.setUint16(26, name.length, true);
+    parts.push(new Uint8Array(lh.buffer), name, data);
+    var ch = new DataView(new ArrayBuffer(46));
+    ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true);
+    ch.setUint16(14, 0x21, true); ch.setUint32(16, crc, true); ch.setUint32(20, data.length, true); ch.setUint32(24, data.length, true);
+    ch.setUint16(28, name.length, true); ch.setUint32(42, offset, true);
+    central.push(new Uint8Array(ch.buffer), name);
+    offset += 30 + name.length + data.length;
+  });
+  var cdSize = 0; central.forEach(function (a) { cdSize += a.length; });
+  var end = new DataView(new ArrayBuffer(22));
+  end.setUint32(0, 0x06054b50, true); end.setUint16(8, files.length, true); end.setUint16(10, files.length, true);
+  end.setUint32(12, cdSize, true); end.setUint32(16, offset, true);
+  return new Blob(parts.concat(central, [new Uint8Array(end.buffer)]), { type: type });
+}
+function xmlEsc(s) { return String(s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/g, '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+function wRun(t, o) {
+  o = o || {};
+  var font = o.mono ? 'JetBrains Mono' : 'DM Sans';
+  var rpr = '<w:rPr><w:rFonts w:ascii="' + font + '" w:hAnsi="' + font + '" w:cs="' + font + '"/>' + (o.b ? '<w:b/><w:bCs/>' : '') + (o.caps ? '<w:caps/>' : '') +
+    (o.spacing ? '<w:spacing w:val="' + o.spacing + '"/>' : '') + (o.color ? '<w:color w:val="' + o.color + '"/>' : '') +
+    (o.size ? '<w:sz w:val="' + Math.round(o.size * 2) + '"/><w:szCs w:val="' + Math.round(o.size * 2) + '"/>' : '') + '</w:rPr>';
+  return '<w:r>' + rpr + String(t).split('\n').map(function (l) { return '<w:t xml:space="preserve">' + xmlEsc(l) + '</w:t>'; }).join('<w:br/>') + '</w:r>';
+}
+function wPara(runs, o) {
+  o = o || {};
+  var ppr = '<w:pPr>' + (o.style ? '<w:pStyle w:val="' + o.style + '"/>' : '') + (o.keepNext ? '<w:keepNext/>' : '') + (o.pageBreak ? '<w:pageBreakBefore/>' : '') +
+    (o.box ? '<w:pBdr><w:top w:val="single" w:sz="6" w:space="8" w:color="' + o.box + '"/><w:left w:val="single" w:sz="6" w:space="8" w:color="' + o.box + '"/><w:bottom w:val="single" w:sz="6" w:space="8" w:color="' + o.box + '"/><w:right w:val="single" w:sz="6" w:space="8" w:color="' + o.box + '"/></w:pBdr>' : '') +
+    (o.rule ? '<w:pBdr><w:top w:val="single" w:sz="6" w:space="16" w:color="' + o.rule + '"/></w:pBdr>' : '') +
+    (o.fill ? '<w:shd w:val="clear" w:color="auto" w:fill="' + o.fill + '"/>' : '') +
+    '<w:spacing w:before="' + (o.before || 0) + '" w:after="' + (o.after == null ? 120 : o.after) + '" w:line="' + (o.line || 300) + '" w:lineRule="auto"/>' +
+    (o.indent ? '<w:ind w:left="' + o.indent + '" w:right="' + o.indent + '"/>' : '') + (o.align ? '<w:jc w:val="' + o.align + '"/>' : '') + '</w:pPr>';
+  return '<w:p>' + ppr + runs + '</w:p>';
+}
+function wEyebrow(t, color, spaced) { return wPara(wRun(t, { mono: true, caps: true, size: 8, color: color || 'A2122A', spacing: 20, b: true }), { after: 40, keepNext: true, before: spaced ? 480 : 0, rule: spaced ? 'E3D9D9' : null }); }
+
+function buildDocx() {
+  var d = exportData(false), body = '', CH = '3D0A10', CHERRY = 'A2122A', MUTED = '7A5A5A', INK = '1A0A0A';
+  body += wEyebrow('Woman Mastery HQ  |  Email Journey Mapper');
+  body += wPara(wRun('My ' + d.title + ' Journey', { b: true, size: 28, color: CH }), { style: 'Title', after: 60 });
+  body += wPara(wRun(d.title + '  |  ' + d.date, { size: 10, color: MUTED }), { after: 280 });
+  body += wEyebrow('Journey goal');
+  body += wPara(wRun(d.glance[0].v || 'Not set yet.', { b: true, size: 15, color: INK }), { fill: 'F1EBEB', box: 'F1EBEB', indent: 160, after: 360, line: 320 });
+  body += wPara(wRun('Your journey at a glance', { b: true, size: 13, color: CH }), { style: 'Heading2', after: 100 });
+  d.glance.slice(1).forEach(function (g) { body += wPara(wRun(g.label + '   ', { b: true, size: 10, color: MUTED }) + wRun(g.v || 'Not set yet.', { size: 11, color: g.v ? INK : MUTED }), { after: 100 }); });
+  body += wPara(wRun('The map', { b: true, size: 13, color: CH }), { style: 'Heading2', before: 200, after: 100 });
+  body += wPara(wRun('TRIGGER  ', { mono: true, size: 8, color: CHERRY, b: true }) + wRun(d.trigger, { size: 11, color: INK }), { after: 60 });
+  d.emails.forEach(function (e) {
+    var t = state.emails[e.n - 1].timing || '';
+    body += wPara(wRun(e.n + '.  ', { b: true, size: 11, color: CH }) + wRun(e.name, { b: true, size: 11, color: INK }) + (t ? wRun('   ' + t, { size: 10, color: MUTED }) : ''), { after: 60 });
+  });
+  body += wPara(wRun('EXIT  ', { mono: true, size: 8, color: '4E8A52', b: true }) + wRun(d.glance[2].v || 'No exit rule set.', { size: 11, color: INK }), { after: 120 });
+  d.emails.forEach(function (e) {
+    body += wEyebrow('Email ' + e.n + ' of ' + d.emails.length, null, true);
+    body += wPara(wRun(e.name, { b: true, size: 22, color: CH }), { style: 'Heading1', after: 200, keepNext: true });
+    e.rows.forEach(function (r) {
+      body += wPara(wRun(r.q, { b: true, size: 10.5, color: INK }), { keepNext: true, after: 40 });
+      body += wPara(wRun(r.a, { size: 11, color: '3A2626' }), { after: 200 });
+    });
+    if (e.guide) { body += wEyebrow('Template guide'); body += wPara(wRun(e.guide, { size: 10, color: '3A2626' }), { fill: 'F1EBEB', box: 'F1EBEB', indent: 160, after: 240 }); }
+    if (e.body) { body += wEyebrow('The email'); body += wPara(wRun(e.body, { size: 11, color: INK }), { box: 'E3D9D9', indent: 120, after: 220 }); }
+  });
+  body += wPara(wRun('Journey audit', { b: true, size: 22, color: CH }), { style: 'Heading1', pageBreak: true, after: 60 });
+  body += wPara(wRun('The strategy, not the writing. Fix these before you write the copy.', { size: 11, color: MUTED }), { after: 200 });
+  body += wPara(wRun('JOURNEY SCORE  ', { mono: true, size: 8, color: 'F2C6D0', b: true }) + wRun(d.score + ' / 100', { b: true, size: 15, color: 'F1EBEB' }), { fill: CH, box: CH, indent: 160, after: 300 });
+  d.checks.forEach(function (c) {
+    var lab = c.s === 'pass' ? 'Pass' : c.s === 'warn' ? 'Check' : 'Fix';
+    body += wPara(wRun(c.t + '  ', { b: true, size: 10.5, color: INK }) + wRun(lab, { b: true, size: 10.5, color: c.s === 'pass' ? '4E8A52' : c.s === 'warn' ? 'B7791F' : CHERRY }), { after: 40, keepNext: true });
+    body += wPara(wRun((c.w && c.s !== 'pass' ? c.w + ': ' : '') + c.p, { size: 10, color: MUTED }), { after: 140 });
+  });
+  body += wPara(wRun(EXPORT_FEEDBACK + ' ', { size: 10.5, color: INK }) + wRun(LINKS.community, { size: 10.5, color: CHERRY }), { fill: 'FAF6F0', box: 'FAF6F0', indent: 120, before: 200 });
+
+  var sect = '<w:sectPr><w:footerReference w:type="default" r:id="rIdFooter"/><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1418" w:left="1134" w:header="567" w:footer="454" w:gutter="0"/></w:sectPr>';
+  var NS = 'xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"';
+  var documentXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document ' + NS + '><w:body>' + body + sect + '</w:body></w:document>';
+  var footerXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:ftr ' + NS + '>' + wPara(wRun(EXPORT_IP, { size: 6.5, color: 'A89494' }), { after: 40, line: 240, align: 'center' }) + wPara(wRun(EXPORT_COPY, { size: 7, color: '8A7070', b: true }), { after: 0, line: 240, align: 'center' }) + '</w:ftr>';
+  var stylesXml = '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="DM Sans" w:hAnsi="DM Sans" w:cs="DM Sans" w:eastAsia="DM Sans"/><w:color w:val="1A0A0A"/><w:sz w:val="22"/><w:szCs w:val="22"/><w:lang w:val="en-AU"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="120" w:line="300" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults><w:style w:type="paragraph" w:default="1" w:styleId="Normal"><w:name w:val="Normal"/></w:style><w:style w:type="paragraph" w:styleId="Title"><w:name w:val="Title"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:rPr><w:b/><w:sz w:val="56"/><w:color w:val="3D0A10"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading1"><w:name w:val="heading 1"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:pPr><w:keepNext/><w:outlineLvl w:val="0"/></w:pPr><w:rPr><w:b/><w:sz w:val="44"/><w:color w:val="3D0A10"/></w:rPr></w:style><w:style w:type="paragraph" w:styleId="Heading2"><w:name w:val="heading 2"/><w:basedOn w:val="Normal"/><w:next w:val="Normal"/><w:pPr><w:keepNext/><w:outlineLvl w:val="1"/></w:pPr><w:rPr><w:b/><w:sz w:val="26"/><w:color w:val="3D0A10"/></w:rPr></w:style></w:styles>';
+  return zipFiles([
+    { name: '[Content_Types].xml', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/word/fontTable.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.fontTable+xml"/><Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/></Types>' },
+    { name: '_rels/.rels', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/></Relationships>' },
+    { name: 'docProps/core.xml', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:title>My Email Journey</dc:title><dc:creator>Woman Mastery HQ</dc:creator></cp:coreProperties>' },
+    { name: 'word/_rels/document.xml.rels', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rIdStyles" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rIdFonts" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable" Target="fontTable.xml"/><Relationship Id="rIdFooter" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer1.xml"/></Relationships>' },
+    { name: 'word/document.xml', data: documentXml },
+    { name: 'word/styles.xml', data: stylesXml },
+    { name: 'word/footer1.xml', data: footerXml },
+    { name: 'word/fontTable.xml', data: '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:fonts xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:font w:name="DM Sans"><w:altName w:val="Arial"/><w:panose1 w:val="020B0604020202020204"/><w:charset w:val="00"/><w:family w:val="swiss"/><w:pitch w:val="variable"/></w:font><w:font w:name="JetBrains Mono"><w:altName w:val="Courier New"/><w:panose1 w:val="02070309020205020404"/><w:charset w:val="00"/><w:family w:val="modern"/><w:pitch w:val="fixed"/></w:font></w:fonts>' }
+  ], 'application/vnd.openxmlformats-officedocument.wordprocessingml.document');
+}
+
+/* PDF + editable PDF */
+var libsReady = null;
+function loadLibs() {
+  if (window.PDFLib && window.fontkit && window.PDF_FONTS) return Promise.resolve();
+  if (!libsReady) libsReady = new Promise(function (res, rej) { var s = document.createElement('script'); s.src = 'pdf-assets.js'; s.onload = res; s.onerror = function () { libsReady = null; rej(new Error('PDF library failed to load')); }; document.head.appendChild(s); });
+  return libsReady;
+}
+function b64ToBytes(b64) { var bin = atob(b64), u = new Uint8Array(bin.length); for (var i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u; }
+function pdfText(t) { return String(t || '').replace(/\r/g, '').replace(/\t/g, ' ').replace(/[\u2192]/g, '->').replace(/[\u0000-\u0009\u000B-\u001F\u2028\u2029]/g, ''); }
+function wrapText(text, font, size, maxW) {
+  var out = [];
+  pdfText(text).split('\n').forEach(function (para) {
+    if (!para.trim()) { out.push(''); return; }
+    var line = '';
+    para.split(/ +/).forEach(function (w) {
+      var test = line ? line + ' ' + w : w;
+      if (font.widthOfTextAtSize(test, size) <= maxW) { line = test; return; }
+      if (line) out.push(line);
+      while (w.length > 1 && font.widthOfTextAtSize(w, size) > maxW) { var i = w.length; while (i > 1 && font.widthOfTextAtSize(w.slice(0, i), size) > maxW) i--; out.push(w.slice(0, i)); w = w.slice(i); }
+      line = w;
+    });
+    out.push(line);
+  });
+  return out;
+}
+
+async function buildPdf(editable) {
+  await loadLibs();
+  var P = window.PDFLib, d = exportData(editable);
+  var doc = await P.PDFDocument.create();
+  doc.registerFontkit(window.fontkit);
+  doc.setTitle('My ' + d.title + ' Journey'); doc.setAuthor('Woman Mastery HQ'); doc.setCreator('WMHQ Email Journey Mapper'); doc.setLanguage('en-AU');
+  var F = {
+    r: await doc.embedFont(b64ToBytes(PDF_FONTS.regular), { subset: !editable }),
+    b: await doc.embedFont(b64ToBytes(PDF_FONTS.bold), { subset: true }),
+    x: await doc.embedFont(b64ToBytes(PDF_FONTS.extrabold), { subset: true }),
+    m: await doc.embedFont(b64ToBytes(PDF_FONTS.mono), { subset: true })
+  };
+  function hex(h) { var n = parseInt(h.slice(1), 16); return P.rgb((n >> 16 & 255) / 255, (n >> 8 & 255) / 255, (n & 255) / 255); }
+  var C = { merlot: hex('#3D0A10'), cherry: hex('#A2122A'), ink: hex('#1A0A0A'), body: hex('#3A2626'), muted: hex('#7A5A5A'), stone: hex('#F1EBEB'), satin: hex('#FAF6F0'), blush: hex('#F2C6D0'), line: hex('#E3D9D9'), white: P.rgb(1, 1, 1), green: hex('#4E8A52'), amber: hex('#B7791F'), mint: hex('#DCEFDF') };
+  var W = 595.28, H = 841.89, M = 54, CW = W - 2 * M, BOTTOM = 96;
+  var form = editable ? doc.getForm() : null, page, y;
+  function newPage() { page = doc.addPage([W, H]); y = H - M; }
+  function ensure(h) { if (y - h < BOTTOM) newPage(); }
+  function lines(str, font, size, o) {
+    o = o || {}; var x = o.x == null ? M : o.x, w = o.w || CW, lh = size * (o.lh || 1.45);
+    wrapText(str, font, size, w).forEach(function (l) { ensure(lh); y -= lh; if (l) page.drawText(l, { x: x, y: y + lh * 0.3, size: size, font: font, color: o.color || C.ink }); });
+  }
+  function gap(h) { y -= h; }
+  function eyebrow(t, color) { ensure(14); y -= 11; page.drawText(pdfText(t).toUpperCase(), { x: M, y: y, size: 7.5, font: F.m, color: color || C.cherry }); y -= 5; }
+  function fieldHeight(v, w, min) { var n = wrapText(v || ' ', F.r, 10, w - 8).length; return Math.min(560, Math.max(min || 2, n + 1) * 13 + 8); }
+  function field(key, value, x, w, h) {
+    var tf = form.createTextField(key.replace(/[^a-z0-9]+/gi, '_'));
+    tf.enableMultiline(); tf.setText(pdfText(value));
+    page.drawRectangle({ x: x, y: y - h, width: w, height: h, color: C.white, borderColor: hex('#D8CCCC'), borderWidth: 0.75 });
+    tf.addToPage(page, { x: x + 6, y: y - h + 3, width: w - 12, height: h - 6, font: F.r, textColor: C.ink, borderWidth: 0 });
+    tf.setFontSize(10); y -= h;
+  }
+  function answerBox(o) {
+    var pad = 14, iw = CW - pad * 2;
+    var labelLines = o.label ? wrapText(o.label, F.x, o.labelSize || 12, iw) : [], labelH = labelLines.length * (o.labelSize || 12) * 1.35;
+    var ansSize = o.size || 11, ansFont = o.font || F.r, ansLines = wrapText(o.value || o.empty || '', ansFont, ansSize, iw);
+    var ansH = editable && o.key ? fieldHeight(o.value, iw, o.minLines || 3) : ansLines.length * ansSize * 1.45;
+    var h = pad + (o.eyebrow ? 16 : 0) + labelH + (labelH ? 6 : 0) + ansH + pad;
+    ensure(Math.min(h, H - M - BOTTOM));
+    page.drawRectangle({ x: M, y: y - h, width: CW, height: h, color: o.fill, borderColor: o.border, borderWidth: o.border ? 0.75 : 0 });
+    y -= pad;
+    if (o.eyebrow) { y -= 9; page.drawText(o.eyebrow.toUpperCase(), { x: M + pad, y: y, size: 7.5, font: F.m, color: o.eyebrowColor || C.cherry }); y -= 7; }
+    labelLines.forEach(function (l) { var s = o.labelSize || 12; y -= s * 1.35; page.drawText(l, { x: M + pad, y: y + s * 0.3, size: s, font: F.x, color: o.labelColor || C.ink }); });
+    if (labelH) y -= 6;
+    if (editable && o.key) field(o.key, o.value, M + pad, iw, ansH);
+    else ansLines.forEach(function (l) { var lh = ansSize * 1.45; y -= lh; if (l) page.drawText(l, { x: M + pad, y: y + lh * 0.3, size: ansSize, font: ansFont, color: o.value ? (o.color || C.ink) : C.muted }); });
+    y -= pad;
+  }
+  function qa(q, a, key) {
+    var ql = wrapText(q, F.b, 10, CW);
+    ensure(Math.min(ql.length * 14.5 + (editable && key ? fieldHeight(a, CW, 2) : 30), 200));
+    lines(q, F.b, 10, { color: C.ink }); gap(3);
+    if (editable && key) { var h = fieldHeight(a, CW, 2); ensure(h); field(key, a, M, CW, h); }
+    else lines(a || '\u2014', F.r, 10.5, { color: C.body });
+    gap(12);
+  }
+  function glanceRow(label, v) {
+    var al = wrapText(v || 'Not set yet.', F.r, 10.5, CW - 150);
+    ensure(al.length * 15 + 14);
+    var top = y;
+    page.drawText(pdfText(label), { x: M, y: top - 13, size: 9.5, font: F.b, color: C.muted });
+    al.forEach(function (l) { y -= 15; page.drawText(l, { x: M + 150, y: y + 2, size: 10.5, font: F.r, color: v ? C.ink : C.muted }); });
+    y = Math.min(y, top - 17) - 7;
+    page.drawLine({ start: { x: M, y: y }, end: { x: M + CW, y: y }, thickness: 0.5, color: C.line });
+    gap(1);
+  }
+
+  /* Cover */
+  newPage();
+  page.drawRectangle({ x: 0, y: H - 176, width: W, height: 176, color: C.merlot });
+  page.drawText('WOMAN MASTERY HQ', { x: M, y: H - 50, size: 8, font: F.x, color: C.stone });
+  page.drawText('EMAIL JOURNEY MAPPER', { x: M, y: H - 63, size: 7, font: F.m, color: C.blush });
+  var title = pdfText('My ' + d.title + ' Journey'), ts = 32;
+  while (F.x.widthOfTextAtSize(title, ts) > CW && ts > 20) ts -= 1;
+  page.drawText(title, { x: M, y: H - 118, size: ts, font: F.x, color: C.stone });
+  page.drawText(pdfText(d.title + '  |  ' + d.date + (editable ? '  |  Editable copy' : '')), { x: M, y: H - 146, size: 9.5, font: F.r, color: C.blush });
+  y = H - 176 - 30;
+  answerBox({ eyebrow: 'Journey goal', value: d.glance[0].v, empty: 'Not set yet.', key: 'goal', size: 15, font: F.b, fill: C.stone, minLines: 2 });
+  gap(16);
+  if (editable) {
+    d.glance.slice(1).forEach(function (g) { if (g.fixed) { qa(g.label, g.v); } else qa(g.label, g.v, g.k); });
+    lines('This copy is fillable. Click into any box to keep editing in any PDF reader, then save.', F.r, 9.5, { color: C.muted }); gap(10);
+  } else {
+    ensure(40); lines('Your journey at a glance', F.x, 13, { color: C.merlot }); gap(6);
+    d.glance.slice(1).forEach(function (g) { glanceRow(g.label, g.v); });
+  }
+
+  /* The map */
+  gap(18); ensure(80);
+  lines('The map', F.x, 13, { color: C.merlot }); gap(8);
+  function band(label, text, fill, col) {
+    var tl = wrapText(text || '', F.b, 10.5, CW - 110); var h = Math.max(26, tl.length * 15 + 12);
+    ensure(h + 6);
+    page.drawRectangle({ x: M, y: y - h, width: CW, height: h, color: fill });
+    page.drawText(label, { x: M + 12, y: y - 16, size: 7.5, font: F.m, color: col });
+    tl.forEach(function (l, i) { page.drawText(l, { x: M + 100, y: y - 17 - i * 15, size: 10.5, font: F.b, color: C.ink }); });
+    y -= h + 6;
+  }
+  band('TRIGGER', d.trigger, C.blush, C.merlot);
+  d.emails.forEach(function (e) {
+    var src = state.emails[e.n - 1], t = (src.timing || '').trim(), sub = (src.subject || '').trim(), cta = (src.cta || '').trim();
+    var meta = [sub ? '"' + sub + '"' : '', cta ? 'CTA: ' + cta : ''].filter(Boolean).join('   ');
+    var ml = meta ? wrapText(meta, F.r, 9, CW - 150) : [];
+    var h = 26 + ml.length * 12;
+    ensure(h + 6);
+    page.drawRectangle({ x: M, y: y - h, width: CW, height: h, color: C.white, borderColor: C.line, borderWidth: 0.75 });
+    page.drawCircle({ x: M + 18, y: y - 15, size: 8, color: C.merlot });
+    var ns = String(e.n); page.drawText(ns, { x: M + 18 - F.x.widthOfTextAtSize(ns, 8) / 2, y: y - 17.8, size: 8, font: F.x, color: C.stone });
+    page.drawText(pdfText(e.name), { x: M + 34, y: y - 18, size: 10.5, font: F.x, color: C.ink });
+    if (t) { var tw = F.m.widthOfTextAtSize(pdfText(t), 7.5); page.drawText(pdfText(t), { x: M + CW - 12 - tw, y: y - 17, size: 7.5, font: F.m, color: C.amber }); }
+    ml.forEach(function (l, i) { page.drawText(l, { x: M + 34, y: y - 31 - i * 12, size: 9, font: F.r, color: C.muted }); });
+    y -= h + 6;
+  });
+  band('JOURNEY EXIT', d.glance[2].v || 'No exit rule set.', C.mint, C.green);
+
+  /* One page section per email */
+  d.emails.forEach(function (e) {
+    newPage();
+    eyebrow('Email ' + e.n + ' of ' + d.emails.length);
+    lines(e.name, F.x, 20, { color: C.merlot, lh: 1.3 }); gap(14);
+    e.rows.forEach(function (r) { qa(r.q, r.a, editable ? r.key : null); });
+    if (e.guide) { gap(4); answerBox({ eyebrow: 'Template guide', value: e.guide, fill: C.stone, size: 10, color: C.body }); gap(10); }
+    if (e.body || editable) { gap(4); answerBox({ eyebrow: 'The email', value: e.body, empty: 'Not written yet.', key: e.bodyKey, fill: C.white, border: C.line, minLines: 8 }); }
+  });
+
+  /* Audit */
+  newPage();
+  eyebrow('Journey audit');
+  lines('Is it ready for copy?', F.x, 20, { color: C.merlot, lh: 1.3 }); gap(2);
+  lines('The strategy, not the writing. Fix these before you write the copy.', F.r, 10.5, { color: C.muted }); gap(14);
+  var verdict = d.score >= 85 ? 'Ready for copy.' : d.score >= 60 ? 'Close. Tighten a few emails first.' : 'Not ready yet. Fix the map before you write.';
+  answerBox({ eyebrow: 'Journey score', eyebrowColor: C.blush, label: d.score + ' / 100', labelSize: 22, labelColor: C.stone, value: verdict, color: C.stone, fill: C.merlot });
+  gap(12);
+  d.checks.slice().sort(function (a, b) { var o = { fail: 0, warn: 1, pass: 2 }; return o[a.s] - o[b.s]; }).forEach(function (c) {
+    var qw = CW - 90, ql = wrapText(c.t, F.b, 10, qw), pl = wrapText((c.w && c.s !== 'pass' ? c.w + ': ' : '') + c.p, F.r, 9.5, qw);
+    ensure(ql.length * 14.5 + pl.length * 13.8 + 20);
+    var top = y;
+    ql.forEach(function (l) { y -= 14.5; page.drawText(l, { x: M, y: y + 4, size: 10, font: F.b, color: C.ink }); });
+    var label = c.s === 'pass' ? 'Pass' : c.s === 'warn' ? 'Check' : 'Fix', bw = F.x.widthOfTextAtSize(label, 9) + 18;
+    page.drawRectangle({ x: M + CW - bw, y: top - 16, width: bw, height: 15, color: c.s === 'pass' ? C.stone : c.s === 'warn' ? hex('#FBF1DF') : C.cherry });
+    page.drawText(label, { x: M + CW - bw + 9, y: top - 11.5, size: 9, font: F.x, color: c.s === 'pass' ? C.merlot : c.s === 'warn' ? C.amber : C.white });
+    gap(2); lines((c.w && c.s !== 'pass' ? c.w + ': ' : '') + c.p, F.r, 9.5, { color: C.muted, w: qw });
+    gap(8); page.drawLine({ start: { x: M, y: y }, end: { x: M + CW, y: y }, thickness: 0.5, color: C.line }); gap(8);
+  });
+  gap(16);
+  answerBox({ value: EXPORT_FEEDBACK + ' ' + LINKS.community, size: 10, fill: C.satin });
+
+  var pages = doc.getPages();
+  pages.forEach(function (pg, i) {
+    var fy = 64;
+    wrapText(EXPORT_IP, F.r, 6.3, CW).forEach(function (l) { var lw = F.r.widthOfTextAtSize(l, 6.3); pg.drawText(l, { x: (W - lw) / 2, y: fy, size: 6.3, font: F.r, color: C.muted, opacity: 0.55 }); fy -= 8.4; });
+    var cw = F.b.widthOfTextAtSize(EXPORT_COPY, 7);
+    pg.drawText(EXPORT_COPY, { x: (W - cw) / 2, y: 22, size: 7, font: F.b, color: C.muted, opacity: 0.7 });
+    var pn = (i + 1) + ' / ' + pages.length;
+    pg.drawText(pn, { x: W - M - F.m.widthOfTextAtSize(pn, 7), y: 22, size: 7, font: F.m, color: C.muted, opacity: 0.7 });
+  });
+  if (form) form.updateFieldAppearances(F.r);
+  return doc.save();
+}
+
+/* Events */
+document.addEventListener('toggle', function (ev) { var d = ev.target; if (d.dataset && d.dataset.guide != null && state.emails[+d.dataset.guide]) { state.emails[+d.dataset.guide].guideOpen = d.open; store(); } }, true);
+document.addEventListener('click', function (ev) {
+  var tb = ev.target.closest('.tip-btn');
+  if (tb) { var box = tb.parentNode.nextElementSibling, o = box.classList.toggle('open'); tb.setAttribute('aria-expanded', o); return; }
+  if (ev.target.id === 'previewModal' || ev.target.id === 'switchModal') { ev.target.classList.remove('open'); return; }
+  var t = ev.target.closest('[data-go],[data-j],[data-angle],[data-rate],[data-sw],[data-del],[data-up],[data-down],[data-dup],[data-write],[data-preview],[data-export],[data-deloffer],[data-dir],[data-formulas],[data-drkind],[data-drgroup],[data-usef],[data-copyf],#closeDrawer,[data-addasset],[data-saveasset],[data-delasset],#addOffer,#expandMap,#closeMap,#closeMail,#addEmail,#reset');
+  if (!t) return;
+  if (t.dataset.go != null) return go(+t.dataset.go);
+  if (t.dataset.rate) return setRate(parseFloat(t.dataset.rate));
+  if (t.dataset.sw) {
+    $('switchModal').classList.remove('open');
+    if (t.dataset.sw === 'export') { note('Preparing your file‚Ä¶'); return buildPdf(false).then(function (b) { downloadBlob(new Blob([b], { type: 'application/pdf' }), exportName() + '.pdf'); state.exportedAt = Date.now(); pickJourney(switchTo, true); note('Downloaded'); }, function () { note('Something went wrong. Please try again.'); }); }
+    if (t.dataset.sw === 'go') pickJourney(switchTo, true);
+    return;
+  }
+  if (t.dataset.j) return pickJourney(t.dataset.j);
+  if (t.dataset.angle) { var em = state.emails[+t.dataset.ei], A = ANGLES[t.dataset.angle]; em.angle = t.dataset.angle; if (isAngleDefault(em.job, 'job')) em.job = A.job; if (isAngleDefault(em.cta, 'cta')) em.cta = A.cta; if (/^(This week's sales email|.+ week)$/.test(em.name || '') || !em.name) em.name = A.label + ' week'; renderEmails(); return save(); }
+  if (t.dataset.del != null) { state.emails.splice(+t.dataset.del, 1); renderEmails(); return save(); }
+  if (t.dataset.down != null) { var d = +t.dataset.down; if (d < state.emails.length - 1) { var y = state.emails.splice(d, 1)[0]; state.emails.splice(d + 1, 0, y); renderEmails(); save(); } return; }
+  if (t.dataset.dup != null) { var u = +t.dataset.dup, c = JSON.parse(JSON.stringify(state.emails[u])); c.name = (c.name || 'Email') + ' (copy)'; c.addingAsset = false; state.emails.splice(u + 1, 0, c); renderEmails(); save(); return; }
+  if (t.dataset.up != null) { var i = +t.dataset.up; if (i > 0) { var x = state.emails.splice(i, 1)[0]; state.emails.splice(i - 1, 0, x); renderEmails(); save(); } return; }
+  if (t.id === 'addEmail') { state.emails.push(state.journey === 'weekly' ? Object.assign(E('', 'This week, ', '', 'Whole list, not bought yet', ''), { removeIf: REMOVE.weekly }) : Object.assign(E('', '', '', '', ''), { removeIf: REMOVE[state.journey] || '' })); renderEmails(); save(); var l = document.querySelectorAll('.email'); l[l.length - 1].querySelector('input').focus(); return; }
+  if (t.dataset.dir) { var wasFull = !!document.querySelector('.map.full'); state.mapDir = t.dataset.dir; store(); renderMap(); if (wasFull) document.querySelector('.map').classList.add('full'); return; }
+  if (t.dataset.addasset != null) { state.emails[+t.dataset.addasset].addingAsset = true; renderEmails(); var ni = document.querySelector('[data-newasset="' + t.dataset.addasset + '"]'); if (ni) ni.focus(); return; }
+  if (t.dataset.saveasset != null) return saveAsset(+t.dataset.saveasset);
+  if (t.dataset.delasset) { var pr = t.dataset.delasset.split(':'), ae = state.emails[+pr[0]]; ae.assets = assetList(ae); ae.assets.splice(+pr[1], 1); renderEmails(); return save(); }
+  if (t.dataset.formulas != null) { ev.preventDefault(); return openDrawer(+t.dataset.formulas); }
+  if (t.id === 'closeDrawer') return closeDrawer();
+  if (t.dataset.drkind) { drKind = t.dataset.drkind; drGroup = 'all'; return renderDrawer(); }
+  if (t.dataset.drgroup) { drGroup = t.dataset.drgroup; renderDrawer(); $('drList').scrollTop = 0; return; }
+  if (t.dataset.usef) {
+    var fe = state.emails[drawerFor]; if (!fe) return;
+    fe.subject = t.dataset.usef; save(); 
+    var inp = document.querySelector('.email[data-i="' + drawerFor + '"] [data-k="subject"]');
+    if (inp) { inp.value = fe.subject; inp.focus(); var b = fe.subject.indexOf('['), c = fe.subject.indexOf(']', b); if (b > -1 && c > b) inp.setSelectionRange(b, c + 1); }
+    return note('Added to Email ' + (drawerFor + 1));
+  }
+  if (t.dataset.copyf) { var cf = t.dataset.copyf; (navigator.clipboard ? navigator.clipboard.writeText(cf) : Promise.reject()).catch(function () {}); t.textContent = 'Copied'; t.classList.add('done'); setTimeout(function () { t.textContent = 'Copy'; t.classList.remove('done'); }, 1200); return; }
+  if (t.dataset.export) return runExport(t.dataset.export);
+  if (t.dataset.write != null) { var we = state.emails[+t.dataset.write]; we.writeOpen = !we.writeOpen; renderEmails(); store(); if (we.writeOpen) { var ta = document.querySelector('.email[data-i="' + t.dataset.write + '"] textarea[data-k="body"]'); if (ta) ta.focus(); } return; }
+  if (t.dataset.preview != null) return openPreview(+t.dataset.preview);
+  if (t.id === 'closeMail') return $('previewModal').classList.remove('open');
+  if (t.id === 'addOffer') { state.offers.push(''); renderOffers(); save(true); var oi = document.querySelectorAll('[data-offer]'); oi[oi.length - 1].focus(); return; }
+  if (t.dataset.deloffer != null) { state.offers.splice(+t.dataset.deloffer, 1); renderOffers(); return save(); }
+  if (t.id === 'expandMap') { document.querySelector('.map').classList.add('full'); document.body.style.overflow = 'hidden'; return; }
+  if (t.id === 'closeMap') { document.querySelector('.map').classList.remove('full'); document.body.style.overflow = ''; return; }
+  if (t.id === 'reset') { if (!t.dataset.armed) { t.dataset.armed = 1; t.textContent = 'Click again to clear'; setTimeout(function () { delete t.dataset.armed; t.textContent = 'Start over'; }, 3000); return; } { state = defaultState(); try { localStorage.removeItem(KEY); } catch (e) {} renderJourneys(); go(0); } }
+});
+document.addEventListener('input', function (ev) {
+  var t = ev.target;
+  if (['goal', 'entry', 'exit'].indexOf(t.id) > -1) { state[t.id] = t.value; return save(true); }
+  if (t.dataset.offer != null) { state.offers[+t.dataset.offer] = t.value; return save(true); }
+  if (t.id === 'drSearch') return renderDrawer();
+  var card = t.closest('.email');
+  if (card && t.dataset.k) {
+    state.emails[+card.dataset.i][t.dataset.k] = t.value; save(true);
+    if (t.dataset.k === 'job') {
+      var b = t.parentNode, h = b.querySelector('.hint'), two = /\band\b/i.test(t.value);
+      if (two && !h) b.insertAdjacentHTML('beforeend', '<div class="hint warn">You used "and". Is this two jobs?</div>');
+      if (!two && h) h.remove();
+    }
+  }
+});
+document.addEventListener('change', function (ev) { if (ev.target.id === 'drGroup') { drGroup = ev.target.value; renderDrawer(); $('drList').scrollTop = 0; return; } save(); });
+document.addEventListener('focusin', function (ev) { var c = ev.target.closest && ev.target.closest('.email'); if (c && $('drawer').classList.contains('open') && +c.dataset.i !== drawerFor) { drawerFor = +c.dataset.i; renderDrawer(); } });
+document.addEventListener('keydown', function (ev) {
+  if (ev.key === 'Enter' && ev.target.dataset && ev.target.dataset.newasset != null) { ev.preventDefault(); return saveAsset(+ev.target.dataset.newasset); } if (ev.key === 'Escape') { if ($('drawer').classList.contains('open') && !$('previewModal').classList.contains('open')) closeDrawer(); $('previewModal').classList.remove('open'); var m = document.querySelector('.map.full'); if (m) { m.classList.remove('full'); document.body.style.overflow = ''; } } });
+function openPreview(i) {
+  var e = state.emails[i], subj = (e.subject || '').trim(), prev = (e.preview || '').trim(), body = (e.body || '').trim();
+  $('mail').innerHTML = '<div class="mail-bar"><span class="eyebrow">Preview ¬∑ Email ' + (i + 1) + '</span><button type="button" class="map-close" id="closeMail">\u2715 Close</button></div>' +
+    '<div class="inbox-row"><div class="av">Y</div><div style="min-width:0"><div class="ir-from">You</div><div class="ir-line"><b>' + (esc(subj) || 'No subject yet') + '</b>' + (prev ? ' \u2014 ' + esc(prev) : '') + '</div></div><time>' + (esc(e.timing) || 'Now') + '</time></div>' +
+    '<div class="mail-open"><h4>' + (esc(subj) || '<span class="mail-empty">No subject yet</span>') + '</h4><div class="mail-body">' + (esc(body) || '<span class="mail-empty">Nothing written yet.</span>') + '</div>' + (assetList(e).length ? '<div style="margin-top:18px;padding:10px 12px;border:1px dashed var(--border-strong);border-radius:10px;font-size:12.5px;color:var(--muted)"><b style="color:var(--ink)">Reminder to add:</b> ' + esc(assetList(e).join(' ¬∑ ')) + '</div>' : '') + (e.cta ? '<span class="mail-cta">' + esc(e.cta) + ' \u2192</span>' : '') + '</div>';
+  $('previewModal').classList.add('open');
+}
+
+renderVoices(); renderJourneys(); go(state.stage);
+})();
+</script>
+</body>
+</html>
