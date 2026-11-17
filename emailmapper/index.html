@@ -473,6 +473,9 @@ ul.n-acc-in { padding-left: 16px; }
 .ptable th { text-align: left; background: var(--merlot); color: var(--stone); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; padding: 7px 8px; }
 .ptable td { border-bottom: 1px solid var(--border-strong); padding: 7px 8px; vertical-align: top; }
 .ip-note { font-size: 12.5px; line-height: 1.7; color: var(--muted, #7a5a5a); opacity: .6; max-width: 980px; margin: 56px auto 40px; text-align: center; padding: 0 24px; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+body > .page-layout { width: 100%; }
+.ip-note { margin-top: auto !important; padding-top: 56px; }
 .wmhq-footer { background: #2A0709; padding: 26px 24px 30px; text-align: center; }
 .wmhq-footer-inner { max-width: 780px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; align-items: center; }
 .wmhq-footer-copy { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(241,235,235,.7); margin: 0; }
@@ -588,6 +591,7 @@ ul.n-acc-in { padding-left: 16px; }
 
   <!-- PRINT -->
 </main>
+</div>
 <p class="ip-note">This work is the sole property of Jessica Marie Holdings Pty Ltd. You do not have permission to share, sublicense, distribute, duplicate, sell, licence, reproduce, or create derivative works from this material in any capacity. All intellectual property rights relating to this digital product are proprietary and reserved exclusively by Jessica Marie Holdings Pty Ltd.</p>
 <footer class="wmhq-footer">
   <div class="wmhq-footer-inner">
@@ -599,7 +603,6 @@ ul.n-acc-in { padding-left: 16px; }
   </div>
 </footer>
 <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
-</div>
 
 <script>
 (function () {
